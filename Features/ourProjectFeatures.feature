@@ -1,12 +1,22 @@
-Feature: test
+Feature:Authentication and User Authorization
 
-  Scenario: test a phone
-    Given going to a phone shop
-    When i choose a new phone
-    Then i must test it working
+  Scenario:valid information
+    Given that the user is not logged in
+    When the information is valid email is "Admin@mail.com" and password is "admin123"
+    Then user successfully log in
+
+  Scenario:invalid email
+    Given that the user is not logged in
+    When the email is invalid email is "gg@mail.com" and password is "admin123"
+    Then user failed in log in
+
+  Scenario:invalid password
+    Given that the user is not logged in
+    When the password is invalid email is "Admin@mail.com" and password is "00"
+    Then user failed in log in
 
 
-  Scenario: Breaker joins a game
-    Given the Maker has started a game with the word "silky"
-    When the Breaker joins the Maker's game
-    Then the Breaker must guess a word with 5 characters
+  Scenario:invalid information
+    Given that the user is not logged in
+    When the information are invalid email is "gg@mail.com" and password is "00"
+    Then user failed in log in
