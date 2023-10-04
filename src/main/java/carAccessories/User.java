@@ -12,7 +12,7 @@ public class User {
 
     String from = "accessoriescar378@gmail.com";
     String to ="i.a.s.assad33@gmail.com";
-
+String type="Admin";
 
 
 }

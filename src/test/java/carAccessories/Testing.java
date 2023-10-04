@@ -1,19 +1,26 @@
 package carAccessories;
 import io.cucumber.java.en.*;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
+import static org.junit.Assert.*;
 
 public class Testing {
-    String email,pass,newc,newname,oldname;
-    int oldsize;
-boolean found=false;
-    @Given("I am an admin\\(adding) with email {string} and password {string}")
-    public void i_am_an_admin_adding_with_email_and_password(String string, String string2) {
-   email=string;
-   pass=string2;
-   oldsize=Application.categories.size();
+    Application var=new Application();
+    User v=new User();
+//    Testing(Application b,User bm){
+//        var=b;
+//        v=bm;
+//    }
 
+    String email,pass,newc,newname,oldname;
+    int oldsize,index;
+boolean found=false;
+    @Given("I am an admin\\(adding) by admin")
+    public void i_am_an_admin_adding_with_email_and_password() {
+        assertEquals("Admin", v.type);
+        oldsize=Application.categories.size();
     }
 
     @When("I add a new category with the name {string}")
@@ -23,58 +30,77 @@ newc=string;
 
     @Then("i must scan if the name {string} is exits before")
     public void i_must_scan_if_the_name_is_exits_before(String string) {
-
-for(int i=0;i<Application.categories.size();i++){
-   if(string.equals(Application.categories.get(i).name)){
-       found=true;
-   }
-}
+ assertFalse(var.foundc(newc));
 }
 
     @Then("if found i must not add the name {string}")
     public void if_found_i_must_not_add_the_name(String string) {
-      if(found)assertTrue(oldsize==Application.categories.size());
+   if(var.foundc(newc)){
+       System.out.println("This cant be added");
+   }
+
     }
 
     @Then("if not found the category with name {string} must be added")
     public void if_not_found_the_category_with_name_must_be_added(String string) {
-        newc=string;
-        Application.categories.add(new Category(newc));
+       if(!var.foundc(newc)){ newc=string;
+        var.addcat(newc);
 
+    }}
+
+    @Then("i must confirm the adding by admin")
+    public void i_must_confirm_the_adding_with_email_and_password() {
+        if(v.type.equals("Admin")){
+            System.out.print("Added successfully");
+            assertEquals((oldsize + 1), Application.categories.size());
+        }
+    }
+    @Given("I am an admin\\(editing) by admin")
+    public void i_am_an_admin_editing_with_email_and_password() {
+        assertEquals("Admin", v.type);
+    }
+    @When("I edit the category with the name {string}")
+    public void i_edit_the_category_with_the_name(String string) {
+       oldname=string;
+    }
+    @Then("i enter a new name {string}")
+    public void i_enter_a_new_name(String string) {
+      newname=string;
+    }
+    @Then("i must scan if the new name is for another Catogry")
+    public void i_must_scan_if_the_new_name_is_for_another_catogry() {
+       assertFalse(var.foundc(newname));
     }
 
-    @Then("i must confirm the adding with email {string} and password {string}")
-    public void i_must_confirm_the_adding_with_email_and_password(String string, String string2) {
-        if(!found) assertTrue((oldsize+1)==Application.categories.size()&&string.equals(email)&&string2.equals(pass));
-    }
 
-    @When("I edit the category with the name {string} and change its name to {string}")
-    public void i_edit_the_category_with_the_name_and_change_its_name_to(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("if found i will not edit it")
+    public void if_found_i_will_not_edit_it() {
+System.out.println("Cant be edited");
+    }
+    @When("if not found i must change its name")
+    public void if_not_found_i_must_change_its_name() {
+var.edtcatogry(oldname,newname);
     }
 
     @Then("the category {string} must be edited")
     public void the_category_must_be_edited(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+assertFalse(var.foundc(oldname));
     }
 
-    @Given("I am an admin\\(deleting) with email {string} and password {string}")
-    public void i_am_an_admin_deleting_with_email_and_password(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+    @Given("I am an admin\\(deleting) by admin")
+    public void i_am_an_admin_deleting_by_admin() {
+        assertEquals("Admin", v.type);
+
     }
 
     @When("I delete the category with the name {string}")
     public void i_delete_the_category_with_the_name(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+     var.dltcat(string);
     }
 
     @Then("the category {string} must be deleted")
     public void the_category_must_be_deleted(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-}
+        assertFalse(var.foundc(string));
+}}
