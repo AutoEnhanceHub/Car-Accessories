@@ -1,22 +1,49 @@
-Feature:Authentication and User Authorization
+Feature: Authentication and User Authorization
 
-  Scenario:valid information
+
+  Scenario Outline: Valid information
     Given that the user is not logged in
-    When the information is valid email is "Admin@mail.com" and password is "admin123"
+    When the information is valid email is "<Email>" and password is "<Password>"
+    And verification code is "123"
     Then user successfully log in
 
-  Scenario:invalid email
+    Examples:
+      | Email                         | Password |
+      | ibrahim.sadi.asad@gmail.com   | 123456   |
+      | ibrahimeceasad@gmail.com      | 654321   |
+      | i.a.s.assad33@gmail.com       | 987654   |
+
+  Scenario Outline: Invalid email
     Given that the user is not logged in
-    When the email is invalid email is "gg@mail.com" and password is "admin123"
+    When the email is invalid email is "<Email>" and password is "<Password>"
     Then user failed in log in
 
-  Scenario:invalid password
+    Examples:
+      | Email                         | Password |
+      | ibrahim.sadi.asad@gmail.com   | 123456   |
+      | ibrahimeceasad@gmail.com      | 654321   |
+      | i.a.s.assad33@gmail.com       | 987654   |
+
+  Scenario Outline: Invalid password
     Given that the user is not logged in
-    When the password is invalid email is "Admin@mail.com" and password is "00"
+    When the password is invalid email is "<Email>" and password is "<Password>"
     Then user failed in log in
 
+    Examples:
+      | Email                         | Password |
+      | ibrahim.sadi.asad@gmail.com   | 123456   |
+      | ibrahimeceasad@gmail.com      | 654321   |
+      | i.a.s.assad33@gmail.com       | 987654   |
 
-  Scenario:invalid information
+
+  Scenario Outline: Invalid information
     Given that the user is not logged in
-    When the information are invalid email is "gg@mail.com" and password is "00"
+    When the information are invalid email is "<Email>" and password is "<Password>"
     Then user failed in log in
+    Examples:
+      | Email                         | Password |
+      | ibrahim.sadi.asad@gmail.com   | 123456   |
+      | ibrahimeceasad@gmail.com      | 654321   |
+      | i.a.s.assad33@gmail.com       | 987654   |
+
+
