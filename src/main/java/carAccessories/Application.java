@@ -1,26 +1,24 @@
 package carAccessories;
 
-
 import javax.swing.*;
-
 import java.util.ArrayList;
 
 public  class Application {
 
-
-    User user;
-    Login login;
+    boolean logged_in;
 
     public Application() {
-
         this.logged_in = false;
         categories=new ArrayList<Category>();
         categories.add(new Category("Interior"));
         categories.add(new Category("Exterior"));
         categories.add(new Category("Electronics"));
+
     }
 
-
+    public boolean isLogged_in() {
+        return logged_in;
+    }
 
     public void setLogged_in(boolean logged_in) {
         this.logged_in = logged_in;
@@ -182,5 +180,4 @@ public void deleteCategory(){
 //else{
 //JOptionPane.showMessageDialog(null,"Only admins can delete Categories");}
 //}
-
 }
