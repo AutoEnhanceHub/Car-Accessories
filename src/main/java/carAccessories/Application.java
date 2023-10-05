@@ -6,9 +6,12 @@ import java.util.ArrayList;
 public  class Application {
 
     boolean logged_in;
+    User user;
+    Login login;
 
     public Application() {
         this.logged_in = false;
+        login=new Login(user);
         categories=new ArrayList<Category>();
         categories.add(new Category("Interior"));
         categories.add(new Category("Exterior"));
