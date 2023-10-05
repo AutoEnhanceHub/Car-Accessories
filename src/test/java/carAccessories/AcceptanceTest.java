@@ -13,4 +13,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 
 public class AcceptanceTest {
+public AcceptanceTest (Application b){
+    b=new Application();
+}
 }

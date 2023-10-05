@@ -3,7 +3,6 @@ package carAccessories;
 import java.util.Random;
 
 public class User {
-
     String email;
     String password;
     String type;
