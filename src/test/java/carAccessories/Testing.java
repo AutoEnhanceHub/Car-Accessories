@@ -196,5 +196,99 @@ assertFalse(var.foundc(oldname));
         assertTrue(loginFailed);
     }
 
+    String catname,newp;
+    int q,y,olds,pr,rate;
+    boolean exist;
 
+    @Given("I am an admin\\(adding)")
+    public void i_am_an_admin_adding() {
+        assertTrue(v.type.equals("Admin"));
+    }
+
+    @When("i choose the Category {string} of the new product {string}")
+    public void i_choose_the_category_of_the_new_product(String string, String string2) {
+        catname=string; newp=string2;
+    }
+
+    @When("I fill in the quantity {int}")
+    public void i_fill_in_the_quantity(Integer int1) {
+        q=int1;
+    }
+    @When("I fill in the price {int}")
+    public void i_fill_in_the_price(Integer int1) {
+        pr=int1;
+    }
+
+
+    @When("i fill in the year {int} of the expirationDate")
+    public void i_fill_in_the_year_of_the_expiration_date(Integer int1) {
+        y=int1;
+    }
+
+    @When("i must scan if this product exist or not")
+    public void i_must_scan_if_this_product_exist_or_not() {
+        exist= var.foundp(catname,newp);
+
+    }
+
+    @When("if exist i must add the new quantity to the old quantity")
+    public void if_exist_i_must_add_the_new_quantity_to_the_old_quantity() {
+        if(exist){
+            boolean f=false;
+            olds=Application.categories.get(Application.indexes[0]).products.size();
+        }
+    }
+
+    @When("if not exist i must add a new product with datails above")
+    public void if_not_exist_i_must_add_a_new_product_with_datails_above() {
+        var.addnewproduct(catname,newp,q,pr,y);
+    }
+
+    @When("the new product must be added to the product list")
+    public void the_new_product_must_be_added_to_the_product_list() {
+        assertTrue(Application.categories.get(Application.indexes[0]).products.size()==(olds+1));
+    }
+
+    @Given("I am an admin\\(editing)")
+    public void i_am_an_admin_editing() {
+        assertTrue(v.type.equals("Admin")||v.type.equals("User"));
+    }
+
+    @When("i choose the Category {string} to edit the product {string}")
+    public void i_choose_the_category_to_edit_the_product(String string, String string2) {
+        catname=string;
+        oldname=string2;
+    }
+
+    @When("I update the product name to {string}")
+    public void i_update_the_product_name_to(String string) {
+        newp=string;
+    }
+
+    @When("I add new rate {int} for the the product")
+    public void i_add_new_rate_for_the_the_product(Integer int1) {
+        rate=int1;
+    }
+
+    @When("the product details must be updated")
+    public void the_product_details_must_be_updated() {
+        var.editproduct(catname,oldname,newp,rate);
+        assertFalse(var.foundp(catname, oldname));
+    }
+
+    @Given("I am an admin\\(deleting)")
+    public void i_am_an_admin_deleting() {
+        assertTrue(v.type.equals("Admin")||v.type.equals("User"));
+    }
+
+    @When("i choose the Category {string} to delete the product {string}")
+    public void i_choose_the_category_to_delete_the_product(String string, String string2) {
+        oldname=string2;
+        var.dltp(string,string2);
+    }
+
+    @When("the product should be removed from the product list of the Category {string}")
+    public void the_product_should_be_removed_from_the_product_list_of_the_category(String string) {
+        assertFalse(var.foundp(string,oldname));
+    }
 }

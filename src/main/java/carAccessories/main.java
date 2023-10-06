@@ -1,15 +1,12 @@
 package carAccessories;
 
+import javax.sound.midi.Soundbank;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class main {
-    public static void main(String []arg){
-    Application app=new Application();
-    app.newCatogry();
-    app.showallcatogries();
-    app.editCategory();
-    app.showallcatogries();
-    app.deleteCategory();
-    app.showallcatogries();
+    public static void main(String[] arg) {
+Application m=new Application();
 
-
-    }
+  }
 }
