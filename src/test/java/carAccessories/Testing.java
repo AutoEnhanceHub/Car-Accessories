@@ -346,7 +346,84 @@ assertFalse(application.foundc(string));
 
 
 
+    @Given("i am a customer\\(review and rate)")
+    public void i_am_a_customer_review_and_rate() {
+        assertEquals("Customer", c.type);
+    }
 
+    @Then("i must choose a product {string} from category {string}")
+    public void i_must_choose_a_product_from_category(String string, String string2) {
+        catname=string2;
+        pname=string;
+    }
+
+    @Then("i must enter the new rate {int}")
+    public void i_must_enter_the_new_rate(Integer int1) {
+        rate=int1;
+    }
+
+    @Then("if the rating is not in the range")
+    public void if_the_rating_is_not_in_the_range() {
+      if(rate<1||rate>5)exist=false;
+      else exist=true;
+    }
+
+    @Then("Nothing will happen then exit the page")
+    public void nothing_will_happen_then_exit_the_page() {
+        if(!exist) System.out.println("The rate is not in the range");
+    }
+
+    @Then("if the rating is in the possible range i must leave a review {string}")
+    public void if_the_rating_is_in_the_possible_range_i_must_leave_a_review(String string) {
+        if(exist){
+            review=string;application.foundp(catname,pname);
+            oldsize=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.size();
+            oldavg=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rate_avg;
+            application.rate_review(catname,pname,rate,review);
+        }
+    }
+
+    @Then("the ssuccessful message will apear")
+    public void the_ssuccessful_message_will_apear() {
+       if(exist){
+           assertEquals((oldsize + 1), Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.size());
+       }
+    }
+
+    @Then("the average rating for the product must be updated")
+    public void the_average_rating_for_the_product_must_be_updated() {
+       if(exist){
+           if(oldavg!=rate){
+               assertTrue(oldavg!=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rate_avg);
+           }
+       }
+    }
+
+    @Then("the review must be added")
+    public void the_review_must_be_added() {
+        if(exist){
+            assertEquals((oldsize + 1), Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).reviews.size());
+        }
+    }
+
+    @Given("i am and admin \\(get informations)")
+    public void i_am_and_admin_get_informations() {
+        assertEquals("Admin", v.type);
+    }
+
+    @When("i choose a product {string} form Category {string}")
+    public void i_choose_a_product_form_category(String string, String string2) {
+        catname=string2;pname=string;
+    }
+
+    @Then("the average ratings for the product must be displayed and its reviews")
+    public void the_average_ratings_for_the_product_must_be_displayed_and_its_reviews() {
+ if(Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.isEmpty()){
+     System.out.println("the example product doesnot have any review");
+ }else{
+     assertFalse(application.reviews(catname, pname).isEmpty());
+ }
+    }
 
 
 

@@ -436,6 +436,93 @@ public void installproduct(){
         JOptionPane.showMessageDialog(null,"Enter a valid value in the next time");
     }}
 
+ public void rate_review(String catname,String pname,int rate,String review){
+    if(foundp(catname,pname)){
+        if(rate>0&&rate<6){
+categories.get(indexes[0]).products.get(indexes[1]).rates.add(rate);
+int sum=0;
+for(int i:categories.get(indexes[0]).products.get(indexes[1]).rates){
+   sum +=i;
+}
+categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categories.get(indexes[0]).products.get(indexes[1]).rates.size();
+            categories.get(indexes[0]).products.get(indexes[1]).reviews.add(review);
+        }
+    }
+
+ }
+ public void newrate(){
+     if(!user.type.equals("Customer")){
+         JOptionPane.showMessageDialog(null,"Only customers can rate and review");
+         return;}
+     try{
+
+         int cselect=Integer.parseInt(  JOptionPane.showInputDialog("Choose a Category to rate and review a product\n"+showallcatogries()));
+         cselect--;
+         if(categories.get(cselect).products.isEmpty()){
+             JOptionPane.showMessageDialog(null,"There is no products to rate or to review in this Category");
+             return;
+         }
+         String catname=categories.get(cselect).name;
+
+         int pselect=Integer.parseInt(JOptionPane.showInputDialog("Choose a product to rate and review\n"+getallproducts(catname)));
+         pselect--;
+         String pname=categories.get(cselect).products.get(pselect).name;
+         int rate= Integer.parseInt(JOptionPane.showInputDialog("How much is the adding rate?  1-5\n"));
+         if(rate<1||rate>5){
+             throw new Exception();
+         }
+         String review=JOptionPane.showInputDialog("Write a new review");
+         if(review.isEmpty())throw new Exception();
+         rate_review(catname,pname,rate,review);
+         JOptionPane.showMessageDialog(null,"The new rate is added,The new review is added");
+     }
+     catch (Exception e){
+         JOptionPane.showMessageDialog(null,"Enter a valid value in the next time");
+     }
+ }
+ public String reviews(String catname,String pname){
+    if(foundp(catname,pname)){
+     String f="";int c;
+     for (int i=0;i<categories.get(indexes[0]).products.get(indexes[1]).reviews.size();i++){
+        c=i+1;
+        f=f+"Rate number "+c+" :"+categories.get(indexes[0]).products.get(indexes[1]).rates.get(i);
+        f=f+"\nReview number "+c+" :"+categories.get(indexes[0]).products.get(indexes[1]).reviews.get(i)+"\n\n\n";
+     }
+     f=f+" the Average Rate is :"+categories.get(indexes[0]).products.get(indexes[1]).rate_avg;
+     return f;
+    }
+    return "";
+ }
+ public void showreviews(){
+     if(!user.type.equals("Admin")){
+         JOptionPane.showMessageDialog(null,"Only Admins can get informations");
+         return;}
+     try{
+
+         int cselect=Integer.parseInt(  JOptionPane.showInputDialog("Choose a Category to get informations about a product\n"+showallcatogries()));
+         cselect--;
+         if(categories.get(cselect).products.isEmpty()){
+             JOptionPane.showMessageDialog(null,"There is no products to get informations");
+             return;
+         }
+         String catname=categories.get(cselect).name;
+
+         int pselect=Integer.parseInt(JOptionPane.showInputDialog("Choose a product to get informations\n"+getallproducts(catname)));
+         pselect--;
+         String pname=categories.get(cselect).products.get(pselect).name;
+         String message= reviews(catname,pname);
+         if(message.isEmpty()){
+             JOptionPane.showMessageDialog(null,"The Choosed product doesnt have any rate or review");
+             return;
+         }
+         JOptionPane.showMessageDialog(null,message);
+     }
+     catch (Exception e){
+         JOptionPane.showMessageDialog(null,"Enter a valid value in the next time");
+     }
+ }
+
+
 
 
 }
