@@ -13,15 +13,16 @@ Feature: Category Management
   @EDIT0
   Scenario: Editing a Category
     Given I am an admin(editing) by admin
-    When I edit the category with the name "old_name"
+    When I edit the category with the name "car_requirements"
     Then i enter a new name "new_name"
+
     And i must scan if the new name is for another Catogry
     And if found i will not edit it
     And if not found i must change its name
-    Then the category "old_name" must be edited
+    Then the category "car_requirements" must be edited
 
   @DELETE0
   Scenario: Deleting a Category
     Given I am an admin(deleting) by admin
-    When I delete the category with the name "Interior"
-    Then the category "Interior" must be deleted
+    When I delete the category with the name "Exterior"
+    Then the category "Exterior" must be deleted

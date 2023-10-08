@@ -1,18 +1,28 @@
 package carAccessories;
 
+
+
 import javax.swing.*;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.Random;
+
 
 public  class Application {
-Scanner input=new Scanner(System.in);
+
+String carname;
     boolean logged_in;
-    User user;
+    static User user;
     Login login;
+    static ArrayList<Sales> sales;
 static int[] indexes;
     public Application() {
+        carname="";
+        sales=new ArrayList<Sales>();
+        user=new User("s12116027@stu.najah.edu","123","Admin");
         indexes=new int[2];
         this.logged_in = false;
         login=new Login(user);
@@ -33,15 +43,15 @@ static int[] indexes;
         this.logged_in = logged_in;
     }
     public static ArrayList<Category> categories;
-    public static String email,pass;
+
 
 public String showallcatogries(){
-    String f="";
+    StringBuilder f= new StringBuilder();
     for(int i=0;i<categories.size();i++){
-        f+=i+1+". "+categories.get(i).name+"\n";
+        f.append(i + 1).append(". ").append(categories.get(i).name).append("\n");
     }
 //    JOptionPane.showMessageDialog(null,f);
-    return f;
+    return f.toString();
 }
 
 public boolean foundc(String name){
@@ -88,7 +98,7 @@ try {
     public void edtcatogry(String oldn,String newn){
     for(int i=0;i<categories.size();i++){
         if(categories.get(i).name.equals(oldn)){
-            categories.get(i).name=new String(newn);break;
+            categories.get(i).name= newn;break;
         }
     }
     }
@@ -98,9 +108,9 @@ public void editCategory(){
 if(user.type.equals("Admin")){
         if(categories.isEmpty()){
             JOptionPane.showMessageDialog(null,"There is no categories in the system");
-        }else{   String f="";
+        }else{   StringBuilder f= new StringBuilder();
             for(int i=0;i<categories.size();i++){
-                f+=i+1+". "+categories.get(i).name+"\n";
+                f.append(i + 1).append(". ").append(categories.get(i).name).append("\n");
             }
 
 
@@ -210,13 +220,14 @@ public String getallproducts(String catname){
     String f="";
     if(foundc(catname)){
          if(categories.get(indexes[0]).products.isEmpty()){
-            f=f+"There is no products";
+            return "There is no products";
         }
+         f=f+"#. name     quantity     price     rate\n";
      for(int i=0;i<categories.get(indexes[0]).products.size();i++){
          int c=i+1;
          f=f+c+". "+categories.get(indexes[0]).products.get(i).name+"     "+
-                 categories.get(indexes[0]).products.get(i).quantity+"      "+
-                 categories.get(indexes[0]).products.get(i).price+"       "+
+                 categories.get(indexes[0]).products.get(i).quantity+"     "+
+                 categories.get(indexes[0]).products.get(i).price+"     "+
                  categories.get(indexes[0]).products.get(i).rate_avg+"\n";
      }
     }
@@ -299,7 +310,10 @@ public void editproduct(){
 
         int cselect=Integer.parseInt(  JOptionPane.showInputDialog("Choose a Category to edit\n"+showallcatogries()));
         cselect--;
-
+        if(categories.get(cselect).products.isEmpty()){
+            JOptionPane.showMessageDialog(null,"There is no products to edit");
+            return;
+        }
         String catname=categories.get(cselect).name;
 
         int pselect=Integer.parseInt(JOptionPane.showInputDialog("Choose a product to edit\n"+getallproducts(catname)));
@@ -336,11 +350,15 @@ public void deleteproduct(){
 
         int cselect=Integer.parseInt(  JOptionPane.showInputDialog("Choose a Category to delete a product\n"+showallcatogries()));
         cselect--;
-
+        if(categories.get(cselect).products.isEmpty()){
+            JOptionPane.showMessageDialog(null,"There is no products to remove");
+            return;
+        }
         String catname=categories.get(cselect).name;
 
         int pselect=Integer.parseInt(JOptionPane.showInputDialog("Choose a product to delete\n"+getallproducts(catname)));
         pselect--;
+
         categories.get(cselect).products.remove(pselect);
 
     }
@@ -353,4 +371,71 @@ public void dltp(String catname,String pname){
         categories.get(indexes[0]).products.remove(indexes[1]);
     }
 }
+
+public boolean installrequest(String catname,String pname,int quantity,String carname){
+    if(foundp(catname,pname)){
+        if(quantity<=categories.get(indexes[0]).products.get(indexes[1]).quantity){
+            categories.get(indexes[0]).products.get(indexes[1]).quantity-=quantity;
+            this.carname=carname;
+            return true;
+        }
+    }
+    return false;
+}
+public void installproduct(){
+    if(!user.type.equals("Customer")){
+        JOptionPane.showMessageDialog(null,"Only customers can make an installation request");
+        return;}
+    try{
+
+        int cselect=Integer.parseInt(  JOptionPane.showInputDialog("Choose a Category to request a product\n"+showallcatogries()));
+        cselect--;
+        if(categories.get(cselect).products.isEmpty()){
+            JOptionPane.showMessageDialog(null,"There is no products to request");
+            return;
+        }
+        String catname=categories.get(cselect).name;
+
+        int pselect=Integer.parseInt(JOptionPane.showInputDialog("Choose a product to request\n"+getallproducts(catname)));
+        pselect--;
+        String pname=categories.get(cselect).products.get(pselect).name;
+        if(categories.get(cselect).products.get(pselect).quantity==0){
+            JOptionPane.showMessageDialog(null,"The product is not enough to buy!");
+            return;
+        }
+        int qu=Integer.parseInt(JOptionPane.showInputDialog("Select the quantity"));
+        String car=JOptionPane.showInputDialog("What is the car name?");
+        if(installrequest(catname,pname,qu,carname)){
+            int fee=qu*categories.get(cselect).products.get(pselect).price;
+            JOptionPane.showMessageDialog(null,"The request will be installed successfully\n" +
+                    "Your FEE is "+qu*categories.get(cselect).products.get(pselect).price);
+            if(categories.get(cselect).products.get(pselect).quantity==0){
+                categories.get(cselect).products.remove(pselect);
+            }
+            Random random = new Random();
+
+
+            int randomNumber = random.nextInt(5) + 1;
+            LocalDate ship=LocalDate.now().plusDays(randomNumber);
+            String message="Your order has been received and is currently being processed. " +
+                    " The order is going to be shipped after ." +ship+
+                    ". Thank you for shopping with us!\n" +
+                    "Best regards,";
+            sales.add(new Sales(catname,pname,fee,qu,LocalDate.now(),ship,car));
+
+//            String senderEmail = "accessoriescar378@gmail.com"; // Replace with your email
+//            String senderPassword = "1234567890aswq"; // Replace with your email password
+//            String recipientEmail = user.getEmail(); // Replace with the recipient's email
+//            String subject = "Installation Request";
+//            String messageText = message;
+//
+//            Mailing.sendEmail(senderEmail, senderPassword, recipientEmail, subject, messageText);
+        }
+
+}catch (Exception e){
+        JOptionPane.showMessageDialog(null,"Enter a valid value in the next time");
+    }}
+
+
+
 }

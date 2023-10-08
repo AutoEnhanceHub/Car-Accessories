@@ -15,7 +15,7 @@ Feature:Product Management
   @EDIT1
   Scenario: Edit an Existing Product
     Given I am an admin(editing)
-    When i choose the Category "Electronics" to edit the product "car lights"
+    When i choose the Category "Interior" to edit the product "Vacuum Cleaner"
     And I update the product name to "new_name"
     And I add new rate 2 for the the product
     And the product details must be updated

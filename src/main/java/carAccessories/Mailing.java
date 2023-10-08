@@ -82,4 +82,37 @@ public class Mailing {
         }
 
     }
+    public static void sendEmail(String senderEmail, String senderPassword, String recipientEmail, String subject, String messageText) {
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "your-smtp-server.com"); // Replace with your SMTP server address
+        props.put("mail.smtp.port", "587"); // Replace with your SMTP server port
+        props.put("mail.smtp.auth", "true"); // Enable authentication
+        props.put("mail.smtp.starttls.enable", "true"); // Enable TLS - This line here
+
+        // Create a Session with authentication
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(senderEmail, senderPassword);
+            }
+        });
+
+        try {
+            // Create a message
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(senderEmail));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+            message.setSubject(subject);
+            message.setText(messageText);
+
+            // Send the message
+            Transport.send(message);
+
+            System.out.println("Email sent successfully!");
+
+        } catch (AuthenticationFailedException e) {
+            System.err.println("Authentication failed. Check your email address and password.");
+        } catch (MessagingException e) {
+            System.err.println("Error sending email: " + e.getMessage());
+        }
+    }
 }
