@@ -1,22 +1,33 @@
 package carAccessories;
 import io.cucumber.java.en.*;
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+
 
 import static org.junit.Assert.*;
 
 public class Testing {
-    Application var=new Application();
-    User v=new User("s121@gmial.com","122","Admin");
-//    Testing(Application b,User bm){
-//        var=b;
-//        v=bm;
-//    }
 
-    String email,pass,newc,newname,oldname;
-    int oldsize,index;
-boolean found=false;
+    User v;
+    String catname,newp,file,text,review,pname,carname;
+
+    int q,newqu,y,olds,pr,rate,qu,avl_q;
+
+    float oldavg;
+
+
+    boolean exist;
+
+    User c;
+
+
+public Testing(Application application) {
+
+    this.application = application;
+    c=new User("s1333","123","Customer");
+    v=new User("s121@gmial.com","122","Admin");
+}
+    String newc,newname,oldname;
+    int oldsize;
+
     @Given("I am an admin\\(adding) by admin")
     public void i_am_an_admin_adding_with_email_and_password() {
         assertEquals("Admin", v.type);
@@ -30,12 +41,12 @@ newc=string;
 
     @Then("i must scan if the name {string} is exits before")
     public void i_must_scan_if_the_name_is_exits_before(String string) {
- assertFalse(var.foundc(newc));
+ assertFalse(application.foundc(string));
 }
 
     @Then("if found i must not add the name {string}")
     public void if_found_i_must_not_add_the_name(String string) {
-   if(var.foundc(newc)){
+   if(application.foundc(string)){
        System.out.println("This cant be added");
    }
 
@@ -43,8 +54,8 @@ newc=string;
 
     @Then("if not found the category with name {string} must be added")
     public void if_not_found_the_category_with_name_must_be_added(String string) {
-       if(!var.foundc(newc)){ newc=string;
-        var.addcat(newc);
+       if(!application.foundc(newc)){ newc=string;
+           application.addcat(newc);
 
     }}
 
@@ -69,7 +80,7 @@ newc=string;
     }
     @Then("i must scan if the new name is for another Catogry")
     public void i_must_scan_if_the_new_name_is_for_another_catogry() {
-       assertFalse(var.foundc(newname));
+       assertFalse(application.foundc(newname));
     }
 
 
@@ -79,12 +90,12 @@ System.out.println("Cant be edited");
     }
     @When("if not found i must change its name")
     public void if_not_found_i_must_change_its_name() {
-var.edtcatogry(oldname,newname);
+        application.edtcatogry(oldname,newname);
     }
 
     @Then("the category {string} must be edited")
     public void the_category_must_be_edited(String string) {
-assertFalse(var.foundc(oldname));
+assertFalse(application.foundc(string));
     }
 
 
@@ -97,20 +108,18 @@ assertFalse(var.foundc(oldname));
     @When("I delete the category with the name {string}")
     public void i_delete_the_category_with_the_name(String string) {
 
-     var.dltcat(string);
+        application.dltcat(string);
     }
 
     @Then("the category {string} must be deleted")
     public void the_category_must_be_deleted(String string) {
-        assertFalse(var.foundc(string));
+        assertFalse(application.foundc(string));
 }
     private final Application application;
 
 
 
-    public Testing(Application application) {
-        this.application = application;
-    }
+
 
     @Given("that the user is not logged in")
     public void that_the_user_is_not_logged_in() {
@@ -197,4 +206,239 @@ assertFalse(var.foundc(oldname));
     }
 
 
+
+
+    @Given("I am an admin\\(adding)")
+    public void i_am_an_admin_adding() {
+        assertEquals("Admin", v.type);
+    }
+
+    @When("i choose the Category {string} of the new product {string}")
+    public void i_choose_the_category_of_the_new_product(String string, String string2) {
+        catname=string; newp=string2;
+    }
+
+    @When("I fill in the quantity {int}")
+    public void i_fill_in_the_quantity(Integer int1) {
+        q=int1;
+    }
+    @When("I fill in the price {int}")
+    public void i_fill_in_the_price(Integer int1) {
+        pr=int1;
+    }
+
+
+    @When("i fill in the year {int} of the expirationDate")
+    public void i_fill_in_the_year_of_the_expiration_date(Integer int1) {
+        y=int1;
+    }
+
+    @When("i must scan if this product exist or not")
+    public void i_must_scan_if_this_product_exist_or_not() {
+        exist= application.foundp(catname,newp);
+
+    }
+
+    @When("if exist i must add the new quantity to the old quantity")
+    public void if_exist_i_must_add_the_new_quantity_to_the_old_quantity() {
+        if(exist){
+
+            olds=Application.categories.get(Application.indexes[0]).products.size();
+        }
+    }
+
+    @When("if not exist i must add a new product with datails above")
+    public void if_not_exist_i_must_add_a_new_product_with_datails_above() {
+        application.addnewproduct(catname,newp,q,pr,y);
+    }
+
+    @When("the new product must be added to the product list")
+    public void the_new_product_must_be_added_to_the_product_list() {
+        assertEquals(Application.categories.get(Application.indexes[0]).products.size(), (olds + 1));
+    }
+
+    @Given("I am an admin\\(editing)")
+    public void i_am_an_admin_editing() {
+        assertEquals("Admin", v.type);
+    }
+
+    @When("i choose the Category {string} to edit the product {string}")
+    public void i_choose_the_category_to_edit_the_product(String string, String string2) {
+        catname=string;
+        oldname=string2;
+    }
+
+    @When("I update the product name to {string}")
+    public void i_update_the_product_name_to(String string) {
+        newp=string;
+    }
+
+    @When("I add new rate {int} for the the product")
+    public void i_add_new_rate_for_the_the_product(Integer int1) {
+        rate=int1;
+    }
+
+    @When("the product details must be updated")
+    public void the_product_details_must_be_updated() {
+        application.editproduct(catname,oldname,newp,rate);
+        assertFalse(application.foundp(catname, oldname));
+    }
+
+    @Given("I am an admin\\(deleting)")
+    public void i_am_an_admin_deleting() {
+        assertEquals("Admin", v.type);
+    }
+
+    @When("i choose the Category {string} to delete the product {string}")
+    public void i_choose_the_category_to_delete_the_product(String string, String string2) {
+        oldname=string2;
+        application.dltp(string,string2);
+    }
+
+    @When("the product should be removed from the product list of the Category {string}")
+    public void the_product_should_be_removed_from_the_product_list_of_the_category(String string) {
+        assertFalse(application.foundp(string,oldname));
+    }
+
+    @Given("i am a customer")
+    public void i_am_a_customer() {
+        assertEquals("Customer", c.type);
+    }
+
+    @When("i select the product {string} from the category {string}")
+    public void i_select_the_product_from_the_category(String string, String string2) {
+        pname=string;catname=string2;
+    }
+    @When("i must fill in the quantity {int}")
+    public void i_must_fill_in_the_quantity(Integer int1) {
+        qu=int1;
+    }
+    @Then("i must see the available quantity")
+    public void i_must_see_the_available_quantity() {
+        if(application.foundp(catname,pname)){
+            avl_q=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).quantity;
+        }
+    }
+
+    @Then("if the requested quantity if not enough the request should be cancelled")
+    public void if_the_requested_quantity_if_not_enough_the_request_should_be_cancelled() {
+        if(qu>avl_q)fail();
+    }
+
+
+    @Then("if enough i must fill in the car name {string}")
+    public void if_enough_i_must_fill_in_the_car_name(String string) {
+        carname=string;
+    }
+    @Then("the customer should receive an appointment scheduling email about receiving the order")
+    public void the_customer_should_receive_an_appointment_scheduling_email_about_receiving_the_order() {
+        if(application.installrequest(catname,pname,qu,carname)){
+            System.out.println("The message is sent");
+            newqu=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).quantity;
+        }
+
+    }
+    @Then("the product availability should be updated")
+    public void the_product_availability_should_be_updated() {
+        assertTrue(avl_q!=newqu);
+    }
+
+
+
+
+    @Given("i am a customer\\(review and rate)")
+    public void i_am_a_customer_review_and_rate() {
+        assertEquals("Customer", c.type);
+    }
+
+    @Then("i must choose a product {string} from category {string}")
+    public void i_must_choose_a_product_from_category(String string, String string2) {
+        catname=string2;
+        pname=string;
+    }
+
+    @Then("i must enter the new rate {int}")
+    public void i_must_enter_the_new_rate(Integer int1) {
+        rate=int1;
+    }
+
+    @Then("if the rating is not in the range")
+    public void if_the_rating_is_not_in_the_range() {
+      if(rate<1||rate>5)exist=false;
+      else exist=true;
+    }
+
+    @Then("Nothing will happen then exit the page")
+    public void nothing_will_happen_then_exit_the_page() {
+        if(!exist) System.out.println("The rate is not in the range");
+    }
+
+    @Then("if the rating is in the possible range i must leave a review {string}")
+    public void if_the_rating_is_in_the_possible_range_i_must_leave_a_review(String string) {
+        if(exist){
+            review=string;application.foundp(catname,pname);
+            oldsize=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.size();
+            oldavg=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rate_avg;
+            application.rate_review(catname,pname,rate,review);
+        }
+    }
+
+    @Then("the ssuccessful message will apear")
+    public void the_ssuccessful_message_will_apear() {
+       if(exist){
+           assertEquals((oldsize + 1), Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.size());
+       }
+    }
+
+    @Then("the average rating for the product must be updated")
+    public void the_average_rating_for_the_product_must_be_updated() {
+       if(exist){
+           if(oldavg!=rate){
+               assertTrue(oldavg!=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rate_avg);
+           }
+       }
+    }
+
+    @Then("the review must be added")
+    public void the_review_must_be_added() {
+        if(exist){
+            assertEquals((oldsize + 1), Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).reviews.size());
+        }
+    }
+
+    @Given("i am and admin \\(get informations)")
+    public void i_am_and_admin_get_informations() {
+        assertEquals("Admin", v.type);
+    }
+
+    @When("i choose a product {string} form Category {string}")
+    public void i_choose_a_product_form_category(String string, String string2) {
+        catname=string2;pname=string;
+    }
+
+    @Then("the average ratings for the product must be displayed and its reviews")
+    public void the_average_ratings_for_the_product_must_be_displayed_and_its_reviews() {
+ if(Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.isEmpty()){
+     System.out.println("the example product doesnot have any review");
+ }else{
+     assertFalse(application.reviews(catname, pname).isEmpty());
+ }
+    }
+
+
+    @Given("i am an admin\\(report)")
+    public void i_am_an_admin_report() {
+        assertEquals("Admin", v.type);
+    }
+
+    @Then("i am asked to choose report kind {string}")
+    public void i_am_asked_to_choose_report_kind(String string) {
+        text=string;
+    }
+
+    @Then("The report details are printed at a file {string}")
+    public void the_report_details_are_printed_at_a_file(String string) {
+       file=string;
+       assertTrue(application.report(text,file));
+    }
 }
