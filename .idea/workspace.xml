@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="feature1+3+4+5+9">
       <change afterPath="$PROJECT_DIR$/Features/feature10.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" afterDir="false" />
     </list>
+
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="feature1+3" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,11 +168,15 @@
       <workItem from="1696485936288" duration="1214000" />
       <workItem from="1696487309535" duration="132000" />
       <workItem from="1696519260592" duration="4299000" />
+
       <workItem from="1696531555272" duration="4011000" />
       <workItem from="1696571910535" duration="6672000" />
       <workItem from="1696594716036" duration="9446000" />
       <workItem from="1696682225749" duration="11697000" />
       <workItem from="1696774573908" duration="587000" />
+
+      <workItem from="1696531555272" duration="2671000" />
+
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -194,6 +202,7 @@
       <option name="project" value="LOCAL" />
       <updated>1696536780816</updated>
     </task>
+
     <task id="LOCAL-00004" summary="feature1+3">
       <option name="closed" value="true" />
       <created>1696536853484</created>
@@ -243,6 +252,8 @@
       <updated>1696775046771</updated>
     </task>
     <option name="localTasksCounter" value="10" />
+
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,10 +286,14 @@
     <MESSAGE value="feature3commit" />
     <MESSAGE value="feature3commit2" />
     <MESSAGE value="feature1+3" />
+
     <MESSAGE value="feature1+3+4" />
     <MESSAGE value="feature1+3+4+5" />
     <MESSAGE value="feature1+3+4+5+9" />
     <option name="LAST_COMMIT_MESSAGE" value="feature1+3+4+5+9" />
+
+    <option name="LAST_COMMIT_MESSAGE" value="feature1+3" />
+
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
