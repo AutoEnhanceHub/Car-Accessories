@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="feature1+3+4">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="feature1+3+4+5+9">
       <change afterPath="$PROJECT_DIR$/Features/feature10.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Features/feature5.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Features/feature9.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Sales.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/feature3.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/feature3.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/feature4.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/feature4.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Mailing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +168,7 @@
       <workItem from="1696571910535" duration="6672000" />
       <workItem from="1696594716036" duration="9446000" />
       <workItem from="1696682225749" duration="11697000" />
-      <workItem from="1696774573908" duration="237000" />
+      <workItem from="1696774573908" duration="587000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -236,7 +226,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696597048196</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feature1+3+4+5">
+      <option name="closed" value="true" />
+      <created>1696774829501</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696774829501</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feature1+3+4+5+9">
+      <option name="closed" value="true" />
+      <created>1696775046771</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696775046771</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +276,9 @@
     <MESSAGE value="feature3commit2" />
     <MESSAGE value="feature1+3" />
     <MESSAGE value="feature1+3+4" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature1+3+4" />
+    <MESSAGE value="feature1+3+4+5" />
+    <MESSAGE value="feature1+3+4+5+9" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature1+3+4+5+9" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

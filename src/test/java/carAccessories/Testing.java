@@ -426,5 +426,19 @@ assertFalse(application.foundc(string));
     }
 
 
+    @Given("i am an admin\\(report)")
+    public void i_am_an_admin_report() {
+        assertEquals("Admin", v.type);
+    }
 
+    @Then("i am asked to choose report kind {string}")
+    public void i_am_asked_to_choose_report_kind(String string) {
+        text=string;
+    }
+
+    @Then("The report details are printed at a file {string}")
+    public void the_report_details_are_printed_at_a_file(String string) {
+       file=string;
+       assertTrue(application.report(text,file));
+    }
 }

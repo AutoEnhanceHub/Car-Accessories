@@ -522,6 +522,147 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
      }
  }
 
+    public static boolean printTextToFile(String fileName, String text) {
+        try {
+            FileWriter writer = new FileWriter(fileName);
+            writer.write(text);
+            writer.close();
+            return true;
+
+        } catch (IOException ignored) {
+
+        }
+        return false;
+    }
+
+    public String Salesreport() {
+        String f="";
+        String g="#. Category\tProduct\tQuantity\tFee\tCar\tSent-date\tShipped-date\n";
+        f=f+g;
+        for(int i=0;i<sales.size();i++){
+            int c=i+1;
+            f=f+c+". "+sales.get(i).catname+"\t"+
+                    sales.get(i).pname+"\t"+
+                    sales.get(i).quantity+"\t"+
+                    sales.get(i).fee+"\t"+
+                    sales.get(i).carname+"\t"+
+                    sales.get(i).sent+"\t"+
+                    sales.get(i).shipped+"\t"+"\n";
+        }
+        if(f.equals(g))return "There is no informations";
+        return f;
+    }
+    public String Ratesreport(){
+        String f="";String g="#. product\tRate\n";
+        int c=1;
+        f=f+g;
+        for(int i=0;i<categories.size();i++){
+
+            for (int j=0;j<categories.get(i).products.size();j++){
+
+                f=f+c+". "+categories.get(i).products.get(j).name+"\t"+categories.get(i).products.get(j).rate_avg+"\n";
+
+                c++;
+            }
+        }
+        if(f.equals(g))return "There is no informations";
+        return f;
+    }
+    public String productreport(){
+        String f="";
+        int c,g;
+
+        for(int i=0;i<categories.size();i++){g=i+1;
+            f=f+"Category "+g+" : "+categories.get(i).name+"\n";
+            if(categories.get(i).products.isEmpty()){
+                f=f+"There is no products in this Category\n";
+                continue;
+            }
+            for (int j=0;j<categories.get(i).products.size();j++){
+                c=j+1;
+                f=f+"#. Name     Price     Quantity\n";
+                f=f+c+". "+categories.get(i).products.get(j).name+"\t"+
+                        categories.get(i).products.get(j).price+"\t"+
+                        categories.get(i).products.get(j).quantity+"\n";
+            }
+        }
+        if(f.isEmpty())return "There is no informations";
+        return f;
+    }
+    public String Ratesreviewsreport(){
+        String f="";
+        int c,g,b;
+        g=0;
+        for(int i=0;i<categories.size();i++){
+
+            if(categories.get(i).products.isEmpty()){continue;}
+
+            g++;
+            f=f+"Category "+g+" : "+categories.get(i).name+"\n";
+            c=0;
+
+            for (int j=0;j<categories.get(i).products.size();j++){
+                if(categories.get(i).products.get(j).rates.isEmpty()){
+                    c--;continue;
+                }
+                c++;
+                f=f+"Product "+c+" : "+categories.get(i).products.get(j).name+"\n";
+                for(int z=0;z<categories.get(i).products.get(j).rates.size();z++){
+                    b=z+1;
+                    f=f+"Rate number "+b+" : "+categories.get(i).products.get(j).rates.get(z)+"\n";
+                    f= f + "Review number " + b + " :\n" + categories.get(i).products.get(j).reviews.get(z) + "\n";
+                }
+            }
+        }
+        if(f.isEmpty())return "There is no informations";
+        return f;
+    }
+    public boolean report(String report,String filename){
+
+        switch (report) {
+            case "Sales" -> {
+                printTextToFile(filename, Salesreport());
+                return true;
+            }
+            case "Product rates" -> {
+                printTextToFile(filename, Ratesreport());
+                return true;
+            }
+            case "Category products" -> {
+                printTextToFile(filename, productreport());
+                return true;
+            }
+            case "rates and reviews" -> {
+                printTextToFile(filename, Ratesreviewsreport());
+                return true;
+            }
+        }
+        return false;
+    }
+    public void makereport(){
+        try {
+            String file=JOptionPane.showInputDialog("What is the name of the file?");
+            int c;
+            c=Integer.parseInt(JOptionPane.showInputDialog("Choose a report\n1. Sales report\n2. Product rates report\n" +
+                    "3. Category products report\n4. rates and reviews report"));
+
+            switch (c){
+                case 1:report("Sales",file);break;
+                case 2:report("Product rates",file);break;
+                case 3:report("Category products",file);break;
+                case 4:report("rates and reviews",file);break;
+                default:throw new Exception();
+            }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Enter a valid value in the next time");
+        }
+
+
+    }
+
+
+
+
 
 
 
