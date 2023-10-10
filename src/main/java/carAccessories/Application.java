@@ -18,6 +18,9 @@ String carname;
     static User user;
     Login login;
     static ArrayList<Sales> sales;
+
+    User newUser;
+    SignUp signUp;
 static int[] indexes;
     public Application() {
         carname="";
@@ -32,7 +35,11 @@ static int[] indexes;
         categories.add(new Category("Exterior"));
         categories.add(new Category("Electronics"));
         categories.get(2).products.add(new product("car lights",13,50,2025));
+        newUser=new User("ibrahim.sadi.asad@gmail.com","147852","Customer");
 
+    }
+    public void SignUp(){
+        signUp=new SignUp(newUser,login);
     }
 
     public boolean isLogged_in() {
@@ -423,13 +430,14 @@ public void installproduct(){
                     "Best regards,";
             sales.add(new Sales(catname,pname,fee,qu,LocalDate.now(),ship,car));
 
-//            String senderEmail = "accessoriescar378@gmail.com"; // Replace with your email
-//            String senderPassword = "1234567890aswq"; // Replace with your email password
-//            String recipientEmail = user.getEmail(); // Replace with the recipient's email
-//            String subject = "Installation Request";
-//            String messageText = message;
-//
-//            Mailing.sendEmail(senderEmail, senderPassword, recipientEmail, subject, messageText);
+
+
+            String recipientEmail = user.getEmail(); // Replace with the recipient's email
+            String subject = "Installation Request";
+
+
+            Mailing m1=new Mailing(recipientEmail);
+            m1.sendEmail(subject,message);
         }
 
 }catch (Exception e){
@@ -659,11 +667,5 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
 
 
     }
-
-
-
-
-
-
 
 }

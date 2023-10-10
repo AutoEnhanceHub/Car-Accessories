@@ -16,6 +16,8 @@ public class Testing {
 
     boolean exist;
 
+    boolean newAccount=false;
+
     User c;
 
 
@@ -424,8 +426,6 @@ assertFalse(application.foundc(string));
      assertFalse(application.reviews(catname, pname).isEmpty());
  }
     }
-
-
     @Given("i am an admin\\(report)")
     public void i_am_an_admin_report() {
         assertEquals("Admin", v.type);
@@ -441,4 +441,53 @@ assertFalse(application.foundc(string));
        file=string;
        assertTrue(application.report(text,file));
     }
+
+    @When("the information is exist email is {string}")
+    public void the_information_is_exist_email_is(String email) {
+        boolean f = false;
+        for(User u:application.login.users){
+            if(u.getEmail().equalsIgnoreCase(email)){
+                f=true;
+                newAccount=false;
+                break;
+            }
+        }
+        assertTrue(f);
+    }
+
+    @Then("creating an account failed")
+    public void creating_an_account_failed() {
+        assertFalse(newAccount);
+    }
+
+    @When("the information is not formatly correct")
+    public void the_information_is_not_formatly_correct() {
+       boolean format =false;
+       String email=application.newUser.getEmail();
+        if(application.login.emailValidator(email)){
+            format=true;
+        }
+        assertTrue(format);
+    }
+
+    @When("the information is not exist email is not {string}")
+    public void the_information_is_not_exist_email_is_not(String email) {
+        boolean f = false;
+        for(User u:application.login.users){
+            if(!u.getEmail().equalsIgnoreCase(email)){
+               f=true;
+               newAccount=true;
+            }
+        }
+        assertTrue(f);
+
+    }
+
+    @Then("creating an account successfully")
+    public void creating_an_account_successfully() {
+        assertTrue(newAccount);
+
+    }
+
+
 }

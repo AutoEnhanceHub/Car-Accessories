@@ -7,7 +7,9 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] arg) {
 
-
+   Application a=new Application();
+   Application.user.setType("Customer");
+   a.installproduct();
 
 
     }

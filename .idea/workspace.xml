@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="feature1+3+4+5+9">
-      <change afterPath="$PROJECT_DIR$/Features/feature10.feature" afterDir="false" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="feature1+3">
+      <change afterPath="$PROJECT_DIR$/Features/Sign_Up.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/carAccessories/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_9_39_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_9_39_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Mailing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" afterDir="false" />
     </list>
-
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="feature1+3" />
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -41,7 +46,6 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/eclipse-workspace/firstattr&quot;,
@@ -54,60 +58,17 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;
-    ]
   }
 }</component>
   <component name="RunManager" selected="JUnit.AcceptanceTest">
-    <configuration name="Feature: feature4" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Feature: Sign_Up" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/Features/feature4.feature" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="Car-Accessories" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <option name="SUGGESTED_NAME" value="Feature: feature4" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Feature: feature9" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/Features/feature9.feature" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="Car-Accessories" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
-      <option name="SUGGESTED_NAME" value="Feature: feature9" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Customer requests installation services" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/Features/feature5.feature" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/Features/Sign_Up.feature" />
       <option name="GLUE" value="carAccessories" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="Car-Accessories" />
-      <option name="NAME_FILTER" value="^Customer requests installation services$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Customer requests installation services$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Customer requests installation services" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: Sign_Up" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -136,17 +97,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Customer requests installation services" />
-        <item itemvalue="Cucumber Java.Feature: feature9" />
-        <item itemvalue="Cucumber Java.Feature: feature4" />
+        <item itemvalue="Cucumber Java.Feature: Sign_Up" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager">
-    <option name="groupingKeys">
-      <option value="directory" />
-      <option value="module" />
-    </option>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -168,15 +121,7 @@
       <workItem from="1696485936288" duration="1214000" />
       <workItem from="1696487309535" duration="132000" />
       <workItem from="1696519260592" duration="4299000" />
-
-      <workItem from="1696531555272" duration="4011000" />
-      <workItem from="1696571910535" duration="6672000" />
-      <workItem from="1696594716036" duration="9446000" />
-      <workItem from="1696682225749" duration="11697000" />
-      <workItem from="1696774573908" duration="587000" />
-
       <workItem from="1696531555272" duration="2671000" />
-
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -202,57 +147,6 @@
       <option name="project" value="LOCAL" />
       <updated>1696536780816</updated>
     </task>
-
-    <task id="LOCAL-00004" summary="feature1+3">
-      <option name="closed" value="true" />
-      <created>1696536853484</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1696536853484</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feature1+3">
-      <option name="closed" value="true" />
-      <created>1696536877298</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1696536877298</updated>
-    </task>
-    <task id="LOCAL-00006" summary="feature1+3">
-      <option name="closed" value="true" />
-      <created>1696536891061</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1696536891061</updated>
-    </task>
-    <task id="LOCAL-00007" summary="feature1+3+4">
-      <option name="closed" value="true" />
-      <created>1696597048196</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1696597048196</updated>
-    </task>
-    <task id="LOCAL-00008" summary="feature1+3+4+5">
-      <option name="closed" value="true" />
-      <created>1696774829501</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1696774829501</updated>
-    </task>
-    <task id="LOCAL-00009" summary="feature1+3+4+5+9">
-      <option name="closed" value="true" />
-      <created>1696775046771</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1696775046771</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
-
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
@@ -264,19 +158,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -286,14 +168,7 @@
     <MESSAGE value="feature3commit" />
     <MESSAGE value="feature3commit2" />
     <MESSAGE value="feature1+3" />
-
-    <MESSAGE value="feature1+3+4" />
-    <MESSAGE value="feature1+3+4+5" />
-    <MESSAGE value="feature1+3+4+5+9" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature1+3+4+5+9" />
-
     <option name="LAST_COMMIT_MESSAGE" value="feature1+3" />
-
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
