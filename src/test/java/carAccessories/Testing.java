@@ -16,9 +16,14 @@ public class Testing {
 
     boolean exist;
 
+    boolean newAccount=false;
+
+    boolean userAdded=false;
+
     User c;
+    boolean isUserUpdating = false;
 
-
+    boolean isUserDeleting = false;
 public Testing(Application application) {
 
     this.application = application;
@@ -130,7 +135,7 @@ assertFalse(application.foundc(string));
     public void the_information_is_valid_email_is_and_password_is(String Email, String Pass) {
         boolean loginSuccessful = false;
         for(User u1:application.login.users){
-            if(Login.emailValidator(u1.getEmail())){
+            if(new Login(v).emailValidator(u1.getEmail())){
                 if(u1.getEmail().equalsIgnoreCase(Email)&&u1.getPassword().equals(Pass)){
                     application.login.setLogged(true);
                     loginSuccessful=true;
@@ -424,8 +429,6 @@ assertFalse(application.foundc(string));
      assertFalse(application.reviews(catname, pname).isEmpty());
  }
     }
-
-
     @Given("i am an admin\\(report)")
     public void i_am_an_admin_report() {
         assertEquals("Admin", v.type);
@@ -441,4 +444,125 @@ assertFalse(application.foundc(string));
        file=string;
        assertTrue(application.report(text,file));
     }
+
+    @When("the information is exist email is {string}")
+    public void the_information_is_exist_email_is(String email) {
+        boolean f = false;
+        for(User u:application.login.users){
+            if(u.getEmail().equalsIgnoreCase(email)){
+                f=true;
+                newAccount=false;
+                break;
+            }
+        }
+        assertTrue(f);
+    }
+
+    @Then("creating an account failed")
+    public void creating_an_account_failed() {
+        assertFalse(newAccount);
+    }
+
+    @When("the information is not formatly correct")
+    public void the_information_is_not_formatly_correct() {
+       boolean format =false;
+       String email=application.newUser.getEmail();
+        if(application.login.emailValidator(email)){
+            format=true;
+        }
+        assertTrue(format);
+    }
+
+    @When("the information is not exist email is not {string}")
+    public void the_information_is_not_exist_email_is_not(String email) {
+        boolean f = false;
+        for(User u:application.login.users){
+            if(!u.getEmail().equalsIgnoreCase(email)){
+               f=true;
+               newAccount=true;
+            }
+        }
+        assertTrue(f);
+    }
+    @Then("creating an account successfully")
+    public void creating_an_account_successfully() {
+        assertTrue(newAccount);
+    }
+
+    @Given("I am an admin")
+    public void i_am_an_admin() {
+        boolean f=false;
+        if(application.user.getType().equals("Admin")){
+            f=true;
+        }
+       assertTrue(f);
+    }
+
+    @When("i choose to add new user but the user is already exist")
+    public void i_choose_to_add_new_user_but_the_user_is_already_exist() {
+        String  email="ibrahim.sadi.asad@gmail.com";
+        for(User u : application.login.users){
+            if(u.getEmail().equals(email)){
+                userAdded=false;
+                break;
+            }
+        }
+     assertFalse(userAdded);
+    }
+
+    @Then("user added failed")
+    public void user_added_failed() {
+       assertFalse(userAdded);
+    }
+
+    @When("i choose to add new user with with valid formatting")
+    public void i_choose_to_add_new_user_with_with_valid_formatting() {
+        String email = "frre.fff@gmail.com";
+        String pass="2w421";
+        boolean r=false;
+        User u1 = new User(email,pass,"Admin");
+        if(application.login.addUser(u1)){
+            userAdded=true;
+            r=true;
+        }
+        assertTrue(r);
+    }
+
+    @Then("user successfully added")
+    public void user_successfully_added() {
+        assertTrue(userAdded);
+    }
+
+    @When("i choose the user and setting the new value with valid formatting")
+    public void i_choose_the_user_and_setting_the_new_value_with_valid_formatting() {
+        String email = "frre.fff@gmail.com";
+        String pass="2w421";
+        User u1 = new User(email,pass,"dd");
+        User u=application.login.users.get(1);
+        if(application.login.updateUser(u, u1)) {
+            isUserUpdating = true;
+        }
+        assertTrue(isUserUpdating);
+    }
+
+    @Then("user successfully updating")
+    public void user_successfully_updating() {
+        assertTrue(isUserUpdating);
+    }
+
+    @When("i choose the user i want to delete")
+    public void i_choose_the_user_i_want_to_delete() {
+        User u=new User("ibrahimeceasad@gmail.com","654321","Customer");
+       if(application.login.deleteUser(u)){
+           isUserDeleting=true;
+       }
+      assertTrue(isUserDeleting);
+    }
+
+    @Then("user successfully deleting")
+    public void user_successfully_deleting() {
+     assertTrue(isUserDeleting);
+    }
+
+
 }

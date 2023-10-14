@@ -1,5 +1,5 @@
 
-Feature: Authentication and User Authorization
+Feature:Login
 
 
   Scenario Outline: Valid information

@@ -7,11 +7,18 @@ public class User {
     String password;
     String type;
 
+    String firstName;
+    String lastName;
+
     public User(String email, String password, String type) {
         this.email = email;
         this.password = password;
         this.type = type;
+        firstName="Ahmad";
+        lastName="Ali";
     }
+
+
 
     public String getEmail() {
         return email;
