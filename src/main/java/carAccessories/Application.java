@@ -15,7 +15,7 @@ public  class Application {
 
 String carname;
     boolean logged_in;
-    static User user;
+     User user;
     Login login;
     static ArrayList<Sales> sales;
 
@@ -38,6 +38,7 @@ static int[] indexes;
         newUser=new User("ibrahim.sadi.asad@gmail.com","147852","Customer");
 
     }
+
     public void SignUp(){
         signUp=new SignUp(newUser,login);
     }

@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="feature1+3">
-      <change afterPath="$PROJECT_DIR$/Features/Sign_Up.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/carAccessories/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_9_39_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_9_39_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="Sign up feature">
+      <change afterPath="$PROJECT_DIR$/Features/Users_Management.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_9_39_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_9_39_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/feature10.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Analytics_and_Reporting.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/feature3.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Category_Management.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/feature4.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Product_Management.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/feature5.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Installation_Management.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/feature9.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Reviews_and_Ratings.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/ourProjectFeatures.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Login.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Mailing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" afterDir="false" />
     </list>
@@ -42,24 +50,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/eclipse-workspace/firstattr&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "app.teamhub.trackedBranches": "-1ttt7ga/master",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Hp/eclipse-workspace/firstattr",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="JUnit.AcceptanceTest">
     <configuration name="Feature: Sign_Up" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
@@ -69,6 +78,24 @@
       <module name="Car-Accessories" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
       <option name="SUGGESTED_NAME" value="Feature: Sign_Up" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Feature: Users_Management" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/Features/Users_Management.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="Car-Accessories" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: Users_Management" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -97,6 +124,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cucumber Java.Feature: Users_Management" />
         <item itemvalue="Cucumber Java.Feature: Sign_Up" />
       </list>
     </recent_temporary>
@@ -122,6 +150,7 @@
       <workItem from="1696487309535" duration="132000" />
       <workItem from="1696519260592" duration="4299000" />
       <workItem from="1696531555272" duration="2671000" />
+      <workItem from="1697299018816" duration="3238000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -147,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696536780816</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Sign up feature">
+      <created>1696954631158</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696954631159</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +204,8 @@
     <MESSAGE value="feature3commit" />
     <MESSAGE value="feature3commit2" />
     <MESSAGE value="feature1+3" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature1+3" />
+    <MESSAGE value="Sign up feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sign up feature" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

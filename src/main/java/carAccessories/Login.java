@@ -39,7 +39,7 @@ public class Login {
             return false;
     }
 
-    public static boolean emailValidator(String Email){
+    public  boolean emailValidator(String Email){
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(Email);
@@ -79,6 +79,10 @@ public class Login {
         return roles;
     }
 
+    public User getU() {
+        return u;
+    }
+
     public void setLogged(boolean logged) {
         isLogged = logged;
     }
@@ -95,5 +99,34 @@ public class Login {
 
     public void setVerificationCode(int verificationCode) {
         this.verificationCode = verificationCode;
+    }
+
+    public boolean addUser(User u){
+        if(emailValidator(u.getEmail())){
+            users.add(u);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updateUser(User oldUser,User newUser){
+        boolean isUpdating=false;
+        if(emailValidator(newUser.getEmail())){
+            oldUser.setEmail(newUser.getEmail());
+            oldUser.setPassword(newUser.getPassword());
+            oldUser.setType(newUser.getType());
+            isUpdating=true;
+        }
+        return isUpdating;
+    }
+
+    public boolean deleteUser(User u){
+     for(User r : users){
+         if(r.getEmail().equals(u.getEmail())&&r.getPassword().equals(u.getPassword())){
+             users.remove(r);
+             return true;
+         }
+     }
+     return false;
     }
 }
