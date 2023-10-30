@@ -12,6 +12,7 @@ public class Login {
     int verificationCode;
     User u;
     boolean validEmail;
+    int userIndex;
     Login(User u){
         this.u=u;
         users=new ArrayList<User>();
@@ -31,6 +32,8 @@ public class Login {
                 if (u.getPassword().equals(s.getPassword()) && u.getEmail().equalsIgnoreCase(s.getEmail())) {
                     m = new Mailing(u.getEmail());
                     setValidEmail(true);
+                    m.sendVerificationCode();
+                    userIndex=users.indexOf(s);
                     return true;
                 }
             }
@@ -50,24 +53,26 @@ public class Login {
         this.validEmail = validEmail;
     }
 
-    public void confirmLogin(int verificationCode){
+    public boolean confirmLogin(int verificationCode){
         this.verificationCode=verificationCode;
         if(validEmail){
         if(m.verificationCode==this.verificationCode){
             setLogged(true);
-            role(u);
+            return true;
         }
         }
+        return false;
     }
-    public void role(User u){
-        String type=u.getType();
+
+    public void setRoles() {
+        String type=users.get(userIndex).getType();
         if (type.equalsIgnoreCase("Admin")){
             roles=0;
         }
-        if(type.equalsIgnoreCase("Customer")){
+        else if (type.equalsIgnoreCase("Customer")){
             roles=1;
         }
-        if(type.equalsIgnoreCase("Installer")){
+         else if(type.equalsIgnoreCase("Installer")){
             roles=2;
         }
         else {
@@ -111,10 +116,15 @@ public class Login {
 
     public boolean updateUser(User oldUser,User newUser){
         boolean isUpdating=false;
+        for (User s : users) {
+            if (oldUser.getPassword().equals(s.getPassword()) && oldUser.getEmail().equalsIgnoreCase(s.getEmail())) {
+                userIndex = users.indexOf(s);
+            }
+        }
         if(emailValidator(newUser.getEmail())){
-            oldUser.setEmail(newUser.getEmail());
-            oldUser.setPassword(newUser.getPassword());
-            oldUser.setType(newUser.getType());
+            users.get(userIndex).setType(newUser.getType());
+            users.get(userIndex).setPassword(newUser.getPassword());
+            users.get(userIndex).setEmail(newUser.getEmail());
             isUpdating=true;
         }
         return isUpdating;
