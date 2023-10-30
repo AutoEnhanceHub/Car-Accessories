@@ -11,10 +11,12 @@ public class SignUp {
         this.l=l;
     }
 
-    public void cerateAccount(){
+    public boolean createAccount(){
         if(emailValidator(newUser.getEmail())) {
             l.users.add(newUser);
+            return true;
         }
+        return false;
     }
 
     public static boolean emailValidator(String Email){

@@ -45,8 +45,7 @@ public class Mailing {
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to,false));
             message.setSubject("This is your verification code for car-accessories");
-            message.setText("Your code is "+verificationCode);
-            message.setText("Please don't share this code with anyone");
+            message.setText("Your code is "+verificationCode+ "\nPlease don't share this code with anyone");
             Transport.send(message);
         }
         catch (MessagingException m){

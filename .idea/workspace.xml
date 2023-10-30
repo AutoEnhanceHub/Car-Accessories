@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="Sign up feature">
-      <change afterPath="$PROJECT_DIR$/Features/Users_Management.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_9_39_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_9_39_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/feature10.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Analytics_and_Reporting.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/feature3.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Category_Management.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/feature4.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Product_Management.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/feature5.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Installation_Management.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/feature9.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Reviews_and_Ratings.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/ourProjectFeatures.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Login.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Mailing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/SignUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +47,12 @@
     "WebServerToolWindowFactoryState": "false",
     "app.teamhub.trackedBranches": "-1ttt7ga/master",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Hp/eclipse-workspace/firstattr",
+    "last_opened_file_path": "C:/SW-Proj/Car-Accessories",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -69,7 +60,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.AcceptanceTest">
+  <component name="RunManager">
     <configuration name="Feature: Sign_Up" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/Features/Sign_Up.feature" />
@@ -151,6 +142,8 @@
       <workItem from="1696519260592" duration="4299000" />
       <workItem from="1696531555272" duration="2671000" />
       <workItem from="1697299018816" duration="3238000" />
+      <workItem from="1697484621867" duration="740000" />
+      <workItem from="1698671949566" duration="12996000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -188,6 +181,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

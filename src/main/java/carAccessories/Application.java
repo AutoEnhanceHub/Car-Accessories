@@ -22,6 +22,16 @@ String carname;
     User newUser;
     SignUp signUp;
 static int[] indexes;
+
+public Application(User user){
+    newUser=user;
+    login=new Login(newUser);
+}
+
+public Application(String email,String password){
+    user=new User(email,password);
+    login=new Login(user);
+}
     public Application() {
         carname="";
         sales=new ArrayList<Sales>();
@@ -41,7 +51,7 @@ static int[] indexes;
 
     public void SignUp(){
         signUp=new SignUp(newUser,login);
-    }
+}
 
     public boolean isLogged_in() {
         return logged_in;
