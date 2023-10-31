@@ -388,7 +388,7 @@ assertFalse(application.foundc(string));
         }
     }
 
-    @Then("the ssuccessful message will apear")
+    @Then("the successful message will appear")
     public void the_ssuccessful_message_will_apear() {
        if(exist){
            assertEquals((oldsize + 1), Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.size());
@@ -492,7 +492,7 @@ assertFalse(application.foundc(string));
     @Given("I am an admin")
     public void i_am_an_admin() {
         boolean f=false;
-        if(application.user.getType().equals("Admin")){
+        if(application.newUser.getType().equals("Admin")){
             f=true;
         }
        assertTrue(f);

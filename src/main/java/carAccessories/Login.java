@@ -19,9 +19,11 @@ public class Login {
         User u1=new User("ibrahim.sadi.asad@gmail.com","123456","Admin");
         User u2=new User("ibrahimeceasad@gmail.com","654321","Customer");
         User u3=new User("i.a.s.assad33@gmail.com","987654","Installer");
+        User u4=new User("abdallahdaher785@gmail.com","abdallah@123","Admin");
         users.add(u1);
         users.add(u2);
         users.add(u3);
+        users.add(u4);
         isLogged=false;
     }
     public boolean login() {

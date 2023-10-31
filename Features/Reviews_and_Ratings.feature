@@ -7,7 +7,7 @@ Feature: Reviews and Ratings
     And if the rating is not in the range
     Then Nothing will happen then exit the page
     And if the rating is in the possible range i must leave a review "Good Product!"
-    Then the ssuccessful message will apear
+    Then the successful message will appear
     And the average rating for the product must be updated
     And the review must be added
 

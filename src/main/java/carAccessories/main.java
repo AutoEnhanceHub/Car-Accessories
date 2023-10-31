@@ -7,6 +7,9 @@ public class main {
     private static final Logger LOGGER = Logger.getLogger(main.class.getName());
 
     public static void main(String[] arg) {
+
+
+        Application application = new Application();
         LOGGER.setUseParentHandlers(false);
 
         Handler[] handlers = LOGGER.getHandlers();
@@ -47,7 +50,7 @@ public class main {
                     String type = scanner.nextLine();
 
                     User user = new User(email, password, type);
-                    Application application = new Application(user);
+                    application = new Application(user);
                     application.SignUp();
                     if (application.signUp.createAccount()) {
                         application.login.users.add(user);
@@ -62,7 +65,7 @@ public class main {
                     String signInEmail = scanner.nextLine();
 
                     LOGGER.info("Enter your password: ");
-                    String signInPassword = scanner.nextLine();
+                   String  signInPassword = scanner.nextLine();
 
                     Application signInApplication = new Application(signInEmail, signInPassword);
 
@@ -74,12 +77,29 @@ public class main {
                             signInApplication.login.setRoles();
 
                             if (signInApplication.login.getRoles()==0) {
+                                signInApplication.setuser(signInEmail,signInPassword,"Admin");
                                 adminDashboard(scanner,signInApplication);
 
                             }
                             else{
-                                LOGGER.info("Main menu");
-                                //here you can call your method to main dashboard
+                                LOGGER.info("Main menu\n");
+
+                              if(signInApplication.login.getRoles()==0){
+                                  //here you can call your method to main dashboard
+
+                              } else if (signInApplication.login.getRoles()==1) {
+                                  LOGGER.info("Choose an option:\n1.Install a Product\n2.Review And Rate a Product");
+                                  int answer= scanner.nextInt();
+                                  if(answer==1){
+                                      application.installproduct();
+                                  } else if (answer==2) {
+                                      application.newrate();
+                                  }else{
+                                      LOGGER.info("Invalid input");
+                                  }
+
+                              }
+
                             }
                         } else {
                             LOGGER.info("Invalid information! Please try again.");
@@ -109,7 +129,7 @@ public class main {
 
         do {
             LOGGER.info("Admin Dashboard");
-            LOGGER.info("1-Show all Users\n2-Add User\n3-Delete User\n4-Update User\n5-Sign out");
+            LOGGER.info("1-Show all Users\n2-Add User\n3-Delete User\n4-Update User\n5-Main Menu\n6-Sign out");
             adminChoice = adminScanner.nextInt();
             adminScanner.nextLine();
 
@@ -150,7 +170,7 @@ public class main {
                     LOGGER.info("Enter your password to confirm deletion: ");
                     String adminPassword = adminScanner.nextLine();
 
-                    if(application.user.getPassword().equals(adminPassword)){
+                    if(application.newUser.getPassword().equals(adminPassword)){
                         if(application.login.deleteUser(new User(email,password))){
                             LOGGER.info("User Deleted Successfully");
                         }
@@ -174,7 +194,7 @@ public class main {
                     String adminPassword4 = adminScanner.nextLine();
                     String oldType="";
 
-                    if(application.user.getPassword().equals(adminPassword4)) {
+                    if(application.newUser.getPassword().equals(adminPassword4)) {
                         for (User s : application.login.users) {
                             if (oldPassword.equals(s.getPassword()) && oldEmail.equalsIgnoreCase(s.getEmail())) {
                                 int userIndex = application.login.users.indexOf(s);
@@ -211,8 +231,25 @@ public class main {
                         }
                     LOGGER.info("********************************************************************");
                     break;
-
                 case 5:
+                    LOGGER.info("Choose an option:\n1.Add New Category\n2.Edit a Category\n3.Delete a Category\n" +
+                        "4.Add New Product\n5.Edit a Product\n6.Delete a Product\n" +
+                        "7.Get a Report\n8.Show average ratings and reviews\n9.exit");
+                    int ans=adminScanner.nextInt();
+                    switch (ans){
+                        case 1:application.newCatogry();break;
+                        case 2:application.editCategory();break;
+                        case 3:application.deleteCategory();break;
+                        case 4:application.newproduct();break;
+                        case 5:application.editproduct();break;
+                        case 6:application.deleteproduct();break;
+                        case 7:application.makereport();break;
+                        case 8:application.showreviews();break;
+                        case 9:LOGGER.info("Invalid input");
+                    }
+                    LOGGER.info("********************************************************************");
+                    break;
+                case 6:
                     LOGGER.info("Sign Out");
                     LOGGER.info("********************************************************************");
                     break;
@@ -220,6 +257,6 @@ public class main {
                     LOGGER.info("Invalid choice! Please try again.");
                     LOGGER.info("********************************************************************");
             }
-        } while (adminChoice != 5);
+        } while (adminChoice != 6);
     }
 }
