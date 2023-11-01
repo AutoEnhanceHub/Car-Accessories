@@ -22,38 +22,7 @@ public  class Application {
     SignUp signUp;
 static int[] indexes;
     Scanner scanner = new Scanner(System.in);
-public Application(User user){
 
-
-    newUser=user;
-
-    login=new Login(newUser);
-    LOGGER.setUseParentHandlers(false);
-
-    Handler[] handlers = LOGGER.getHandlers();
-    for (Handler handler : handlers) {
-        LOGGER.removeHandler(handler);
-    }
-
-    ConsoleHandler consoleHandler = new ConsoleHandler();
-    consoleHandler.setLevel(Level.ALL);
-    consoleHandler.setFormatter(new SimpleFormatter() {
-        @Override
-        public String format(java.util.logging.LogRecord record) {
-            return record.getMessage() + "\n";
-        }
-    });
-    LOGGER.addHandler(consoleHandler);
-
-    carname="";
-
-    indexes=new int[2];
-    this.logged_in = false;
-    login=new Login(newUser);
-
-
-
-}
 public Application(){
     LOGGER.setUseParentHandlers(false);
 
@@ -87,10 +56,7 @@ public Application(){
     newUser=new User("ibrahim.sadi.asad@gmail.com","147852","Customer");
 
 }
-public Application(String email,String password){
-    newUser=new User(email,password);
-    login=new Login(newUser);
-}
+
 
 
     public void SignUp(){
@@ -127,6 +93,7 @@ public boolean foundc(String name){
     return false;
 }
 public void setuser(String email,String pass ,String type){
+
     newUser=new User(email,pass,type);
 }
 public void addcat(String name){

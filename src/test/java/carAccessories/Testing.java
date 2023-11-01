@@ -8,7 +8,7 @@ public class Testing {
 
     User v;
     String catname,newp,file,text,review,pname,carname;
-
+    private final Application application;
     int q,newqu,y,olds,pr,rate,qu,avl_q;
 
     float oldavg;
@@ -120,7 +120,7 @@ assertFalse(application.foundc(string));
     public void the_category_must_be_deleted(String string) {
         assertFalse(application.foundc(string));
 }
-    private final Application application;
+
 
 
 
@@ -466,6 +466,7 @@ assertFalse(application.foundc(string));
     @When("the information is not formatly correct")
     public void the_information_is_not_formatly_correct() {
        boolean format =false;
+
        String email=application.newUser.getEmail();
         if(application.login.emailValidator(email)){
             format=true;
@@ -483,15 +484,18 @@ assertFalse(application.foundc(string));
             }
         }
         assertTrue(f);
+
     }
     @Then("creating an account successfully")
     public void creating_an_account_successfully() {
         assertTrue(newAccount);
+
     }
 
     @Given("I am an admin")
     public void i_am_an_admin() {
         boolean f=false;
+        application.setuser(application.newUser.getEmail(),application.newUser.getPassword(),"Admin");
         if(application.newUser.getType().equals("Admin")){
             f=true;
         }

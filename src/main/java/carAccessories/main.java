@@ -48,12 +48,11 @@ public class main {
 
                     LOGGER.info("Enter your type: ");
                     String type = scanner.nextLine();
-
-                    User user = new User(email, password, type);
-                    application = new Application(user);
+                    application = new Application();
+                    application.setuser(email, password, type);
                     application.SignUp();
                     if (application.signUp.createAccount()) {
-                        application.login.users.add(user);
+                        application.login.users.add(new User(email,password,type));
                         LOGGER.info("User Created Successfully");
                     } else {
                         LOGGER.info("Invalid information! Please try again.");
@@ -67,8 +66,9 @@ public class main {
                     LOGGER.info("Enter your password: ");
                    String  signInPassword = scanner.nextLine();
 
-                    Application signInApplication = new Application(signInEmail, signInPassword);
-
+                    Application signInApplication = new Application();
+                    signInApplication.setuser(signInEmail,signInPassword,"");
+                    signInApplication.login=new Login(new User(signInEmail,signInPassword,""));
                     if (signInApplication.login.login()) {
                         LOGGER.info("Enter your verificationCode: ");
                         int verificationCode = scanner.nextInt();

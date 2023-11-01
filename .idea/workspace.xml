@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="feature1+3+4+5+9">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="mainmix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/Category_Management.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Category_Management.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/Reviews_and_Ratings.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Reviews_and_Ratings.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" afterDir="false" />
     </list>
@@ -173,6 +170,8 @@
       <workItem from="1696594716036" duration="9446000" />
       <workItem from="1696682225749" duration="11697000" />
       <workItem from="1696774573908" duration="587000" />
+      <workItem from="1698791709754" duration="357000" />
+      <workItem from="1698828333558" duration="1594000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -246,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696775046771</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="mainmix">
+      <option name="closed" value="true" />
+      <created>1698785721582</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698785721582</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +289,8 @@
     <MESSAGE value="feature1+3+4" />
     <MESSAGE value="feature1+3+4+5" />
     <MESSAGE value="feature1+3+4+5+9" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature1+3+4+5+9" />
+    <MESSAGE value="mainmix" />
+    <option name="LAST_COMMIT_MESSAGE" value="mainmix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
