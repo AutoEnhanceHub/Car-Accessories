@@ -1,5 +1,6 @@
 package carAccessories;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.*;
 
@@ -29,12 +30,20 @@ public class main {
 
         LOGGER.info("TURBOTWEAK ACCESSORIES");
 
-        int Authen;
+        int Authen=-1;
 
         do {
-            LOGGER.info("1-Sign-up \n2-Sign-in \n3-Exit");
-            Authen = scanner.nextInt();
-            scanner.nextLine(); // Consume the newline character
+
+
+            try {
+                LOGGER.info("1-Sign-up \n2-Sign-in \n3-Exit");
+                Authen = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character
+            } catch (InputMismatchException e) {
+                LOGGER.warning("Invalid input. Please enter a valid integer.");
+                scanner.nextLine();
+                continue;
+            }
 
             switch (Authen) {
                 case 1:
@@ -139,13 +148,20 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
     }
 
     private static void adminDashboard(Scanner adminScanner,Application application) {
-        int adminChoice;
+        int adminChoice=-1;
 
         do {
-            LOGGER.info("Admin Dashboard");
-            LOGGER.info("1-Show all Users\n2-Add User\n3-Delete User\n4-Update User\n5-Main Menu\n6-Sign out");
-            adminChoice = adminScanner.nextInt();
-            adminScanner.nextLine();
+
+            try {
+                LOGGER.info("Admin Dashboard");
+                LOGGER.info("1-Show all Users\n2-Add User\n3-Delete User\n4-Update User\n5-Main Menu\n6-Sign out");
+                adminChoice = adminScanner.nextInt();
+                adminScanner.nextLine();
+            } catch (InputMismatchException e) {
+                LOGGER.warning("Invalid input. Please enter a valid integer.");
+                adminScanner.nextLine();
+                continue;
+            }
 
             switch (adminChoice) {
                 case 1:
