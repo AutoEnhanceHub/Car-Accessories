@@ -567,7 +567,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
          return;}
      try{
 
-         LOGGER.info("Choose a Category to rate and review a produc\nt"+showallcatogries());
+         LOGGER.info("Choose a Category to rate and review a product\n"+showallcatogries());
 
          int cselect=scanner.nextInt();  scanner.nextLine();
          cselect--;
