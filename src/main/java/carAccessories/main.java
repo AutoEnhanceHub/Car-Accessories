@@ -1,19 +1,37 @@
 package carAccessories;
 
+import javax.mail.Session;
 import java.util.InputMismatchException;
+import java.util.Properties;
 import java.util.Scanner;
 import java.util.logging.*;
 
 public class main {
     private static final Logger LOGGER = Logger.getLogger(main.class.getName());
 
+    static {
+        // Disable JavaMail debug logs
+        System.setProperty("mail.debug", "false");
+
+        // Suppress console logging for the root logger
+        Logger rootLogger = Logger.getLogger("");
+        for (Handler handler : rootLogger.getHandlers()) {
+            if (handler instanceof ConsoleHandler) {
+                handler.setLevel(Level.OFF);
+            }
+        }
+    }
+
+
     public static void main(String[] arg) {
+
         Application signInApplication = new Application();
         LOGGER.setUseParentHandlers(false);
 
         Handler[] handlers = LOGGER.getHandlers();
         for (Handler handler : handlers) {
             LOGGER.removeHandler(handler);
+
         }
 
         ConsoleHandler consoleHandler = new ConsoleHandler();
@@ -58,12 +76,6 @@ public class main {
                     if (signInApplication.login.emailValidator(email)) {
                         signInApplication.login.addUser(new User(email,password,type));
                         LOGGER.info("User Created Successfully");
-                        for (User user : signInApplication.login.users) {
-                            LOGGER.info("Email: " + user.getEmail());
-                            LOGGER.info("Password: " + user.getPassword());
-                            LOGGER.info("Type: " + user.getType());
-                            LOGGER.info("------------------------------------");
-                        }
                     } else {
                         LOGGER.info("Invalid information! Please try again.");
                     }
