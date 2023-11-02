@@ -1,7 +1,7 @@
 Feature: Installation Management
   @Installation
   Scenario: Customer requests installation services
-    Given i am a customer
+    Given i am an Installer
     When i select the product "car lights" from the category "Electronics"
     And i must fill in the quantity 3
     Then i must see the available quantity

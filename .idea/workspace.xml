@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="mainmix">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="final-main-and-test-mix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/Installation_Management.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Installation_Management.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" afterDir="false" />
     </list>
@@ -171,7 +174,8 @@
       <workItem from="1696682225749" duration="11697000" />
       <workItem from="1696774573908" duration="587000" />
       <workItem from="1698791709754" duration="357000" />
-      <workItem from="1698828333558" duration="1594000" />
+      <workItem from="1698828333558" duration="2479000" />
+      <workItem from="1698909378155" duration="5325000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -253,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698785721582</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="final-main-and-test-mix">
+      <option name="closed" value="true" />
+      <created>1698830106322</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1698830106322</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +302,8 @@
     <MESSAGE value="feature1+3+4+5" />
     <MESSAGE value="feature1+3+4+5+9" />
     <MESSAGE value="mainmix" />
-    <option name="LAST_COMMIT_MESSAGE" value="mainmix" />
+    <MESSAGE value="final-main-and-test-mix" />
+    <option name="LAST_COMMIT_MESSAGE" value="final-main-and-test-mix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -7,9 +7,7 @@ public class main {
     private static final Logger LOGGER = Logger.getLogger(main.class.getName());
 
     public static void main(String[] arg) {
-
-
-        Application application = new Application();
+        Application signInApplication = new Application();
         LOGGER.setUseParentHandlers(false);
 
         Handler[] handlers = LOGGER.getHandlers();
@@ -48,12 +46,15 @@ public class main {
 
                     LOGGER.info("Enter your type: ");
                     String type = scanner.nextLine();
-                    application = new Application();
-                    application.setuser(email, password, type);
-                    application.SignUp();
-                    if (application.signUp.createAccount()) {
-                        application.login.users.add(new User(email,password,type));
+                    if (signInApplication.login.emailValidator(email)) {
+                        signInApplication.login.addUser(new User(email,password,type));
                         LOGGER.info("User Created Successfully");
+                        for (User user : signInApplication.login.users) {
+                            LOGGER.info("Email: " + user.getEmail());
+                            LOGGER.info("Password: " + user.getPassword());
+                            LOGGER.info("Type: " + user.getType());
+                            LOGGER.info("------------------------------------");
+                        }
                     } else {
                         LOGGER.info("Invalid information! Please try again.");
                     }
@@ -66,40 +67,53 @@ public class main {
                     LOGGER.info("Enter your password: ");
                    String  signInPassword = scanner.nextLine();
 
-                    Application signInApplication = new Application();
+signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                     signInApplication.setuser(signInEmail,signInPassword,"");
-                    signInApplication.login=new Login(new User(signInEmail,signInPassword,""));
                     if (signInApplication.login.login()) {
                         LOGGER.info("Enter your verificationCode: ");
                         int verificationCode = scanner.nextInt();
                         if (signInApplication.login.confirmLogin(verificationCode)) {
-                            LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIES");
+
                             signInApplication.login.setRoles();
 
                             if (signInApplication.login.getRoles()==0) {
+                                LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Admin");
                                 signInApplication.setuser(signInEmail,signInPassword,"Admin");
                                 adminDashboard(scanner,signInApplication);
 
                             }
-                            else{
-                                LOGGER.info("Main menu\n");
+                            else if (signInApplication.login.getRoles()==1){
+                                signInApplication.setuser(signInEmail,signInPassword,"Customer");
+                                LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Customer");
 
-                              if(signInApplication.login.getRoles()==0){
-                                  //here you can call your method to main dashboard
+                            int select;
+                            while (true){
+                                LOGGER.info("Choose an option:\n1.Review And Rate A Product\n2.exit");
+                                select= scanner.nextInt();
+                                if(select==1){
+                                    signInApplication.newrate();
+                                } else if (select==2) {
+                                    break;
+                                }else {
+                                    LOGGER.info("Choose a right option\n");
+                                }
+                            }
 
-                              } else if (signInApplication.login.getRoles()==1) {
-                                  LOGGER.info("Choose an option:\n1.Install a Product\n2.Review And Rate a Product");
-                                  int answer= scanner.nextInt();
-                                  if(answer==1){
-                                      application.installproduct();
-                                  } else if (answer==2) {
-                                      application.newrate();
-                                  }else{
-                                      LOGGER.info("Invalid input");
-                                  }
+                            }
+                            else { signInApplication.setuser(signInEmail,signInPassword,"Installer");
+                                LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Installer");
 
-                              }
-
+                                int select;
+                                while (true){ LOGGER.info("Choose an option:\n1.Install a Product to request\n2.exit");
+                                    select= scanner.nextInt();
+                                    if(select==1){
+                                        signInApplication.installproduct();
+                                    } else if (select==2) {
+                                        break;
+                                    }else {
+                                        LOGGER.info("Choose a right option\n");
+                                    }
+                                }
                             }
                         } else {
                             LOGGER.info("Invalid information! Please try again.");

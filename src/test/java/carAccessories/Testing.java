@@ -305,9 +305,11 @@ assertFalse(application.foundc(string));
         assertFalse(application.foundp(string,oldname));
     }
 
-    @Given("i am a customer")
-    public void i_am_a_customer() {
-        assertEquals("Customer", c.type);
+    @Given("i am an Installer")
+    public void i_am_an_Installer() {
+        c.type="Installer";
+        application.setuser(application.newUser.getEmail(),application.newUser.getPassword(),"Installer");
+        assertEquals("Installer", c.type);
     }
 
     @When("i select the product {string} from the category {string}")
@@ -345,6 +347,7 @@ assertFalse(application.foundc(string));
     }
     @Then("the product availability should be updated")
     public void the_product_availability_should_be_updated() {
+        assertEquals("Installer", c.type);
         assertTrue(avl_q!=newqu);
     }
 
@@ -353,6 +356,7 @@ assertFalse(application.foundc(string));
 
     @Given("i am a customer\\(review and rate)")
     public void i_am_a_customer_review_and_rate() {
+        application.setuser(application.newUser.getEmail(),application.newUser.getPassword(),"Customer");
         assertEquals("Customer", c.type);
     }
 
@@ -414,6 +418,8 @@ assertFalse(application.foundc(string));
     @Given("i am and admin \\(get informations)")
     public void i_am_and_admin_get_informations() {
         assertEquals("Admin", v.type);
+
+
     }
 
     @When("i choose a product {string} form Category {string}")

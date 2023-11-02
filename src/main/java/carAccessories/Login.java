@@ -1,5 +1,7 @@
 package carAccessories;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,10 +47,13 @@ public class Login {
     }
 
     public  boolean emailValidator(String Email){
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-        Pattern pattern = Pattern.compile(emailRegex);
-        Matcher matcher = pattern.matcher(Email);
-        return matcher.matches();
+        try {
+            InternetAddress internetAddress = new InternetAddress(Email);
+            internetAddress.validate();
+            return true;
+        } catch (AddressException ex) {
+            return false;
+        }
     }
 
     public void setValidEmail(boolean validEmail) {
@@ -113,9 +118,12 @@ public class Login {
             users.add(u);
             return true;
         }
+        System.out.println("Not a valid email");
         return false;
     }
-
+public void setUser(User u){
+        this.u=u;
+}
     public boolean updateUser(User oldUser,User newUser){
         boolean isUpdating=false;
         for (User s : users) {

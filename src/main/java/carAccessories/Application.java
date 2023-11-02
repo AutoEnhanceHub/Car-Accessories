@@ -24,6 +24,7 @@ static int[] indexes;
     Scanner scanner = new Scanner(System.in);
 
 public Application(){
+
     LOGGER.setUseParentHandlers(false);
 
     Handler[] handlers = LOGGER.getHandlers();
@@ -484,7 +485,7 @@ public boolean installrequest(String catname,String pname,int quantity,String ca
     return false;
 }
 public void installproduct(){
-    if(!newUser.type.equals("Customer")){
+    if(!newUser.type.equals("Installer")){
         LOGGER.info("Only customers can make an installation request");
 
         return;}
@@ -523,7 +524,7 @@ public void installproduct(){
             Random random = new Random();
 
 
-            int randomNumber = random.nextInt(5) + 1;  scanner.nextLine();
+            int randomNumber = random.nextInt(5) + 1;
             LocalDate ship=LocalDate.now().plusDays(randomNumber);
             String message="Your order has been received and is currently being processed. " +
                     " The order is going to be shipped after ." +ship+
@@ -566,7 +567,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
          return;}
      try{
 
-         LOGGER.info("Choose a Category to rate and review a product"+showallcatogries());
+         LOGGER.info("Choose a Category to rate and review a produc\nt"+showallcatogries());
 
          int cselect=scanner.nextInt();  scanner.nextLine();
          cselect--;
