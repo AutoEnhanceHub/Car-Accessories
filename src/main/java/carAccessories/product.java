@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class product {
-    public String name;
+    private String name;
     int quantity;
     int price;
     float rate_avg;
