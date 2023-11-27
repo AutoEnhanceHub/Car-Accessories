@@ -17,3 +17,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
+          
+      - name: Step 3 - Build Maven Project     clean test  install package
+        run: mvn  --batch-mode clean package -DskipTests  
