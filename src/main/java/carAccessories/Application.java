@@ -739,27 +739,18 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
         if(f.isEmpty())return "There is no informations";
         return f;
     }
-    public boolean report(String report,String filename){
-
+    public boolean report(String report, String filename) {
         switch (report) {
-            case "Sales" -> {
-                printTextToFile(filename, Salesreport());
-                return true;
-            }
-            case "Product rates" -> {
-                printTextToFile(filename, Ratesreport());
-                return true;
-            }
-            case "Category products" -> {
-                printTextToFile(filename, productreport());
-                return true;
-            }
-            case "rates and reviews" -> {
-                printTextToFile(filename, Ratesreviewsreport());
-                return true;
+            case "Sales" -> printTextToFile(filename, Salesreport());
+            case "Product rates" -> printTextToFile(filename, Ratesreport());
+            case "Category products" -> printTextToFile(filename, productreport());
+            case "rates and reviews" -> printTextToFile(filename, Ratesreviewsreport());
+            default -> {
+                return false;
             }
         }
-        return false;
+        return true;
+    }
     }
     public void makereport(){
         if(newUser.getType().equals("Admin")){
