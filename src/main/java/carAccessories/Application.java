@@ -120,14 +120,17 @@ try {
 
 
         if(response==1){
-            LOGGER.info("You added the Category "+m);
+            String y="You added the Category "+m;
+            LOGGER.info(y);
            addcat(m); }
         else {
-            LOGGER.info("the Category "+m+" is not added");
+              String y="the Category "+m+" is not added";
+            LOGGER.info(y);
         }
 
 }catch (NullPointerException e){
-    LOGGER.info("the Category "+m+" is not added");
+      String y="the Category "+m+" is not added";
+    LOGGER.info(y);
 } }
     public void newCatogry() {
     if(newUser.type.equals("Admin")){
