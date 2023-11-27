@@ -10,7 +10,7 @@ import java.util.logging.*;
 
 
 public  class Application {
-private Random random;
+private final Random random;
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     private static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     String carname;
@@ -112,8 +112,10 @@ try {
         int answer = scanner.nextInt();
         scanner.nextLine();
 
-        if (answer == 1 || answer == 2) {
+        if (answer == 1) {
             response = answer;
+            break;
+        }else if(answer==2){
             break;
         }
     }
