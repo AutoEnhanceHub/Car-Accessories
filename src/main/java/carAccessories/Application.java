@@ -136,7 +136,7 @@ try {
     LOGGER.info(y);
 } }
     public void newCatogry() {
-    if(newUser.type.equals("Admin")){
+    if(newUser.type.equals(adminstring)){
         LOGGER.info("What is the name of the Category?");
         String m = scanner.nextLine();
         if (foundc(m)) {
@@ -160,7 +160,7 @@ String y=categ + m + " is really exist";
 
 public void editCategory(){
 
-if(newUser.type.equals("Admin")){
+if(newUser.type.equals(adminstring)){
         if(categories.isEmpty()){
             LOGGER.info("There is no categories in the system");
 
@@ -232,7 +232,7 @@ public void dltcat(String name){
    }
 }
 public void deleteCategory(){
-    if(newUser.type.equals("Admin")){
+    if(newUser.type.equals(adminstring)){
     if(categories.isEmpty()){
         LOGGER.info("There is no categories in the system\n");
 
@@ -357,7 +357,7 @@ public void addnewproduct(String catname,String pname,int quantity,int price,int
     }
 }
 public void newproduct(){
-    if(!newUser.type.equals("Admin")){
+    if(!newUser.type.equals(adminstring)){
         LOGGER.info("Only admins can add products\n");
         return;}
     try{
@@ -409,7 +409,7 @@ public void editproduct(String catname,String pname,String newname,int newprice)
     }
 }
 public void editproduct(){
-    if(!newUser.type.equals("Admin")){
+    if(!newUser.type.equals(adminstring)){
         LOGGER.info("Only admins can edit products\n");
 
         return;}
@@ -456,7 +456,7 @@ for(int i=0;i<categories.get(cselect).products.size();i++){
     }
 }
 public void deleteproduct(){
-    if(!newUser.type.equals("Admin")){
+    if(!newUser.type.equals(adminstring)){
         LOGGER.info("Only admins can delete products\n");
 
         return;}
@@ -627,7 +627,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
     return "";
  }
  public void showreviews(){
-     if(!newUser.type.equals("Admin")){
+     if(!newUser.type.equals(adminstring)){
          LOGGER.info("Only Admins can get informations\n");
          return;}
      try{
@@ -768,7 +768,7 @@ public boolean report(String report, String filename) {
 }
 
 public void makereport() {
-    if (newUser.getType().equals("Admin")) {
+    if (newUser.getType().equals(adminstring)) {
         try {
             LOGGER.info("What is the name of the file?");
             String file = scanner.next();
