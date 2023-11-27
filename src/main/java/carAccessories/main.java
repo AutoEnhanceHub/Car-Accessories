@@ -250,14 +250,16 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         String newPassword = adminScanner.nextLine();
                         LOGGER.info("Enter user new type that need to Update: ");
                         String newType = adminScanner.nextLine();
-
-                        if(newPassword.equals("-1")){
+                        
+                        private static final String SPECIAL_VALUE = "-1";
+                        
+                        if(newPassword.equals(SPECIAL_VALUE)){
                             newPassword=oldPassword;
                         }
-                        if(newType.equals("-1")){
+                        if(newType.equals(SPECIAL_VALUE)){
                             newType=oldType;
                         }
-                        if(newEmail.equals("-1")){
+                        if(newEmail.equals(SPECIAL_VALUE)){
                             newEmail=oldEmail;
                         }
 
