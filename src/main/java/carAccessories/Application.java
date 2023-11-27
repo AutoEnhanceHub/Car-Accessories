@@ -24,7 +24,7 @@ static int[] indexes=new int[2];
     Scanner scanner = new Scanner(System.in);
 
 public Application(){
-    categories=new ArrayList<>()
+    categories=new ArrayList<>();
 random=new Random();
     LOGGER.setUseParentHandlers(false);
 
