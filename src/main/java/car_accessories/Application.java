@@ -13,6 +13,7 @@ public  class Application {
 private Random random;
     private static final String valids="Enter a valid value in the next time\n"; 
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
+    private static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     String carname;
     boolean logged_in;
  
@@ -171,10 +172,10 @@ if(newUser.type.equals("Admin")){
                 int select=scanner.nextInt();
                 scanner.nextLine();
                 if(select<1){
-                    LOGGER.info("Invalid Input");
+                    LOGGER.info(INVALID_INPUT_MESSAGE);
 
                 } else if (select>categories.size()) {
-                    LOGGER.info("Invalid Input");
+                    LOGGER.info(INVALID_INPUT_MESSAGE);
                 }else{
                     select--;
                     LOGGER.info("What is the new name of the Category?");
@@ -208,7 +209,7 @@ String rename=scanner.nextLine();
                 }
                 }
             }catch (NumberFormatException e){
-                LOGGER.info("Invalid Input");
+                LOGGER.info(INVALID_INPUT_MESSAGE);
             }
 
         }
@@ -243,9 +244,9 @@ public void deleteCategory(){
             int select=scanner.nextInt();
             scanner.nextLine();
             if(select<1){
-                LOGGER.info("Invalid Input");
+                LOGGER.info(INVALID_INPUT_MESSAGE);
             } else if (select>categories.size()) {
-                LOGGER.info("Invalid Input");
+                LOGGER.info(INVALID_INPUT_MESSAGE);
             }else{
                 select--;
 
@@ -271,7 +272,7 @@ public void deleteCategory(){
 
             }
         }catch (NumberFormatException e){
-            LOGGER.info("Invalid Input");
+            LOGGER.info(INVALID_INPUT_MESSAGE);
 
         }
 }}
@@ -381,7 +382,7 @@ public void newproduct(){
 
 
 }catch (Exception e){
-        LOGGER.info("Invalid Input");
+        LOGGER.info(INVALID_INPUT_MESSAGE);
 
     }
 }
@@ -435,7 +436,7 @@ for(int i=0;i<categories.get(cselect).products.size();i++){
         LOGGER.info("The product is updated successfully\n");
     }
    catch (Exception e){
-       LOGGER.info("Invalid Input");
+       LOGGER.info(INVALID_INPUT_MESSAGE);
     }
 }
 public void deleteproduct(){
@@ -462,7 +463,7 @@ public void deleteproduct(){
 
     }
     catch (Exception e){
-        LOGGER.info("Invalid Input");
+        LOGGER.info(INVALID_INPUT_MESSAGE);
     }
 }
 public void dltp(String catname,String pname){
