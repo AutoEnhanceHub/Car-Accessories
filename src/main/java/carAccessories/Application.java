@@ -14,7 +14,7 @@ public  class Application {
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     String carname;
     boolean logged_in;
-
+ Random random;
     Login login;
     static ArrayList<Sales> sales;
 
@@ -24,7 +24,7 @@ static int[] indexes;
     Scanner scanner = new Scanner(System.in);
 
 public Application(){
-
+random=new Random();
     LOGGER.setUseParentHandlers(false);
 
     Handler[] handlers = LOGGER.getHandlers();
@@ -526,8 +526,8 @@ public void installproduct(){
             
 
 
-            int randomNumber = new Random.nextInt(5) + 1;
-            LocalDate ship=LocalDate.now().plusDays(randomNumber);
+            int rValue = new Random.nextInt(5) + 1;
+            LocalDate ship=LocalDate.now().plusDays(rValue);
             String message="Your order has been received and is currently being processed. " +
                     " The order is going to be shipped after ." +ship+
                     ". Thank you for shopping with us!\n" +
