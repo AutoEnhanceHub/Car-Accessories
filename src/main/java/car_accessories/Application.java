@@ -11,7 +11,6 @@ import java.util.logging.*;
 
 public  class Application {
 private Random random;
-    private static final String valids="Enter a valid value in the next time\n"; 
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     private static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     String carname;
