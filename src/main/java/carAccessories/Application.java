@@ -17,7 +17,7 @@ private Random random;
  
     Login login;
     static ArrayList<Sales> sales=new ArrayList<>();
-
+    static ArrayList<Category> categories=new ArrayList<>();
     User newUser;
     SignUp signUp;
 static int[] indexes=new int[2];
@@ -71,7 +71,7 @@ public synchronized String format(java.util.logging.LogRecord logRecord) {
     public void setLogged_in(boolean logged_in) {
         this.logged_in = logged_in;
     }
-    public static ArrayList<Category>categories=new ArrayList<>();
+    
 
 
 public String showallcatogries(){
