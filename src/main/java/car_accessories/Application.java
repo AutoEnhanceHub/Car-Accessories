@@ -11,6 +11,7 @@ import java.util.logging.*;
 
 public  class Application {
 private Random random;
+    private static final String valids="Enter a valid value in the next time\n"; 
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     String carname;
     boolean logged_in;
@@ -228,15 +229,16 @@ public void deleteCategory(){
     if(categories.isEmpty()){
         LOGGER.info("There is no categories in the system\n");
 
-    }else{   String f="";
+    }else{    StringBuilder f= new StringBuilder();
         for(int i=0;i<categories.size();i++){
-            f+=i+1+". "+categories.get(i).name+"\n";
+            f.append(i + 1).append(". ").append(categories.get(i).name).append("\n");
         }
 
 
 
         try {
-            LOGGER.info("Choose a Category\n"+f);
+            String ygh="Choose a Category\n"+f;
+            LOGGER.info(ygh);
 
             int select=scanner.nextInt();
             scanner.nextLine();
@@ -296,35 +298,29 @@ public boolean foundp(String catname,String pname){
     return false;
 }
 public String getallproducts(String catname){
-    String f="";
+     StringBuilder f= new StringBuilder();
     if(foundc(catname)){
          if(categories.get(indexes[0]).products.isEmpty()){
             return "There is no products";
         }
-         f=f+"#. name     quantity     price     rate\n";
+        f.append("#. name     quantity     price     rate\n");
      for(int i=0;i<categories.get(indexes[0]).products.size();i++){
          int c=i+1;
          if(i==categories.get(indexes[0]).products.size()-1){
-             f=f+c+". "+categories.get(indexes[0]).products.get(i).name+"     "+
-                     categories.get(indexes[0]).products.get(i).quantity+"     "+
-                     categories.get(indexes[0]).products.get(i).price+"     "+
-                     categories.get(indexes[0]).products.get(i).rate_avg;break;
+             f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append("     ").append(categories.get(indexes[0]).products.get(i).quantity).append("     ").append(categories.get(indexes[0]).products.get(i).price).append("     ").append(categories.get(indexes[0]).products.get(i).rate_avg);break;
          }
-         f=f+c+". "+categories.get(indexes[0]).products.get(i).name+"     "+
-                 categories.get(indexes[0]).products.get(i).quantity+"     "+
-                 categories.get(indexes[0]).products.get(i).price+"     "+
-                 categories.get(indexes[0]).products.get(i).rate_avg+"\n";
+  f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append("     ").append(categories.get(indexes[0]).products.get(i).quantity).append("     ").append(categories.get(indexes[0]).products.get(i).price).append("     ").append(categories.get(indexes[0]).products.get(i).rate_avg).append("\n");
      }
     }
    else{
-        f=f+"The Category is empty";
+        f.append("The Category is empty");
     }
     return f;
 }
 public void showproducts(){
+String ygh="Choose a Category to see its products\n"+showallcatogries();
 
-
-  try {LOGGER.info("Choose a Category to see its products\n"+showallcatogries());
+  try {LOGGER.info(ygh);
 
       int x=scanner.nextInt();
       scanner.nextLine();
