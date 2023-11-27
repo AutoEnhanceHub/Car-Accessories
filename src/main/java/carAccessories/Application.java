@@ -16,11 +16,11 @@ private Random random;
     boolean logged_in;
  
     Login login;
-    static ArrayList<Sales> sales=new ArrayList<Sales>();
+    static ArrayList<Sales> sales=new ArrayList<>();
 
     User newUser;
     SignUp signUp;
-static int[] indexes;
+static int[] indexes=new int[2];
     Scanner scanner = new Scanner(System.in);
 
 public Application(){
@@ -45,12 +45,10 @@ public synchronized String format(java.util.logging.LogRecord logRecord) {
     LOGGER.addHandler(consoleHandler);
 
     carname="";
-    
-
-    indexes=new int[2];
+  
     this.logged_in = false;
     login=new Login(newUser);
-    categories=new ArrayList<Category>();
+
     categories.add(new Category("Interior"));
     categories.get(0).products.add((new product("Vacuum Cleaner",15,50,2027)));
     categories.add(new Category("Exterior"));
@@ -73,7 +71,7 @@ public synchronized String format(java.util.logging.LogRecord logRecord) {
     public void setLogged_in(boolean logged_in) {
         this.logged_in = logged_in;
     }
-    public static ArrayList<Category> categories;
+    public static ArrayList<Category>categories=new ArrayList<>();
 
 
 public String showallcatogries(){
