@@ -10,6 +10,7 @@ import java.util.logging.*;
 
 
 public  class Application {
+    private final String categ="the Category ";
     private final String inv="invalid input";
 private Random random;
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
@@ -125,12 +126,12 @@ try {
             LOGGER.info(y);
            addcat(m); }
         else {
-              String y="the Category "+m+" is not added";
+              String y=categ+m+" is not added";
             LOGGER.info(y);
         }
 
 }catch (NullPointerException e){
-      String y="the Category "+m+" is not added";
+      String y=categ+m+" is not added";
     LOGGER.info(y);
 } }
     public void newCatogry() {
@@ -139,7 +140,7 @@ try {
         String m = scanner.nextLine();
         if (foundc(m)) {
 
-            LOGGER.info("the Category " + m + " is really exist");
+            LOGGER.info(categ + m + " is really exist");
 
         } else addnewCategory_confirmation(m);
     }else{
