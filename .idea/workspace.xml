@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="some updates">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="some updates 1.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/mainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +62,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Cucumber Java.Feature: feature4">
+  <component name="RunManager">
     <configuration name="Feature: feature4" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/Features/feature4.feature" />

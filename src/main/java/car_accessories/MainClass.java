@@ -59,20 +59,10 @@ public class MainClass {
             }
 
             switch (authen) {
-                case 1:
-                    signUp(scanner, signInApplication);
-                    break;
-
-                case 2:
-                    signIn(scanner, signInApplication);
-                    break;
-
-                case 3:
-                    System.exit(0);
-                    break;
-
-                default:
-                    LOGGER.info("Invalid choice! Please try again.");
+                case 1 -> signUp(scanner, signInApplication);
+                case 2 -> signIn(scanner, signInApplication);
+                case 3 -> System.exit(0);
+                default -> LOGGER.info("Invalid choice! Please try again.");
             }
         } while (authen != 3);
 
@@ -112,44 +102,7 @@ public class MainClass {
 
             if (signInApplication.login.confirmLogin(verificationCode)) {
                 signInApplication.login.setRoles();
-
-                if (signInApplication.login.getRoles() == 0) {
-                    LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Admin");
-                    signInApplication.setuser(signInEmail, signInPassword, "Admin");
-                    adminDashboard(scanner, signInApplication);
-                } else if (signInApplication.login.getRoles() == 1) {
-                    signInApplication.setuser(signInEmail, signInPassword, "Customer");
-                    LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Customer");
-
-                    int select;
-                    while (true) {
-                        LOGGER.info("Choose an option:\n1.Review And Rate A Product\n2.exit");
-                        select = scanner.nextInt();
-                        if (select == 1) {
-                            signInApplication.newrate();
-                        } else if (select == 2) {
-                            break;
-                        } else {
-                            LOGGER.info("Choose a right option\n");
-                        }
-                    }
-                } else {
-                    signInApplication.setuser(signInEmail, signInPassword, "Installer");
-                    LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Installer");
-
-                    int select;
-                    while (true) {
-                        LOGGER.info("Choose an option:\n1.Install a Product to request\n2.exit");
-                        select = scanner.nextInt();
-                        if (select == 1) {
-                            signInApplication.installproduct();
-                        } else if (select == 2) {
-                            break;
-                        } else {
-                            LOGGER.info("Choose a right option\n");
-                        }
-                    }
-                }
+                handleRoles(scanner, signInApplication, signInEmail, signInPassword);
             } else {
                 LOGGER.info(INVALID_INFORMATION_PLEASE_TRY_AGAIN);
             }
@@ -157,6 +110,64 @@ public class MainClass {
             LOGGER.info(INVALID_INFORMATION_PLEASE_TRY_AGAIN);
         }
     }
+
+
+    private static void handleRoles(Scanner scanner, Application signInApplication, String signInEmail, String signInPassword) {
+        int roles = signInApplication.login.getRoles();
+
+        switch (roles) {
+            case 0 -> {
+                LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Admin");
+                signInApplication.setuser(signInEmail, signInPassword, "Admin");
+                adminDashboard(scanner, signInApplication);
+            }
+            case 1 -> {
+                signInApplication.setuser(signInEmail, signInPassword, "Customer");
+                LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Customer");
+                handleCustomerOptions(scanner, signInApplication);
+            }
+            default -> {
+                signInApplication.setuser(signInEmail, signInPassword, "Installer");
+                LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Installer");
+                handleInstallerOptions(scanner, signInApplication);
+            }
+        }
+    }
+
+    private static void handleCustomerOptions(Scanner scanner, Application signInApplication) {
+        int select;
+
+        while (true) {
+            LOGGER.info("Choose an option:\n1. Review And Rate A Product\n2. Exit");
+            select = scanner.nextInt();
+
+            if (select == 1) {
+                signInApplication.newrate();
+            } else if (select == 2) {
+                break;
+            } else {
+                LOGGER.info("Choose a right option\n");
+            }
+        }
+    }
+
+    private static void handleInstallerOptions(Scanner scanner, Application signInApplication) {
+        int select;
+
+        while (true) {
+            LOGGER.info("Choose an option:\n1. Install a Product to request\n2. Exit");
+            select = scanner.nextInt();
+
+            if (select == 1) {
+                signInApplication.installproduct();
+            } else if (select == 2) {
+                break;
+            } else {
+                LOGGER.info("Choose a right option\n");
+            }
+        }
+    }
+
 
     private static int getVerificationCode(Scanner scanner) {
         LOGGER.info("Enter your verificationCode: ");
@@ -179,153 +190,145 @@ public class MainClass {
             }
 
             switch (adminChoice) {
-                case 1:
-                    for (User user : application.login.users) {
-                        LOGGER.info("Email: " + user.getEmail());
-                        LOGGER.info("Password: " + user.getPassword());
-                        LOGGER.info("Type: " + user.getType());
-                        LOGGER.info("------------------------------------");
-                    }
-                    LOGGER.info(STRING);
-                    break;
-
-                case 2:
-                    LOGGER.info("Enter user email: ");
-                    String email1 = adminScanner.nextLine();
-
-                    LOGGER.info("Enter user password: ");
-                    String password1 = adminScanner.nextLine();
-
-                    LOGGER.info("Enter user type: ");
-                    String type = adminScanner.nextLine();
-
-                    User user = new User(email1, password1, type);
-                    if (application.login.addUser(user)) {
-                        LOGGER.info("User Added Successfully");
-                    } else {
-                        LOGGER.info(INVALID_INFORMATION_PLEASE_TRY_AGAIN);
-                    }
-                    LOGGER.info(STRING);
-                    break;
-
-                case 3:
-                    LOGGER.info("Enter user email that needs to be deleted: ");
-                    String email = adminScanner.nextLine();
-                    LOGGER.info("Enter user password that needs to be deleted: ");
-                    String password = adminScanner.nextLine();
-                    LOGGER.info("Enter your password to confirm deletion: ");
-                    String adminPassword = adminScanner.nextLine();
-
-                    if (application.newUser.getPassword().equals(adminPassword)) {
-                        if (application.login.deleteUser(new User(email, password))) {
-                            LOGGER.info("User Deleted Successfully");
-                        } else {
-                            LOGGER.info("User Delete Failed");
-                        }
-                    } else {
-                        LOGGER.info("Your Password Invalid! Please Try Again!");
-                    }
-
-                    LOGGER.info(STRING);
-                    break;
-
-                case 4:
-                    LOGGER.info("Enter user email that needs to be updated: ");
-                    String oldEmail = adminScanner.nextLine();
-                    LOGGER.info("Enter user password that needs to be updated: ");
-                    String oldPassword = adminScanner.nextLine();
-                    LOGGER.info("Enter your password to confirm updating: ");
-                    String adminPassword4 = adminScanner.nextLine();
-                    String oldType = "";
-
-                    if (application.newUser.getPassword().equals(adminPassword4)) {
-                        for (User s : application.login.users) {
-                            if (oldPassword.equals(s.getPassword()) && oldEmail.equalsIgnoreCase(s.getEmail())) {
-                                int userIndex = application.login.users.indexOf(s);
-                                oldType = s.getType();
-                            }
-                        }
-
-                        LOGGER.warning("If you want to update value just insert -1 ");
-                        LOGGER.info("Enter user new email that needs to be updated: ");
-                        String newEmail = adminScanner.nextLine();
-                        LOGGER.info("Enter user new password that needs to be updated: ");
-                        String newPassword = adminScanner.nextLine();
-                        LOGGER.info("Enter user new type that needs to be updated: ");
-                        String newType = adminScanner.nextLine();
-
-                        if (newPassword.equals("-1")) {
-                            newPassword = oldPassword;
-                        }
-                        if (newType.equals("-1")) {
-                            newType = oldType;
-                        }
-                        if (newEmail.equals("-1")) {
-                            newEmail = oldEmail;
-                        }
-
-                        if (application.login.updateUser(new User(oldEmail, oldPassword, oldType),
-                                new User(newEmail, newPassword, newType))) {
-                            LOGGER.info("User Updating Successfully");
-                        } else {
-                            LOGGER.info("User Updating Failed");
-                        }
-                    } else {
-                        LOGGER.info("Your Password Invalid! Please Try Again!");
-                    }
-
-                    LOGGER.info(STRING);
-                    break;
-
-                case 5:
-                    LOGGER.info("Choose an option:\n1.Add New Category\n2.Edit a Category\n3.Delete a Category\n" +
-                            "4.Add New Product\n5.Edit a Product\n6.Delete a Product\n7.Get a Report\n" +
-                            "8.Show average ratings and reviews\n9.exit");
-                    int ans = adminScanner.nextInt();
-                    switch (ans) {
-                        case 1:
-                            application.newCatogry();
-                            break;
-                        case 2:
-                            application.editCategory();
-                            break;
-                        case 3:
-                            application.deleteCategory();
-                            break;
-                        case 4:
-                            application.newproduct();
-                            break;
-                        case 5:
-                            application.editproduct();
-                            break;
-                        case 6:
-                            application.deleteproduct();
-                            break;
-                        case 7:
-                            application.makereport();
-                            break;
-                        case 8:
-                            application.showreviews();
-                            break;
-                        case 9:
-                            LOGGER.info("Invalid input");
-                            break;
-                        default:
-                            break;
-                    }
-
-                    LOGGER.info(STRING);
-                    break;
-
-                case 6:
-                    LOGGER.info("Sign Out");
-                    LOGGER.info(STRING);
-                    break;
-
-                default:
-                    LOGGER.info("Invalid choice! Please try again.");
-                    LOGGER.info(STRING);
+                case 1 -> showAllUsers(application);
+                case 2 -> addUser(adminScanner, application);
+                case 3 -> deleteUser(adminScanner, application);
+                case 4 -> updateUser(adminScanner, application);
+                case 5 -> mainMenu(application,adminScanner);
+                case 6 -> signOut();
+                default -> invalidChoice();
             }
         } while (adminChoice != 6);
     }
+
+    private static void showAllUsers(Application application) {
+        for (User user : application.login.users) {
+            LOGGER.info("Email: " + user.getEmail());
+            LOGGER.info("Password: " + user.getPassword());
+            LOGGER.info("Type: " + user.getType());
+            LOGGER.info("------------------------------------");
+        }
+        LOGGER.info(STRING);
+    }
+
+    private static void addUser(Scanner adminScanner, Application application) {
+        LOGGER.info("Enter user email: ");
+        String email1 = adminScanner.nextLine();
+        LOGGER.info("Enter user password: ");
+        String password1 = adminScanner.nextLine();
+        LOGGER.info("Enter user type: ");
+        String type = adminScanner.nextLine();
+        User user = new User(email1, password1, type);
+        if (application.login.addUser(user)) {
+            LOGGER.info("User Added Successfully");
+        } else {
+            LOGGER.info(INVALID_INFORMATION_PLEASE_TRY_AGAIN);
+        }
+        LOGGER.info(STRING);
+    }
+
+    private static void deleteUser(Scanner adminScanner, Application application) {
+        LOGGER.info("Enter user email that needs to be deleted: ");
+        String email = adminScanner.nextLine();
+        LOGGER.info("Enter user password that needs to be deleted: ");
+        String password = adminScanner.nextLine();
+        LOGGER.info("Enter your password to confirm deletion: ");
+        String adminPassword = adminScanner.nextLine();
+        if (application.newUser.getPassword().equals(adminPassword)) {
+            if (application.login.deleteUser(new User(email, password))) {
+                LOGGER.info("User Deleted Successfully");
+            } else {
+                LOGGER.info("User Delete Failed");
+            }
+        } else {
+            LOGGER.info("Your Password Invalid! Please Try Again!");
+        }
+        LOGGER.info(STRING);
+    }
+
+    private static void updateUser(Scanner adminScanner, Application application) {
+        LOGGER.info("Enter user email that needs to be updated: ");
+        String oldEmail = adminScanner.nextLine();
+        LOGGER.info("Enter user password that needs to be updated: ");
+        String oldPassword = adminScanner.nextLine();
+        LOGGER.info("Enter your password to confirm updating: ");
+        String adminPassword4 = adminScanner.nextLine();
+        String oldType = "";
+        if (application.newUser.getPassword().equals(adminPassword4)) {
+            for (User s : application.login.users) {
+                if (oldPassword.equals(s.getPassword()) && oldEmail.equalsIgnoreCase(s.getEmail())) {
+                    oldType = s.getType();
+                }
+            }
+
+            LOGGER.warning("If you want to update value just insert -1 ");
+            LOGGER.info("Enter user new email that needs to be updated: ");
+            String newEmail = adminScanner.nextLine();
+            LOGGER.info("Enter user new password that needs to be updated: ");
+            String newPassword = adminScanner.nextLine();
+            LOGGER.info("Enter user new type that needs to be updated: ");
+            String newType = adminScanner.nextLine();
+
+            if (newPassword.equals("-1")) {
+                newPassword = oldPassword;
+            }
+            if (newType.equals("-1")) {
+                newType = oldType;
+            }
+            if (newEmail.equals("-1")) {
+                newEmail = oldEmail;
+            }
+
+            if (application.login.updateUser(new User(oldEmail, oldPassword, oldType),
+                    new User(newEmail, newPassword, newType))) {
+                LOGGER.info("User Updating Successfully");
+            } else {
+                LOGGER.info("User Updating Failed");
+            }
+        } else {
+            LOGGER.info("Your Password Invalid! Please Try Again!");
+        }
+        LOGGER.info(STRING);
+    }
+
+    private static void mainMenu(Application application,Scanner adminScanner) {
+        LOGGER.info("""
+            Choose an option:
+            1. Add New Category
+            2. Edit a Category
+            3. Delete a Category
+            4. Add New Product
+            5. Edit a Product
+            6. Delete a Product
+            7. Get a Report
+            8. Show average ratings and reviews
+            9. Exit
+                 """);
+        int ans = adminScanner.nextInt();
+        switch (ans) {
+            case 1 -> application.newCatogry();
+            case 2 -> application.editCategory();
+            case 3 -> application.deleteCategory();
+            case 4 -> application.newproduct();
+            case 5 -> application.editproduct();
+            case 6 -> application.deleteproduct();
+            case 7 -> application.makereport();
+            case 8 -> application.showreviews();
+            case 9 -> LOGGER.info("Invalid input");
+            default -> {
+            }
+        }
+        LOGGER.info(STRING);
+    }
+
+    private static void signOut() {
+        LOGGER.info("Sign Out");
+        LOGGER.info(STRING);
+    }
+
+    private static void invalidChoice() {
+        LOGGER.info("Invalid choice! Please try again.");
+        LOGGER.info(STRING);
+    }
+
 }

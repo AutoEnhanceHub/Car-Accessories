@@ -5,14 +5,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Product {
-    public String name;
+    protected String name;
     int quantity;
     int price;
     float rateAvg;
     LocalDate manufactureDate;
     LocalDate expirationDate;
-    public List<Integer>rates=new ArrayList<Integer>();
-    public List<String> reviews=new ArrayList<String>();
+    protected List<Integer>rates= new ArrayList<>();
+    protected List<String> reviews= new ArrayList<>();
     public Product(String n, int q , int p, int year){
         name=n;
         quantity=q;
