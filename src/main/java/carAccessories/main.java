@@ -38,7 +38,7 @@ public class main {
         consoleHandler.setLevel(Level.ALL);
         consoleHandler.setFormatter(new SimpleFormatter() {
             @Override
-            public synchronized String format(java.util.logging.LogRecord record) {
+            public String format(java.util.logging.LogRecord record) {
                 return record.getMessage() + "\n";
             }
         });

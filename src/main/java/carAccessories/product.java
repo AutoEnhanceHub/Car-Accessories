@@ -1,10 +1,9 @@
 package carAccessories;
 
-import io.cucumber.java.bs.A;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+import java.util.List;
 public class product {
     public String name;
     int quantity;
@@ -12,8 +11,8 @@ public class product {
     float rate_avg;
     LocalDate manufactureDate;
     LocalDate expirationDate;
-    public ArrayList<Integer> rates;
-    public ArrayList<String> reviews;
+    public List<Integer> rates;
+    public List<String> reviews;
     public product(String n, int q , int p,int year){
         name=new String(n);
         quantity=q;

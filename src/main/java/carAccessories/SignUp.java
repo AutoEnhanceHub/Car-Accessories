@@ -19,11 +19,16 @@ public class SignUp {
         return false;
     }
 
-    public static boolean emailValidator(String Email){
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-        Pattern pattern = Pattern.compile(emailRegex);
-        Matcher matcher = pattern.matcher(Email);
-        return matcher.matches();
+public static boolean emailValidator(String email) {
+     if (email != null)
+    {
+        Pattern p = Pattern.compile("^[A-Za-z].*?@gmail\\.com$");
+        Matcher m = p.matcher(email);
+        return m.find();
     }
+    return false;
+}
+
+
 
 }
