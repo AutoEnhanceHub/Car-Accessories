@@ -31,7 +31,7 @@ static int[] indexes=new int[2];
 
 public Application(){
     categories=new ArrayList<>();
-random=new Random();
+random=new SecureRandom();
     LOGGER.setUseParentHandlers(false);
 
     Handler[] handlers = LOGGER.getHandlers();
