@@ -377,8 +377,8 @@ public void newproduct(){
         }
         if(foundp(catname,pname)){
             addnewproduct(catname,pname,quantity,0,0);
-            String yu="The quantity is added to the exist product "+pname+"\n";
-            LOGGER.info(yu);
+            String yupp="The quantity is added to the exist product "+pname+"\n";
+            LOGGER.info(yupp);
             return;
         }
         LOGGER.info("what is the price of this new product?\n");
