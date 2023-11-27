@@ -10,6 +10,7 @@ import java.util.logging.*;
 
 
 public  class Application {
+    private final String valids="Enter a valid value in the next time\n";
     private final String tabs="     ";
     private final String adminstring="Admin";
     private final static String categ="the Category ";
@@ -555,7 +556,7 @@ public void installproduct(){
         }
 
 }catch (Exception e){
-        LOGGER.info("Enter a valid value in the next time\n");
+        LOGGER.info(valids);
 
     }}
 
@@ -607,7 +608,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
          LOGGER.info("The new rate is added,The new review is added\n");
      }
      catch (Exception e){
-         LOGGER.info("Enter a valid value in the next time\n");
+         LOGGER.info(valids);
 
      }
  }
@@ -652,7 +653,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
          LOGGER.info(message+"\n");
      }
      catch (Exception e){
-         LOGGER.info("Enter a valid value in the next time\n");
+         LOGGER.info(valids);
      }
  }
 
@@ -794,7 +795,7 @@ public void makereport() {
                     throw new Exception();
             }
         } catch (Exception e) {
-            LOGGER.info("Enter a valid value in the next time\n");
+            LOGGER.info(valids);
         }
     }
 }
