@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.logging.*;
 
 public class Login {
+   private static final Logger LOGGER = Logger.getLogger(Login.class.getName());
    String admins="Admin";
     List<User>users=new ArrayList<>();
     int roles;
@@ -16,7 +17,20 @@ public class Login {
     boolean validEmail;
     int userIndex;
     Login(User u){
+       LOGGER.setUseParentHandlers(false);
         this.u=u;
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+    consoleHandler.setLevel(Level.ALL);
+    consoleHandler.setFormatter(new SimpleFormatter() {
+        @Override
+public synchronized String format(java.util.logging.LogRecord logRecord) {
+    return logRecord.getMessage() + "\n";
+}
+
+
+    });
+    LOGGER.addHandler(consoleHandler);
+
         
         User u1=new User("ibrahim.sadi.asad@gmail.com","123456",admins);
         User u2=new User("ibrahimeceasad@gmail.com","654321","Customer");
