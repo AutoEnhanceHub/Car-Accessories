@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="Dos 1.0.1">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_31_2023_12_48_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_31_2023_12_48_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Mailing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/Sales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Sales.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/main_class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/carAccessories/product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/carAccessories/AcceptanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/AcceptanceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/carAccessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,12 +132,12 @@
       <module name="Car-Accessories" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="carAccessories.*" />
+          <option name="PATTERN" value="car_accessories.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="carAccessories" />
-      <option name="MAIN_CLASS_NAME" value="carAccessories.AcceptanceTest" />
+      <option name="MAIN_CLASS_NAME" value="car_accessories.AcceptanceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -179,6 +188,8 @@
       <workItem from="1698925323714" duration="953000" />
       <workItem from="1698950070276" duration="4738000" />
       <workItem from="1700752512958" duration="1340000" />
+      <workItem from="1701081344941" duration="3026000" />
+      <workItem from="1701113512217" duration="218000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -282,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698954767160</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Dos 1.0.1">
+      <created>1701081542313</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701081542314</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

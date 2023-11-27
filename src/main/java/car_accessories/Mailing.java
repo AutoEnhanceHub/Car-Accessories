@@ -1,4 +1,4 @@
-package carAccessories;
+package car_accessories;
 
 import java.util.*;
 import javax.mail.*;

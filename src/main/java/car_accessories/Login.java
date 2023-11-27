@@ -1,10 +1,8 @@
-package carAccessories;
+package car_accessories;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Login {
     ArrayList<User>users;

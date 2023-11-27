@@ -1,13 +1,11 @@
-package carAccessories;
+package car_accessories;
 
-import javax.mail.Session;
 import java.util.InputMismatchException;
-import java.util.Properties;
 import java.util.Scanner;
 import java.util.logging.*;
 
-public class main {
-    private static final Logger LOGGER = Logger.getLogger(main.class.getName());
+public class main_class {
+    private static final Logger LOGGER = Logger.getLogger(main_class.class.getName());
 
     static {
         // Disable JavaMail debug logs

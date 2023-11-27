@@ -1,35 +1,31 @@
-package carAccessories;
+package car_accessories;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.*;
-import java.security.SecureRandom;
 
 
 public  class Application {
-    private final static String valids="Enter a valid value in the next time\n";
-    private final String adminstring="Admin";
-    private final static String categ="the Category ";
-    private final static String inv="invalid input";
-private SecureRandom random;
+
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     String carname;
     boolean logged_in;
- 
+
     Login login;
-    static ArrayList<Sales> sales=new ArrayList<>();
-    static ArrayList<Category> categories;
+    static ArrayList<Sales> sales;
+
     User newUser;
     SignUp signUp;
-static int[] indexes=new int[2];
+static int[] indexes;
     Scanner scanner = new Scanner(System.in);
 
 public Application(){
-    categories=new ArrayList<>();
-random=new SecureRandom();
+
     LOGGER.setUseParentHandlers(false);
 
     Handler[] handlers = LOGGER.getHandlers();
@@ -41,19 +37,19 @@ random=new SecureRandom();
     consoleHandler.setLevel(Level.ALL);
     consoleHandler.setFormatter(new SimpleFormatter() {
         @Override
-public synchronized String format(java.util.logging.LogRecord logRecord) {
-    return logRecord.getMessage() + "\n";
-}
-
-
+        public String format(java.util.logging.LogRecord record) {
+            return record.getMessage() + "\n";
+        }
     });
     LOGGER.addHandler(consoleHandler);
 
     carname="";
-  
+    sales=new ArrayList<Sales>();
+
+    indexes=new int[2];
     this.logged_in = false;
     login=new Login(newUser);
-
+    categories=new ArrayList<Category>();
     categories.add(new Category("Interior"));
     categories.get(0).products.add((new product("Vacuum Cleaner",15,50,2027)));
     categories.add(new Category("Exterior"));
@@ -76,7 +72,7 @@ public synchronized String format(java.util.logging.LogRecord logRecord) {
     public void setLogged_in(boolean logged_in) {
         this.logged_in = logged_in;
     }
-    
+    public static ArrayList<Category> categories;
 
 
 public String showallcatogries(){
@@ -124,30 +120,26 @@ try {
 
 
         if(response==1){
-            String y="You added the Category "+m;
-            LOGGER.info(y);
+            LOGGER.info("You added the Category "+m);
            addcat(m); }
         else {
-              String y=categ+m+" is not added";
-            LOGGER.info(y);
+            LOGGER.info("the Category "+m+" is not added");
         }
 
 }catch (NullPointerException e){
-      String y=categ+m+" is not added";
-    LOGGER.info(y);
+    LOGGER.info("the Category "+m+" is not added");
 } }
     public void newCatogry() {
-    if(newUser.type.equals(adminstring)){
+    if(newUser.type.equals("Admin")){
         LOGGER.info("What is the name of the Category?");
         String m = scanner.nextLine();
         if (foundc(m)) {
-String y=categ + m + " is really exist";
-            LOGGER.info(y);
+
+            LOGGER.info("the Category " + m + " is really exist");
 
         } else addnewCategory_confirmation(m);
     }else{
-        String y="Only admins can delete Categories";
-        LOGGER.info(y);
+        LOGGER.info("Only admins can delete Categories");
        }
 
     }
@@ -161,7 +153,7 @@ String y=categ + m + " is really exist";
 
 public void editCategory(){
 
-if(newUser.type.equals(adminstring)){
+if(newUser.type.equals("Admin")){
         if(categories.isEmpty()){
             LOGGER.info("There is no categories in the system");
 
@@ -173,16 +165,15 @@ if(newUser.type.equals(adminstring)){
 
 
             try {
-                String y="Choose a Category\n"+f;
-                LOGGER.info(y);
+                LOGGER.info("Choose a Category\n"+f);
 
                 int select=scanner.nextInt();
                 scanner.nextLine();
                 if(select<1){
-                    LOGGER.info(inv);
+                    LOGGER.info("Invalid Input");
 
                 } else if (select>categories.size()) {
-                    LOGGER.info(inv);
+                    LOGGER.info("Invalid Input");
                 }else{
                     select--;
                     LOGGER.info("What is the new name of the Category?");
@@ -207,7 +198,7 @@ String rename=scanner.nextLine();
   if(response==1){
       edtcatogry(categories.get(select).name,rename);
       LOGGER.info("The Name is edited successfully\n");
- 
+ ;
 }
  else {
       LOGGER.info("the Category is not Edited\n");
@@ -216,7 +207,7 @@ String rename=scanner.nextLine();
                 }
                 }
             }catch (NumberFormatException e){
-                LOGGER.info(inv);
+                LOGGER.info("Invalid Input");
             }
 
         }
@@ -233,27 +224,26 @@ public void dltcat(String name){
    }
 }
 public void deleteCategory(){
-    if(newUser.type.equals(adminstring)){
+    if(newUser.type.equals("Admin")){
     if(categories.isEmpty()){
         LOGGER.info("There is no categories in the system\n");
 
-    }else{   StringBuilder f= new StringBuilder();
+    }else{   String f="";
         for(int i=0;i<categories.size();i++){
-             f.append(i + 1).append(". ").append(categories.get(i).name).append("\n");
+            f+=i+1+". "+categories.get(i).name+"\n";
         }
 
 
 
         try {
-            String y="Choose a Category\n"+f;
-            LOGGER.info(y);
+            LOGGER.info("Choose a Category\n"+f);
 
             int select=scanner.nextInt();
             scanner.nextLine();
             if(select<1){
-                LOGGER.info(inv);
+                LOGGER.info("Invalid Input");
             } else if (select>categories.size()) {
-                LOGGER.info(inv);
+                LOGGER.info("Invalid Input");
             }else{
                 select--;
 
@@ -279,7 +269,7 @@ public void deleteCategory(){
 
             }
         }catch (NumberFormatException e){
-            LOGGER.info(inv);
+            LOGGER.info("Invalid Input");
 
         }
 }}
@@ -306,39 +296,40 @@ public boolean foundp(String catname,String pname){
     return false;
 }
 public String getallproducts(String catname){
-   StringBuilder f= new StringBuilder();
+    String f="";
     if(foundc(catname)){
          if(categories.get(indexes[0]).products.isEmpty()){
             return "There is no products";
         }
-         f.append("#. name     quantity     price     rate\n");
+         f=f+"#. name     quantity     price     rate\n";
      for(int i=0;i<categories.get(indexes[0]).products.size();i++){
          int c=i+1;
          if(i==categories.get(indexes[0]).products.size()-1){
-         f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append("     ").append(categories.get(indexes[0]).products.get(i).quantity).append("     ").append(categories.get(indexes[0]).products.get(i).price).append("     ").append(categories.get(indexes[0]).products.get(i).rate_avg);
-      break;
+             f=f+c+". "+categories.get(indexes[0]).products.get(i).name+"     "+
+                     categories.get(indexes[0]).products.get(i).quantity+"     "+
+                     categories.get(indexes[0]).products.get(i).price+"     "+
+                     categories.get(indexes[0]).products.get(i).rate_avg;break;
          }
-      f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append("     ").append(categories.get(indexes[0]).products.get(i).quantity).append("     ").append(categories.get(indexes[0]).products.get(i).price).append("     ").append(categories.get(indexes[0]).products.get(i).rate_avg).append("\n");
- 
+         f=f+c+". "+categories.get(indexes[0]).products.get(i).name+"     "+
+                 categories.get(indexes[0]).products.get(i).quantity+"     "+
+                 categories.get(indexes[0]).products.get(i).price+"     "+
+                 categories.get(indexes[0]).products.get(i).rate_avg+"\n";
      }
     }
    else{
-      f.append("The Category is empty");
+        f=f+"The Category is empty";
     }
-    return f.toString();
+    return f;
 }
 public void showproducts(){
 
 
-  try {
-      String yu="Choose a Category to see its products\n"+showallcatogries();
-      LOGGER.info(yu);
+  try {LOGGER.info("Choose a Category to see its products\n"+showallcatogries());
 
       int x=scanner.nextInt();
       scanner.nextLine();
       x--;
-      String uuuu=getallproducts(categories.get(x).name);
-      LOGGER.info(uuuu);
+      LOGGER.info(getallproducts(categories.get(x).name));
 
   }catch (Exception e){
       LOGGER.info("Enter a valid value in the next time\n");
@@ -355,12 +346,11 @@ public void addnewproduct(String catname,String pname,int quantity,int price,int
     }
 }
 public void newproduct(){
-    if(!newUser.type.equals(adminstring)){
+    if(!newUser.type.equals("Admin")){
         LOGGER.info("Only admins can add products\n");
         return;}
     try{
-        String yu="Choose a Category to add a new product\n"+showallcatogries();
-        LOGGER.info(yu);
+        LOGGER.info("Choose a Category to add a new product\n"+showallcatogries());
 
     int select=scanner.nextInt();  scanner.nextLine();
     select--;
@@ -375,8 +365,7 @@ public void newproduct(){
         }
         if(foundp(catname,pname)){
             addnewproduct(catname,pname,quantity,0,0);
-            String yupp="The quantity is added to the exist product "+pname+"\n";
-            LOGGER.info(yupp);
+            LOGGER.info("The quantity is added to the exist product "+pname+"\n");
             return;
         }
         LOGGER.info("what is the price of this new product?\n");
@@ -396,7 +385,7 @@ public void newproduct(){
 
 
 }catch (Exception e){
-        LOGGER.info(inv);
+        LOGGER.info("Invalid Input");
 
     }
 }
@@ -407,13 +396,13 @@ public void editproduct(String catname,String pname,String newname,int newprice)
     }
 }
 public void editproduct(){
-    if(!newUser.type.equals(adminstring)){
+    if(!newUser.type.equals("Admin")){
         LOGGER.info("Only admins can edit products\n");
 
         return;}
     try{
-String y1y="Choose a Category to edit\n"+showallcatogries();
-        LOGGER.info(y1y);
+
+        LOGGER.info("Choose a Category to edit\n"+showallcatogries());
 
         int cselect= scanner.nextInt();  scanner.nextLine();
         cselect--;
@@ -423,8 +412,7 @@ String y1y="Choose a Category to edit\n"+showallcatogries();
             return;
         }
         String catname=categories.get(cselect).name;
-        String y2y="Choose a product to edit\n"+getallproducts(catname);
-        LOGGER.info(y2y);
+        LOGGER.info("Choose a product to edit\n"+getallproducts(catname));
 
         int pselect= scanner.nextInt();  scanner.nextLine();
         pselect--;
@@ -438,35 +426,29 @@ for(int i=0;i<categories.get(cselect).products.size();i++){
         throw new Exception();
     }
 }
- String y99y="What is the new price of the product "+old+"?\n";      LOGGER.info(y99y);
+        LOGGER.info("What is the new price of the product "+old+"?\n");
 
-     int newprice = scanner.nextInt();
-scanner.nextLine();
-
-if (newprice < 1) {
-    throw new Exception();
-}
-
-if (newname.isEmpty()) {
-    editproduct(catname, old, old, newprice);
-} else {
-    editproduct(catname, old, newname, newprice);
-}
-
-LOGGER.info("The product is updated successfully\n");
+       int newprice=scanner.nextInt();  scanner.nextLine();
+       if(newprice<1){
+           throw new Exception();
+       }if(newname.isEmpty()){
+            editproduct(catname,old,old,newprice);
+        }else{
+            editproduct(catname,old,newname,newprice);
+        }
+        LOGGER.info("The product is updated successfully\n");
     }
    catch (Exception e){
-       LOGGER.info(inv);
+       LOGGER.info("Invalid Input");
     }
 }
 public void deleteproduct(){
-    if(!newUser.type.equals(adminstring)){
+    if(!newUser.type.equals("Admin")){
         LOGGER.info("Only admins can delete products\n");
 
         return;}
     try{
-        String y3y="Choose a Category to delete a product\n"+showallcatogries();
-        LOGGER.info(y3y);
+        LOGGER.info("Choose a Category to delete a product\n"+showallcatogries());
 
         int cselect= scanner.nextInt();  scanner.nextLine();
         cselect--;
@@ -475,8 +457,7 @@ public void deleteproduct(){
             return;
         }
         String catname=categories.get(cselect).name;
-        String y4y="Choose a product to delete\n"+getallproducts(catname);
-        LOGGER.info(y4y);
+        LOGGER.info("Choose a product to delete\n"+getallproducts(catname));
 
         int pselect= scanner.nextInt();  scanner.nextLine();
         pselect--;
@@ -485,7 +466,7 @@ public void deleteproduct(){
 
     }
     catch (Exception e){
-        LOGGER.info(inv);
+        LOGGER.info("Invalid Input");
     }
 }
 public void dltp(String catname,String pname){
@@ -510,8 +491,7 @@ public void installproduct(){
 
         return;}
     try{
-        String y5y="Choose a Category to request a product\n"+showallcatogries();
-        LOGGER.info(y5y);
+        LOGGER.info("Choose a Category to request a product\n"+showallcatogries());
 
         int cselect= scanner.nextInt();  scanner.nextLine();
         cselect--;
@@ -520,8 +500,7 @@ public void installproduct(){
             return;
         }
         String catname=categories.get(cselect).name;
-        String y6y="Choose a product to request\n"+getallproducts(catname);
-        LOGGER.info(y6y);
+        LOGGER.info("Choose a product to request\n"+getallproducts(catname));
 
         int pselect= scanner.nextInt();  scanner.nextLine();
         pselect--;
@@ -537,18 +516,17 @@ public void installproduct(){
         String car=scanner.nextLine();
         if(installrequest(catname,pname,qu,carname)){
             int fee=qu*categories.get(cselect).products.get(pselect).price;
-            String y7y="The request will be installed successfully\n" +
-                    "Your FEE is "+qu*categories.get(cselect).products.get(pselect).price+"\n";
-            LOGGER.info(y7y);
+            LOGGER.info("The request will be installed successfully\n" +
+                    "Your FEE is "+qu*categories.get(cselect).products.get(pselect).price+"\n");
 
             if(categories.get(cselect).products.get(pselect).quantity==0){
                 categories.get(cselect).products.remove(pselect);
             }
-            
+            Random random = new Random();
 
 
-            int rValue = random.nextInt(5) + 1;
-            LocalDate ship=LocalDate.now().plusDays(rValue);
+            int randomNumber = random.nextInt(5) + 1;
+            LocalDate ship=LocalDate.now().plusDays(randomNumber);
             String message="Your order has been received and is currently being processed. " +
                     " The order is going to be shipped after ." +ship+
                     ". Thank you for shopping with us!\n" +
@@ -566,7 +544,7 @@ public void installproduct(){
         }
 
 }catch (Exception e){
-        LOGGER.info(valids);
+        LOGGER.info("Enter a valid value in the next time\n");
 
     }}
 
@@ -589,8 +567,8 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
          LOGGER.info("Only customers can rate and review\n");
          return;}
      try{
-String y8y="Choose a Category to rate and review a product\n"+showallcatogries();
-         LOGGER.info(y8y);
+
+         LOGGER.info("Choose a Category to rate and review a product\n"+showallcatogries());
 
          int cselect=scanner.nextInt();  scanner.nextLine();
          cselect--;
@@ -599,8 +577,7 @@ String y8y="Choose a Category to rate and review a product\n"+showallcatogries()
              return;
          }
          String catname=categories.get(cselect).name;
-         String y9y="Choose a product to rate and review\n"+getallproducts(catname);
-         LOGGER.info(y9y);
+         LOGGER.info("Choose a product to rate and review\n"+getallproducts(catname));
 
          int pselect= scanner.nextInt();  scanner.nextLine();
          pselect--;
@@ -619,7 +596,7 @@ String y8y="Choose a Category to rate and review a product\n"+showallcatogries()
          LOGGER.info("The new rate is added,The new review is added\n");
      }
      catch (Exception e){
-         LOGGER.info(valids);
+         LOGGER.info("Enter a valid value in the next time\n");
 
      }
  }
@@ -637,12 +614,12 @@ String y8y="Choose a Category to rate and review a product\n"+showallcatogries()
     return "";
  }
  public void showreviews(){
-     if(!newUser.type.equals(adminstring)){
+     if(!newUser.type.equals("Admin")){
          LOGGER.info("Only Admins can get informations\n");
          return;}
      try{
-String y1y="Choose a Category to get informations about a product\n"+showallcatogries();
-         LOGGER.info(y1y);
+
+         LOGGER.info("Choose a Category to get informations about a product\n"+showallcatogries());
 
          int cselect= scanner.nextInt();  scanner.nextLine();
          cselect--;
@@ -651,8 +628,7 @@ String y1y="Choose a Category to get informations about a product\n"+showallcato
              return;
          }
          String catname=categories.get(cselect).name;
-         String y2y="Choose a product to get informations\n"+getallproducts(catname);
-         LOGGER.info(y2y);
+         LOGGER.info("Choose a product to get informations\n"+getallproducts(catname));
 
          int pselect= scanner.nextInt();  scanner.nextLine();
          pselect--;
@@ -665,20 +641,21 @@ String y1y="Choose a Category to get informations about a product\n"+showallcato
          LOGGER.info(message+"\n");
      }
      catch (Exception e){
-         LOGGER.info(valids);
+         LOGGER.info("Enter a valid value in the next time\n");
      }
  }
 
     public static boolean printTextToFile(String fileName, String text) {
-        try(FileWriter writer = new FileWriter(fileName)) {
-            
+        try {
+            FileWriter writer = new FileWriter(fileName);
             writer.write(text);
             writer.close();
             return true;
 
         } catch (IOException ignored) {
-            return false;
+
         }
+        return false;
     }
 
     public String Salesreport() {
@@ -763,54 +740,50 @@ String y1y="Choose a Category to get informations about a product\n"+showallcato
         if(f.isEmpty())return "There is no informations";
         return f;
     }
-public boolean report(String report, String filename) {
-    switch (report) {
-        case "Sales":
-            return printTextToFile(filename, Salesreport());
-        case "Product rates":
-            return printTextToFile(filename, Ratesreport());
-        case "Category products":
-            return printTextToFile(filename, productreport());
-        case "rates and reviews":
-            return printTextToFile(filename, Ratesreviewsreport());
-        default:
-            return false;
-    }
-}
+    public boolean report(String report,String filename){
 
-public void makereport() {
-    if (newUser.getType().equals(adminstring)) {
-        try {
-            LOGGER.info("What is the name of the file?");
-            String file = scanner.next();
-String y3y="Choose a report\n1. Sales report\n2. Product rates report\n" +
-                    "3. Category products report\n4. rates and reviews report";
-            LOGGER.info(y3y);
-
-            int c = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (c) {
-                case 1:
-                    report("Sales", file);
-                    break;
-                case 2:
-                    report("Product rates", file);
-                    break;
-                case 3:
-                    report("Category products", file);
-                    break;
-                case 4:
-                    report("rates and reviews", file);
-                    break;
-                default:
-                    throw new Exception();
+        switch (report) {
+            case "Sales" -> {
+                printTextToFile(filename, Salesreport());
+                return true;
             }
-        } catch (Exception e) {
-            LOGGER.info(valids);
+            case "Product rates" -> {
+                printTextToFile(filename, Ratesreport());
+                return true;
+            }
+            case "Category products" -> {
+                printTextToFile(filename, productreport());
+                return true;
+            }
+            case "rates and reviews" -> {
+                printTextToFile(filename, Ratesreviewsreport());
+                return true;
+            }
         }
+        return false;
     }
-}
+    public void makereport(){
+        if(newUser.getType().equals("Admin")){
+            try {
+                LOGGER.info("What is the name of the file?");
+                String file=scanner.next();
+
+                LOGGER.info("Choose a report\n1. Sales report\n2. Product rates report\n" +
+                        "3. Category products report\n4. rates and reviews report");
+
+                int c= scanner.nextInt();  scanner.nextLine();
+
+                switch (c){
+                    case 1:report("Sales",file);break;
+                    case 2:report("Product rates",file);break;
+                    case 3:report("Category products",file);break;
+                    case 4:report("rates and reviews",file);break;
+                    default:throw new Exception();
+                }
+            }catch (Exception e){
+                LOGGER.info("Enter a valid value in the next time\n");
+            }}
+        }
 
 
     }

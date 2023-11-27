@@ -1,4 +1,4 @@
-package carAccessories;
+package car_accessories;
 import io.cucumber.java.en.*;
 
 

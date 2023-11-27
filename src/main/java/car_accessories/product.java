@@ -1,4 +1,4 @@
-package carAccessories;
+package car_accessories;
 
 
 import java.time.LocalDate;

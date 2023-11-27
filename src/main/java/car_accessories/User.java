@@ -1,6 +1,4 @@
-package carAccessories;
-
-import java.util.Random;
+package car_accessories;
 
 public class User {
     String email;
