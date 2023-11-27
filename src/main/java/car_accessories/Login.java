@@ -5,7 +5,8 @@ import javax.mail.internet.InternetAddress;
 import java.util.ArrayList;
 
 public class Login {
-    ArrayList<User>users;
+    private static final String admins="Admin";
+    ArrayList<User>=users=new ArrayList<>();
     int roles;
     boolean isLogged;
     Mailing m;
@@ -15,11 +16,11 @@ public class Login {
     int userIndex;
     Login(User u){
         this.u=u;
-        users=new ArrayList<User>();
-        User u1=new User("ibrahim.sadi.asad@gmail.com","123456","Admin");
+        
+        User u1=new User("ibrahim.sadi.asad@gmail.com","123456",admins);
         User u2=new User("ibrahimeceasad@gmail.com","654321","Customer");
         User u3=new User("i.a.s.assad33@gmail.com","987654","Installer");
-        User u4=new User("abdallahdaher785@gmail.com","abdallah@123","Admin");
+        User u4=new User("abdallahdaher785@gmail.com","abdallah@123",admins);
         users.add(u1);
         users.add(u2);
         users.add(u3);
@@ -71,7 +72,7 @@ public class Login {
 
     public void setRoles() {
         String type=users.get(userIndex).getType();
-        if (type.equalsIgnoreCase("Admin")){
+        if (type.equalsIgnoreCase(admins)){
             roles=0;
         }
         else if (type.equalsIgnoreCase("Customer")){
