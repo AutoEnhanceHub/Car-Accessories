@@ -69,7 +69,7 @@ public class Mailing {
         sending(Subject,Text);
 
     }
-    public void sendEmail(String subject,String Text) {
+    public void sendEmail(String Subject,String Text) {
        sending(Subject,Text);
     }
 
