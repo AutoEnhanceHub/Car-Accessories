@@ -413,8 +413,8 @@ public void editproduct(){
 
         return;}
     try{
-
-        LOGGER.info("Choose a Category to edit\n"+showallcatogries());
+String y1y="Choose a Category to edit\n"+showallcatogries();
+        LOGGER.info(y1y);
 
         int cselect= scanner.nextInt();  scanner.nextLine();
         cselect--;
@@ -424,7 +424,8 @@ public void editproduct(){
             return;
         }
         String catname=categories.get(cselect).name;
-        LOGGER.info("Choose a product to edit\n"+getallproducts(catname));
+        String y2y="Choose a product to edit\n"+getallproducts(catname);
+        LOGGER.info(y2y);
 
         int pselect= scanner.nextInt();  scanner.nextLine();
         pselect--;
@@ -460,7 +461,8 @@ public void deleteproduct(){
 
         return;}
     try{
-        LOGGER.info("Choose a Category to delete a product\n"+showallcatogries());
+        String y3y="Choose a Category to delete a product\n"+showallcatogries();
+        LOGGER.info(y3y);
 
         int cselect= scanner.nextInt();  scanner.nextLine();
         cselect--;
@@ -469,7 +471,8 @@ public void deleteproduct(){
             return;
         }
         String catname=categories.get(cselect).name;
-        LOGGER.info("Choose a product to delete\n"+getallproducts(catname));
+        String y4y="Choose a product to delete\n"+getallproducts(catname);
+        LOGGER.info(y4y);
 
         int pselect= scanner.nextInt();  scanner.nextLine();
         pselect--;
@@ -503,7 +506,8 @@ public void installproduct(){
 
         return;}
     try{
-        LOGGER.info("Choose a Category to request a product\n"+showallcatogries());
+        String y5y="Choose a Category to request a product\n"+showallcatogries();
+        LOGGER.info(y5y);
 
         int cselect= scanner.nextInt();  scanner.nextLine();
         cselect--;
@@ -512,7 +516,8 @@ public void installproduct(){
             return;
         }
         String catname=categories.get(cselect).name;
-        LOGGER.info("Choose a product to request\n"+getallproducts(catname));
+        String y6y="Choose a product to request\n"+getallproducts(catname);
+        LOGGER.info(y6y);
 
         int pselect= scanner.nextInt();  scanner.nextLine();
         pselect--;
@@ -528,8 +533,9 @@ public void installproduct(){
         String car=scanner.nextLine();
         if(installrequest(catname,pname,qu,carname)){
             int fee=qu*categories.get(cselect).products.get(pselect).price;
-            LOGGER.info("The request will be installed successfully\n" +
-                    "Your FEE is "+qu*categories.get(cselect).products.get(pselect).price+"\n");
+            String y7y="The request will be installed successfully\n" +
+                    "Your FEE is "+qu*categories.get(cselect).products.get(pselect).price+"\n";
+            LOGGER.info(y7y);
 
             if(categories.get(cselect).products.get(pselect).quantity==0){
                 categories.get(cselect).products.remove(pselect);
@@ -579,8 +585,8 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
          LOGGER.info("Only customers can rate and review\n");
          return;}
      try{
-
-         LOGGER.info("Choose a Category to rate and review a product\n"+showallcatogries());
+String y8y="Choose a Category to rate and review a product\n"+showallcatogries();
+         LOGGER.info(y8y);
 
          int cselect=scanner.nextInt();  scanner.nextLine();
          cselect--;
@@ -589,7 +595,8 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
              return;
          }
          String catname=categories.get(cselect).name;
-         LOGGER.info("Choose a product to rate and review\n"+getallproducts(catname));
+         String y9y="Choose a product to rate and review\n"+getallproducts(catname);
+         LOGGER.info(y9y);
 
          int pselect= scanner.nextInt();  scanner.nextLine();
          pselect--;
@@ -630,8 +637,8 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
          LOGGER.info("Only Admins can get informations\n");
          return;}
      try{
-
-         LOGGER.info("Choose a Category to get informations about a product\n"+showallcatogries());
+String y1y="Choose a Category to get informations about a product\n"+showallcatogries();
+         LOGGER.info(y1y);
 
          int cselect= scanner.nextInt();  scanner.nextLine();
          cselect--;
@@ -640,7 +647,8 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
              return;
          }
          String catname=categories.get(cselect).name;
-         LOGGER.info("Choose a product to get informations\n"+getallproducts(catname));
+         String y2y="Choose a product to get informations\n"+getallproducts(catname);
+         LOGGER.info(y2y);
 
          int pselect= scanner.nextInt();  scanner.nextLine();
          pselect--;
@@ -771,9 +779,9 @@ public void makereport() {
         try {
             LOGGER.info("What is the name of the file?");
             String file = scanner.next();
-
-            LOGGER.info("Choose a report\n1. Sales report\n2. Product rates report\n" +
-                    "3. Category products report\n4. rates and reviews report");
+String y3y="Choose a report\n1. Sales report\n2. Product rates report\n" +
+                    "3. Category products report\n4. rates and reviews report";
+            LOGGER.info(y3y);
 
             int c = scanner.nextInt();
             scanner.nextLine();
