@@ -115,8 +115,6 @@ try {
         if (answer == 1) {
             response = answer;
             break;
-        }else if(answer==2){
-            break;
         }
     }
 
@@ -602,15 +600,15 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
  }
  public String reviews(String catname,String pname){
     if(foundp(catname,pname)){
-     String f="";
+     StringBuilder f= new StringBuilder();
      int c;
      for (int i=0;i<categories.get(indexes[0]).products.get(indexes[1]).reviews.size();i++){
         c=i+1;
-        f=f+"Rate number "+c+" :"+categories.get(indexes[0]).products.get(indexes[1]).rates.get(i);
-        f=f+"\nReview number "+c+" :"+categories.get(indexes[0]).products.get(indexes[1]).reviews.get(i)+"\n\n\n";
+        f.append("Rate number ").append(c).append(" :").append(categories.get(indexes[0]).products.get(indexes[1]).rates.get(i));
+        f.append("\nReview number ").append(c).append(" :").append(categories.get(indexes[0]).products.get(indexes[1]).reviews.get(i)).append("\n\n\n");
      }
-     f=f+" the Average Rate is :"+categories.get(indexes[0]).products.get(indexes[1]).rateAvg;
-     return f;
+     f.append(" the Average Rate is :").append(categories.get(indexes[0]).products.get(indexes[1]).rateAvg);
+     return f.toString();
     }
     return "";
  }
@@ -659,63 +657,55 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
     }
 
     public String salesreport() {
-        String f="";
+        StringBuilder f= new StringBuilder();
         String g="#. Category\tProduct\tQuantity\tFee\tCar\tSent-date\tShipped-date\n";
-        f=f+g;
+        f.append(g);
         for(int i=0;i<sales.size();i++){
             int c=i+1;
-            f=f+c+". "+sales.get(i).catname+"\t"+
-                    sales.get(i).pname+"\t"+
-                    sales.get(i).quantity+"\t"+
-                    sales.get(i).fee+"\t"+
-                    sales.get(i).carname+"\t"+
-                    sales.get(i).sent+"\t"+
-                    sales.get(i).shipped+"\t"+"\n";
+            f.append(c).append(". ").append(sales.get(i).catname).append("\t").append(sales.get(i).pname).append("\t").append(sales.get(i).quantity).append("\t").append(sales.get(i).fee).append("\t").append(sales.get(i).carname).append("\t").append(sales.get(i).sent).append("\t").append(sales.get(i).shipped).append("\t").append("\n");
         }
-        if(f.equals(g))return "There is no informations";
-        return f;
+        if(f.toString().equals(g))return "There is no informations";
+        return f.toString();
     }
     public String ratesReport(){
-        String f="";
+        StringBuilder f= new StringBuilder();
         String g="#. product\tRate\n";
         int c=1;
-        f=f+g;
+        f.append(g);
         for(int i=0;i<categories.size();i++){
 
             for (int j=0;j<categories.get(i).products.size();j++){
 
-                f=f+c+". "+categories.get(i).products.get(j).name+"\t"+categories.get(i).products.get(j).rateAvg +"\n";
+                f.append(c).append(". ").append(categories.get(i).products.get(j).name).append("\t").append(categories.get(i).products.get(j).rateAvg).append("\n");
 
                 c++;
             }
         }
-        if(f.equals(g))return "There is no informations";
-        return f;
+        if(f.toString().equals(g))return "There is no informations";
+        return f.toString();
     }
     public String productreport(){
-        String f="";
+        StringBuilder f= new StringBuilder();
         int c;
         int g;
 
         for(int i=0;i<categories.size();i++){g=i+1;
-            f=f+"Category "+g+" : "+categories.get(i).name+"\n";
+            f.append("Category ").append(g).append(" : ").append(categories.get(i).name).append("\n");
             if(categories.get(i).products.isEmpty()){
-                f=f+"There is no products in this Category\n";
+                f.append("There is no products in this Category\n");
                 continue;
             }
             for (int j=0;j<categories.get(i).products.size();j++){
                 c=j+1;
-                f=f+"#. Name     Price     Quantity\n";
-                f=f+c+". "+categories.get(i).products.get(j).name+"\t"+
-                        categories.get(i).products.get(j).price+"\t"+
-                        categories.get(i).products.get(j).quantity+"\n";
+                f.append("#. Name     Price     Quantity\n");
+                f.append(c).append(". ").append(categories.get(i).products.get(j).name).append("\t").append(categories.get(i).products.get(j).price).append("\t").append(categories.get(i).products.get(j).quantity).append("\n");
             }
         }
         if(f.isEmpty())return "There is no informations";
-        return f;
+        return f.toString();
     }
     public String ratesReviewsReport(){
-        String f="";
+        StringBuilder f= new StringBuilder();
         int c;
         int g;
         int b;
@@ -725,7 +715,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
             if(categories.get(i).products.isEmpty()){continue;}
 
             g++;
-            f=f+"Category "+g+" : "+categories.get(i).name+"\n";
+            f.append("Category ").append(g).append(" : ").append(categories.get(i).name).append("\n");
             c=0;
 
             for (int j=0;j<categories.get(i).products.size();j++){
@@ -733,16 +723,16 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
                     c--;continue;
                 }
                 c++;
-                f=f+"Product "+c+" : "+categories.get(i).products.get(j).name+"\n";
+                f.append("Product ").append(c).append(" : ").append(categories.get(i).products.get(j).name).append("\n");
                 for(int z=0;z<categories.get(i).products.get(j).rates.size();z++){
                     b=z+1;
-                    f=f+"Rate number "+b+" : "+categories.get(i).products.get(j).rates.get(z)+"\n";
-                    f= f + "Review number " + b + " :\n" + categories.get(i).products.get(j).reviews.get(z) + "\n";
+                    f.append("Rate number ").append(b).append(" : ").append(categories.get(i).products.get(j).rates.get(z)).append("\n");
+                    f.append("Review number ").append(b).append(" :\n").append(categories.get(i).products.get(j).reviews.get(z)).append("\n");
                 }
             }
         }
         if(f.isEmpty())return "There is no informations";
-        return f;
+        return f.toString();
     }
 public boolean report(String report, String filename) {
     switch (report) {
