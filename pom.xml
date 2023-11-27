@@ -64,8 +64,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>18</source>
+                    <target>18</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -96,11 +96,6 @@
                     </executions>
                 </plugin>
             </plugins>
-                             <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.9.1.2184</version>
-            </plugin>
         </pluginManagement>
     </build>
 </project>
