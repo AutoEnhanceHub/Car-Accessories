@@ -523,10 +523,10 @@ public void installproduct(){
             if(categories.get(cselect).products.get(pselect).quantity==0){
                 categories.get(cselect).products.remove(pselect);
             }
-            Random random = new Random();
+            
 
 
-            int randomNumber = random.nextInt(5) + 1;
+            int randomNumber = new Random.nextInt(5) + 1;
             LocalDate ship=LocalDate.now().plusDays(randomNumber);
             String message="Your order has been received and is currently being processed. " +
                     " The order is going to be shipped after ." +ship+
