@@ -12,11 +12,10 @@ jobs:
       - name: Step 1 - Checkout main branch from GitHub
         uses: actions/checkout@v2
 
-      - name: Step 2 - Set up the latest JDK and Maven
+      - name: Step 2 - Set up JDK 17 and Maven
         uses: actions/setup-java@v1
         with:
-          java-version: 'latest'  # Use the latest version of Java
-          maven-version: 'latest'  # Use the latest version of Maven
+          java-version: '17'  # Use a specific version (replace with the latest version available)
 
       - name: Step 4 - Run test cases
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
