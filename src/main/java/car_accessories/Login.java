@@ -5,8 +5,8 @@ import javax.mail.internet.InternetAddress;
 import java.util.ArrayList;
 
 public class Login {
-    private static final String admins="Admin";
-    ArrayList<User>=users=new ArrayList<>();
+    static final String admins="Admin";
+    List<User>=users=new ArrayList<>();
     int roles;
     boolean isLogged;
     Mailing m;
