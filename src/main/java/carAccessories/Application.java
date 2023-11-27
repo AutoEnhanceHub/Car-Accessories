@@ -11,8 +11,8 @@ import java.security.SecureRandom;
 
 public  class Application {
     private final static String valids="Enter a valid value in the next time\n";
-    private final  String tabs="     ";
-    private final  String adminstring="Admin";
+    private final String tabs="     ";
+    private final String adminstring="Admin";
     private final static String categ="the Category ";
     private final static String inv="invalid input";
 private SecureRandom random;
