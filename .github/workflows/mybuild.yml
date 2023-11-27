@@ -1,28 +1,25 @@
 name: My first CI
 
 on:
-   push:
-    branches: [ master ]
-    
+  push:
+    branches: [master]
+
 jobs:
   build-on-ubuntu:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
-    
-      - name: Step 1 - Checkout main branch from GitHub 
+
+      - name: Step 1 - Checkout main branch from GitHub
         uses: actions/checkout@v2
-        
-      - name: Step 2 - Set up JDK 1.11
+
+      - name: Step 2 - Set up the latest JDK and Maven
         uses: actions/setup-java@v1
         with:
-          java-version: 1.11
-          
-      - name: Step 4 - run test cases
+          java-version: 'latest'  # Use the latest version of Java
+          maven-version: 'latest'  # Use the latest version of Maven
+
+      - name: Step 4 - Run test cases
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
-      - name: Step 3 - Build Maven Project     clean test  install package
-        run: mvn  --batch-mode clean package -DskipTests  
-          
-      
-        
+      - name: Step 3 - Build Maven Project
+        run: mvn --batch-mode clean package -DskipTests
