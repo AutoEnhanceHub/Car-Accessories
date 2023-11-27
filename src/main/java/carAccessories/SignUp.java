@@ -20,11 +20,12 @@ public class SignUp {
     }
 
 public static boolean emailValidator(String email) {
-    String emailRegex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*+@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    String emailRegex = "^(?:(?>[_A-Za-z0-9-\\+]+)(?>\\.[_A-Za-z0-9-]+)*)@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     Pattern pattern = Pattern.compile(emailRegex);
     Matcher matcher = pattern.matcher(email);
     return matcher.matches();
 }
+
 
 
 }
