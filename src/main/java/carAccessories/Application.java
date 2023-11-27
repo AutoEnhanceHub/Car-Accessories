@@ -647,8 +647,8 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
  }
 
     public static boolean printTextToFile(String fileName, String text) {
-        try {
-            FileWriter writer = new FileWriter(fileName);
+        try(FileWriter writer = new FileWriter(fileName)) {
+            
             writer.write(text);
             writer.close();
             return true;
