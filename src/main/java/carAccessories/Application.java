@@ -10,13 +10,13 @@ import java.util.logging.*;
 
 
 public  class Application {
-
+private Random random;
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     String carname;
     boolean logged_in;
- Random random;
+ 
     Login login;
-    static ArrayList<Sales> sales;
+    static ArrayList<Sales> sales=new ArrayList<Sales>();
 
     User newUser;
     SignUp signUp;
@@ -45,7 +45,7 @@ public synchronized String format(java.util.logging.LogRecord logRecord) {
     LOGGER.addHandler(consoleHandler);
 
     carname="";
-    sales=new ArrayList<Sales>();
+    
 
     indexes=new int[2];
     this.logged_in = false;
