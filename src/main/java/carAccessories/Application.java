@@ -315,7 +315,7 @@ public String getallproducts(String catname){
      for(int i=0;i<categories.get(indexes[0]).products.size();i++){
          int c=i+1;
          if(i==categories.get(indexes[0]).products.size()-1){
-         f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append("     ").append(categories.get(indexes[0]).products.get(i).quantity).append("     ").append(categories.get(indexes[0]).products.get(i).price).append("     ").append(categories.get(indexes[0]).products.get(i).rate_avg);break;
+         f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append("     ").append(categories.get(indexes[0]).products.get(i).quantity).append("     ").append(categories.get(indexes[0]).products.get(i).price).append("     ").append(categories.get(indexes[0]).products.get(i).rate_avg);
       break;
          }
       f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append("     ").append(categories.get(indexes[0]).products.get(i).quantity).append("     ").append(categories.get(indexes[0]).products.get(i).price).append("     ").append(categories.get(indexes[0]).products.get(i).rate_avg).append("\n");
