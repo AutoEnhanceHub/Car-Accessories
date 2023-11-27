@@ -36,9 +36,10 @@ public Application(){
     consoleHandler.setLevel(Level.ALL);
     consoleHandler.setFormatter(new SimpleFormatter() {
         @Override
-        public String format(java.util.logging.LogRecord record) {
-            return record.getMessage() + "\n";
-        }
+  public synchronized String format(java.util.logging.LogRecord record) {
+    return record.getMessage() + "\n";
+}
+
     });
     LOGGER.addHandler(consoleHandler);
 
