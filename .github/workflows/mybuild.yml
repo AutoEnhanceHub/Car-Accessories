@@ -50,18 +50,5 @@ jobs:
       - name: JaCoCo Report
         uses: Madrapps/jacoco-report@v1.6.1
         with:
-          paths: |
-            target/site/jacoco/jacoco.xml
-          classPattern: '**/classes'
-          sourcePattern: '**/src/main/java'
-          minimumCoverage: 80
-          outputFormat: 'HTML'
-          outputDirectory: 'jacoco-report'
-
-      - name: Upload JaCoCo Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: jacoco-report
-          path: jacoco-report
-
+          paths: target/site/jacoco/jacoco.xml
  
