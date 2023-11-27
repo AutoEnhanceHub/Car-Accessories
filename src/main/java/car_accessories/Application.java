@@ -315,7 +315,7 @@ public String getallproducts(String catname){
    else{
         f.append("The Category is empty");
     }
-    return f;
+    return f.toString();
 }
 public void showproducts(){
 String ygh="Choose a Category to see its products\n"+showallcatogries();
