@@ -289,7 +289,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         case 6:application.deleteproduct();break;
                         case 7:application.makereport();break;
                         case 8:application.showreviews();break;
-                        case 9:LOGGER.info("Invalid input");
+                        case 9:LOGGER.info("Invalid input");break;
                         default:break;
                     }
                     LOGGER.info("********************************************************************");
