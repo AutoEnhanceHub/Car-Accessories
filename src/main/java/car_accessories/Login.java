@@ -3,7 +3,7 @@ import java.util.List;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.util.ArrayList;
-
+import java.util.logging.*;
 
 public class Login {
    String admins="Admin";
@@ -113,13 +113,13 @@ public class Login {
         this.verificationCode = verificationCode;
     }
 
-    public boolean addUser(User u){
+   public boolean addUser(User u){
         if(emailValidator(u.getEmail())){
             users.add(u);
             return true;
         }
-        LOGGER.info("Not a valid email");
-        
+      
+        LOGGER.info("Not a valid Email");
         return false;
     }
 public void setUser(User u){
