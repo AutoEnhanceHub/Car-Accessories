@@ -740,7 +740,6 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
         return f;
     }
 public boolean report(String report, String filename) {
-    LOGGER.info(message + "\n");
     switch (report) {
         case "Sales":
             return printTextToFile(filename, Salesreport());
