@@ -654,7 +654,6 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
             return true;
 
         } catch (IOException ignored) {
-writer.close();
             return false;
         }
     }
