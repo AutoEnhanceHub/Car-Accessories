@@ -10,6 +10,7 @@ import java.util.logging.*;
 
 
 public  class Application {
+    private final String tabs="     ";
     private final String adminstring="Admin";
     private final static String categ="the Category ";
     private final static String inv="invalid input";
@@ -314,14 +315,14 @@ public String getallproducts(String catname){
      for(int i=0;i<categories.get(indexes[0]).products.size();i++){
          int c=i+1;
          if(i==categories.get(indexes[0]).products.size()-1){
-             f=f+c+". "+categories.get(indexes[0]).products.get(i).name+"     "+
-                     categories.get(indexes[0]).products.get(i).quantity+"     "+
-                     categories.get(indexes[0]).products.get(i).price+"     "+
+             f=f+c+". "+categories.get(indexes[0]).products.get(i).name+tabs+
+                     categories.get(indexes[0]).products.get(i).quantity+tabs+
+                     categories.get(indexes[0]).products.get(i).price+tabs+
                      categories.get(indexes[0]).products.get(i).rate_avg;break;
          }
-         f=f+c+". "+categories.get(indexes[0]).products.get(i).name+"     "+
-                 categories.get(indexes[0]).products.get(i).quantity+"     "+
-                 categories.get(indexes[0]).products.get(i).price+"     "+
+         f=f+c+". "+categories.get(indexes[0]).products.get(i).name+tabs+
+                 categories.get(indexes[0]).products.get(i).quantity+tabs+
+                 categories.get(indexes[0]).products.get(i).price+tabs+
                  categories.get(indexes[0]).products.get(i).rate_avg+"\n";
      }
     }
