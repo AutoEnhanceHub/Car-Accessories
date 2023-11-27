@@ -440,7 +440,7 @@ for(int i=0;i<categories.get(cselect).products.size();i++){
         throw new Exception();
     }
 }
-        LOGGER.info("What is the new price of the product "+old+"?\n");
+ String y99y="What is the new price of the product "+old+"?\n";      LOGGER.info(y99y);
 
        int newprice=scanner.nextInt();  scanner.nextLine();
        if(newprice<1){
