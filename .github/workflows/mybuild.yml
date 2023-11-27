@@ -18,6 +18,9 @@ jobs:
          distribution: 'adopt'
          java-version: 14
 
+      - name: Check Java version
+        run: java -version
+
       - name: Step 4 - Run test cases
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
