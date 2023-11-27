@@ -251,15 +251,15 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         LOGGER.info("Enter user new type that need to Update: ");
                         String newType = adminScanner.nextLine();
                         
-    private static final String SPECIAL_VALUE = "-1";
+
                         
-     if(newPassword.equals(SPECIAL_VALUE)){
+     if(newPassword.equals("-1")){
             newPassword = oldPassword;
         }
-        if(newType.equals(SPECIAL_VALUE)){
+        if(newType.equals("-1")){
             newType = oldType;
         }
-        if(newEmail.equals(SPECIAL_VALUE)){
+        if(newEmail.equals("-1")){
             newEmail = oldEmail;
         }
 
