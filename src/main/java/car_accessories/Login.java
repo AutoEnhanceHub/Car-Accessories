@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Login {
     static final String admins="Admin";
-    List<User>=users=new ArrayList<>();
+    List<User>users=new ArrayList<>();
     int roles;
     boolean isLogged;
     Mailing m;
