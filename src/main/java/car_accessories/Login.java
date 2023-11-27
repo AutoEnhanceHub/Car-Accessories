@@ -3,6 +3,7 @@ package car_accessories;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.util.ArrayList;
+import some.package.path.User;
 
 public class Login {
    String admins="Admin";
