@@ -17,13 +17,14 @@ private Random random;
  
     Login login;
     static ArrayList<Sales> sales=new ArrayList<>();
-    static ArrayList<Category> categories=new ArrayList<>();
+    static ArrayList<Category> categories;
     User newUser;
     SignUp signUp;
 static int[] indexes=new int[2];
     Scanner scanner = new Scanner(System.in);
 
 public Application(){
+    categories=new ArrayList<>()
 random=new Random();
     LOGGER.setUseParentHandlers(false);
 
