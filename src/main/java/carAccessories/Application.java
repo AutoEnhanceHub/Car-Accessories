@@ -7,6 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.*;
+import java.security.SecureRandom;
 
 
 public  class Application {
@@ -15,7 +16,7 @@ public  class Application {
     private final String adminstring="Admin";
     private final static String categ="the Category ";
     private final static String inv="invalid input";
-private Random random;
+private SecureRandom random;
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     String carname;
     boolean logged_in;
