@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.logging.*;
 
 public class main {
+    private static fianl nojom="********************************************************************";
     private static final Logger LOGGER = Logger.getLogger(main.class.getName());
 
     static {
@@ -183,7 +184,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         LOGGER.info("Type: " + user.getType());
                         LOGGER.info("------------------------------------");
                     }
-                    LOGGER.info("********************************************************************");
+                    LOGGER.info(nojom);
 
                     break;
                 case 2:
@@ -202,7 +203,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                     } else {
                         LOGGER.info("Invalid information! Please try again.");
                     }
-                    LOGGER.info("********************************************************************");
+                    LOGGER.info(nojom);
                     break;
                 case 3:
                     LOGGER.info("Enter user email that need to Delete: ");
@@ -224,7 +225,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         LOGGER.info("Your PassWord Invalid! Please Try Again!");
                     }
 
-                    LOGGER.info("********************************************************************");
+                    LOGGER.info(nojom);
 
                     break;
                 case 4:
@@ -273,7 +274,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                     else{
                             LOGGER.info("Your PassWord Invalid! Please Try Again!");
                         }
-                    LOGGER.info("********************************************************************");
+                    LOGGER.info(nojom);
                     break;
                 case 5:
                     String y1y="Choose an option:\n1.Add New Category\n2.Edit a Category\n3.Delete a Category\n4.Add New Product\n5.Edit a Product\n6.Delete a Product\n7.Get a Report\n8.Show average ratings and reviews\n9.exit";
@@ -291,15 +292,15 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         case 9:LOGGER.info("Invalid input");break;
                         default:break;
                     }
-                    LOGGER.info("********************************************************************");
+                    LOGGER.info(nojom);
                     break;
                 case 6:
                     LOGGER.info("Sign Out");
-                    LOGGER.info("********************************************************************");
+                    LOGGER.info(nojom);
                     break;
                 default:
                     LOGGER.info("Invalid choice! Please try again.");
-                    LOGGER.info("********************************************************************");
+                    LOGGER.info(nojom);
             }
         } while (adminChoice != 6);
     }
