@@ -306,30 +306,26 @@ public boolean foundp(String catname,String pname){
     return false;
 }
 public String getallproducts(String catname){
-    String f="";
+   StringBuilder f= new StringBuilder();
     if(foundc(catname)){
          if(categories.get(indexes[0]).products.isEmpty()){
             return "There is no products";
         }
-         f=f+"#. name     quantity     price     rate\n";
+         f.append("#. name     quantity     price     rate\n");
      for(int i=0;i<categories.get(indexes[0]).products.size();i++){
          int c=i+1;
          if(i==categories.get(indexes[0]).products.size()-1){
-             f=f+c+". "+categories.get(indexes[0]).products.get(i).name+tabs+
-                     categories.get(indexes[0]).products.get(i).quantity+tabs+
-                     categories.get(indexes[0]).products.get(i).price+tabs+
-                     categories.get(indexes[0]).products.get(i).rate_avg;break;
+         f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append("     ").append(categories.get(indexes[0]).products.get(i).quantity).append("     ").append(categories.get(indexes[0]).products.get(i).price).append("     ").append(categories.get(indexes[0]).products.get(i).rate_avg);break;
+      break;
          }
-         f=f+c+". "+categories.get(indexes[0]).products.get(i).name+tabs+
-                 categories.get(indexes[0]).products.get(i).quantity+tabs+
-                 categories.get(indexes[0]).products.get(i).price+tabs+
-                 categories.get(indexes[0]).products.get(i).rate_avg+"\n";
+      f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append("     ").append(categories.get(indexes[0]).products.get(i).quantity).append("     ").append(categories.get(indexes[0]).products.get(i).price).append("     ").append(categories.get(indexes[0]).products.get(i).rate_avg).append("\n");
+ 
      }
     }
    else{
-        f=f+"The Category is empty";
+      f.append("The Category is empty");
     }
-    return f;
+    return f.toString();
 }
 public void showproducts(){
 
