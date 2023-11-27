@@ -236,9 +236,9 @@ public void deleteCategory(){
     if(categories.isEmpty()){
         LOGGER.info("There is no categories in the system\n");
 
-    }else{   String f="";
+    }else{   StringBuilder f= new StringBuilder();
         for(int i=0;i<categories.size();i++){
-            f+=i+1+". "+categories.get(i).name+"\n";
+             f.append(i + 1).append(". ").append(categories.get(i).name).append("\n");
         }
 
 
