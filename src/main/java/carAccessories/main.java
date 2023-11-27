@@ -276,9 +276,8 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                     LOGGER.info("********************************************************************");
                     break;
                 case 5:
-                    LOGGER.info("Choose an option:\n1.Add New Category\n2.Edit a Category\n3.Delete a Category\n" +
-                        "4.Add New Product\n5.Edit a Product\n6.Delete a Product\n" +
-                        "7.Get a Report\n8.Show average ratings and reviews\n9.exit");
+                    String y1y="Choose an option:\n1.Add New Category\n2.Edit a Category\n3.Delete a Category\n4.Add New Product\n5.Edit a Product\n6.Delete a Product\n7.Get a Report\n8.Show average ratings and reviews\n9.exit";
+                    LOGGER.info(y1y);
                     int ans=adminScanner.nextInt();
                     switch (ans){
                         case 1:application.newCatogry();break;
