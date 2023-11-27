@@ -739,42 +739,55 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
         if(f.isEmpty())return "There is no informations";
         return f;
     }
-    public boolean report(String report, String filename) {
-        LOGGER.info(message+"\n");
-        switch (report) {
-            case "Sales" -> printTextToFile(filename, Salesreport());
-            case "Product rates" -> printTextToFile(filename, Ratesreport());
-            case "Category products" -> printTextToFile(filename, productreport());
-            case "rates and reviews" -> printTextToFile(filename, Ratesreviewsreport());
-            default -> {
-                return false;
+public boolean report(String report, String filename) {
+    LOGGER.info(message + "\n");
+    switch (report) {
+        case "Sales":
+            return printTextToFile(filename, Salesreport());
+        case "Product rates":
+            return printTextToFile(filename, Ratesreport());
+        case "Category products":
+            return printTextToFile(filename, productreport());
+        case "rates and reviews":
+            return printTextToFile(filename, Ratesreviewsreport());
+        default:
+            return false;
+    }
+}
+
+public void makereport() {
+    if (newUser.getType().equals("Admin")) {
+        try {
+            LOGGER.info("What is the name of the file?");
+            String file = scanner.next();
+
+            LOGGER.info("Choose a report\n1. Sales report\n2. Product rates report\n" +
+                    "3. Category products report\n4. rates and reviews report");
+
+            int c = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (c) {
+                case 1:
+                    report("Sales", file);
+                    break;
+                case 2:
+                    report("Product rates", file);
+                    break;
+                case 3:
+                    report("Category products", file);
+                    break;
+                case 4:
+                    report("rates and reviews", file);
+                    break;
+                default:
+                    throw new Exception();
             }
+        } catch (Exception e) {
+            LOGGER.info("Enter a valid value in the next time\n");
         }
-        return true;
     }
-    }
-    public void makereport(){
-        if(newUser.getType().equals("Admin")){
-            try {
-                LOGGER.info("What is the name of the file?");
-                String file=scanner.next();
-
-                LOGGER.info("Choose a report\n1. Sales report\n2. Product rates report\n" +
-                        "3. Category products report\n4. rates and reviews report");
-
-                int c= scanner.nextInt();  scanner.nextLine();
-
-                switch (c){
-                    case 1:report("Sales",file);break;
-                    case 2:report("Product rates",file);break;
-                    case 3:report("Category products",file);break;
-                    case 4:report("rates and reviews",file);break;
-                    default:throw new Exception();
-                }
-            }catch (Exception e){
-                LOGGER.info("Enter a valid value in the next time\n");
-            }}
-        }
+}
 
 
     }
