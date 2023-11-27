@@ -290,6 +290,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         case 7:application.makereport();break;
                         case 8:application.showreviews();break;
                         case 9:LOGGER.info("Invalid input");
+                        default:break;
                     }
                     LOGGER.info("********************************************************************");
                     break;
