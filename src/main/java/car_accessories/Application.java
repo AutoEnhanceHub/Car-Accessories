@@ -10,11 +10,11 @@ import java.util.logging.*;
 
 
 public  class Application {
-    private static final String  cate="the Category ";
-    private static final String informations="There is no informations";
-    private static final String admn="Admin";
-    private static final String valids="Enter a valid value in the next time\n";
-    private static final String tabs="     ";
+    private static final String CATEGORY ="the Category ";
+    private static final String NO_INFORMATIONS ="There is no informations";
+    private static final String ADMIN ="Admin";
+    private static final String NEXT_TIME ="Enter a valid value in the next time\n";
+    private static final String TABS ="     ";
 private final Random random;
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     private static final String INVALID_INPUT_MESSAGE = "Invalid Input";
@@ -111,7 +111,7 @@ public void addcat(String name){
 try {
 
 
-        int response=9;
+        int response;
     while (true) {
         LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no");
         int answer = scanner.nextInt();
@@ -124,26 +124,22 @@ try {
     }
 
 
-        if(response==1){
-            String ygy1="You added the Category "+m;
-            LOGGER.info(ygy1);
-           addcat(m);
-        }
-        else {
-            String ygy1=cate+m+" is not added";
-            LOGGER.info(ygy1);
-        }
+    {
+        String ygy1="You added the Category "+m;
+        LOGGER.info(ygy1);
+       addcat(m);
+    }
 
 }catch (NullPointerException e){
-    String ygy1=cate+m+" is not added";
+    String ygy1= CATEGORY +m+" is not added";
     LOGGER.info(ygy1);
 } }
     public void newCatogry() {
-    if(newUser.type.equals(admn)){
+    if(newUser.type.equals(ADMIN)){
         LOGGER.info("What is the name of the Category?");
         String m = scanner.nextLine();
         if (foundc(m)) {
-            String ygy1=cate + m + " is really exist";
+            String ygy1= CATEGORY + m + " is really exist";
             LOGGER.info(ygy1);
 
         } else addnewCategoryConfirmation(m);
@@ -153,16 +149,17 @@ try {
 
     }
     public void edtcatogry(String oldn,String newn){
-    for(int i=0;i<categories.size();i++){
-        if(categories.get(i).name.equals(oldn)){
-            categories.get(i).name= newn;break;
+        for (Category category : categories) {
+            if (category.name.equals(oldn)) {
+                category.name = newn;
+                break;
+            }
         }
-    }
     }
 
 public void editCategory(){
 
-if(newUser.type.equals(admn)){
+if(newUser.type.equals(ADMIN)){
         if(categories.isEmpty()){
             LOGGER.info("There is no categories in the system");
 
@@ -234,7 +231,7 @@ public void dltcat(String name){
    }
 }
 public void deleteCategory(){
-    if(newUser.type.equals(admn)){
+    if(newUser.type.equals(ADMIN)){
     if(categories.isEmpty()){
         LOGGER.info("There is no categories in the system\n");
 
@@ -316,9 +313,9 @@ public String getallproducts(String catname){
      for(int i=0;i<categories.get(indexes[0]).products.size();i++){
          int c=i+1;
          if(i==categories.get(indexes[0]).products.size()-1){
-             f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append(tabs).append(categories.get(indexes[0]).products.get(i).quantity).append(tabs).append(categories.get(indexes[0]).products.get(i).price).append(tabs).append(categories.get(indexes[0]).products.get(i).rateAvg);break;
+             f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append(TABS).append(categories.get(indexes[0]).products.get(i).quantity).append(TABS).append(categories.get(indexes[0]).products.get(i).price).append(TABS).append(categories.get(indexes[0]).products.get(i).rateAvg);break;
          }
-  f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append(tabs).append(categories.get(indexes[0]).products.get(i).quantity).append(tabs).append(categories.get(indexes[0]).products.get(i).price).append(tabs).append(categories.get(indexes[0]).products.get(i).rateAvg).append("\n");
+  f.append(c).append(". ").append(categories.get(indexes[0]).products.get(i).name).append(TABS).append(categories.get(indexes[0]).products.get(i).quantity).append(TABS).append(categories.get(indexes[0]).products.get(i).price).append(TABS).append(categories.get(indexes[0]).products.get(i).rateAvg).append("\n");
      }
     }
    else{
@@ -337,7 +334,7 @@ String ygh="Choose a Category to see its products\n"+showallcatogries();
       LOGGER.info(getallproducts(categories.get(x).name));
 
   }catch (Exception e){
-      LOGGER.info(valids);
+      LOGGER.info(NEXT_TIME);
   }
 
 }
@@ -351,7 +348,7 @@ public void addnewproduct(String catname,String pname,int quantity,int price,int
     }
 }
 public void newproduct(){
-    if(!newUser.type.equals(admn)){
+    if(!newUser.type.equals(ADMIN)){
         LOGGER.info("Only admins can add products\n");
         return;}
     try{
@@ -403,7 +400,7 @@ public void editproduct(String catname,String pname,String newname,int newprice)
     }
 }
 public void editproduct(){
-    if(!newUser.type.equals(admn)){
+    if(!newUser.type.equals(ADMIN)){
         LOGGER.info("Only admins can edit products\n");
 
         return;}
@@ -455,7 +452,7 @@ for(int i=0;i<categories.get(cselect).products.size();i++){
     }
 }
 public void deleteproduct(){
-    if(!newUser.type.equals(admn)){
+    if(!newUser.type.equals(ADMIN)){
         LOGGER.info("Only admins can delete products\n");
 
         return;}
@@ -561,7 +558,7 @@ public void installproduct(){
         }
 
 }catch (Exception e){
-        LOGGER.info(valids);
+        LOGGER.info(NEXT_TIME);
 
     }}
 
@@ -614,7 +611,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
          LOGGER.info("The new rate is added,The new review is added\n");
      }
      catch (Exception e){
-         LOGGER.info(valids);
+         LOGGER.info(NEXT_TIME);
 
      }
  }
@@ -633,7 +630,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
     return "";
  }
  public void showreviews(){
-     if(!newUser.type.equals(admn)){
+     if(!newUser.type.equals(ADMIN)){
          LOGGER.info("Only Admins can get informations\n");
          return;}
      try{
@@ -661,7 +658,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
          LOGGER.info(message+"\n");
      }
      catch (Exception e){
-         LOGGER.info(valids);
+         LOGGER.info(NEXT_TIME);
      }
  }
 
@@ -685,7 +682,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
             int c=i+1;
             f.append(c).append(". ").append(sales.get(i).catname).append("\t").append(sales.get(i).pname).append("\t").append(sales.get(i).quantity).append("\t").append(sales.get(i).fee).append("\t").append(sales.get(i).carname).append("\t").append(sales.get(i).sent).append("\t").append(sales.get(i).shipped).append("\t").append("\n");
         }
-        if(f.toString().equals(g))return informations;
+        if(f.toString().equals(g))return NO_INFORMATIONS;
         return f.toString();
     }
     public String ratesReport(){
@@ -693,16 +690,16 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
         String g="#. product\tRate\n";
         int c=1;
         f.append(g);
-        for(int i=0;i<categories.size();i++){
+        for (Category category : categories) {
 
-            for (int j=0;j<categories.get(i).products.size();j++){
+            for (int j = 0; j < category.products.size(); j++) {
 
-                f.append(c).append(". ").append(categories.get(i).products.get(j).name).append("\t").append(categories.get(i).products.get(j).rateAvg).append("\n");
+                f.append(c).append(". ").append(category.products.get(j).name).append("\t").append(category.products.get(j).rateAvg).append("\n");
 
                 c++;
             }
         }
-        if(f.toString().equals(g))return informations;
+        if(f.toString().equals(g))return NO_INFORMATIONS;
         return f.toString();
     }
     public String productreport(){
@@ -722,7 +719,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
                 f.append(c).append(". ").append(categories.get(i).products.get(j).name).append("\t").append(categories.get(i).products.get(j).price).append("\t").append(categories.get(i).products.get(j).quantity).append("\n");
             }
         }
-        if(f.isEmpty())return informations;
+        if(f.isEmpty())return NO_INFORMATIONS;
         return f.toString();
     }
     public String ratesReviewsReport(){
@@ -731,47 +728,45 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
         int g;
         int b;
         g=0;
-        for(int i=0;i<categories.size();i++){
+        for (Category category : categories) {
 
-            if(categories.get(i).products.isEmpty()){continue;}
+            if (category.products.isEmpty()) {
+                continue;
+            }
 
             g++;
-            f.append("Category ").append(g).append(" : ").append(categories.get(i).name).append("\n");
-            c=0;
+            f.append("Category ").append(g).append(" : ").append(category.name).append("\n");
+            c = 0;
 
-            for (int j=0;j<categories.get(i).products.size();j++){
-                if(categories.get(i).products.get(j).rates.isEmpty()){
-                    c--;continue;
+            for (int j = 0; j < category.products.size(); j++) {
+                if (category.products.get(j).rates.isEmpty()) {
+                    c--;
+                    continue;
                 }
                 c++;
-                f.append("Product ").append(c).append(" : ").append(categories.get(i).products.get(j).name).append("\n");
-                for(int z=0;z<categories.get(i).products.get(j).rates.size();z++){
-                    b=z+1;
-                    f.append("Rate number ").append(b).append(" : ").append(categories.get(i).products.get(j).rates.get(z)).append("\n");
-                    f.append("Review number ").append(b).append(" :\n").append(categories.get(i).products.get(j).reviews.get(z)).append("\n");
+                f.append("Product ").append(c).append(" : ").append(category.products.get(j).name).append("\n");
+                for (int z = 0; z < category.products.get(j).rates.size(); z++) {
+                    b = z + 1;
+                    f.append("Rate number ").append(b).append(" : ").append(category.products.get(j).rates.get(z)).append("\n");
+                    f.append("Review number ").append(b).append(" :\n").append(category.products.get(j).reviews.get(z)).append("\n");
                 }
             }
         }
-        if(f.isEmpty())return informations;
+        if(f.isEmpty())return NO_INFORMATIONS;
         return f.toString();
     }
 public boolean report(String report, String filename) {
-    switch (report) {
-        case "Sales":
-            return printTextToFile(filename, salesreport());
-        case "Product rates":
-            return printTextToFile(filename, ratesReport());
-        case "Category products":
-            return printTextToFile(filename, productreport());
-        case "rates and reviews":
-            return printTextToFile(filename, ratesReviewsReport());
-        default:
-            return false;
-    }
+    return switch (report) {
+        case "Sales" -> printTextToFile(filename, salesreport());
+        case "Product rates" -> printTextToFile(filename, ratesReport());
+        case "Category products" -> printTextToFile(filename, productreport());
+        case "rates and reviews" -> printTextToFile(filename, ratesReviewsReport());
+        default -> false;
+    };
 }
 
 public void makereport() {
-    if (newUser.getType().equals(admn)) {
+    if (newUser.getType().equals(ADMIN)) {
         try {
             LOGGER.info("What is the name of the file?");
             String file = scanner.next();
@@ -787,23 +782,14 @@ public void makereport() {
             scanner.nextLine();
 
             switch (c) {
-                case 1:
-                    report("Sales", file);
-                    break;
-                case 2:
-                    report("Product rates", file);
-                    break;
-                case 3:
-                    report("Category products", file);
-                    break;
-                case 4:
-                    report("rates and reviews", file);
-                    break;
-                default:
-                    throw new Exception();
+                case 1 -> report("Sales", file);
+                case 2 -> report("Product rates", file);
+                case 3 -> report("Category products", file);
+                case 4 -> report("rates and reviews", file);
+                default -> throw new Exception();
             }
         } catch (Exception e) {
-            LOGGER.info(valids);
+            LOGGER.info(NEXT_TIME);
         }
     }
 }
