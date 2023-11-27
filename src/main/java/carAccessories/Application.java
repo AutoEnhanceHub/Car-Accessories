@@ -337,7 +337,8 @@ public void showproducts(){
       int x=scanner.nextInt();
       scanner.nextLine();
       x--;
-      LOGGER.info(getallproducts(categories.get(x).name));
+      String uuuu=getallproducts(categories.get(x).name);
+      LOGGER.info(uuuu);
 
   }catch (Exception e){
       LOGGER.info("Enter a valid value in the next time\n");
