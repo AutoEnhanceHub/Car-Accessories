@@ -10,7 +10,7 @@ import java.util.logging.*;
 
 
 public  class Application {
-    private final String inv=inv;
+    private final String inv="invalid input";
 private Random random;
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     String carname;
