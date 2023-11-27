@@ -62,11 +62,11 @@ public class Login {
 
     public boolean confirmLogin(int verificationCode){
         this.verificationCode=verificationCode;
-        if(validEmail){
-        if(m.verificationCode==this.verificationCode){
+        if(validEmail&&m.verificationCode==this.verificationCode){
+        
             setLogged(true);
             return true;
-        }
+        
         }
         return false;
     }
@@ -118,7 +118,8 @@ public class Login {
             users.add(u);
             return true;
         }
-        System.out.println("Not a valid email");
+        LOGGER.info("Not a valid email");
+        
         return false;
     }
 public void setUser(User u){
