@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.logging.*;
 
 public class main {
+    private static final String others="Invalid information! Please try again.";
     private static final String nojom="********************************************************************";
     private static final Logger LOGGER = Logger.getLogger(main.class.getName());
 
@@ -78,7 +79,7 @@ public synchronized String format(java.util.logging.LogRecord record) {
                         signInApplication.login.addUser(new User(email,password,type));
                         LOGGER.info("User Created Successfully");
                     } else {
-                        LOGGER.info("Invalid information! Please try again.");
+                        LOGGER.info(others);
                     }
                     break;
 
@@ -138,10 +139,10 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                                 }
                             }
                         } else {
-                            LOGGER.info("Invalid information! Please try again.");
+                            LOGGER.info(others);
                         }
                     } else {
-                        LOGGER.info("Invalid information! Please try again.");
+                        LOGGER.info(others);
                     }
                     break;
 
@@ -201,7 +202,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                     if (application.login.addUser(user)) {
                         LOGGER.info("User Added Successfully");
                     } else {
-                        LOGGER.info("Invalid information! Please try again.");
+                        LOGGER.info(others);
                     }
                     LOGGER.info(nojom);
                     break;
