@@ -107,22 +107,22 @@ try {
 
 
         int response=9;
-        while(true){
-        LOGGER.info("Are you sure you want to continue?\n1.yes / 2.no");
-        int answer=scanner.nextInt();
-            scanner.nextLine();
-        if(answer==1){
-          response=1;  break;
+    while (true) {
+        LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no");
+        int answer = scanner.nextInt();
+        scanner.nextLine();
 
-        }else if(answer==2){
-          break;
+        if (answer == 1 || answer == 2) {
+            response = answer;
+            break;
         }
-        }
+    }
 
 
         if(response==1){
             LOGGER.info("You added the Category "+m);
-           addcat(m); }
+           addcat(m);
+        }
         else {
             LOGGER.info("the Category "+m+" is not added");
         }
@@ -712,7 +712,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
         if(f.isEmpty())return "There is no informations";
         return f;
     }
-    public String rates_reviews_report(){
+    public String ratesReviewsReport(){
         String f="";
         int c;
         int g;
@@ -751,7 +751,7 @@ public boolean report(String report, String filename) {
         case "Category products":
             return printTextToFile(filename, productreport());
         case "rates and reviews":
-            return printTextToFile(filename, rates_reviews_report());
+            return printTextToFile(filename, ratesReviewsReport());
         default:
             return false;
     }

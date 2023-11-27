@@ -3,10 +3,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.*;
 
-public class mainClass {
+public class MainClass {
     private static final String INVALID_INFORMATION_PLEASE_TRY_AGAIN ="Invalid information! Please try again.";
     private static final String STRING ="********************************************************************";
-    private static final Logger LOGGER = Logger.getLogger(mainClass.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MainClass.class.getName());
 
     static {
         // Disable JavaMail debug logs
