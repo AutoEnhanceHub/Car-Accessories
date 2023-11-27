@@ -442,15 +442,20 @@ for(int i=0;i<categories.get(cselect).products.size();i++){
 }
  String y99y="What is the new price of the product "+old+"?\n";      LOGGER.info(y99y);
 
-       int newprice=scanner.nextInt();  scanner.nextLine();
-       if(newprice<1){
-           throw new Exception();
-       }if(newname.isEmpty()){
-            editproduct(catname,old,old,newprice);
-        }else{
-            editproduct(catname,old,newname,newprice);
-        }
-        LOGGER.info("The product is updated successfully\n");
+     int newprice = scanner.nextInt();
+scanner.nextLine();
+
+if (newprice < 1) {
+    throw new Exception();
+}
+
+if (newname.isEmpty()) {
+    editproduct(catname, old, old, newprice);
+} else {
+    editproduct(catname, old, newname, newprice);
+}
+
+LOGGER.info("The product is updated successfully\n");
     }
    catch (Exception e){
        LOGGER.info(inv);
