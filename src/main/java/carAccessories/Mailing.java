@@ -27,7 +27,7 @@ public class Mailing {
 
     }
 
-    private void sending(String Subject, String Text){
+    private void sending(String subject, String text){
 
         try {
             Properties properties = System.getProperties();
@@ -46,8 +46,8 @@ public class Mailing {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to,false));
-            message.setSubject(Subject);
-            message.setText(Text);
+            message.setSubject(subject);
+            message.setText(text);
             Transport.send(message);
         }
         catch (MessagingException m){
@@ -58,19 +58,19 @@ public class Mailing {
     }
 
     public void sendVerificationCode(){
-      String Subject = "This is your verification code for car-accessories";
-      String Text = "Your code is "+verificationCode +"\n"+"Please don't share this code with anyone";
-     sending(Subject,Text);
+      String subject = "This is your verification code for car-accessories";
+      String text = "Your code is "+verificationCode +"\n"+"Please don't share this code with anyone";
+     sending(subject,text);
       
     }
     public void resetPassword(){
-        String Subject = "This is your code to reset new password";
-        String Text = "Your code is "+verificationCode +"\n"+"Please don't share this code with anyone";
-        sending(Subject,Text);
+        String subject = "This is your code to reset new password";
+        String text = "Your code is "+verificationCode +"\n"+"Please don't share this code with anyone";
+        sending(subject,text);
 
     }
-    public void sendEmail(String Subject,String Text) {
-       sending(Subject,Text);
+    public void sendEmail(String subject,String text) {
+       sending(subject,text);
     }
 
 
