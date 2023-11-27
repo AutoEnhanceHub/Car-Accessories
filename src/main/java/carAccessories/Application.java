@@ -10,6 +10,7 @@ import java.util.logging.*;
 
 
 public  class Application {
+    private final String adminstring="Admin";
     private final static String categ="the Category ";
     private final static String inv="invalid input";
 private Random random;
@@ -139,12 +140,13 @@ try {
         LOGGER.info("What is the name of the Category?");
         String m = scanner.nextLine();
         if (foundc(m)) {
-
-            LOGGER.info(categ + m + " is really exist");
+String y=categ + m + " is really exist";
+            LOGGER.info(y);
 
         } else addnewCategory_confirmation(m);
     }else{
-        LOGGER.info("Only admins can delete Categories");
+        String y="Only admins can delete Categories";
+        LOGGER.info(y);
        }
 
     }
@@ -170,7 +172,8 @@ if(newUser.type.equals("Admin")){
 
 
             try {
-                LOGGER.info("Choose a Category\n"+f);
+                String y="Choose a Category\n"+f;
+                LOGGER.info(y);
 
                 int select=scanner.nextInt();
                 scanner.nextLine();
@@ -241,7 +244,8 @@ public void deleteCategory(){
 
 
         try {
-            LOGGER.info("Choose a Category\n"+f);
+            String y="Choose a Category\n"+f;
+            LOGGER.info(y);
 
             int select=scanner.nextInt();
             scanner.nextLine();
@@ -329,7 +333,9 @@ public String getallproducts(String catname){
 public void showproducts(){
 
 
-  try {LOGGER.info("Choose a Category to see its products\n"+showallcatogries());
+  try {
+      String yu="Choose a Category to see its products\n"+showallcatogries();
+      LOGGER.info(yu);
 
       int x=scanner.nextInt();
       scanner.nextLine();
@@ -355,7 +361,8 @@ public void newproduct(){
         LOGGER.info("Only admins can add products\n");
         return;}
     try{
-        LOGGER.info("Choose a Category to add a new product\n"+showallcatogries());
+        String yu="Choose a Category to add a new product\n"+showallcatogries();
+        LOGGER.info(yu);
 
     int select=scanner.nextInt();  scanner.nextLine();
     select--;
@@ -370,7 +377,8 @@ public void newproduct(){
         }
         if(foundp(catname,pname)){
             addnewproduct(catname,pname,quantity,0,0);
-            LOGGER.info("The quantity is added to the exist product "+pname+"\n");
+            String yu="The quantity is added to the exist product "+pname+"\n";
+            LOGGER.info(yu);
             return;
         }
         LOGGER.info("what is the price of this new product?\n");
