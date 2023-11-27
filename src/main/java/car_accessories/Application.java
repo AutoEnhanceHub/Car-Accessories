@@ -1,5 +1,4 @@
 package car_accessories;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -11,21 +10,22 @@ import java.util.logging.*;
 
 
 public  class Application {
-
+private Random random;
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     String carname;
     boolean logged_in;
-
+ 
     Login login;
-    static ArrayList<Sales> sales;
-
+    static ArrayList<Sales> sales=new ArrayList<>();
+    static ArrayList<Category> categories;
     User newUser;
     SignUp signUp;
-static int[] indexes;
+static int[] indexes=new int[2];
     Scanner scanner = new Scanner(System.in);
 
 public Application(){
-
+    categories=new ArrayList<>();
+random=new Random();
     LOGGER.setUseParentHandlers(false);
 
     Handler[] handlers = LOGGER.getHandlers();
@@ -37,19 +37,19 @@ public Application(){
     consoleHandler.setLevel(Level.ALL);
     consoleHandler.setFormatter(new SimpleFormatter() {
         @Override
-        public String format(java.util.logging.LogRecord record) {
-            return record.getMessage() + "\n";
-        }
+public synchronized String format(java.util.logging.LogRecord logRecord) {
+    return logRecord.getMessage() + "\n";
+}
+
+
     });
     LOGGER.addHandler(consoleHandler);
 
     carname="";
-    sales=new ArrayList<Sales>();
-
-    indexes=new int[2];
+  
     this.logged_in = false;
     login=new Login(newUser);
-    categories=new ArrayList<Category>();
+
     categories.add(new Category("Interior"));
     categories.get(0).products.add((new product("Vacuum Cleaner",15,50,2027)));
     categories.add(new Category("Exterior"));
@@ -72,7 +72,7 @@ public Application(){
     public void setLogged_in(boolean logged_in) {
         this.logged_in = logged_in;
     }
-    public static ArrayList<Category> categories;
+    
 
 
 public String showallcatogries(){
@@ -522,11 +522,11 @@ public void installproduct(){
             if(categories.get(cselect).products.get(pselect).quantity==0){
                 categories.get(cselect).products.remove(pselect);
             }
-            Random random = new Random();
+            
 
 
-            int randomNumber = random.nextInt(5) + 1;
-            LocalDate ship=LocalDate.now().plusDays(randomNumber);
+            int rValue = random.nextInt(5) + 1;
+            LocalDate ship=LocalDate.now().plusDays(rValue);
             String message="Your order has been received and is currently being processed. " +
                     " The order is going to be shipped after ." +ship+
                     ". Thank you for shopping with us!\n" +
@@ -646,16 +646,15 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
  }
 
     public static boolean printTextToFile(String fileName, String text) {
-        try {
-            FileWriter writer = new FileWriter(fileName);
+        try(FileWriter writer = new FileWriter(fileName)) {
+            
             writer.write(text);
             writer.close();
             return true;
 
         } catch (IOException ignored) {
-
+            return false;
         }
-        return false;
     }
 
     public String Salesreport() {
@@ -740,50 +739,54 @@ categories.get(indexes[0]).products.get(indexes[1]).rate_avg=(float)sum/categori
         if(f.isEmpty())return "There is no informations";
         return f;
     }
-    public boolean report(String report,String filename){
-
-        switch (report) {
-            case "Sales" -> {
-                printTextToFile(filename, Salesreport());
-                return true;
-            }
-            case "Product rates" -> {
-                printTextToFile(filename, Ratesreport());
-                return true;
-            }
-            case "Category products" -> {
-                printTextToFile(filename, productreport());
-                return true;
-            }
-            case "rates and reviews" -> {
-                printTextToFile(filename, Ratesreviewsreport());
-                return true;
-            }
-        }
-        return false;
+public boolean report(String report, String filename) {
+    switch (report) {
+        case "Sales":
+            return printTextToFile(filename, Salesreport());
+        case "Product rates":
+            return printTextToFile(filename, Ratesreport());
+        case "Category products":
+            return printTextToFile(filename, productreport());
+        case "rates and reviews":
+            return printTextToFile(filename, Ratesreviewsreport());
+        default:
+            return false;
     }
-    public void makereport(){
-        if(newUser.getType().equals("Admin")){
-            try {
-                LOGGER.info("What is the name of the file?");
-                String file=scanner.next();
+}
 
-                LOGGER.info("Choose a report\n1. Sales report\n2. Product rates report\n" +
-                        "3. Category products report\n4. rates and reviews report");
+public void makereport() {
+    if (newUser.getType().equals("Admin")) {
+        try {
+            LOGGER.info("What is the name of the file?");
+            String file = scanner.next();
 
-                int c= scanner.nextInt();  scanner.nextLine();
+            LOGGER.info("Choose a report\n1. Sales report\n2. Product rates report\n" +
+                    "3. Category products report\n4. rates and reviews report");
 
-                switch (c){
-                    case 1:report("Sales",file);break;
-                    case 2:report("Product rates",file);break;
-                    case 3:report("Category products",file);break;
-                    case 4:report("rates and reviews",file);break;
-                    default:throw new Exception();
-                }
-            }catch (Exception e){
-                LOGGER.info("Enter a valid value in the next time\n");
-            }}
+            int c = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (c) {
+                case 1:
+                    report("Sales", file);
+                    break;
+                case 2:
+                    report("Product rates", file);
+                    break;
+                case 3:
+                    report("Category products", file);
+                    break;
+                case 4:
+                    report("rates and reviews", file);
+                    break;
+                default:
+                    throw new Exception();
+            }
+        } catch (Exception e) {
+            LOGGER.info("Enter a valid value in the next time\n");
         }
+    }
+}
 
 
     }
