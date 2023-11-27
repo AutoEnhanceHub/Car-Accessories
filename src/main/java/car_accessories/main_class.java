@@ -6,7 +6,7 @@ import java.util.logging.*;
 public class main_class {
     private static final String others="Invalid information! Please try again.";
     private static final String nojom="********************************************************************";
-    private static final Logger LOGGER = Logger.getLogger(mainclass.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(main_class.class.getName());
 
     static {
         // Disable JavaMail debug logs
