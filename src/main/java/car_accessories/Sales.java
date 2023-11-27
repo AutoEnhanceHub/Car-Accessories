@@ -3,9 +3,13 @@ package car_accessories;
 import java.time.LocalDate;
 
 public class Sales {
-   String pname,catname,carname;
-   int fee, quantity;
-    LocalDate sent,shipped;
+   String pname;
+   String catname;
+   String carname;
+   int fee;
+   int quantity;
+    LocalDate sent;
+  LocalDate shipped;
 
     public Sales(String cname, String pname, int fee, int quantity, LocalDate sent, LocalDate shipped, String carname){
         this.catname=cname;this.pname=pname;
