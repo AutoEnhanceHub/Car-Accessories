@@ -47,8 +47,3 @@ jobs:
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=AutoEnhanceHub_Car-Accessories
           echo "SonarCloud analysis completed"
 
-      - name: JaCoCo Report
-        uses: Madrapps/jacoco-report@v1.6.1
-        with:
-          paths: target/site/jacoco/jacoco.xml
- 
