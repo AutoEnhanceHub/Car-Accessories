@@ -387,8 +387,8 @@ assertFalse(application.foundc(string));
         if(exist){
             review=string;application.foundp(catname,pname);
             oldsize=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.size();
-            oldavg=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rate_avg;
-            application.rate_review(catname,pname,rate,review);
+            oldavg=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rateAvg;
+            application.rateReview(catname,pname,rate,review);
         }
     }
 
@@ -403,7 +403,7 @@ assertFalse(application.foundc(string));
     public void the_average_rating_for_the_product_must_be_updated() {
        if(exist){
            if(oldavg!=rate){
-               assertTrue(oldavg!=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rate_avg);
+               assertTrue(oldavg!=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rateAvg);
            }
        }
     }

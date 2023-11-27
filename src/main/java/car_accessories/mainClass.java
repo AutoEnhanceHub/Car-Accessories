@@ -3,10 +3,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.*;
 
-public class main_class {
-    private static final String others="Invalid information! Please try again.";
-    private static final String nojom="********************************************************************";
-    private static final Logger LOGGER = Logger.getLogger(main_class.class.getName());
+public class mainClass {
+    private static final String INVALID_INFORMATION_PLEASE_TRY_AGAIN ="Invalid information! Please try again.";
+    private static final String STRING ="********************************************************************";
+    private static final Logger LOGGER = Logger.getLogger(mainClass.class.getName());
 
     static {
         // Disable JavaMail debug logs
@@ -47,14 +47,14 @@ public synchronized String format(java.util.logging.LogRecord record) {
 
         LOGGER.info("TURBOTWEAK ACCESSORIES");
 
-        int Authen=-1;
+        int authen=-1;
 
         do {
 
 
             try {
                 LOGGER.info("1-Sign-up \n2-Sign-in \n3-Exit");
-                Authen = scanner.nextInt();
+                authen = scanner.nextInt();
                 scanner.nextLine(); // Consume the newline character
             } catch (InputMismatchException e) {
                 LOGGER.warning("Invalid input. Please enter a valid integer.");
@@ -62,7 +62,7 @@ public synchronized String format(java.util.logging.LogRecord record) {
                 continue;
             }
 
-            switch (Authen) {
+            switch (authen) {
                 case 1:
                     LOGGER.info("Enter your email: ");
                     String email = scanner.nextLine();
@@ -76,7 +76,7 @@ public synchronized String format(java.util.logging.LogRecord record) {
                         signInApplication.login.addUser(new User(email,password,type));
                         LOGGER.info("User Created Successfully");
                     } else {
-                        LOGGER.info(others);
+                        LOGGER.info(INVALID_INFORMATION_PLEASE_TRY_AGAIN);
                     }
                     break;
 
@@ -136,10 +136,10 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                                 }
                             }
                         } else {
-                            LOGGER.info(others);
+                            LOGGER.info(INVALID_INFORMATION_PLEASE_TRY_AGAIN);
                         }
                     } else {
-                        LOGGER.info(others);
+                        LOGGER.info(INVALID_INFORMATION_PLEASE_TRY_AGAIN);
                     }
                     break;
 
@@ -150,7 +150,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                 default:
                     LOGGER.info("Invalid choice! Please try again.");
             }
-        } while (Authen != 3);
+        } while (authen != 3);
 
 
 
@@ -182,7 +182,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         LOGGER.info("Type: " + user.getType());
                         LOGGER.info("------------------------------------");
                     }
-                    LOGGER.info(nojom);
+                    LOGGER.info(STRING);
 
                     break;
                 case 2:
@@ -199,9 +199,9 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                     if (application.login.addUser(user)) {
                         LOGGER.info("User Added Successfully");
                     } else {
-                        LOGGER.info(others);
+                        LOGGER.info(INVALID_INFORMATION_PLEASE_TRY_AGAIN);
                     }
-                    LOGGER.info(nojom);
+                    LOGGER.info(STRING);
                     break;
                 case 3:
                     LOGGER.info("Enter user email that need to Delete: ");
@@ -223,7 +223,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         LOGGER.info("Your PassWord Invalid! Please Try Again!");
                     }
 
-                    LOGGER.info(nojom);
+                    LOGGER.info(STRING);
 
                     break;
                 case 4:
@@ -272,7 +272,7 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                     else{
                             LOGGER.info("Your PassWord Invalid! Please Try Again!");
                         }
-                    LOGGER.info(nojom);
+                    LOGGER.info(STRING);
                     break;
                 case 5:
                     String y1y="Choose an option:\n1.Add New Category\n2.Edit a Category\n3.Delete a Category\n4.Add New Product\n5.Edit a Product\n6.Delete a Product\n7.Get a Report\n8.Show average ratings and reviews\n9.exit";
@@ -290,15 +290,15 @@ signInApplication.login.setUser(new User(signInEmail,signInPassword,""));
                         case 9:LOGGER.info("Invalid input");break;
                         default:break;
                     }
-                    LOGGER.info(nojom);
+                    LOGGER.info(STRING);
                     break;
                 case 6:
                     LOGGER.info("Sign Out");
-                    LOGGER.info(nojom);
+                    LOGGER.info(STRING);
                     break;
                 default:
                     LOGGER.info("Invalid choice! Please try again.");
-                    LOGGER.info(nojom);
+                    LOGGER.info(STRING);
             }
         } while (adminChoice != 6);
     }

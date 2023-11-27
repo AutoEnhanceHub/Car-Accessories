@@ -60,9 +60,9 @@ public synchronized String format(java.util.logging.LogRecord logRecord) {
             return false;
     }
 
-    public  boolean emailValidator(String Email){
+    public  boolean emailValidator(String email){
         try {
-            InternetAddress internetAddress = new InternetAddress(Email);
+            InternetAddress internetAddress = new InternetAddress(email);
             internetAddress.validate();
             return true;
         } catch (AddressException ex) {
