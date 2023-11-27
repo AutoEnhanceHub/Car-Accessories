@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.logging.*;
 
 public class main {
-    private static fianl nojom="********************************************************************";
+    private static final nojom="********************************************************************";
     private static final Logger LOGGER = Logger.getLogger(main.class.getName());
 
     static {
