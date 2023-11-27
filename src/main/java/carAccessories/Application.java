@@ -526,7 +526,7 @@ public void installproduct(){
             
 
 
-            int rValue = new Random.nextInt(5) + 1;
+            int rValue = random.nextInt(5) + 1;
             LocalDate ship=LocalDate.now().plusDays(rValue);
             String message="Your order has been received and is currently being processed. " +
                     " The order is going to be shipped after ." +ship+
