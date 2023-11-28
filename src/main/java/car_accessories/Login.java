@@ -34,7 +34,7 @@ public class Login {
                     return logRecord.getMessage() + "\n";
                 }
             });
-
+            consoleHandler.setLevel(Level.INFO);
             LOGGER.addHandler(consoleHandler);
         }
         catch (Exception e) {
