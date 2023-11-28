@@ -106,10 +106,20 @@ public class Login {
         return false;
     }
 
-    private void setRoles(User user) {
-        String type = user.getType();
-        roles = type.equalsIgnoreCase(ADMIN_ROLE) ? 0 : type.equalsIgnoreCase(CUSTOMER_ROLE) ? 1 :
-                type.equalsIgnoreCase(INSTALLER_ROLE) ? 2 : -1;
+    public void setRoles() {
+        String type=users.get(userIndex).getType();
+        if (type.equalsIgnoreCase(admins)){
+            roles=0;
+        }
+        else if (type.equalsIgnoreCase("Customer")){
+            roles=1;
+        }
+         else if(type.equalsIgnoreCase("Installer")){
+            roles=2;
+        }
+        else {
+            roles=-1;
+        }
     }
 
     public int getRoles() {
