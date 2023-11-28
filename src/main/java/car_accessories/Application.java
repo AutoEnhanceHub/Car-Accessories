@@ -115,24 +115,23 @@ public void addcat(String name){
 try {
 
 
-        int response;
-    while (true) {
-        LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no");
+        boolean response=false;
+
+        LOGGER.info("Are you sure you want to continue?\n1. yes ");
         int answer = scanner.nextInt();
         scanner.nextLine();
 
-        if (answer == 1) {
-            response = answer;
-            break;
-        }
-    }
+        if (answer == 1)response = true;
 
 
-    {
+
+
+
+if(response){
         String ygy1="You added the Category "+m;
         LOGGER.info(ygy1);
-       addcat(m);
-    }
+       addcat(m);}
+
 
 }catch (NullPointerException e){
     String ygy1= CATEGORY +m+" is not added";
@@ -194,22 +193,20 @@ String rename=scanner.nextLine();
                 }
                 else{
 
-                    int response=9;
-                    while(true){
-                        LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no");
+                    boolean response=false;
+
+                        LOGGER.info("Are you sure you want to continue?\n1. yes");
                         int answer=scanner.nextInt();
                         scanner.nextLine();
-                        if(answer==1){
-                            response=1;  break;
+                        if(answer==1)
+                            response=true;
 
-                        } else if (answer==2) {
-                            break;
-                        }
-                    }
-  if(response==1){
+
+
+  if(response){
       edtcatogry(categories.get(select).name,rename);
       LOGGER.info("The Name is edited successfully\n");
- ;
+
 }
  else {
       LOGGER.info("the Category is not Edited\n");
@@ -335,7 +332,8 @@ String ygh="Choose a Category to see its products\n"+showallcatogries();
       int x=scanner.nextInt();
       scanner.nextLine();
       x--;
-      LOGGER.info(getallproducts(categories.get(x).name));
+      String pop=getallproducts(categories.get(x).name);
+      LOGGER.info(pop);
 
   }catch (Exception e){
       LOGGER.info(NEXT_TIME);
@@ -380,12 +378,14 @@ public void newproduct(){
 
         int price= scanner.nextInt();  scanner.nextLine();
         if(price<1){
-            throw new InputMismatchException();
+            LOGGER.info(INVALID_INPUT_MESSAGE);
+            return;
         }LOGGER.info("Which year this product will be expired?\n");
 
         int year= scanner.nextInt();  scanner.nextLine();
         if(year<=LocalDate.now().getYear()){
-            throw new InputMismatchException();
+            LOGGER.info(INVALID_INPUT_MESSAGE);
+            return;
         }
         addnewproduct(catname,pname,quantity,price,year);
         LOGGER.info("The product is added Successfully\n");
@@ -433,7 +433,8 @@ public void editproduct(){
 for(int i=0;i<categories.get(cselect).products.size();i++){
     if(i==pselect)continue;
     if(newname.equals(categories.get(cselect).products.get(i).name)){
-        throw new Exception();
+        LOGGER.info(INVALID_INPUT_MESSAGE);
+        return;
     }
 }
         String ygy4="What is the new price of the product "+old+"?\n";
@@ -441,7 +442,8 @@ for(int i=0;i<categories.get(cselect).products.size();i++){
 
        int newprice=scanner.nextInt();  scanner.nextLine();
        if(newprice<1){
-           throw new Exception();
+           LOGGER.info(INVALID_INPUT_MESSAGE);
+           return;
        }
        if(newname.isEmpty()){
             editproduct(catname,old,old,newprice);
@@ -491,12 +493,12 @@ public void dltp(String catname,String pname){
 }
 
 public boolean installrequest(String catname,String pname,int quantity,String carname){
-    if(foundp(catname,pname)){
-        if(quantity<=categories.get(indexes[0]).products.get(indexes[1]).quantity){
+    if(foundp(catname,pname)&&(quantity<=categories.get(indexes[0]).products.get(indexes[1]).quantity)){
+
             categories.get(indexes[0]).products.get(indexes[1]).quantity-=quantity;
             this.carname=carname;
             return true;
-        }
+
     }
     return false;
 }
@@ -567,8 +569,8 @@ public void installproduct(){
     }}
 
  public void rateReview(String catname, String pname, int rate, String review){
-    if(foundp(catname,pname)){
-        if(rate>0&&rate<6){
+    if(foundp(catname,pname)&&rate>0&&rate<6){
+
 categories.get(indexes[0]).products.get(indexes[1]).rates.add(rate);
 int sum=0;
 for(int i:categories.get(indexes[0]).products.get(indexes[1]).rates){
@@ -576,7 +578,7 @@ for(int i:categories.get(indexes[0]).products.get(indexes[1]).rates){
 }
 categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categories.get(indexes[0]).products.get(indexes[1]).rates.size();
             categories.get(indexes[0]).products.get(indexes[1]).reviews.add(review);
-        }
+
     }
 
  }
@@ -610,9 +612,13 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
          }
          LOGGER.info("Write a new review");
          String review=scanner.nextLine();
-         if(review.isEmpty())throw new Exception();
-         rateReview(catname,pname,rate,review);
-         LOGGER.info("The new rate is added,The new review is added\n");
+         if (!review.isEmpty()) {
+             rateReview(catname, pname, rate, review);
+             LOGGER.info("The new rate is added,The new review is added\n");
+         } else {
+             LOGGER.info(NEXT_TIME);
+
+         }
      }
      catch (Exception e){
          LOGGER.info(NEXT_TIME);
@@ -654,12 +660,13 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
          int pselect= scanner.nextInt();  scanner.nextLine();
          pselect--;
          String pname=categories.get(cselect).products.get(pselect).name;
-         String message= reviews(catname,pname);
+         String message= reviews(catname,pname)+"\n";
          if(message.isEmpty()){
              LOGGER.info("The Choosed product doesnt have any rate or review\n");
              return;
          }
-         LOGGER.info(message+"\n");
+
+         LOGGER.info(message);
      }
      catch (Exception e){
          LOGGER.info(NEXT_TIME);
@@ -670,7 +677,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
         try(FileWriter writer = new FileWriter(fileName)) {
             
             writer.write(text);
-            writer.close();
+
             return true;
 
         } catch (IOException ignored) {
