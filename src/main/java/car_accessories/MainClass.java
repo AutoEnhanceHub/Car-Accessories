@@ -83,7 +83,7 @@ public class MainClass {
                 LOGGER.removeHandler(handler);
             }
 
-            MainClass.Logger_1(LOGGER);
+            Logger_1(LOGGER);
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
         }
