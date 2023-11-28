@@ -20,7 +20,7 @@ public class MainClass {
 
             return hexHash.toString().equals(hashedPassword);
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+
             // Handle the exception as needed
             return false;
         }
