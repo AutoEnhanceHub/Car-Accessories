@@ -34,16 +34,7 @@ public class Login {
                 LOGGER.removeHandler(handler);
             }
 
-            ConsoleHandler consoleHandler = new ConsoleHandler();
-            consoleHandler.setLevel(Level.INFO);
-            consoleHandler.setFormatter(new SimpleFormatter() {
-                @Override
-                public synchronized String format(java.util.logging.LogRecord logRecord) {
-                    return logRecord.getMessage() + "\n";
-                }
-            });
-            consoleHandler.setLevel(Level.INFO);
-            LOGGER.addHandler(consoleHandler);
+            MainClass.Logger_1(LOGGER);
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
         }

@@ -33,26 +33,31 @@ public Application(){
     categories=new ArrayList<>();
 random=new SecureRandom();
     try {
-        LOGGER.setUseParentHandlers(false);
+        // Logger configuration code
 
         Handler[] handlers = LOGGER.getHandlers();
         for (Handler handler : handlers) {
             LOGGER.removeHandler(handler);
         }
 
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.INFO);
-        consoleHandler.setFormatter(new SimpleFormatter() {
-            @Override
-            public synchronized String format(java.util.logging.LogRecord logRecord) {
-                return logRecord.getMessage() + "\n";
-            }
-        });
-        consoleHandler.setLevel(Level.INFO);
-        LOGGER.addHandler(consoleHandler);
+        try {
+            ConsoleHandler consoleHandler = new ConsoleHandler();
+            consoleHandler.setLevel(Level.INFO);
+            consoleHandler.setFormatter(new SimpleFormatter() {
+                @Override
+                public synchronized String format(java.util.logging.LogRecord logRecord) {
+                    return logRecord.getMessage() + "\n";
+                }
+            });
+            consoleHandler.setLevel(Level.INFO);
+            LOGGER.addHandler(consoleHandler);
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error setting up ConsoleHandler", e);
+        }
     } catch (Exception e) {
         LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
     }
+
 
 
     carname="";
