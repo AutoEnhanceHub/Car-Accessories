@@ -1,10 +1,30 @@
 package car_accessories;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.*;
 
 public class MainClass {
+    public static boolean comparePasswords(String inputPassword, String hashedPassword) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = md.digest(inputPassword.getBytes(StandardCharsets.UTF_8));
+
+            StringBuilder hexHash = new StringBuilder();
+            for (byte b : hashBytes) {
+                hexHash.append(String.format("%02x", b));
+            }
+
+            return hexHash.toString().equals(hashedPassword);
+        } catch (NoSuchAlgorithmException e) {
+
+            // Handle the exception as needed
+            return false;
+        }
+    }
     private static final String INVALID_INFORMATION_PLEASE_TRY_AGAIN = "Invalid information! Please try again.";
     private static final String STRING = "********************************************************************";
     private static final Logger LOGGER = Logger.getLogger(MainClass.class.getName());
@@ -40,7 +60,7 @@ public class MainClass {
                     return logRecord.getMessage() + "\n";
                 }
             });
-
+            LOGGER.setUseParentHandlers(false);
             LOGGER.addHandler(consoleHandler);
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
@@ -274,14 +294,15 @@ public class MainClass {
             String newPassword = adminScanner.nextLine();
             LOGGER.info("Enter user new type that needs to be updated: ");
             String newType = adminScanner.nextLine();
+boolean scan=comparePasswords(NO_CHANGE,newPassword);
 
-            if (newPassword.equals(NO_CHANGE)) {
+            if (scan)  {
                 newPassword = oldPassword;
             }
-            if (newType.equals(NO_CHANGE)) {
+            if (NO_CHANGE.equals(newType)) {
                 newType = oldType;
             }
-            if (newEmail.equals(NO_CHANGE)) {
+            if (NO_CHANGE.equals(newEmail)) {
                 newEmail = oldEmail;
             }
 
@@ -308,7 +329,8 @@ public class MainClass {
             6. Delete a Product
             7. Get a Report
             8. Show average ratings and reviews
-            9. Exit
+            9. show products
+            10. Exit
                  """);
         int ans = adminScanner.nextInt();
         switch (ans) {
@@ -320,9 +342,10 @@ public class MainClass {
             case 6 -> application.deleteproduct();
             case 7 -> application.makereport();
             case 8 -> application.showreviews();
-            case 9 -> LOGGER.info("Invalid input");
-            default -> {
-            }
+            case 9 -> application.showproducts();
+            case 10 -> LOGGER.info("Exit");
+            default -> LOGGER.info("Invalid input");
+
         }
         LOGGER.info(STRING);
     }
