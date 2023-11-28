@@ -24,22 +24,28 @@ public class MainClass {
 
     public static void main(String[] arg) {
         Application signInApplication = new Application();
-        LOGGER.setUseParentHandlers(false);
+        try {
+            LOGGER.setUseParentHandlers(false);
 
-        Handler[] handlers = LOGGER.getHandlers();
-        for (Handler handler : handlers) {
-            LOGGER.removeHandler(handler);
+            Handler[] handlers = LOGGER.getHandlers();
+            for (Handler handler : handlers) {
+                LOGGER.removeHandler(handler);
+            }
+
+            ConsoleHandler consoleHandler = new ConsoleHandler();
+            consoleHandler.setLevel(Level.INFO);
+            consoleHandler.setFormatter(new SimpleFormatter() {
+                @Override
+                public synchronized String format(java.util.logging.LogRecord logRecord) {
+                    return logRecord.getMessage() + "\n";
+                }
+            });
+
+            LOGGER.addHandler(consoleHandler);
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
         }
 
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.ALL);
-        consoleHandler.setFormatter(new SimpleFormatter() {
-            @Override
-            public synchronized String format(java.util.logging.LogRecord record) {
-                return record.getMessage() + "\n";
-            }
-        });
-        LOGGER.addHandler(consoleHandler);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -245,7 +251,7 @@ public class MainClass {
         }
         LOGGER.info(STRING);
     }
-
+    private static final String NO_CHANGE = "-1";
     private static void updateUser(Scanner adminScanner, Application application) {
         LOGGER.info("Enter user email that needs to be updated: ");
         String oldEmail = adminScanner.nextLine();
@@ -269,13 +275,13 @@ public class MainClass {
             LOGGER.info("Enter user new type that needs to be updated: ");
             String newType = adminScanner.nextLine();
 
-            if (newPassword.equals("-1")) {
+            if (newPassword.equals(NO_CHANGE)) {
                 newPassword = oldPassword;
             }
-            if (newType.equals("-1")) {
+            if (newType.equals(NO_CHANGE)) {
                 newType = oldType;
             }
-            if (newEmail.equals("-1")) {
+            if (newEmail.equals(NO_CHANGE)) {
                 newEmail = oldEmail;
             }
 

@@ -36,8 +36,9 @@ public class Login {
             });
 
             LOGGER.addHandler(consoleHandler);
-        } catch (Exception e) {
-            e.printStackTrace();
+        }
+        catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
         }
 
 
