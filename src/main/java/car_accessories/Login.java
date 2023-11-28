@@ -42,7 +42,7 @@ public class Login {
                     return logRecord.getMessage() + "\n";
                 }
             });
-
+            consoleHandler.setLevel(Level.INFO);
             LOGGER.addHandler(consoleHandler);
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);

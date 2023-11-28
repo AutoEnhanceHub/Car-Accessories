@@ -61,7 +61,7 @@ public class MainClass {
                     return logRecord.getMessage() + "\n";
                 }
             });
-            LOGGER.setUseParentHandlers(false);
+            consoleHandler.setLevel(Level.INFO);
             LOGGER.addHandler(consoleHandler);
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
