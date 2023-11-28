@@ -275,13 +275,13 @@ public class MainClass {
             LOGGER.info("Enter user new type that needs to be updated: ");
             String newType = adminScanner.nextLine();
 
-            if (newPassword.equals(NO_CHANGE)) {
+            if (NO_CHANGE.equals(newPassword))  {
                 newPassword = oldPassword;
             }
-            if (newType.equals(NO_CHANGE)) {
+            if (NO_CHANGE.equals(newType)) {
                 newType = oldType;
             }
-            if (newEmail.equals(NO_CHANGE)) {
+            if (NO_CHANGE.equals(newEmail)) {
                 newEmail = oldEmail;
             }
 
