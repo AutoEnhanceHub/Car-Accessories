@@ -1,19 +1,14 @@
 package car_accessories;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import java.util.ArrayList;
 import java.util.logging.*;
 
 public class Login {
-    private static final Logger LOGGER = Logger.getLogger(Login.class.getName());
-    private static final String ADMIN_ROLE = "Admin";
-    private static final String CUSTOMER_ROLE = "Customer";
-    private static final String INSTALLER_ROLE = "Installer";
-
-    List<User> users = new ArrayList<>();
+   private static final Logger LOGGER = Logger.getLogger(Login.class.getName());
+   String admins="Admin";
+    List<User>users=new ArrayList<>();
     int roles;
     boolean isLogged;
     Mailing m;
@@ -21,21 +16,8 @@ public class Login {
     User u;
     boolean validEmail;
     int userIndex;
-
-    Login(User u) {
-        this.u = u;
-        initializeLogger();
-
-        User u1 = new User("ibrahim.sadi.asad@gmail.com", "123456", ADMIN_ROLE);
-        User u2 = new User("ibrahimeceasad@gmail.com", "654321", CUSTOMER_ROLE);
-        User u3 = new User("i.a.s.assad33@gmail.com", "987654", INSTALLER_ROLE);
-        User u4 = new User("abdallahdaher785@gmail.com", "abdallah@123", ADMIN_ROLE);
-
-        users.addAll(Arrays.asList(u1, u2, u3, u4));
-        isLogged = false;
-    }
-
-    private void initializeLogger() {
+    Login(User u){
+        this.u=u;
         try {
             LOGGER.setUseParentHandlers(false);
 
@@ -52,38 +34,44 @@ public class Login {
                     return logRecord.getMessage() + "\n";
                 }
             });
-
+            consoleHandler.setLevel(Level.INFO);
             LOGGER.addHandler(consoleHandler);
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
         }
-    }
 
+
+        
+        User u1=new User("ibrahim.sadi.asad@gmail.com","123456",admins);
+        User u2=new User("ibrahimeceasad@gmail.com","654321","Customer");
+        User u3=new User("i.a.s.assad33@gmail.com","987654","Installer");
+        User u4=new User("abdallahdaher785@gmail.com","abdallah@123",admins);
+        users.add(u1);
+        users.add(u2);
+        users.add(u3);
+        users.add(u4);
+        isLogged=false;
+    }
     public boolean login() {
+
         if (emailValidator(u.getEmail())) {
-            User foundUser = findUserByEmailAndPassword(u.getEmail(), u.getPassword());
-            if (foundUser != null) {
-                m = new Mailing(u.getEmail());
-                setValidEmail(true);
-                m.sendVerificationCode();
-                userIndex = users.indexOf(foundUser);
-                return true;
+
+            for (User s : users) {
+                if (u.getPassword().equals(s.getPassword()) && u.getEmail().equalsIgnoreCase(s.getEmail())) {
+                    m = new Mailing(u.getEmail());
+                    setValidEmail(true);
+                    m.sendVerificationCode();
+                    userIndex=users.indexOf(s);
+                    return true;
+                }
             }
         }
-        setValidEmail(false);
-        return false;
+            setValidEmail(false);
+            return false;
     }
 
-    private User findUserByEmailAndPassword(String email, String password) {
-        for (User user : users) {
-            if (user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password)) {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    public boolean emailValidator(String email) {
+    public  boolean emailValidator(String email){
         try {
             InternetAddress internetAddress = new InternetAddress(email);
             internetAddress.validate();
@@ -97,11 +85,13 @@ public class Login {
         this.validEmail = validEmail;
     }
 
-    public boolean confirmLogin(int verificationCode) {
-        this.verificationCode = verificationCode;
-        if (validEmail && m.verificationCode == this.verificationCode) {
+    public boolean confirmLogin(int verificationCode){
+        this.verificationCode=verificationCode;
+        if(validEmail&&m.verificationCode==this.verificationCode){
+        
             setLogged(true);
             return true;
+        
         }
         return false;
     }
@@ -126,6 +116,8 @@ public class Login {
         return roles;
     }
 
+
+
     public void setLogged(boolean logged) {
         isLogged = logged;
     }
@@ -134,40 +126,44 @@ public class Login {
         return isLogged;
     }
 
-    public boolean addUser(User u) {
-        if (emailValidator(u.getEmail())) {
+
+
+
+   public boolean addUser(User u){
+        if(emailValidator(u.getEmail())){
             users.add(u);
             return true;
         }
+
         LOGGER.info("Not a valid Email");
         return false;
     }
-
-    public void setUser(User u) {
-        this.u = u;
-    }
-
-    public boolean updateUser(User oldUser, User newUser) {
-        User foundUser = findUserByEmailAndPassword(oldUser.getEmail(), oldUser.getPassword());
-        boolean isUpdating = false;
-
-        if (foundUser != null && emailValidator(newUser.getEmail())) {
-            userIndex = users.indexOf(foundUser);
+public void setUser(User u){
+        this.u=u;
+}
+    public boolean updateUser(User oldUser,User newUser){
+        boolean isUpdating=false;
+        for (User s : users) {
+            if (oldUser.getPassword().equals(s.getPassword()) && oldUser.getEmail().equalsIgnoreCase(s.getEmail())) {
+                userIndex = users.indexOf(s);
+            }
+        }
+        if(emailValidator(newUser.getEmail())){
             users.get(userIndex).setType(newUser.getType());
             users.get(userIndex).setPassword(newUser.getPassword());
             users.get(userIndex).setEmail(newUser.getEmail());
-            isUpdating = true;
+            isUpdating=true;
         }
         return isUpdating;
     }
 
-    public boolean deleteUser(User u) {
-        for (User r : users) {
-            if (r.getEmail().equals(u.getEmail()) && r.getPassword().equals(u.getPassword())) {
-                users.remove(r);
-                return true;
-            }
-        }
-        return false;
+    public boolean deleteUser(User u){
+     for(User r : users){
+         if(r.getEmail().equals(u.getEmail())&&r.getPassword().equals(u.getPassword())){
+             users.remove(r);
+             return true;
+         }
+     }
+     return false;
     }
 }
