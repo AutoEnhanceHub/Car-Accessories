@@ -111,24 +111,26 @@ public void addcat(String name){
 try {
 
 
-        int response;
-    while (true) {
-        LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no");
+        boolean issure=false;
+
+        LOGGER.info("Are you sure you want to continue?\nenter 1 to sure");
         int answer = scanner.nextInt();
         scanner.nextLine();
 
         if (answer == 1) {
-            response = answer;
-            break;
+            issure=true;
+
         }
-    }
 
 
-    {
+
+   if(issure) {
         String ygy1="You added the Category "+m;
         LOGGER.info(ygy1);
        addcat(m);
-    }
+    }else {
+       throw new NullPointerException();
+   }
 
 }catch (NullPointerException e){
     String ygy1= CATEGORY +m+" is not added";
@@ -190,22 +192,19 @@ String rename=scanner.nextLine();
                 }
                 else{
 
-                    int response=9;
-                    while(true){
-                        LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no");
+                    boolean response=false;
+
+                        LOGGER.info("Are you sure you want to continue?\n1. yes\n");
                         int answer=scanner.nextInt();
                         scanner.nextLine();
                         if(answer==1){
-                            response=1;  break;
+                            response=true; }
 
-                        } else if (answer==2) {
-                            break;
-                        }
-                    }
-  if(response==1){
+
+  if(response){
       edtcatogry(categories.get(select).name,rename);
       LOGGER.info("The Name is edited successfully\n");
- ;
+
 }
  else {
       LOGGER.info("the Category is not Edited\n");
@@ -255,19 +254,16 @@ public void deleteCategory(){
             }else{
                 select--;
 
-                int response=9;
-                while(true){
-                    LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no\n");
+                boolean response=false;
+                LOGGER.info("Are you sure you want to continue?\n1. yes\n");
                     int answer=scanner.nextInt();
                     scanner.nextLine();
                     if(answer==1){
-                        response=1;  break;
+                        response=true;
 
-                    } else if (answer==2) {
-                      break;
                     }
-                }
-                if(response==1){
+
+                if(response){
                     dltcat(categories.get(select).name);
                     LOGGER.info("the Category is Deleted\n");
                 }
