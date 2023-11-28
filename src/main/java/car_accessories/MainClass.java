@@ -274,8 +274,8 @@ public class MainClass {
             String newPassword = adminScanner.nextLine();
             LOGGER.info("Enter user new type that needs to be updated: ");
             String newType = adminScanner.nextLine();
-
-            if (NO_CHANGE.equals(newPassword))  {
+boolean scan=NO_CHANGE.equals(newPassword);
+            if (scan)  {
                 newPassword = oldPassword;
             }
             if (NO_CHANGE.equals(newType)) {
