@@ -45,24 +45,7 @@ public class MainClass {
 
     public static void main(String[] arg) {
         Application signInApplication = new Application();
-        try {
-            // Logger configuration code
-
-            Handler[] handlers = LOGGER.getHandlers();
-            for (Handler handler : handlers) {
-                LOGGER.removeHandler(handler);
-            }
-
-            try {
-                Logger_1(LOGGER);
-            } catch (Exception e) {
-                LOGGER.log(Level.SEVERE, "Error setting up ConsoleHandler", e);
-            }
-        } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
-        }
-
-
+        initializeLogger();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -90,6 +73,20 @@ public class MainClass {
         } while (authen != 3);
 
         scanner.close();
+    }
+
+    private static void initializeLogger() {
+        try {
+            LOGGER.setUseParentHandlers(false);
+            Handler[] handlers = LOGGER.getHandlers();
+            for (Handler handler : handlers) {
+                LOGGER.removeHandler(handler);
+            }
+
+            MainClass.Logger_1(LOGGER);
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
+        }
     }
 
     static void Logger_1(Logger logger) {
