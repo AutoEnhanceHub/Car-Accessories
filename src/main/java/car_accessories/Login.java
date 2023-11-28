@@ -115,9 +115,7 @@ public class Login {
         return roles;
     }
 
-    public User getU() {
-        return u;
-    }
+
 
     public void setLogged(boolean logged) {
         isLogged = logged;
@@ -126,23 +124,16 @@ public class Login {
     public boolean isLogged() {
         return isLogged;
     }
-    public void resetPassword(String newPassword){
-        m=new Mailing(u.getEmail());
-        if(verificationCode== m.getVerificationCode()){
-            u.setPassword(newPassword);
-        }
-    }
 
-    public void setVerificationCode(int verificationCode) {
-        this.verificationCode = verificationCode;
-    }
+
+
 
    public boolean addUser(User u){
         if(emailValidator(u.getEmail())){
             users.add(u);
             return true;
         }
-      
+
         LOGGER.info("Not a valid Email");
         return false;
     }

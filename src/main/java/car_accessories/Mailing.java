@@ -19,14 +19,7 @@ public class Mailing {
         verificationCode = 10000 + random.nextInt(90000);
     }
 
-    public int getVerificationCode() {
-        return verificationCode;
-    }
 
-    public Random getRandom() {
-        return random;
-
-    }
 
     private void sending(String subject, String text){
 
@@ -51,8 +44,8 @@ public class Mailing {
             message.setText(text);
             Transport.send(message);
         }
-        catch (MessagingException m){
-            m.printStackTrace();
+        catch (MessagingException ppp) {
+            //lkd
         }
 
     }
@@ -63,12 +56,7 @@ public class Mailing {
      sending(subject,text);
       
     }
-    public void resetPassword(){
-        String subject = "This is your code to reset new password";
-        String text = "Your code is "+verificationCode +"\n"+"Please don't share this code with anyone";
-        sending(subject,text);
 
-    }
     public void sendEmail(String subject,String text) {
        sending(subject,text);
     }

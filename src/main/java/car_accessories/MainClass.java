@@ -24,29 +24,22 @@ public class MainClass {
 
     public static void main(String[] arg) {
         Application signInApplication = new Application();
-        try {
-            LOGGER.setUseParentHandlers(false);
+        LOGGER.setUseParentHandlers(false);
 
-            Handler[] handlers = LOGGER.getHandlers();
-            for (Handler handler : handlers) {
-                LOGGER.removeHandler(handler);
-            }
-
-            ConsoleHandler consoleHandler = new ConsoleHandler();
-            consoleHandler.setLevel(Level.INFO);
-            consoleHandler.setFormatter(new SimpleFormatter() {
-                @Override
-                public synchronized String format(java.util.logging.LogRecord logRecord) {
-                    return logRecord.getMessage() + "\n";
-                }
-            });
-
-            LOGGER.addHandler(consoleHandler);
-        } catch (Exception e) {
-            // Handle the exception (e.g., log it or take appropriate action)
-            e.printStackTrace();
+        Handler[] handlers = LOGGER.getHandlers();
+        for (Handler handler : handlers) {
+            LOGGER.removeHandler(handler);
         }
 
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(Level.ALL);
+        consoleHandler.setFormatter(new SimpleFormatter() {
+            @Override
+            public synchronized String format(java.util.logging.LogRecord record) {
+                return record.getMessage() + "\n";
+            }
+        });
+        LOGGER.addHandler(consoleHandler);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -253,9 +246,7 @@ public class MainClass {
         LOGGER.info(STRING);
     }
 
-    private static final String NO_CHANGE = "-1";
     private static void updateUser(Scanner adminScanner, Application application) {
-
         LOGGER.info("Enter user email that needs to be updated: ");
         String oldEmail = adminScanner.nextLine();
         LOGGER.info("Enter user password that needs to be updated: ");
@@ -278,13 +269,13 @@ public class MainClass {
             LOGGER.info("Enter user new type that needs to be updated: ");
             String newType = adminScanner.nextLine();
 
-            if (newPassword.equals(NO_CHANGE)) {
+            if (newPassword.equals("-1")) {
                 newPassword = oldPassword;
             }
-            if (newType.equals(NO_CHANGE)) {
+            if (newType.equals("-1")) {
                 newType = oldType;
             }
-            if (newEmail.equals(NO_CHANGE)) {
+            if (newEmail.equals("-1")) {
                 newEmail = oldEmail;
             }
 
