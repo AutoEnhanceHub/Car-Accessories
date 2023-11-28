@@ -90,16 +90,23 @@ public class MainClass {
     }
 
     static void Logger_1(Logger logger) {
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-        consoleHandler.setLevel(Level.INFO);
-        consoleHandler.setFormatter(new SimpleFormatter() {
-            @Override
-            public synchronized String format(LogRecord logRecord) {
-                return logRecord.getMessage() + "\n";
+        if (logger != null) {
+            try {
+                ConsoleHandler consoleHandler = new ConsoleHandler();
+                consoleHandler.setLevel(Level.INFO);
+                consoleHandler.setFormatter(new SimpleFormatter() {
+                    @Override
+                    public synchronized String format(LogRecord logRecord) {
+                        return logRecord.getMessage() + "\n";
+                    }
+                });
+                logger.addHandler(consoleHandler);
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, "Error setting up ConsoleHandler", e);
             }
-        });
-        consoleHandler.setLevel(Level.INFO);
-        logger.addHandler(consoleHandler);
+        } else {
+            System.err.println("Logger is null. Unable to configure ConsoleHandler.");
+        }
     }
 
     private static void signUp(Scanner scanner, Application signInApplication) {
