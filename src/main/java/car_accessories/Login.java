@@ -9,7 +9,7 @@ public class Login {
     private static final Logger LOGGER = Logger.getLogger(Login.class.getName());
     private static final String ADMIN_ROLE = "Admin";
 
-    private List<User> users = new ArrayList<>();
+    protected List<User> users = new ArrayList<>();
     private int roles;
     private boolean isLogged;
     private Mailing m;
