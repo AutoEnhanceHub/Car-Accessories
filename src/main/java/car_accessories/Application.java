@@ -1,10 +1,10 @@
 package car_accessories;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.*;
 
@@ -15,7 +15,7 @@ public  class Application {
     private static final String ADMIN ="Admin";
     private static final String NEXT_TIME ="Enter a valid value in the next time\n";
     private static final String TABS ="     ";
-private final Random random;
+    private final SecureRandom random;
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
     private static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     String carname;
@@ -31,25 +31,29 @@ static int[] indexes=new int[2];
 
 public Application(){
     categories=new ArrayList<>();
-random=new Random();
-    LOGGER.setUseParentHandlers(false);
+    random=new SecureRandom();
+    try {
+        LOGGER.setUseParentHandlers(false);
 
-    Handler[] handlers = LOGGER.getHandlers();
-    for (Handler handler : handlers) {
-        LOGGER.removeHandler(handler);
+        Handler[] handlers = LOGGER.getHandlers();
+        for (Handler handler : handlers) {
+            LOGGER.removeHandler(handler);
+        }
+
+        ConsoleHandler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(Level.INFO);
+        consoleHandler.setFormatter(new SimpleFormatter() {
+            @Override
+            public synchronized String format(java.util.logging.LogRecord logRecord) {
+                return logRecord.getMessage() + "\n";
+            }
+        });
+
+        LOGGER.addHandler(consoleHandler);
+    } catch (Exception e) {
+        // Handle the exception (e.g., log it or take appropriate action)
+        e.printStackTrace();
     }
-
-    ConsoleHandler consoleHandler = new ConsoleHandler();
-    consoleHandler.setLevel(Level.ALL);
-    consoleHandler.setFormatter(new SimpleFormatter() {
-        @Override
-public synchronized String format(java.util.logging.LogRecord logRecord) {
-    return logRecord.getMessage() + "\n";
-}
-
-
-    });
-    LOGGER.addHandler(consoleHandler);
 
     carname="";
   
@@ -205,7 +209,7 @@ String rename=scanner.nextLine();
   if(response==1){
       edtcatogry(categories.get(select).name,rename);
       LOGGER.info("The Name is edited successfully\n");
- ;
+
 }
  else {
       LOGGER.info("the Category is not Edited\n");

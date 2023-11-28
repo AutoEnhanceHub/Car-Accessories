@@ -17,19 +17,29 @@ public class Login {
     boolean validEmail;
     int userIndex;
     Login(User u){
-       LOGGER.setUseParentHandlers(false);
         this.u=u;
-        ConsoleHandler consoleHandler = new ConsoleHandler();
-    consoleHandler.setLevel(Level.ALL);
-    consoleHandler.setFormatter(new SimpleFormatter() {
-        @Override
-public synchronized String format(java.util.logging.LogRecord logRecord) {
-    return logRecord.getMessage() + "\n";
-}
+        try {
+            LOGGER.setUseParentHandlers(false);
 
+            Handler[] handlers = LOGGER.getHandlers();
+            for (Handler handler : handlers) {
+                LOGGER.removeHandler(handler);
+            }
 
-    });
-    LOGGER.addHandler(consoleHandler);
+            ConsoleHandler consoleHandler = new ConsoleHandler();
+            consoleHandler.setLevel(Level.INFO);
+            consoleHandler.setFormatter(new SimpleFormatter() {
+                @Override
+                public synchronized String format(java.util.logging.LogRecord logRecord) {
+                    return logRecord.getMessage() + "\n";
+                }
+            });
+
+            LOGGER.addHandler(consoleHandler);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         
         User u1=new User("ibrahim.sadi.asad@gmail.com","123456",admins);

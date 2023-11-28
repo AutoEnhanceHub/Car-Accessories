@@ -1,5 +1,6 @@
 package car_accessories;
 
+import java.security.SecureRandom;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -8,13 +9,13 @@ public class Mailing {
 
     String to;
     String from;
-    Random random;
+    SecureRandom random;
     int verificationCode;
 
     Mailing(String to){
         this.to = to;
         from="accessoriescar378@gmail.com";
-        random = new Random();
+        random = new SecureRandom();
         verificationCode = 10000 + random.nextInt(90000);
     }
 
@@ -54,7 +55,6 @@ public class Mailing {
             m.printStackTrace();
         }
 
-        
     }
 
     public void sendVerificationCode(){
@@ -72,6 +72,4 @@ public class Mailing {
     public void sendEmail(String subject,String text) {
        sending(subject,text);
     }
-
-
 }
