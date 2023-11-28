@@ -86,8 +86,8 @@ public class MainClass {
             // Add ConsoleHandler
             configureConsoleHandler(LOGGER);
 
-            // Add FileHandler (customize the file path and settings as needed)
-            FileHandler fileHandler = new FileHandler("application.log");
+            // Add FileHandler with log rotation
+            FileHandler fileHandler = new FileHandler("application.log", 10 * 1024 * 1024, 5, true);
             fileHandler.setLevel(Level.INFO);
             fileHandler.setFormatter(new SimpleFormatter());
             LOGGER.addHandler(fileHandler);
@@ -116,6 +116,7 @@ public class MainClass {
             System.err.println("Logger is null. Unable to configure ConsoleHandler.");
         }
     }
+
 
     private static void signUp(Scanner scanner, Application signInApplication) {
         LOGGER.info("Enter your email: ");
