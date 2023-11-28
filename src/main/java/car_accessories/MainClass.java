@@ -1,10 +1,30 @@
 package car_accessories;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.*;
 
 public class MainClass {
+    public static boolean comparePasswords(String inputPassword, String hashedPassword) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = md.digest(inputPassword.getBytes(StandardCharsets.UTF_8));
+
+            StringBuilder hexHash = new StringBuilder();
+            for (byte b : hashBytes) {
+                hexHash.append(String.format("%02x", b));
+            }
+
+            return hexHash.toString().equals(hashedPassword);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            // Handle the exception as needed
+            return false;
+        }
+    }
     private static final String INVALID_INFORMATION_PLEASE_TRY_AGAIN = "Invalid information! Please try again.";
     private static final String STRING = "********************************************************************";
     private static final Logger LOGGER = Logger.getLogger(MainClass.class.getName());
@@ -274,7 +294,8 @@ public class MainClass {
             String newPassword = adminScanner.nextLine();
             LOGGER.info("Enter user new type that needs to be updated: ");
             String newType = adminScanner.nextLine();
-boolean scan=NO_CHANGE.equals(newPassword);
+boolean scan=comparePasswords(NO_CHANGE,newPassword);
+
             if (scan)  {
                 newPassword = oldPassword;
             }
