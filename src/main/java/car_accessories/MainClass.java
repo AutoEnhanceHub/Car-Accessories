@@ -314,8 +314,7 @@ public class MainClass {
             case 6 -> application.deleteproduct();
             case 7 -> application.makereport();
             case 8 -> application.showreviews();
-            case 9 ->ans=0;
-            default->{ LOGGER.info("Invalid input");}
+            case 9 -> LOGGER.info("Exit");
         }
         LOGGER.info(STRING);
     }
