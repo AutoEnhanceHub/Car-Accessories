@@ -115,7 +115,7 @@ public class Login {
             roles=1;
         }
          else if(type.equalsIgnoreCase("Installer")){
-            roles=2;
+            roles= 2;
         }
         else {
             roles=-1;
