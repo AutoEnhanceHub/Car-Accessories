@@ -35,8 +35,8 @@ public class MainClass {
         consoleHandler.setLevel(Level.ALL);
         consoleHandler.setFormatter(new SimpleFormatter() {
             @Override
-            public synchronized String format(java.util.logging.LogRecord record) {
-                return record.getMessage() + "\n";
+            public synchronized String format(java.util.logging.LogRecord rama) {
+                return rama.getMessage() + "\n";
             }
         });
         LOGGER.addHandler(consoleHandler);
@@ -314,9 +314,8 @@ public class MainClass {
             case 6 -> application.deleteproduct();
             case 7 -> application.makereport();
             case 8 -> application.showreviews();
-            case 9 -> LOGGER.info("Invalid input");
-            default -> {
-            }
+            case 9 ->ans=0;
+            default->{ LOGGER.info("Invalid input");}
         }
         LOGGER.info(STRING);
     }
