@@ -43,8 +43,8 @@ public class Mailing {
             message.setText(text);
             Transport.send(message);
         }
-        catch (MessagingException ignored){
-
+        catch (MessagingException ppp) {
+            //lkd
         }
 
         
