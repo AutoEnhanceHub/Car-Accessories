@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="some updates 1.6">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="some updatesappp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +23,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;abdallah-daher&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f01619e7-a74c-4435-8fe3-331268f18833" />
+        <option name="url" value="https://github.com/AutoEnhanceHub/Car-Accessories.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -41,6 +53,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;app.teamhub.trackedBranches&quot;: &quot;-1ttt7ga/master&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -62,7 +75,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="JUnit.AcceptanceTest">
+  <component name="RunManager">
     <configuration name="Feature: feature4" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/Features/feature4.feature" />
@@ -121,7 +134,7 @@
     </configuration>
     <configuration name="AcceptanceTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="Car-Accessories" />
-      <extension name="coverage" runner="jacoco">
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="car_accessories.*" />
           <option name="ENABLED" value="true" />
@@ -129,18 +142,11 @@
       </extension>
       <option name="PACKAGE_NAME" value="carAccessories" />
       <option name="MAIN_CLASS_NAME" value="car_accessories.AcceptanceTest" />
-      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Cucumber Java.Feature: feature4" />
-      <item itemvalue="Cucumber Java.Feature: feature9" />
-      <item itemvalue="Cucumber Java.Scenario: Customer requests installation services" />
-      <item itemvalue="JUnit.AcceptanceTest" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Cucumber Java.Feature: feature4" />
@@ -189,6 +195,7 @@
       <workItem from="1701081344941" duration="3026000" />
       <workItem from="1701113512217" duration="1065000" />
       <workItem from="1701117308118" duration="2052000" />
+      <workItem from="1701161833427" duration="314000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -313,21 +320,87 @@
       <option name="project" value="LOCAL" />
       <updated>1701118931623</updated>
     </task>
-    <task id="LOCAL-00017" summary="some updates 1.4">
-      <created>1701123345557</created>
+    <task id="LOCAL-00017" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701159601457</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1701123345558</updated>
+      <updated>1701159601457</updated>
     </task>
-    <task id="LOCAL-00018" summary="some updates 1.6">
-      <created>1701123760265</created>
+    <task id="LOCAL-00018" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701159926150</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1701123760265</updated>
+      <updated>1701159926150</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701160114920</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701160114920</updated>
+    </task>
+    <task id="LOCAL-00020" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701161923957</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701161923957</updated>
+    </task>
+    <task id="LOCAL-00021" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701161957354</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1701161957354</updated>
+    </task>
+    <task id="LOCAL-00022" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701173578220</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701173578220</updated>
+    </task>
+    <task id="LOCAL-00023" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701174281870</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1701174281870</updated>
+    </task>
+    <task id="LOCAL-00024" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701174434179</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701174434179</updated>
+    </task>
+    <task id="LOCAL-00025" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701174705770</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1701174705770</updated>
+    </task>
+    <task id="LOCAL-00026" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701174860533</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1701174860533</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,18 +442,14 @@
     <MESSAGE value="Dos 1.0.1" />
     <MESSAGE value="rename update" />
     <MESSAGE value="some updates" />
-    <MESSAGE value="some updates 1.4" />
-    <MESSAGE value="some updates 1.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="some updates 1.6" />
+    <MESSAGE value="some updatesappp" />
+    <option name="LAST_COMMIT_MESSAGE" value="some updatesappp" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.exec" NAME="AcceptanceTest Coverage Results" MODIFIED="1701187087939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>car_accessories.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1696236268529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>carAccessories.*</FILTER>
     </SUITE>
