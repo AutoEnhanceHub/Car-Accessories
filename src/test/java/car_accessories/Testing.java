@@ -348,7 +348,7 @@ assertFalse(application.foundc(string));
     @Then("the product availability should be updated")
     public void the_product_availability_should_be_updated() {
         assertEquals("Installer", c.type);
-        assertTrue(avl_q!=newqu);
+        assertNotEquals(avl_q,newqu);
     }
 
 
@@ -403,7 +403,7 @@ assertFalse(application.foundc(string));
     public void the_average_rating_for_the_product_must_be_updated() {
        if(exist){
            if(oldavg!=rate){
-               assertTrue(oldavg!=Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rateAvg);
+               assertNotEquals(oldavg,Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rateAvg);
            }
        }
     }

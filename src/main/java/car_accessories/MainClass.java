@@ -308,7 +308,8 @@ public class MainClass {
             6. Delete a Product
             7. Get a Report
             8. Show average ratings and reviews
-            9. Exit
+            9. show products
+            10. Exit
                  """);
         int ans = adminScanner.nextInt();
         switch (ans) {
@@ -320,9 +321,10 @@ public class MainClass {
             case 6 -> application.deleteproduct();
             case 7 -> application.makereport();
             case 8 -> application.showreviews();
-            case 9 -> LOGGER.info("Invalid input");
-            default -> {
-            }
+            case 9 -> application.showproducts();
+            case 10 -> LOGGER.info("Exit");
+            default -> LOGGER.info("Invalid input");
+
         }
         LOGGER.info(STRING);
     }

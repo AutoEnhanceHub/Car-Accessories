@@ -115,23 +115,22 @@ public void addcat(String name){
 try {
 
 
-        int response;
-    while (true) {
-        LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no");
+        boolean response=false;
+
+        LOGGER.info("Are you sure you want to continue?\n1. yes ");
         int answer = scanner.nextInt();
         scanner.nextLine();
 
-        if (answer == 1) {
-            response = answer;
-            break;
-        }
-    }
+        if (answer == 1)response = true;
 
 
 
+
+
+if(response){
         String ygy1="You added the Category "+m;
         LOGGER.info(ygy1);
-       addcat(m);
+       addcat(m);}
 
 
 }catch (NullPointerException e){
@@ -661,12 +660,13 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
          int pselect= scanner.nextInt();  scanner.nextLine();
          pselect--;
          String pname=categories.get(cselect).products.get(pselect).name;
-         String message= reviews(catname,pname);
+         String message= reviews(catname,pname)+"\n";
          if(message.isEmpty()){
              LOGGER.info("The Choosed product doesnt have any rate or review\n");
              return;
          }
-         LOGGER.info(message+"\n");
+
+         LOGGER.info(message);
      }
      catch (Exception e){
          LOGGER.info(NEXT_TIME);
