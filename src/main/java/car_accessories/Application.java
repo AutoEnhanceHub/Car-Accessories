@@ -23,7 +23,7 @@ private final Random random;
  
     Login login;
     static ArrayList<Sales> sales=new ArrayList<>();
-    static ArrayList<Category> categories=new ArrayList<>();
+    static ArrayList<Category> categories;
     User newUser;
 
 static int[] indexes=new int[2];
@@ -33,7 +33,7 @@ public Application(){
 
 random=new Random();
     LOGGER.setUseParentHandlers(false);
-
+    categories=new ArrayList<>();
     Handler[] handlers = LOGGER.getHandlers();
     for (Handler handler : handlers) {
         LOGGER.removeHandler(handler);
