@@ -1,7 +1,6 @@
 package car_accessories;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -10,28 +9,21 @@ import java.util.logging.*;
 public class Login {
     private static final Logger LOGGER = Logger.getLogger(Login.class.getName());
     private static final String ADMIN_ROLE = "Admin";
-    private static final String CUSTOMER_ROLE = "Customer";
-    private static final String INSTALLER_ROLE = "Installer";
 
-    List<User> users = new ArrayList<>();
-    int roles;
-    boolean isLogged;
-    Mailing m;
-    int verificationCode;
-    User u;
-    boolean validEmail;
-    int userIndex;
+    private List<User> users = new ArrayList<>();
+    private int roles;
+    private boolean isLogged;
+    private Mailing m;
+    private int verificationCode;
+    private User u;
+    private boolean validEmail;
+    private int userIndex;
 
-    Login(User u) {
+    public Login(User u) {
         this.u = u;
         initializeLogger();
 
-        User u1 = new User("ibrahim.sadi.asad@gmail.com", "123456", ADMIN_ROLE);
-        User u2 = new User("ibrahimeceasad@gmail.com", "654321", CUSTOMER_ROLE);
-        User u3 = new User("i.a.s.assad33@gmail.com", "987654", INSTALLER_ROLE);
-        User u4 = new User("abdallahdaher785@gmail.com", "abdallah@123", ADMIN_ROLE);
-
-        users.addAll(Arrays.asList(u1, u2, u3, u4));
+        initializeDefaultUsers();
         isLogged = false;
     }
 
@@ -57,6 +49,15 @@ public class Login {
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
         }
+    }
+
+    private void initializeDefaultUsers() {
+        User u1 = new User("ibrahim.sadi.asad@gmail.com", "123456", ADMIN_ROLE);
+        User u2 = new User("ibrahimeceasad@gmail.com", "654321", "Customer");
+        User u3 = new User("i.a.s.assad33@gmail.com", "987654", "Installer");
+        User u4 = new User("abdallahdaher785@gmail.com", "abdallah@123", ADMIN_ROLE);
+
+        users.addAll(List.of(u1, u2, u3, u4));
     }
 
     public boolean login() {
@@ -89,6 +90,7 @@ public class Login {
             internetAddress.validate();
             return true;
         } catch (AddressException ex) {
+            LOGGER.info("Not a valid Email");
             return false;
         }
     }
@@ -107,19 +109,9 @@ public class Login {
     }
 
     public void setRoles() {
-        String type=users.get(userIndex).getType();
-        if (type.equalsIgnoreCase(admins)){
-            roles=0;
-        }
-        else if (type.equalsIgnoreCase("Customer")){
-            roles=1;
-        }
-         else if(type.equalsIgnoreCase("Installer")){
-            roles=2;
-        }
-        else {
-            roles=-1;
-        }
+        String type = users.get(userIndex).getType();
+        roles = type.equalsIgnoreCase(ADMIN_ROLE) ? 0 : type.equalsIgnoreCase("Customer") ? 1 :
+                type.equalsIgnoreCase("Installer") ? 2 : -1;
     }
 
     public int getRoles() {
@@ -139,6 +131,7 @@ public class Login {
             users.add(u);
             return true;
         }
+
         LOGGER.info("Not a valid Email");
         return false;
     }
