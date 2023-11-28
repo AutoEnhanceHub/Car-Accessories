@@ -20,25 +20,12 @@ public class Login {
 
     public Login(User u) {
         this.u = u;
-        initializeLogger();
+        MainClass.initializeLogger();
 
         initializeDefaultUsers();
         isLogged = false;
     }
 
-    private void initializeLogger() {
-        try {
-            LOGGER.setUseParentHandlers(false);
-            Handler[] handlers = LOGGER.getHandlers();
-            for (Handler handler : handlers) {
-                LOGGER.removeHandler(handler);
-            }
-
-            MainClass.Logger_1(LOGGER);
-        } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
-        }
-    }
 
     private void initializeDefaultUsers() {
         User u1 = new User("ibrahim.sadi.asad@gmail.com", "123456", ADMIN_ROLE);

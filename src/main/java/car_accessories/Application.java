@@ -32,7 +32,7 @@ static int[] indexes=new int[2];
 public Application(){
     categories=new ArrayList<>();
 random=new SecureRandom();
-    initializeLogger();
+  MainClass.initializeLogger();
 
 
 
@@ -50,19 +50,7 @@ random=new SecureRandom();
 
 }
 
-    private void initializeLogger() {
-        try {
-            LOGGER.setUseParentHandlers(false);
-            Handler[] handlers = LOGGER.getHandlers();
-            for (Handler handler : handlers) {
-                LOGGER.removeHandler(handler);
-            }
 
-            MainClass.Logger_1(LOGGER);
-        } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
-        }
-    }
 
 
 

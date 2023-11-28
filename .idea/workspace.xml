@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="updatescc_s.2.1">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="updatescc_s.2.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -449,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701204044977</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="updatescc_s.2.2">
+      <created>1701204523708</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1701204523708</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +507,8 @@
     <MESSAGE value="updatescc_s" />
     <MESSAGE value="updatescc_s.2" />
     <MESSAGE value="updatescc_s.2.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="updatescc_s.2.1" />
+    <MESSAGE value="updatescc_s.2.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="updatescc_s.2.2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

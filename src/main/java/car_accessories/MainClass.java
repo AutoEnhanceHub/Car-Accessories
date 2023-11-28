@@ -75,7 +75,7 @@ public class MainClass {
         scanner.close();
     }
 
-    private static void initializeLogger() {
+    protected static void initializeLogger() {
         try {
             LOGGER.setUseParentHandlers(false);
             Handler[] handlers = LOGGER.getHandlers();
@@ -83,13 +83,21 @@ public class MainClass {
                 LOGGER.removeHandler(handler);
             }
 
-            Logger_1(LOGGER);
+            // Add ConsoleHandler
+            configureConsoleHandler(LOGGER);
+
+            // Add FileHandler (customize the file path and settings as needed)
+            FileHandler fileHandler = new FileHandler("application.log");
+            fileHandler.setLevel(Level.INFO);
+            fileHandler.setFormatter(new SimpleFormatter());
+            LOGGER.addHandler(fileHandler);
+
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
         }
     }
 
-    static void Logger_1(Logger logger) {
+    protected static void configureConsoleHandler(Logger logger) {
         if (logger != null) {
             try {
                 ConsoleHandler consoleHandler = new ConsoleHandler();
