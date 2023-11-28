@@ -4,7 +4,6 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.util.ArrayList;
 import java.util.logging.*;
-
 public class Login {
    private static final Logger LOGGER = Logger.getLogger(Login.class.getName());
    String admins="Admin";
@@ -20,7 +19,6 @@ public class Login {
         this.u=u;
         try {
             LOGGER.setUseParentHandlers(false);
-
             Handler[] handlers = LOGGER.getHandlers();
             for (Handler handler : handlers) {
                 LOGGER.removeHandler(handler);
