@@ -23,14 +23,14 @@ private final Random random;
  
     Login login;
     static ArrayList<Sales> sales=new ArrayList<>();
-    static ArrayList<Category> categories;
+    static ArrayList<Category> categories=new ArrayList<>();
     User newUser;
-    SignUp signUp;
+
 static int[] indexes=new int[2];
     Scanner scanner = new Scanner(System.in);
 
 public Application(){
-    categories=new ArrayList<>();
+
 random=new Random();
     LOGGER.setUseParentHandlers(false);
 
@@ -67,17 +67,11 @@ public synchronized String format(java.util.logging.LogRecord logRecord) {
 
 
 
-    public void signUp(){
-        signUp=new SignUp(newUser,login);
-}
 
-    public boolean isLoggedIn() {
-        return loggedIn;
-    }
 
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
-    }
+
+
+
     
 
 
