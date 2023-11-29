@@ -43,6 +43,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          mvn -B jacoco:prepare-agent verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar jacoco:report -Dsonar.projectKey=AutoEnhanceHub_Car-Accessories -Djacoco.excludes=car_accessories/Sales.java,car_accessories/SignUp.java,car_accessories/Mailing.java,car_accessories/MainClass.java
+        run: mvn -B   jacoco:prepare-agent  verify  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar jacoco:report  -Dsonar.projectKey=AutoEnhanceHub_Car-Accessories -Dsonar.sources=car_accessories -Djacoco.excludes=car_accessories/Sales.java,car_accessories/SignUp.java,car_accessories/Mailing.java,car_accessories/MainClass.javaAutoEnhanceHub_Car-Accessories -Dsonar.sources=car_accessories -Djacoco.excludes=car_accessories/Sales.java,car_accessories/SignUp.java,car_accessories/Mailing.java,car_accessories/MainClass.java 
          
