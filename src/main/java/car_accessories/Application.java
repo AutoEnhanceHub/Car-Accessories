@@ -10,7 +10,7 @@ import java.util.logging.*;
 
 
 public  class Application {
-    private static final String CATEGORY ="the Category ";
+
     private static final String NO_INFORMATIONS ="There is no informations";
 
 
@@ -192,20 +192,7 @@ public  class Application {
 
     }
 
-    public String reviews(String catname,String pname){
-        if(foundp(catname,pname)){
-            StringBuilder f= new StringBuilder();
-            int c;
-            for (int i=0;i<categories.get(indexes[0]).products.get(indexes[1]).reviews.size();i++){
-                c=i+1;
-                f.append("Rate number ").append(c).append(" :").append(categories.get(indexes[0]).products.get(indexes[1]).rates.get(i));
-                f.append("\nReview number ").append(c).append(" :").append(categories.get(indexes[0]).products.get(indexes[1]).reviews.get(i)).append("\n\n\n");
-            }
-            f.append(" the Average Rate is :").append(categories.get(indexes[0]).products.get(indexes[1]).rateAvg);
-            return f.toString();
-        }
-        return "";
-    }
+
 
 
     public static boolean printTextToFile(String fileName, String text) {
@@ -313,7 +300,10 @@ public  class Application {
 
 
 
-
+public int ratesqu(String catname, String pname){
+     foundp(catname, pname)   ;
+     return categories.get(indexes[0]).products.get(indexes[1]).rates.size();
+}
 }
 
 

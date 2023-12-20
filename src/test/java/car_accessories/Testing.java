@@ -1,5 +1,6 @@
 package car_accessories;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 
 
 import static org.junit.Assert.*;
@@ -441,7 +442,9 @@ public class Testing {
         if(Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.isEmpty()){
             System.out.println("the example product doesnot have any review");
         }else{
-            assertFalse(application.reviews(catname, pname).isEmpty());
+
+            assertNotEquals(application.ratesqu(catname,pname), 0);
+
         }
     }
 
@@ -614,7 +617,8 @@ public class Testing {
     @Then("if the rating is not in the valid range, nothing should happen")
     public void if_the_rating_is_not_in_the_valid_range_nothing_should_happen() {
         if (!exist) {
-            assertTrue(application.reviews(catname, pname).isEmpty());
+
+            assertEquals(application.ratesqu(catname,pname), 0);
         }
     }
     @When("the requested quantity is enough")

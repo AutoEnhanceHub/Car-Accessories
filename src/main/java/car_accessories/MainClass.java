@@ -631,7 +631,7 @@ public class MainClass {
             int pselect= application.scanner.nextInt();  application.scanner.nextLine();
             pselect--;
             String pname= Application.categories.get(cselect).products.get(pselect).name;
-            String message= application.reviews(catname,pname)+"\n";
+            String message= reviews(catname,pname,application)+"\n";
             if(message.isEmpty()){
                 LOGGER.info("The Choosed product doesnt have any rate or review\n");
                 return;
@@ -926,4 +926,18 @@ public class MainClass {
             String ygy1= CATEGORY +m+" is not added";
             LOGGER.info(ygy1);
         } }
+   private static String reviews(String catname,String pname,Application application){
+        if(application.foundp(catname,pname)){
+            StringBuilder f= new StringBuilder();
+            int c;
+            for (int i = 0; i< Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).reviews.size(); i++){
+                c=i+1;
+                f.append("Rate number ").append(c).append(" :").append(Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.get(i));
+                f.append("\nReview number ").append(c).append(" :").append(Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).reviews.get(i)).append("\n\n\n");
+            }
+            f.append(" the Average Rate is :").append(Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rateAvg);
+            return f.toString();
+        }
+        return "";
+    }
 }
