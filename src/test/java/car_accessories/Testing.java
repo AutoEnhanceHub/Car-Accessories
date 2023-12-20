@@ -602,4 +602,33 @@ assertFalse(application.foundc(string));
         assertTrue(application.report(text,file));
     }
 
+    @Then("if the rating is not in the valid range, nothing should happen")
+    public void if_the_rating_is_not_in_the_valid_range_nothing_should_happen() {
+        if (!exist) {
+            assertTrue(application.reviews(catname, pname).isEmpty());
+        }
+    }
+    @When("the requested quantity is enough")
+    public void the_requested_quantity_is_enough() {
+        qu = avl_q; // Assuming the available quantity is enough
+    }
+
+    @Then("the installer request should be successful")
+    public void the_installer_request_should_be_successful() {
+        assertTrue(application.installrequest(catname, pname, qu, carname));
+        assertEquals(newqu, avl_q - qu);
+    }
+
+    @When("the requested quantity is not enough")
+    public void the_requested_quantity_is_not_enough() {
+        qu = avl_q + 1; // Assuming the available quantity is not enough
+    }
+
+    @Then("the installer request should be unsuccessful")
+    public void the_installer_request_should_be_unsuccessful() {
+        assertFalse(application.installrequest(catname, pname, qu, carname));
+        assertEquals(newqu, avl_q);
+    }
+
+
 }
