@@ -92,7 +92,10 @@
                 <configuration>
 
                         <excludes>
-                            <exclude>car_accessories/**</exclude>
+                            <exclude>car_accessories/MainClass.java</exclude>
+                            <exclude>car_accessories/Mailing.java</exclude>
+                            <exclude>car_accessories/SignUp.java</exclude>
+                            <exclude>car_accessories/Sales.java</exclude>
                         </excludes>
                 </configuration>
                 <executions>
