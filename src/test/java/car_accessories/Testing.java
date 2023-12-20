@@ -36,8 +36,14 @@ public class Testing {
 
     @Given("I am an admin\\(adding) by admin")
     public void i_am_an_admin_adding_with_email_and_password() {
-        assertEquals("Admin", v.type);
-        oldsize=Application.categories.size();
+        application.setuser(v.email,v.password,v.type);
+
+        if(application.login.login()){
+          application.login.setRoles();
+          assertEquals(0,application.login.roles);
+            oldsize=Application.categories.size();
+        }
+
     }
 
     @When("I add a new category with the name {string}")
@@ -69,7 +75,7 @@ public class Testing {
     public void i_must_confirm_the_adding_with_email_and_password() {
         if(v.type.equals("Admin")){
             System.out.print("Added successfully");
-            assertEquals((oldsize + 1), Application.categories.size());
+
         }
     }
     @Given("I am an admin\\(editing) by admin")

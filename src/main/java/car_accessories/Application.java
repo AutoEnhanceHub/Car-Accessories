@@ -98,6 +98,7 @@ public  class Application {
     public void setuser(String email,String pass ,String type){
 
         newUser=new User(email,pass,type);
+        login.setUser(newUser);
     }
     public void addcat(String name){
         categories.add(new Category(name));
