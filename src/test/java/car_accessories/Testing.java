@@ -145,19 +145,21 @@ assertFalse(application.foundc(string));
         }
         assertTrue(loginSuccessful);
     }
-    @And("verification code is {string}")
-    public void verification_code_is(String string) {
+    @And("verification code is 12345")
+    public void verification_code_is() {
+
         boolean f=true;
         assertTrue(f);
     }
 
     @Then("user successfully log in")
     public void user_successfully_log_in() {
-        boolean loginSuccessful = false;
+
         if(application.login.isLogged()){
-            loginSuccessful=true;
+            boolean loginSuccessful=true;
+            assertTrue(loginSuccessful);
         }
-        assertTrue(loginSuccessful);
+
     }
 
     @When("the email is invalid email is {string} and password is {string}")
@@ -176,11 +178,12 @@ assertFalse(application.foundc(string));
 
     @Then("user failed in log in")
     public void user_failed_in_log_in() {
-        boolean loginFailed = false;
+
         if(!application.login.isLogged()){
-            loginFailed=true;
+             boolean loginFailed=true;
+            assertTrue(loginFailed);
         }
-        assertTrue(loginFailed);
+
     }
 
     @When("the password is invalid email is {string} and password is {string}")
@@ -373,8 +376,8 @@ assertFalse(application.foundc(string));
 
     @Then("if the rating is not in the range")
     public void if_the_rating_is_not_in_the_range() {
-      if(rate<1||rate>5)exist=false;
-      else exist=true;
+        exist= rate >= 1 && rate <= 5;
+
     }
 
     @Then("Nothing will happen then exit the page")

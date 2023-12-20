@@ -1,8 +1,7 @@
 package car_accessories;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.security.SecureRandom;
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
