@@ -5,7 +5,7 @@ Feature:Login
   Scenario Outline: Valid information
     Given that the user is not logged in
     When the information is valid email is "<Email>" and password is "<Password>"
-    And verification code is "123 "
+    And verification code is 12345
     Then user successfully log in
 
     Examples:

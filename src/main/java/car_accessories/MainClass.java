@@ -6,14 +6,13 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.*;
 
 public class MainClass {
 
     private static final String CATEGORY ="the Category ";
-    private static final String NO_INFORMATIONS ="There is no informations";
+
     private static final String ADMIN ="Admin";
     private static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     private static final String NEXT_TIME ="Enter a valid value in the next time\n";
@@ -386,12 +385,12 @@ public class MainClass {
     private static void editcat(Application application){
 
         if(application.newUser.type.equals(ADMIN)){
-            if(application.categories.isEmpty()){
+            if(Application.categories.isEmpty()){
                 LOGGER.info("There is no categories in the system");
 
             }else{   StringBuilder f= new StringBuilder();
-                for(int i=0;i<application.categories.size();i++){
-                    f.append(i + 1).append(". ").append(application.categories.get(i).name).append("\n");
+                for(int i = 0; i< Application.categories.size(); i++){
+                    f.append(i + 1).append(". ").append(Application.categories.get(i).name).append("\n");
                 }
 
 
@@ -405,7 +404,7 @@ public class MainClass {
                     if(select<1){
                         LOGGER.info(INVALID_INPUT_MESSAGE);
 
-                    } else if (select>application.categories.size()) {
+                    } else if (select> Application.categories.size()) {
                         LOGGER.info(INVALID_INPUT_MESSAGE);
                     }else{
                         select--;
@@ -427,7 +426,7 @@ public class MainClass {
 
 
                             if(response){
-                                application.edtcatogry(application.categories.get(select).name,rename);
+                                application.edtcatogry(Application.categories.get(select).name,rename);
                                 LOGGER.info("The Name is edited successfully\n");
 
                             }
@@ -452,23 +451,23 @@ public class MainClass {
 
             return;}
         try{
-            String ygy1="Choose a Category to delete a product\n"+showallcatogries(application);
+            String ygy1="Choose a Category to delete a product\n"+showallcatogries();
             LOGGER.info(ygy1);
 
             int cselect= application.scanner.nextInt();  application.scanner.nextLine();
             cselect--;
-            if(application.categories.get(cselect).products.isEmpty()){
+            if(Application.categories.get(cselect).products.isEmpty()){
                 LOGGER.info("There is no products to remove\n");
                 return;
             }
-            String catname=application.categories.get(cselect).name;
+            String catname= Application.categories.get(cselect).name;
             String ygy4="Choose a product to delete\n"+getallproducts(catname,application);
             LOGGER.info(ygy4);
 
             int pselect= application.scanner.nextInt();  application.scanner.nextLine();
             pselect--;
 
-            application.categories.get(cselect).products.remove(pselect);
+            Application.categories.get(cselect).products.remove(pselect);
 
         }
         catch (Exception e){
@@ -480,12 +479,12 @@ public class MainClass {
             LOGGER.info("Only admins can add products\n");
             return;}
         try{
-            String ygy1="Choose a Category to add a new product\n"+showallcatogries(application);
+            String ygy1="Choose a Category to add a new product\n"+showallcatogries();
             LOGGER.info(ygy1);
 
             int select=application.scanner.nextInt();  application.scanner.nextLine();
             select--;
-            String catname=application.categories.get(select).name;
+            String catname= Application.categories.get(select).name;
             LOGGER.info("What is the name of the new product?\n");
             String pname=application.scanner.nextLine();
             LOGGER.info("What is the quantity of the new product?\n");
@@ -529,30 +528,30 @@ public class MainClass {
 
             return;}
         try{
-            String ygy1="Choose a Category to edit\n"+showallcatogries(application);
+            String ygy1="Choose a Category to edit\n"+showallcatogries();
             LOGGER.info(ygy1);
 
             int cselect= application.scanner.nextInt();  application.scanner.nextLine();
             cselect--;
-            if(application.categories.get(cselect).products.isEmpty()){
+            if(Application.categories.get(cselect).products.isEmpty()){
                 LOGGER.info("There is no products to edit\n");
 
                 return;
             }
-            String catname=application.categories.get(cselect).name;
+            String catname= Application.categories.get(cselect).name;
             String ygy3="Choose a product to edit\n"+getallproducts(catname,application);
             LOGGER.info(ygy3);
 
             int pselect= application.scanner.nextInt();  application.scanner.nextLine();
             pselect--;
-            String old=application.categories.get(cselect).products.get(pselect).name;
+            String old= Application.categories.get(cselect).products.get(pselect).name;
             String ygy2="What is the new name of the product "+old+"?\n";
             LOGGER.info(ygy2);
             String newname= application.scanner.nextLine();
 
-            for(int i=0;i<application.categories.get(cselect).products.size();i++){
+            for(int i = 0; i< Application.categories.get(cselect).products.size(); i++){
                 if(i==pselect)continue;
-                if(newname.equals(application.categories.get(cselect).products.get(i).name)){
+                if(newname.equals(Application.categories.get(cselect).products.get(i).name)){
                     LOGGER.info(INVALID_INPUT_MESSAGE);
                     return;
                 }
@@ -610,22 +609,22 @@ public class MainClass {
             LOGGER.info("Only Admins can get informations\n");
             return;}
         try{
-            String ygy1="Choose a Category to get informations about a product\n"+showallcatogries(application);
+            String ygy1="Choose a Category to get informations about a product\n"+showallcatogries();
             LOGGER.info(ygy1);
 
             int cselect= application.scanner.nextInt();  application.scanner.nextLine();
             cselect--;
-            if(application.categories.get(cselect).products.isEmpty()){
+            if(Application.categories.get(cselect).products.isEmpty()){
                 LOGGER.info("There is no products to get informations\n");
                 return;
             }
-            String catname=application.categories.get(cselect).name;
+            String catname= Application.categories.get(cselect).name;
             String ygy2="Choose a product to get informations\n"+getallproducts(catname,application);
             LOGGER.info(ygy2);
 
             int pselect= application.scanner.nextInt();  application.scanner.nextLine();
             pselect--;
-            String pname=application.categories.get(cselect).products.get(pselect).name;
+            String pname= Application.categories.get(cselect).products.get(pselect).name;
             String message= application.reviews(catname,pname)+"\n";
             if(message.isEmpty()){
                 LOGGER.info("The Choosed product doesnt have any rate or review\n");
@@ -639,14 +638,14 @@ public class MainClass {
         }
     }
     private static void showallproducts(Application application){
-        String ygh="Choose a Category to see its products\n"+showallcatogries(application);
+        String ygh="Choose a Category to see its products\n"+showallcatogries();
 
         try {LOGGER.info(ygh);
 
             int x=application.scanner.nextInt();
             application.scanner.nextLine();
             x--;
-            String pop=getallproducts(application.categories.get(x).name,application);
+            String pop=getallproducts(Application.categories.get(x).name,application);
             LOGGER.info(pop);
 
         }catch (Exception e){
@@ -655,12 +654,12 @@ public class MainClass {
     }
     private static void deletecat(Application application){
         if(application.newUser.type.equals(ADMIN)){
-            if(application.categories.isEmpty()){
+            if(Application.categories.isEmpty()){
                 LOGGER.info("There is no categories in the system\n");
 
             }else{    StringBuilder f= new StringBuilder();
-                for(int i=0;i<application.categories.size();i++){
-                    f.append(i + 1).append(". ").append(application.categories.get(i).name).append("\n");
+                for(int i = 0; i< Application.categories.size(); i++){
+                    f.append(i + 1).append(". ").append(Application.categories.get(i).name).append("\n");
                 }
 
 
@@ -673,7 +672,7 @@ public class MainClass {
                     application.scanner.nextLine();
                     if(select<1){
                         LOGGER.info(INVALID_INPUT_MESSAGE);
-                    } else if (select>application.categories.size()) {
+                    } else if (select> Application.categories.size()) {
                         LOGGER.info(INVALID_INPUT_MESSAGE);
                     }else{
                         select--;
@@ -691,7 +690,7 @@ public class MainClass {
                             }
                         }
                         if(response==1){
-                            application.dltcat(application.categories.get(select).name);
+                            application.dltcat(Application.categories.get(select).name);
                             LOGGER.info("the Category is Deleted\n");
                         }
                         else {
@@ -710,10 +709,10 @@ public class MainClass {
 
         }
     }
-    private static String showallcatogries(Application application){
+    private static String showallcatogries(){
         StringBuilder f= new StringBuilder();
-        for(int i=0;i<application.categories.size();i++){
-            f.append(i + 1).append(". ").append(application.categories.get(i).name).append("\n");
+        for(int i = 0; i< Application.categories.size(); i++){
+            f.append(i + 1).append(". ").append(Application.categories.get(i).name).append("\n");
         }
 
         return f.toString();
@@ -723,22 +722,22 @@ public class MainClass {
             LOGGER.info("Only customers can rate and review\n");
             return;}
         try{
-            String ygy1="Choose a Category to rate and review a product\n"+showallcatogries(application);
+            String ygy1="Choose a Category to rate and review a product\n"+showallcatogries();
             LOGGER.info(ygy1);
 
             int cselect=application.scanner.nextInt();  application.scanner.nextLine();
             cselect--;
-            if(application.categories.get(cselect).products.isEmpty()){
+            if(Application.categories.get(cselect).products.isEmpty()){
                 LOGGER.info("There is no products to rate or to review in this Category");
                 return;
             }
-            String catname=application.categories.get(cselect).name;
+            String catname= Application.categories.get(cselect).name;
             String ygy2="Choose a product to rate and review\n"+getallproducts(catname,application);
             LOGGER.info(ygy2);
 
             int pselect= application.scanner.nextInt();  application.scanner.nextLine();
             pselect--;
-            String pname=application.categories.get(cselect).products.get(pselect).name;
+            String pname= Application.categories.get(cselect).products.get(pselect).name;
 
             LOGGER.info("How much is the adding rate?  1-5");
 
@@ -767,23 +766,23 @@ public class MainClass {
 
             return;}
         try{
-            String ygy1="Choose a Category to request a product\n"+showallcatogries(application);
+            String ygy1="Choose a Category to request a product\n"+showallcatogries();
             LOGGER.info(ygy1);
 
             int cselect= application.scanner.nextInt();  application.scanner.nextLine();
             cselect--;
-            if(application.categories.get(cselect).products.isEmpty()){
+            if(Application.categories.get(cselect).products.isEmpty()){
                 LOGGER.info("There is no products to request");
                 return;
             }
-            String catname=application.categories.get(cselect).name;
+            String catname= Application.categories.get(cselect).name;
             String ygy5="Choose a product to request\n"+getallproducts(catname,application);
             LOGGER.info(ygy5);
 
             int pselect= application.scanner.nextInt();  application.scanner.nextLine();
             pselect--;
-            String pname=application.categories.get(cselect).products.get(pselect).name;
-            if(application.categories.get(cselect).products.get(pselect).quantity==0){
+            String pname= Application.categories.get(cselect).products.get(pselect).name;
+            if(Application.categories.get(cselect).products.get(pselect).quantity==0){
                 LOGGER.info("The product is not enough to buy!\n");
                 return;
             }
@@ -793,13 +792,13 @@ public class MainClass {
             LOGGER.info("What is the car name?");
             String car=application.scanner.nextLine();
             if(application.installrequest(catname,pname,qu,car)){
-                int fee=qu*application.categories.get(cselect).products.get(pselect).price;
+                int fee=qu* Application.categories.get(cselect).products.get(pselect).price;
                 String ygy9="The request will be installed successfully\n" +
-                        "Your FEE is "+qu*application.categories.get(cselect).products.get(pselect).price+"\n";
+                        "Your FEE is "+qu* Application.categories.get(cselect).products.get(pselect).price+"\n";
                 LOGGER.info(ygy9);
 
-                if(application.categories.get(cselect).products.get(pselect).quantity==0){
-                    application.categories.get(cselect).products.remove(pselect);
+                if(Application.categories.get(cselect).products.get(pselect).quantity==0){
+                    Application.categories.get(cselect).products.remove(pselect);
                 }
 
 
@@ -810,7 +809,7 @@ public class MainClass {
                         " The order is going to be shipped after ." +ship+
                         ". Thank you for shopping with us!\n" +
                         "Best regards,";
-                application.sales.add(new Sales(catname,pname,fee,qu,LocalDate.now(),ship,car));
+                Application.sales.add(new Sales(catname,pname,fee,qu,LocalDate.now(),ship,car));
 
 
 
@@ -829,16 +828,16 @@ public class MainClass {
     private static String getallproducts(String catname,Application application){
         StringBuilder f= new StringBuilder();
         if(application.foundc(catname)){
-            if(application.categories.get(application.indexes[0]).products.isEmpty()){
+            if(Application.categories.get(Application.indexes[0]).products.isEmpty()){
                 return "There is no products";
             }
             f.append("#. name     quantity     price     rate\n");
-            for(int i=0;i<application.categories.get(application.indexes[0]).products.size();i++){
+            for(int i = 0; i< Application.categories.get(Application.indexes[0]).products.size(); i++){
                 int c=i+1;
-                if(i==application.categories.get(application.indexes[0]).products.size()-1){
-                    f.append(c).append(". ").append(application.categories.get(application.indexes[0]).products.get(i).name).append(TABS).append(application.categories.get(application.indexes[0]).products.get(i).quantity).append(TABS).append(application.categories.get(application.indexes[0]).products.get(i).price).append(TABS).append(application.categories.get(application.indexes[0]).products.get(i).rateAvg);break;
+                if(i== Application.categories.get(Application.indexes[0]).products.size()-1){
+                    f.append(c).append(". ").append(Application.categories.get(Application.indexes[0]).products.get(i).name).append(TABS).append(Application.categories.get(Application.indexes[0]).products.get(i).quantity).append(TABS).append(Application.categories.get(Application.indexes[0]).products.get(i).price).append(TABS).append(Application.categories.get(Application.indexes[0]).products.get(i).rateAvg);break;
                 }
-                f.append(c).append(". ").append(application.categories.get(application.indexes[0]).products.get(i).name).append(TABS).append(application.categories.get(application.indexes[0]).products.get(i).quantity).append(TABS).append(application.categories.get(application.indexes[0]).products.get(i).price).append(TABS).append(application.categories.get(application.indexes[0]).products.get(i).rateAvg).append("\n");
+                f.append(c).append(". ").append(Application.categories.get(Application.indexes[0]).products.get(i).name).append(TABS).append(Application.categories.get(Application.indexes[0]).products.get(i).quantity).append(TABS).append(Application.categories.get(Application.indexes[0]).products.get(i).price).append(TABS).append(Application.categories.get(Application.indexes[0]).products.get(i).rateAvg).append("\n");
             }
         }
         else{
