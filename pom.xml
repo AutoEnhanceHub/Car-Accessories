@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <java.version>18</java.version> 
+        <java.version>18</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -90,11 +90,10 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.11</version>
                 <configuration>
-                    <excludes>
-                        <!-- Exclude Mainclass.java and Mailing.java -->
-                        <exclude>**/MainClass.java*</exclude>
-                        <exclude>**/Mailing.java*</exclude>
-                    </excludes>
+
+                        <excludes>
+                            <exclude>car_accessories/**</exclude>
+                        </excludes>
                 </configuration>
                 <executions>
                     <!-- Pre-verify phase: Prepare agent for coverage -->
@@ -112,9 +111,11 @@
                         </goals>
                     </execution>
                 </executions>
+
             </plugin>
         </plugins>
     </build>
+
 
 
 </project>
