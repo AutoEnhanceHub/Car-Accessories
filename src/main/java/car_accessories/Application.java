@@ -13,12 +13,10 @@ import java.util.logging.*;
 public  class Application {
     private static final String CATEGORY ="the Category ";
     private static final String NO_INFORMATIONS ="There is no informations";
-    private static final String ADMIN ="Admin";
-    private static final String NEXT_TIME ="Enter a valid value in the next time\n";
-    private static final String TABS ="     ";
-    private final SecureRandom random;
+
+
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
-    private static final String INVALID_INPUT_MESSAGE = "Invalid Input";
+
     String carname;
     boolean loggedIn;
 
@@ -32,7 +30,7 @@ public  class Application {
 
     public Application(){
         categories=new ArrayList<>();
-        random=new SecureRandom();
+
         try {
             LOGGER.setUseParentHandlers(false);
 

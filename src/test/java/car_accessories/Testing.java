@@ -308,7 +308,7 @@ assertFalse(application.foundc(string));
     @Given("i am an Installer")
     public void i_am_an_Installer() {
         c.type="Installer";
-        application.setuser(application.inU.getEmail(),application.inU.getPassword(),"Installer");
+        application.setuser(application.newUser.getEmail(),application.newUser.getPassword(),"Installer");
         assertEquals("Installer", c.type);
     }
 
@@ -356,7 +356,7 @@ assertFalse(application.foundc(string));
 
     @Given("i am a customer\\(review and rate)")
     public void i_am_a_customer_review_and_rate() {
-        application.setuser(application.inU.getEmail(),application.inU.getPassword(),"Customer");
+        application.setuser(application.newUser.getEmail(),application.newUser.getPassword(),"Customer");
         assertEquals("Customer", c.type);
     }
 
@@ -473,7 +473,7 @@ assertFalse(application.foundc(string));
     public void the_information_is_not_formatly_correct() {
        boolean format =false;
 
-       String email=application.inU.getEmail();
+       String email=application.newUser.getEmail();
         if(application.login.emailValidator(email)){
             format=true;
         }
@@ -501,8 +501,8 @@ assertFalse(application.foundc(string));
     @Given("I am an admin")
     public void i_am_an_admin() {
         boolean f=false;
-        application.setuser(application.inU.getEmail(),application.inU.getPassword(),"Admin");
-        if(application.inU.getType().equals("Admin")){
+        application.setuser(application.newUser.getEmail(),application.newUser.getPassword(),"Admin");
+        if(application.newUser.getType().equals("Admin")){
             f=true;
         }
        assertTrue(f);
