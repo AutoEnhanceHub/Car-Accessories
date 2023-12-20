@@ -24,7 +24,7 @@ private final SecureRandom random;
     Login login;
     static ArrayList<Sales> sales=new ArrayList<>();
     static ArrayList<Category> categories;
-    User newUser;
+    User inU;
     SignUp signUp;
 static int[] indexes=new int[2];
     Scanner scanner = new Scanner(System.in);
@@ -33,21 +33,32 @@ public Application(){
     categories=new ArrayList<>();
 random=new SecureRandom();
   MainClass.initializeLogger();
-
-
-
     carname="";
-  
     this.loggedIn = false;
-    login=new Login(newUser);
+    login=new Login(inU);
 
     categories.add(new Category("Interior"));
     categories.get(0).products.add((new Product("Vacuum Cleaner",15,50,2027)));
     categories.add(new Category("Exterior"));
     categories.add(new Category("Electronics"));
     categories.get(2).products.add(new Product("car lights",13,50,2025));
-    newUser=new User("ibrahim.sadi.asad@gmail.com","147852","Customer");
+    inU =new User("ibrahim.sadi.asad@gmail.com","147852","Customer");
 
+}
+
+protected Application(User inU){
+    categories=new ArrayList<>();
+    random=new SecureRandom();
+    MainClass.initializeLogger();
+    carname="";
+    this.loggedIn = false;
+    login=new Login(inU);
+
+    categories.add(new Category("Interior"));
+    categories.get(0).products.add((new Product("Vacuum Cleaner",15,50,2027)));
+    categories.add(new Category("Exterior"));
+    categories.add(new Category("Electronics"));
+    categories.get(2).products.add(new Product("car lights",13,50,2025));
 }
 
 
@@ -55,7 +66,7 @@ random=new SecureRandom();
 
 
     public void signUp(){
-        signUp=new SignUp(newUser,login);
+        signUp=new SignUp(inU,login);
 }
 
     public boolean isLoggedIn() {
@@ -89,7 +100,7 @@ public boolean foundc(String name){
 }
 public void setuser(String email,String pass ,String type){
 
-    newUser=new User(email,pass,type);
+    inU =new User(email,pass,type);
 }
 public void addcat(String name){
     categories.add(new Category(name));
@@ -121,7 +132,7 @@ if(response){
     LOGGER.info(ygy1);
 } }
     public void newCatogry() {
-    if(newUser.type.equals(ADMIN)){
+    if(inU.type.equals(ADMIN)){
         LOGGER.info("What is the name of the Category?");
         String m = scanner.nextLine();
         if (foundc(m)) {
@@ -145,7 +156,7 @@ if(response){
 
 public void editCategory(){
 
-if(newUser.type.equals(ADMIN)){
+if(inU.type.equals(ADMIN)){
         if(categories.isEmpty()){
             LOGGER.info("There is no categories in the system");
 
@@ -215,7 +226,7 @@ public void dltcat(String name){
    }
 }
 public void deleteCategory(){
-    if(newUser.type.equals(ADMIN)){
+    if(inU.type.equals(ADMIN)){
     if(categories.isEmpty()){
         LOGGER.info("There is no categories in the system\n");
 
@@ -333,7 +344,7 @@ public void addnewproduct(String catname,String pname,int quantity,int price,int
     }
 }
 public void newproduct(){
-    if(!newUser.type.equals(ADMIN)){
+    if(!inU.type.equals(ADMIN)){
         LOGGER.info("Only admins can add products\n");
         return;}
     try{
@@ -387,7 +398,7 @@ public void editproduct(String catname,String pname,String newname,int newprice)
     }
 }
 public void editproduct(){
-    if(!newUser.type.equals(ADMIN)){
+    if(!inU.type.equals(ADMIN)){
         LOGGER.info("Only admins can edit products\n");
 
         return;}
@@ -441,7 +452,7 @@ for(int i=0;i<categories.get(cselect).products.size();i++){
     }
 }
 public void deleteproduct(){
-    if(!newUser.type.equals(ADMIN)){
+    if(!inU.type.equals(ADMIN)){
         LOGGER.info("Only admins can delete products\n");
 
         return;}
@@ -486,7 +497,7 @@ public boolean installrequest(String catname,String pname,int quantity,String ca
     return false;
 }
 public void installproduct(){
-    if(!newUser.type.equals("Installer")){
+    if(!inU.type.equals("Installer")){
         LOGGER.info("Only customers can make an installation request");
 
         return;}
@@ -538,7 +549,7 @@ public void installproduct(){
 
 
 
-            String recipientEmail = newUser.getEmail(); // Replace with the recipient's email
+            String recipientEmail = inU.getEmail(); // Replace with the recipient's email
             String subject = "Installation Request";
 
 
@@ -566,7 +577,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
 
  }
  public void newrate(){
-     if(!newUser.type.equals("Customer")){
+     if(!inU.type.equals("Customer")){
          LOGGER.info("Only customers can rate and review\n");
          return;}
      try{
@@ -623,7 +634,7 @@ categories.get(indexes[0]).products.get(indexes[1]).rateAvg =(float)sum/categori
     return "";
  }
  public void showreviews(){
-     if(!newUser.type.equals(ADMIN)){
+     if(!inU.type.equals(ADMIN)){
          LOGGER.info("Only Admins can get informations\n");
          return;}
      try{
@@ -760,7 +771,7 @@ public boolean report(String report, String filename) {
 }
 
 public void makereport() {
-    if (newUser.getType().equals(ADMIN)) {
+    if (inU.getType().equals(ADMIN)) {
         try {
             LOGGER.info("What is the name of the file?");
             String file = scanner.next();

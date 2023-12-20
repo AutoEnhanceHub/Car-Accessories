@@ -8,6 +8,18 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class MainClass {
+    static {
+        // Disable JavaMail debug logs
+        System.setProperty("mail.debug", "false");
+
+        // Suppress console logging for the root logger
+        Logger rootLogger = Logger.getLogger("");
+        for (Handler handler : rootLogger.getHandlers()) {
+            if (handler instanceof ConsoleHandler) {
+                handler.setLevel(Level.OFF);
+            }
+        }
+    }
 
     public static boolean comparePasswords(String inputPassword, String hashedPassword) {
         try {
@@ -30,21 +42,10 @@ public class MainClass {
     private static final String STRING = "********************************************************************";
     private static final Logger LOGGER = Logger.getLogger(MainClass.class.getName());
 
-    static {
-        // Disable JavaMail debug logs
-        System.setProperty("mail.debug", "false");
 
-        // Suppress console logging for the root logger
-        Logger rootLogger = Logger.getLogger("");
-        for (Handler handler : rootLogger.getHandlers()) {
-            if (handler instanceof ConsoleHandler) {
-                handler.setLevel(Level.OFF);
-            }
-        }
-    }
 
     public static void main(String[] arg) {
-        Application signInApplication = new Application();
+
         initializeLogger();
 
         Scanner scanner = new Scanner(System.in);
@@ -65,8 +66,8 @@ public class MainClass {
             }
 
             switch (authen) {
-                case 1 -> signUp(scanner, signInApplication);
-                case 2 -> signIn(scanner, signInApplication);
+                case 1 -> signUp(scanner);
+                case 2 -> signIn(scanner);
                 case 3 -> System.exit(0);
                 default -> LOGGER.info("Invalid choice! Please try again.");
             }
@@ -118,7 +119,7 @@ public class MainClass {
     }
 
 
-    private static void signUp(Scanner scanner, Application signInApplication) {
+    private static void signUp(Scanner scanner) {
         LOGGER.info("Enter your email: ");
         String email = scanner.nextLine();
 
@@ -127,22 +128,23 @@ public class MainClass {
 
         LOGGER.info("Enter your type: ");
         String type = scanner.nextLine();
-
-        if (signInApplication.login.emailValidator(email)) {
-            signInApplication.login.addUser(new User(email, password, type));
+         Application signUpApplication =new Application();
+        if (signUpApplication.login.emailValidator(email)) {
+            signUpApplication.login.addUser(new User(email, password, type));
             LOGGER.info("User Created Successfully");
         } else {
             LOGGER.info(INVALID_INFORMATION_PLEASE_TRY_AGAIN);
         }
     }
 
-    private static void signIn(Scanner scanner, Application signInApplication) {
+    private static void signIn(Scanner scanner) {
         LOGGER.info("Enter your email: ");
         String signInEmail = scanner.nextLine();
 
         LOGGER.info("Enter your password: ");
         String signInPassword = scanner.nextLine();
-
+         User inU =new User(signInEmail,signInPassword);
+         Application signInApplication = new Application(inU);
         signInApplication.login.setUser(new User(signInEmail, signInPassword, ""));
         signInApplication.setuser(signInEmail, signInPassword, "");
 
@@ -283,7 +285,7 @@ public class MainClass {
         String password = adminScanner.nextLine();
         LOGGER.info("Enter your password to confirm deletion: ");
         String adminPassword = adminScanner.nextLine();
-        if (application.newUser.getPassword().equals(adminPassword)) {
+        if (application.inU.getPassword().equals(adminPassword)) {
             if (application.login.deleteUser(new User(email, password))) {
                 LOGGER.info("User Deleted Successfully");
             } else {
@@ -303,7 +305,7 @@ public class MainClass {
         LOGGER.info("Enter your password to confirm updating: ");
         String adminPassword4 = adminScanner.nextLine();
         String oldType = "";
-        if (application.newUser.getPassword().equals(adminPassword4)) {
+        if (application.inU.getPassword().equals(adminPassword4)) {
             for (User s : application.login.users) {
                 if (oldPassword.equals(s.getPassword()) && oldEmail.equalsIgnoreCase(s.getEmail())) {
                     oldType = s.getType();
@@ -355,6 +357,7 @@ public class MainClass {
                 9. show products
                 10. Exit
                      """);
+        adminScanner.nextInt();
         int ans = adminScanner.nextInt();
         switch (ans) {
             case 1 -> application.newCatogry();
