@@ -140,4 +140,6 @@ public class AcceptanceTest {
         // Assert that nothing has changed
         assertTrue(application.isLoggedIn());
     }
+
+
 }
