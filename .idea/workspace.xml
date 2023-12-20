@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="lastcommtocav">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/Login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Login.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" afterDir="false" />
-    </list>
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="lastcommtocavforbad" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -455,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703097434310</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="lastcommtocavforbad">
+      <option name="closed" value="true" />
+      <created>1703098325751</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1703098325751</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +504,8 @@
     <MESSAGE value="some opsmaja" />
     <MESSAGE value="lastcomm" />
     <MESSAGE value="lastcommtocav" />
-    <option name="LAST_COMMIT_MESSAGE" value="lastcommtocav" />
+    <MESSAGE value="lastcommtocavforbad" />
+    <option name="LAST_COMMIT_MESSAGE" value="lastcommtocavforbad" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
