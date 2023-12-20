@@ -36,7 +36,7 @@ public class Mailing {
                     return new PasswordAuthentication("accessoriescar378@gmail.com","zxrl yldn nguy xhny");
                 }
             });
-            session.setDebug(true);
+            session.setDebug(false);
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to,false));
