@@ -2,7 +2,7 @@
 Feature:Product Management
   @ADD1
   Scenario: Add a New Product
-    Given I am an admin(adding)
+    Given I am an Installer(adding)
     When i choose the Category "Exterior" of the new product "product_name"
     And I fill in the quantity 59
     And I fill in the price 50

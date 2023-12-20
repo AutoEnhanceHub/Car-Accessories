@@ -174,14 +174,22 @@ public class MainClass {
         int select;
 
         while (true) {
-            LOGGER.info("Choose an option:\n1. Review And Rate A Product\n2. Exit");
+            LOGGER.info("Choose an option:\n1. Order a product \n2. Review And Rate A Product\n3. Show all products" +
+                    "4. Send a request \n5. Exit");
             select = scanner.nextInt();
 
             if (select == 1) {
-                newrate(signInApplication);
+                orderproduct(signInApplication);
             } else if (select == 2) {
+                newrate(signInApplication);
+            }
+            else if(select ==3){
+                showallproducts(signInApplication);
+            } else if (select ==4) {
+                makerequest(signInApplication);
+            } else if(select ==5){
                 break;
-            } else {
+            }else {
                 LOGGER.info("Choose a right option\n");
             }
         }
@@ -191,11 +199,11 @@ public class MainClass {
         int select;
 
         while (true) {
-            LOGGER.info("Choose an option:\n1. Install a Product to request\n2. Exit");
+            LOGGER.info("Choose an option:\n1. Install a Product\n2. Exit");
             select = scanner.nextInt();
 
             if (select == 1) {
-                installproduct(signInApplication);
+                addnewpro(signInApplication);
             } else if (select == 2) {
                 break;
             } else {
@@ -334,26 +342,24 @@ public class MainClass {
             1. Add New Category
             2. Edit a Category
             3. Delete a Category
-            4. Add New Product
-            5. Edit a Product
-            6. Delete a Product
-            7. Get a Report
-            8. Show average ratings and reviews
-            9. show products
-            10. Exit
+            4. Edit a Product
+            5. Delete a Product
+            6. Get a Report
+            7. Show average ratings and reviews
+            8. show products
+            9. Exit
                  """);
         int ans = adminScanner.nextInt();
         switch (ans) {
             case 1 -> addnewcat(application);
             case 2 -> editcat(application);
             case 3 -> deletecat(application);
-            case 4 -> addnewpro(application);
-            case 5 -> editpro(application);
-            case 6 -> deletepro(application);
-            case 7 -> newreport(application);
-            case 8 -> getreviews(application);
-            case 9 -> showallproducts(application);
-            case 10 -> LOGGER.info("Exit");
+            case 4 -> editpro(application);
+            case 5 -> deletepro(application);
+            case 6 -> newreport(application);
+            case 7 -> getreviews(application);
+            case 8 -> showallproducts(application);
+            case 9 -> LOGGER.info("Exit");
             default -> LOGGER.info("Invalid input");
 
         }
@@ -475,8 +481,8 @@ public class MainClass {
         }
     }
     private static void addnewpro(Application application){
-        if(!application.newUser.type.equals(ADMIN)){
-            LOGGER.info("Only admins can add products\n");
+        if(!application.newUser.type.equals("Installer")){
+            LOGGER.info("Only Installers can add products\n");
             return;}
         try{
             String ygy1="Choose a Category to add a new product\n"+showallcatogries();
@@ -760,8 +766,8 @@ public class MainClass {
 
         }
     }
-    private static void installproduct(Application application){
-        if(!application.newUser.type.equals("Installer")){
+    private static void orderproduct(Application application){
+        if(!application.newUser.type.equals("Customer")){
             LOGGER.info("Only customers can make an installation request");
 
             return;}
@@ -844,5 +850,54 @@ public class MainClass {
             f.append("The Category is empty");
         }
         return f.toString();
+    }
+    private static void makerequest(Application application){
+        if(!application.newUser.type.equals("Customer")){
+            LOGGER.info("Only customers can make an installation request");
+
+            return;}
+        try{
+            String ygy1="Choose a Category to request a product\n"+showallcatogries();
+            LOGGER.info(ygy1);
+
+            int cselect= application.scanner.nextInt();  application.scanner.nextLine();
+            cselect--;
+
+            String catname= Application.categories.get(cselect).name;
+            String ygy5="Choose a product to request\n"+getallproducts(catname,application);
+            LOGGER.info(ygy5);
+
+            int pselect= application.scanner.nextInt();  application.scanner.nextLine();
+            pselect--;
+            String pname= Application.categories.get(cselect).products.get(pselect).name;
+
+            LOGGER.info("Select the quantity");
+
+            int qu= application.scanner.nextInt();  application.scanner.nextLine();
+            LOGGER.info("What is the car name?");
+            String car=application.scanner.nextLine();
+
+
+
+
+            char t=2;
+            String message="Please provide me this request as possible \n"+t +
+                    catname+","+pname+","+qu+","+car;
+
+
+
+
+            String recipientEmail = application.newUser.getEmail(); // Replace with the recipient's email
+            String subject = "Customer Request";
+
+
+            Mailing m1=new Mailing(recipientEmail);
+            m1.sendEmail(subject,message);
+
+
+        }catch (Exception e){
+            LOGGER.info(NEXT_TIME);
+
+        }
     }
 }

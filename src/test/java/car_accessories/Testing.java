@@ -24,12 +24,12 @@ public class Testing {
     boolean isUserUpdating = false;
 
     boolean isUserDeleting = false;
-public Testing(Application application) {
+    public Testing(Application application) {
 
-    this.application = application;
-    c=new User("s1333","123","Customer");
-    v=new User("s121@gmial.com","122","Admin");
-}
+        this.application = application;
+        c=new User("s1333","123","Customer");
+        v=new User("s121@gmial.com","122","Admin");
+    }
     String newc,newname,oldname;
     int oldsize;
 
@@ -41,28 +41,28 @@ public Testing(Application application) {
 
     @When("I add a new category with the name {string}")
     public void i_add_a_new_category_with_the_name(String string) {
-newc=string;
+        newc=string;
     }
 
     @Then("i must scan if the name {string} is exits before")
     public void i_must_scan_if_the_name_is_exits_before(String string) {
- assertFalse(application.foundc(string));
-}
+        assertFalse(application.foundc(string));
+    }
 
     @Then("if found i must not add the name {string}")
     public void if_found_i_must_not_add_the_name(String string) {
-   if(application.foundc(string)){
-       System.out.println("This cant be added");
-   }
+        if(application.foundc(string)){
+            System.out.println("This cant be added");
+        }
 
     }
 
     @Then("if not found the category with name {string} must be added")
     public void if_not_found_the_category_with_name_must_be_added(String string) {
-       if(!application.foundc(newc)){ newc=string;
-           application.addcat(newc);
+        if(!application.foundc(newc)){ newc=string;
+            application.addcat(newc);
 
-    }}
+        }}
 
     @Then("i must confirm the adding by admin")
     public void i_must_confirm_the_adding_with_email_and_password() {
@@ -77,21 +77,21 @@ newc=string;
     }
     @When("I edit the category with the name {string}")
     public void i_edit_the_category_with_the_name(String string) {
-       oldname=string;
+        oldname=string;
     }
     @Then("i enter a new name {string}")
     public void i_enter_a_new_name(String string) {
-      newname=string;
+        newname=string;
     }
     @Then("i must scan if the new name is for another Catogry")
     public void i_must_scan_if_the_new_name_is_for_another_catogry() {
-       assertFalse(application.foundc(newname));
+        assertFalse(application.foundc(newname));
     }
 
 
     @When("if found i will not edit it")
     public void if_found_i_will_not_edit_it() {
-System.out.println("Cant be edited");
+        System.out.println("Cant be edited");
     }
     @When("if not found i must change its name")
     public void if_not_found_i_must_change_its_name() {
@@ -100,7 +100,7 @@ System.out.println("Cant be edited");
 
     @Then("the category {string} must be edited")
     public void the_category_must_be_edited(String string) {
-assertFalse(application.foundc(string));
+        assertFalse(application.foundc(string));
     }
 
 
@@ -119,7 +119,7 @@ assertFalse(application.foundc(string));
     @Then("the category {string} must be deleted")
     public void the_category_must_be_deleted(String string) {
         assertFalse(application.foundc(string));
-}
+    }
 
 
 
@@ -180,7 +180,7 @@ assertFalse(application.foundc(string));
     public void user_failed_in_log_in() {
 
         if(!application.login.isLogged()){
-             boolean loginFailed=true;
+            boolean loginFailed=true;
             assertTrue(loginFailed);
         }
 
@@ -218,7 +218,13 @@ assertFalse(application.foundc(string));
 
     @Given("I am an admin\\(adding)")
     public void i_am_an_admin_adding() {
+
         assertEquals("Admin", v.type);
+    }
+    @Given("I am an Installer\\(adding)")
+    public void i_am_an_installer_adding() {
+        application.newUser.setType("Installer");
+        assertEquals("Installer", application.newUser.type);
     }
 
     @When("i choose the Category {string} of the new product {string}")
@@ -308,13 +314,13 @@ assertFalse(application.foundc(string));
         assertFalse(application.foundp(string,oldname));
     }
 
-    @Given("i am an Installer")
-    public void i_am_an_Installer() {
-        c.type="Installer";
-        application.setuser(application.newUser.getEmail(),application.newUser.getPassword(),"Installer");
-        assertEquals("Installer", c.type);
-    }
 
+    @Given("i am a Customer to get a product")
+    public void i_am_a_customer_to_get_a_product() {
+        c.type="Installer";
+        application.setuser(application.newUser.getEmail(),application.newUser.getPassword(),"Customer");
+        assertEquals("Customer", application.newUser.type);
+    }
     @When("i select the product {string} from the category {string}")
     public void i_select_the_product_from_the_category(String string, String string2) {
         pname=string;catname=string2;
@@ -397,18 +403,18 @@ assertFalse(application.foundc(string));
 
     @Then("the successful message will appear")
     public void the_ssuccessful_message_will_apear() {
-       if(exist){
-           assertEquals((oldsize + 1), Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.size());
-       }
+        if(exist){
+            assertEquals((oldsize + 1), Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.size());
+        }
     }
 
     @Then("the average rating for the product must be updated")
     public void the_average_rating_for_the_product_must_be_updated() {
-       if(exist){
-           if(oldavg!=rate){
-               assertNotEquals(oldavg,Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rateAvg);
-           }
-       }
+        if(exist){
+            if(oldavg!=rate){
+                assertNotEquals(oldavg,Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rateAvg);
+            }
+        }
     }
 
     @Then("the review must be added")
@@ -432,11 +438,11 @@ assertFalse(application.foundc(string));
 
     @Then("the average ratings for the product must be displayed and its reviews")
     public void the_average_ratings_for_the_product_must_be_displayed_and_its_reviews() {
- if(Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.isEmpty()){
-     System.out.println("the example product doesnot have any review");
- }else{
-     assertFalse(application.reviews(catname, pname).isEmpty());
- }
+        if(Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rates.isEmpty()){
+            System.out.println("the example product doesnot have any review");
+        }else{
+            assertFalse(application.reviews(catname, pname).isEmpty());
+        }
     }
 
 
@@ -460,9 +466,9 @@ assertFalse(application.foundc(string));
 
     @When("the information is not formatly correct")
     public void the_information_is_not_formatly_correct() {
-       boolean format =false;
+        boolean format =false;
 
-       String email=application.newUser.getEmail();
+        String email=application.newUser.getEmail();
         if(application.login.emailValidator(email)){
             format=true;
         }
@@ -474,8 +480,8 @@ assertFalse(application.foundc(string));
         boolean f = false;
         for(User u:application.login.users){
             if(!u.getEmail().equalsIgnoreCase(email)){
-               f=true;
-               newAccount=true;
+                f=true;
+                newAccount=true;
             }
         }
         assertTrue(f);
@@ -494,7 +500,7 @@ assertFalse(application.foundc(string));
         if(application.newUser.getType().equals("Admin")){
             f=true;
         }
-       assertTrue(f);
+        assertTrue(f);
     }
 
     @When("i choose to add new user but the user is already exist")
@@ -506,12 +512,12 @@ assertFalse(application.foundc(string));
                 break;
             }
         }
-     assertFalse(userAdded);
+        assertFalse(userAdded);
     }
 
     @Then("user added failed")
     public void user_added_failed() {
-       assertFalse(userAdded);
+        assertFalse(userAdded);
     }
 
     @When("i choose to add new user with with valid formatting")
@@ -552,15 +558,15 @@ assertFalse(application.foundc(string));
     @When("i choose the user i want to delete")
     public void i_choose_the_user_i_want_to_delete() {
         User u=new User("ibrahimeceasad@gmail.com","654321","Customer");
-       if(application.login.deleteUser(u)){
-           isUserDeleting=true;
-       }
-      assertTrue(isUserDeleting);
+        if(application.login.deleteUser(u)){
+            isUserDeleting=true;
+        }
+        assertTrue(isUserDeleting);
     }
 
     @Then("user successfully deleting")
     public void user_successfully_deleting() {
-     assertTrue(isUserDeleting);
+        assertTrue(isUserDeleting);
     }
     @Given("i am an admin\\(report)")
     public void i_am_an_admin_report() {
