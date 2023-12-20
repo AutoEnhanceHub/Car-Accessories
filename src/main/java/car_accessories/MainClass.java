@@ -383,7 +383,7 @@ public class MainClass {
                 String ygy1= CATEGORY + m + " is really exist";
                 LOGGER.info(ygy1);
 
-            } else application.addnewCategoryConfirmation(m);
+            } else addnewCategoryConfirmation(m,application);
         }else{
             LOGGER.info("Only admins can delete Categories");
         }
@@ -900,4 +900,30 @@ public class MainClass {
 
         }
     }
+    private static void addnewCategoryConfirmation(String m,Application application){
+        try {
+
+
+            boolean response=false;
+
+            LOGGER.info("Are you sure you want to continue?\n1. yes ");
+            int answer = application.scanner.nextInt();
+            application.scanner.nextLine();
+
+            if (answer == 1)response = true;
+
+
+
+
+
+            if(response){
+                String ygy1="You added the Category "+m;
+                LOGGER.info(ygy1);
+                application.addcat(m);}
+
+
+        }catch (NullPointerException e){
+            String ygy1= CATEGORY +m+" is not added";
+            LOGGER.info(ygy1);
+        } }
 }

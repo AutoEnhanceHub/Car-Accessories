@@ -102,32 +102,7 @@ public  class Application {
     public void addcat(String name){
         categories.add(new Category(name));
     }
-    public void addnewCategoryConfirmation(String m){
-        try {
 
-
-            boolean response=false;
-
-            LOGGER.info("Are you sure you want to continue?\n1. yes ");
-            int answer = scanner.nextInt();
-            scanner.nextLine();
-
-            if (answer == 1)response = true;
-
-
-
-
-
-            if(response){
-                String ygy1="You added the Category "+m;
-                LOGGER.info(ygy1);
-                addcat(m);}
-
-
-        }catch (NullPointerException e){
-            String ygy1= CATEGORY +m+" is not added";
-            LOGGER.info(ygy1);
-        } }
 
     public void edtcatogry(String oldn,String newn){
         for (Category category : categories) {
