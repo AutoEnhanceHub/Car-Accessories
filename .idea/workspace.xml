@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="asa1213">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="9874">
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,35 +48,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.AcceptanceTest.executor": "Coverage",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "app.teamhub.trackedBranches": "-1ttt7ga/master",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Hp/Desktop/New folder (2)l/Car-Accessories",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;app.teamhub.trackedBranches&quot;: &quot;-1ttt7ga/master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/Desktop/New folder (2)l/Car-Accessories&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.AcceptanceTest">
     <configuration name="Feature: feature4" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
@@ -86,6 +82,24 @@
       <module name="Car-Accessories" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
       <option name="SUGGESTED_NAME" value="Feature: feature4" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Feature: feature9" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/Features/feature9.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="Car-Accessories" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: feature9" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -156,57 +170,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Write tests for class Login" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
-      <module name="Car-Accessories" />
-      <settings run-config-name="Write tests for class Login" include-system-env-vars="true" skeleton-tests-only="false">
-        <jvm-args />
-        <selection-scope>class</selection-scope>
-        <selected-element key="car_accessories.Login" />
-      </settings>
-      <method v="2" />
-    </configuration>
     <configuration name="Write tests for method MainClass.getVerificationCode" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
       <module name="Car-Accessories" />
-      <settings run-config-name="Write tests for method MainClass.getVerificationCode" include-system-env-vars="true" skeleton-tests-only="false">
+      <settings run-config-name="Write tests for method MainClass.getVerificationCode" include-system-env-vars="true">
         <jvm-args />
         <selection-scope>method</selection-scope>
         <selected-element key="car_accessories.MainClass.getVerificationCode:(Ljava/util/Scanner;)I" />
       </settings>
       <method v="2" />
     </configuration>
-    <configuration name="Write tests for method User.&lt;init&gt;" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
-      <module name="Car-Accessories" />
-      <settings run-config-name="Write tests for method User.&lt;init&gt;" include-system-env-vars="true" skeleton-tests-only="false">
-        <jvm-args />
-        <selection-scope>method</selection-scope>
-        <selected-element key="car_accessories.User.&lt;init&gt;:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" />
-      </settings>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Cucumber Java.Feature: feature4" />
+      <item itemvalue="Cucumber Java.Feature: feature9" />
       <item itemvalue="Cucumber Java.Scenario: Customer requests installation services" />
-      <item itemvalue="Diffblue Cover.Write tests for method User.&lt;init&gt;" />
-      <item itemvalue="Diffblue Cover.Write tests for class Login" />
-      <item itemvalue="Diffblue Cover.Write tests for method MainClass.getVerificationCode" />
       <item itemvalue="JUnit.AcceptanceTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Diffblue Cover.Write tests for method User.&lt;init&gt;" />
-        <item itemvalue="Diffblue Cover.Write tests for class Login" />
-        <item itemvalue="Diffblue Cover.Write tests for method MainClass.getVerificationCode" />
         <item itemvalue="Cucumber Java.Feature: feature4" />
         <item itemvalue="Cucumber Java.Scenario: Customer requests installation services" />
+        <item itemvalue="Cucumber Java.Feature: feature9" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-19.0.2-corretto-19.0.2-249ae16d76d6-36550cda" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="ShelveChangesManager">
     <option name="groupingKeys">
@@ -254,11 +239,7 @@
       <workItem from="1701537820038" duration="911000" />
       <workItem from="1703084002701" duration="3756000" />
       <workItem from="1703101369231" duration="863000" />
-      <workItem from="1703106226319" duration="4634000" />
-      <workItem from="1703110915197" duration="84000" />
-      <workItem from="1703111182229" duration="1048000" />
-      <workItem from="1703112455244" duration="327000" />
-      <workItem from="1703113164520" duration="294000" />
+      <workItem from="1703106226319" duration="4013000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -524,14 +505,7 @@
       <option name="project" value="LOCAL" />
       <updated>1703109929144</updated>
     </task>
-    <task id="LOCAL-00035" summary="asa1213">
-      <created>1703110253149</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1703110253149</updated>
-    </task>
-    <option name="localTasksCounter" value="36" />
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,8 +554,7 @@
     <MESSAGE value="911" />
     <MESSAGE value="11111111" />
     <MESSAGE value="9874" />
-    <MESSAGE value="asa1213" />
-    <option name="LAST_COMMIT_MESSAGE" value="asa1213" />
+    <option name="LAST_COMMIT_MESSAGE" value="9874" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

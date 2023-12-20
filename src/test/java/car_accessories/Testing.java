@@ -40,7 +40,7 @@ public class Testing {
 
         if(application.login.login()){
           application.login.setRoles();
-          assertEquals(0,application.login.roles);
+          assertEquals(0,application.login.getRoles());
             oldsize=Application.categories.size();
         }
 
