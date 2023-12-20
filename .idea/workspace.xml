@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="some opsmaja">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="lastcomm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/Analytics_and_Reporting.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Analytics_and_Reporting.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -437,7 +437,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703096067077</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="lastcomm">
+      <option name="closed" value="true" />
+      <created>1703096653757</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1703096653757</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +490,8 @@
     <MESSAGE value="some updatesappp" />
     <MESSAGE value="some opsma" />
     <MESSAGE value="some opsmaja" />
-    <option name="LAST_COMMIT_MESSAGE" value="some opsmaja" />
+    <MESSAGE value="lastcomm" />
+    <option name="LAST_COMMIT_MESSAGE" value="lastcomm" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

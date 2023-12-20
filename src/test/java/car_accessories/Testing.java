@@ -435,21 +435,7 @@ assertFalse(application.foundc(string));
      assertFalse(application.reviews(catname, pname).isEmpty());
  }
     }
-    @Given("i am an admin\\(report)")
-    public void i_am_an_admin_report() {
-        assertEquals("Admin", v.type);
-    }
 
-    @Then("i am asked to choose report kind {string}")
-    public void i_am_asked_to_choose_report_kind(String string) {
-        text=string;
-    }
-
-    @Then("The report details are printed at a file {string}")
-    public void the_report_details_are_printed_at_a_file(String string) {
-       file=string;
-       assertTrue(application.report(text,file));
-    }
 
     @When("the information is exist email is {string}")
     public void the_information_is_exist_email_is(String email) {
@@ -573,6 +559,47 @@ assertFalse(application.foundc(string));
     public void user_successfully_deleting() {
      assertTrue(isUserDeleting);
     }
+    @Given("i am an admin\\(report)")
+    public void i_am_an_admin_report() {
+        assertEquals("Admin", v.type);
+    }
 
+
+    @Then("i am asked to choose report1 kind {string}")
+    public void i_am_asked_to_choose_report1_kind(String string) {
+        text=string;
+    }
+    @Then("The report1 details are printed at a file {string}")
+    public void the_report1_details_are_printed_at_a_file(String string) {
+        file=string;
+        assertTrue(application.report(text,file));
+    }
+    @Then("i am asked to choose report2 kind {string}")
+    public void i_am_asked_to_choose_report2_kind(String string) {
+        text=string;
+    }
+    @Then("The report2 details are printed at a file {string}")
+    public void the_report2_details_are_printed_at_a_file(String string) {
+        file=string;
+        assertTrue(application.report(text,file));
+    }
+    @Then("i am asked to choose report3 kind {string}")
+    public void i_am_asked_to_choose_report3_kind(String string) {
+        text=string;
+    }
+    @Then("The report3 details are printed at a file {string}")
+    public void the_report3_details_are_printed_at_a_file(String string) {
+        file=string;
+        assertTrue(application.report(text,file));
+    }
+    @Then("i am asked to choose report4 kind {string}")
+    public void i_am_asked_to_choose_report4_kind(String string) {
+        text=string;
+    }
+    @Then("The report4 details are printed at a file {string}")
+    public void the_report4_details_are_printed_at_a_file(String string) {
+        file=string;
+        assertTrue(application.report(text,file));
+    }
 
 }
