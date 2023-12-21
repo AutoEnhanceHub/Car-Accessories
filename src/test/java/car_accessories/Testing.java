@@ -568,6 +568,40 @@ public class Testing {
     public void creating_an_account_successfully() {
         assertTrue(newAccount);
 
+        User newUser = new User("jane.doe@example.org", "iloveyou");
+
+        // Act and Assert
+        assertFalse((new SignUp(newUser, new Login(new User("jane.doe@example.org", "iloveyou")))).createAccount());
+
+
+        User newUser1 = new User("UUU@gmail.com", "iloveyou");
+
+        SignUp signUp = new SignUp(newUser1, new Login(new User("jane.doe@example.org", "iloveyou")));
+
+        // Act and Assert
+        assertEquals(4, signUp.l.users.size());
+        assertTrue(signUp.createAccount());
+
+        assertFalse(SignUp.emailValidator("jane.doe@example.org"));
+        assertFalse(SignUp.emailValidator(null));
+        assertTrue(SignUp.emailValidator("UUU@gmail.com"));
+
+        SignUp actualSignUp = new SignUp(newUser, new Login(new User("jane.doe@example.org", "iloveyou")));
+
+        // Assert
+        Login login = actualSignUp.l;
+        User user = login.u;
+        assertEquals("iloveyou", user.getPassword());
+        User user2 = actualSignUp.newUser;
+        assertEquals("iloveyou", user2.getPassword());
+        assertEquals("jane.doe@example.org", user.getEmail());
+        assertEquals("jane.doe@example.org", user2.getEmail());
+        assertNull(user.getType());
+        assertNull(user2.getType());
+        assertEquals(0, login.getRoles());
+        assertEquals(4, login.users.size());
+        assertFalse(login.isLogged());
+
     }
 
     @Given("I am an admin")
