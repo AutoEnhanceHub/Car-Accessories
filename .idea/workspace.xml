@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="478">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="Mr-Robot-684">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,15 +300,7 @@
       <workItem from="1703155623075" duration="14202000" />
       <workItem from="1703181521415" duration="1226000" />
       <workItem from="1703182803943" duration="3327000" />
-      <workItem from="1703186183246" duration="4395000" />
-    </task>
-    <task id="LOCAL-00011" summary="final-main-and-test-mix">
-      <option name="closed" value="true" />
-      <created>1698830106322</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1698830106322</updated>
+      <workItem from="1703186183246" duration="7244000" />
     </task>
     <task id="LOCAL-00012" summary="Dos 1.0.0">
       <created>1698926031654</created>
@@ -348,22 +336,6 @@
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
       <updated>1701118931623</updated>
-    </task>
-    <task id="LOCAL-00017" summary="some updatesappp">
-      <option name="closed" value="true" />
-      <created>1701159601457</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1701159601457</updated>
-    </task>
-    <task id="LOCAL-00018" summary="some updatesappp">
-      <option name="closed" value="true" />
-      <created>1701159926150</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1701159926150</updated>
     </task>
     <task id="LOCAL-00019" summary="some updatesappp">
       <option name="closed" value="true" />
@@ -689,7 +661,31 @@
       <option name="project" value="LOCAL" />
       <updated>1703188645295</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="36987">
+      <option name="closed" value="true" />
+      <created>1703190623648</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1703190623648</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Mr-Robot-33">
+      <option name="closed" value="true" />
+      <created>1703191872466</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1703191872467</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Mr-Robot-684">
+      <option name="closed" value="true" />
+      <created>1703192275309</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1703192275310</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,9 +715,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="11111111" />
-    <MESSAGE value="9874" />
-    <MESSAGE value="asa1213" />
     <MESSAGE value="711" />
     <MESSAGE value="001" />
     <MESSAGE value="010" />
@@ -744,7 +737,10 @@
     <MESSAGE value="879" />
     <MESSAGE value="021" />
     <MESSAGE value="478" />
-    <option name="LAST_COMMIT_MESSAGE" value="478" />
+    <MESSAGE value="36987" />
+    <MESSAGE value="Mr-Robot-33" />
+    <MESSAGE value="Mr-Robot-684" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mr-Robot-684" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -752,7 +748,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Car_Accessories$All_in_Car_Accessories.ic" NAME="All in Car-Accessories Coverage Results" MODIFIED="1701254833816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703192812242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703193080603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>car_accessories.*</FILTER>
       <EXCLUDED_FILTER>car_accessories.MainClass</EXCLUDED_FILTER>
     </SUITE>

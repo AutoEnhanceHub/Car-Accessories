@@ -14,6 +14,8 @@ public class MainClass {
     private static final String CATEGORY ="the Category ";
 
     private static final String ADMIN ="Admin";
+    private static final String Customer ="Customer";
+    private static final String Installer ="Installer";
     private static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     private static final String NEXT_TIME ="Enter a valid value in the next time\n";
     private static final String TABS ="     ";
@@ -154,16 +156,16 @@ public class MainClass {
         switch (roles) {
             case 0 -> {
                 LOGGER.info(welcomeMsg);
-                signInApplication.setuser(signInEmail, signInPassword, "Admin");
+                signInApplication.setuser(signInEmail, signInPassword, ADMIN);
                 adminDashboard(scanner, signInApplication);
             }
             case 1 -> {
-                signInApplication.setuser(signInEmail, signInPassword, "Customer");
+                signInApplication.setuser(signInEmail, signInPassword, Customer);
                 LOGGER.info(welcomeMsg);
                 handleCustomerOptions(scanner, signInApplication);
             }
             default -> {
-                signInApplication.setuser(signInEmail, signInPassword, "Installer");
+                signInApplication.setuser(signInEmail, signInPassword, Installer);
                 LOGGER.info(welcomeMsg);
                 handleInstallerOptions(scanner, signInApplication);
             }
@@ -481,7 +483,7 @@ public class MainClass {
         }
     }
     private static void addnewpro(Application application){
-        if(!application.newUser.type.equals("Installer")){
+        if(!application.newUser.type.equals(Installer)){
             LOGGER.info("Only Installers can add products\n");
             return;}
         try{
@@ -724,7 +726,7 @@ public class MainClass {
         return f.toString();
     }
     private static void newrate( Application application){
-        if(!application.newUser.type.equals("Customer")){
+        if(!application.newUser.type.equals(Customer)){
             LOGGER.info("Only customers can rate and review\n");
             return;}
         try{
@@ -767,7 +769,7 @@ public class MainClass {
         }
     }
     private static void orderproduct(Application application){
-        if(!application.newUser.type.equals("Customer")){
+        if(!application.newUser.type.equals(Customer)){
             LOGGER.info("Only customers can make an installation request");
 
             return;}
@@ -852,7 +854,7 @@ public class MainClass {
         return f.toString();
     }
     private static void makerequest(Application application){
-        if(!application.newUser.type.equals("Customer")){
+        if(!application.newUser.type.equals(Customer)){
             LOGGER.info("Only customers can make an installation request");
 
             return;}
