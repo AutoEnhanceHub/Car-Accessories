@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="999">
-      <change afterPath="$PROJECT_DIR$/src/test/java/car_accessories/LoginDiffblueTest.java" afterDir="false" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="879">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,21 +152,21 @@
       </settings>
       <method v="2" />
     </configuration>
-    <configuration name="Write tests for class SignUp" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
-      <module name="Car-Accessories" />
-      <settings run-config-name="Write tests for class SignUp" include-system-env-vars="true" skeleton-tests-only="false">
-        <jvm-args />
-        <selection-scope>class</selection-scope>
-        <selected-element key="car_accessories.SignUp" />
-      </settings>
-      <method v="2" />
-    </configuration>
     <configuration name="Write tests for method Application.edtcatogry" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration">
       <module name="Car-Accessories" />
       <settings run-config-name="Write tests for method Application.edtcatogry" include-system-env-vars="true" skeleton-tests-only="false">
         <jvm-args />
         <selection-scope>method</selection-scope>
         <selected-element key="car_accessories.Application.edtcatogry:(Ljava/lang/String;Ljava/lang/String;)V" />
+      </settings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Write tests for method Application.printTextToFile" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="Car-Accessories" />
+      <settings run-config-name="Write tests for method Application.printTextToFile" include-system-env-vars="true" skeleton-tests-only="false">
+        <jvm-args />
+        <selection-scope>method</selection-scope>
+        <selected-element key="car_accessories.Application.printTextToFile:(Ljava/lang/String;Ljava/lang/String;)Z" />
       </settings>
       <method v="2" />
     </configuration>
@@ -181,12 +179,12 @@
       </settings>
       <method v="2" />
     </configuration>
-    <configuration name="Write tests for method Application.ratesqu" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
+    <configuration name="Write tests for method Application.salesreport" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
       <module name="Car-Accessories" />
-      <settings run-config-name="Write tests for method Application.ratesqu" include-system-env-vars="true" skeleton-tests-only="false">
+      <settings run-config-name="Write tests for method Application.salesreport" include-system-env-vars="true" skeleton-tests-only="false">
         <jvm-args />
         <selection-scope>method</selection-scope>
-        <selected-element key="car_accessories.Application.ratesqu:(Ljava/lang/String;Ljava/lang/String;)I" />
+        <selected-element key="car_accessories.Application.salesreport:()Ljava/lang/String;" />
       </settings>
       <method v="2" />
     </configuration>
@@ -224,19 +222,19 @@
       <item itemvalue="Diffblue Cover.Write tests for method Login.login" />
       <item itemvalue="Diffblue Cover.Write tests for class Login" />
       <item itemvalue="Diffblue Cover.Write tests for method Application.edtcatogry" />
+      <item itemvalue="Diffblue Cover.Write tests for method Application.printTextToFile" />
+      <item itemvalue="Diffblue Cover.Write tests for method Application.salesreport" />
       <item itemvalue="Diffblue Cover.Write tests for class Mailing" />
       <item itemvalue="Diffblue Cover.Write tests for method Sales.&lt;init&gt;" />
-      <item itemvalue="Diffblue Cover.Write tests for class SignUp" />
-      <item itemvalue="Diffblue Cover.Write tests for method Application.ratesqu" />
       <item itemvalue="JUnit.AcceptanceTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Diffblue Cover.Write tests for method Application.printTextToFile" />
+        <item itemvalue="Diffblue Cover.Write tests for method Application.salesreport" />
         <item itemvalue="Cucumber Java.Feature: Mailing" />
         <item itemvalue="Diffblue Cover.Write tests for class Mailing" />
         <item itemvalue="Diffblue Cover.Write tests for method Sales.&lt;init&gt;" />
-        <item itemvalue="Diffblue Cover.Write tests for class SignUp" />
-        <item itemvalue="Diffblue Cover.Write tests for method Application.ratesqu" />
       </list>
     </recent_temporary>
   </component>
@@ -301,15 +299,7 @@
       <workItem from="1703155623075" duration="14202000" />
       <workItem from="1703181521415" duration="1226000" />
       <workItem from="1703182803943" duration="3327000" />
-      <workItem from="1703186183246" duration="924000" />
-    </task>
-    <task id="LOCAL-00008" summary="feature1+3+4+5">
-      <option name="closed" value="true" />
-      <created>1696774829501</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1696774829501</updated>
+      <workItem from="1703186183246" duration="2001000" />
     </task>
     <task id="LOCAL-00009" summary="feature1+3+4+5+9">
       <option name="closed" value="true" />
@@ -686,7 +676,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703186590658</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="879">
+      <option name="closed" value="true" />
+      <created>1703187181648</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1703187181648</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -716,7 +714,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="some opsmaja" />
     <MESSAGE value="lastcomm" />
     <MESSAGE value="911" />
     <MESSAGE value="11111111" />
@@ -741,7 +738,8 @@
     <MESSAGE value="321" />
     <MESSAGE value="777" />
     <MESSAGE value="999" />
-    <option name="LAST_COMMIT_MESSAGE" value="999" />
+    <MESSAGE value="879" />
+    <option name="LAST_COMMIT_MESSAGE" value="879" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -749,7 +747,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Car_Accessories$All_in_Car_Accessories.ic" NAME="All in Car-Accessories Coverage Results" MODIFIED="1701254833816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703186724059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703187147968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>car_accessories.*</FILTER>
       <EXCLUDED_FILTER>car_accessories.MainClass</EXCLUDED_FILTER>
     </SUITE>

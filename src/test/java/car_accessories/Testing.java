@@ -510,7 +510,7 @@ public class Testing {
     @Then("if the rating is not in the range")
     public void if_the_rating_is_not_in_the_range() {
         exist= rate >= 1 && rate <= 5;
-
+        Application.printTextToFile("foo.txt", "Text");
     }
 
     @Then("Nothing will happen then exit the page")
