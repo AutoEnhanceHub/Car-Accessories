@@ -870,7 +870,6 @@ public class Testing {
         Sales sale2 = new Sales("Books", "Harry Potter", 5, 20, d, d, "rr");
          application.sales.add(sale1);
          application.sales.add(sale2);
-
         assertTrue(application.report(text,file));
 
     }
@@ -881,6 +880,7 @@ public class Testing {
     @Then("The report2 details are printed at a file {string}")
     public void the_report2_details_are_printed_at_a_file(String string) {
         file=string;
+
         assertTrue(application.report(text,file));
     }
     @Then("i am asked to choose report3 kind {string}")
@@ -899,6 +899,7 @@ public class Testing {
     @Then("The report4 details are printed at a file {string}")
     public void the_report4_details_are_printed_at_a_file(String string) {
         file=string;
+        application.rateReview("qwe","rty",4,"bad");
         assertTrue(application.report(text,file));
     }
 
