@@ -907,7 +907,7 @@ public class Testing {
     public void if_the_rating_is_not_in_the_valid_range_nothing_should_happen() {
         if (!exist) {
 
-            assertEquals(application.ratesqu(catname,pname), 0);
+            assertEquals(0,application.ratesqu(catname,pname));
         }
 
         String categoryName = "TestCategory";
