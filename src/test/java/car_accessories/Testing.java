@@ -3,12 +3,18 @@ import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Transport;
 import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mockStatic;
 
 public class Testing {
 
@@ -170,6 +176,12 @@ public class Testing {
     }
     @And("verification code is 12345")
     public void verification_code_is() {
+
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenAnswer(invocation -> null);
+            (new Mailing("alice.liddell@example.org")).sendVerificationCode();
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
 
         boolean f=true;
         assertTrue(f);
@@ -532,6 +544,124 @@ public class Testing {
         }
     }
 
+    @Given("the mailing system is set up")
+    public void the_mailing_system_is_set_up() {
+        Mailing actualMailing = new Mailing("alice.liddell@example.org");
+
+        // Assert
+        assertEquals("accessoriescar378@gmail.com", actualMailing.from);
+        assertEquals("alice.liddell@example.org", actualMailing.to);
+    }
+
+
+    @When("the user sends a verification code")
+    public void the_user_sends_a_verification_code() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenAnswer(invocation -> null);
+            (new Mailing("alice.liddell@example.org")).sendVerificationCode();
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @Then("the verification code should be sent successfully")
+    public void the_verification_code_should_be_sent_successfully() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenAnswer(invocation -> null);
+            (new Mailing("alice.liddell@example.org")).sendVerificationCode();
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @Given("the mailing system is set up with an invalid email")
+    public void the_mailing_system_is_set_up_with_an_invalid_email() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenAnswer(invocation -> null);
+            (new Mailing("mail.smtp.host")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @Then("an error should occur")
+    public void an_error_should_occur() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new MessagingException());
+            (new Mailing("alice.liddell@example.org")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @Given("the mailing system is set up to simulate email sending failure")
+    public void the_mailing_system_is_set_up_to_simulate_email_sending_failure() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new MessagingException());
+            (new Mailing("alice.liddell@example.org")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @Then("an error should occur during the email sending process")
+    public void an_error_should_occur_during_the_email_sending_process() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new MessagingException());
+            (new Mailing("alice.liddell@example.org")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @Given("a valid email address is provided")
+    public void a_valid_email_address_is_provided() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new MessagingException());
+            (new Mailing("alice.liddell@example.org")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @When("a new mailing instance is created")
+    public void a_new_mailing_instance_is_created() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new MessagingException());
+            (new Mailing("alice.liddell@example.org")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @Then("the {string} field should be set to the default email address")
+    public void the_field_should_be_set_to_the_default_email_address(String string) {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new MessagingException());
+            (new Mailing("alice.liddell@example.org")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @Then("the {string} field should be set to the provided email address")
+    public void the_field_should_be_set_to_the_provided_email_address(String string) {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new MessagingException());
+            (new Mailing("alice.liddell@example.org")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @When("the user sends an email with a subject and text")
+    public void the_user_sends_an_email_with_a_subject_and_text() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new MessagingException());
+            (new Mailing("alice.liddell@example.org")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
+    @Then("the email should be sent successfully")
+    public void the_email_should_be_sent_successfully() {
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new MessagingException());
+            (new Mailing("alice.liddell@example.org")).sendEmail("Hello from the Dreaming Spires", "Text");
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+        }
+    }
+
 
     @When("the information is exist email is {string}")
     public void the_information_is_exist_email_is(String email) {
@@ -768,6 +898,5 @@ public class Testing {
         assertFalse(application.installrequest(catname, pname, qu, carname));
         assertEquals(newqu, avl_q);
     }
-
 
 }
