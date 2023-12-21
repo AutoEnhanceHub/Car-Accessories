@@ -938,6 +938,8 @@ public class MainClass {
             f.append(" the Average Rate is :").append(Application.categories.get(Application.indexes[0]).products.get(Application.indexes[1]).rateAvg);
             return f.toString();
         }
+
+
         return "";
     }
 }
