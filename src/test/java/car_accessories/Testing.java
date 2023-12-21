@@ -10,6 +10,7 @@ import org.mockito.Mockito;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -173,6 +174,20 @@ public class Testing {
 
         // Assert
         assertEquals(-1, login.getRoles());
+
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenAnswer(invocation -> null);
+            Login login1 = new Login(new User("jane.doe@example.org", "iloveyou"));
+            login1.addUser(new User("jane.doe@example.org", "iloveyou"));
+            boolean actualLoginResult = login1.login();
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+            Mailing mailing = login1.m;
+            assertEquals("accessoriescar378@gmail.com", mailing.from);
+            assertEquals("jane.doe@example.org", mailing.to);
+            assertEquals(4, login1.userIndex);
+            assertTrue(actualLoginResult);
+            assertTrue(login1.validEmail);
+        }
     }
     @And("verification code is 12345")
     public void verification_code_is() {
@@ -205,6 +220,21 @@ public class Testing {
 
         // Assert
         assertEquals(1, login.getRoles());
+
+
+        try (MockedStatic<Transport> mockTransport = mockStatic(Transport.class)) {
+            mockTransport.when(() -> Transport.send(Mockito.<Message>any())).thenThrow(new AddressException("iloveyou"));
+            Login login3 = new Login(new User("jane.doe@example.org", "iloveyou"));
+            login3.addUser(new User("jane.doe@example.org", "iloveyou"));
+            boolean actualLoginResult = login3.login();
+            mockTransport.verify(() -> Transport.send(Mockito.<Message>any()));
+            Mailing mailing = login3.m;
+            assertEquals("accessoriescar378@gmail.com", mailing.from);
+            assertEquals("jane.doe@example.org", mailing.to);
+            assertEquals(4, login3.userIndex);
+            assertTrue(actualLoginResult);
+            assertTrue(login3.validEmail);
+        }
 
     }
 
