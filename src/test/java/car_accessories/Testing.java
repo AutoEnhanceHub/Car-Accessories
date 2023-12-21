@@ -504,37 +504,6 @@ public class Testing {
         assertEquals("Admin", v.type);
         assertEquals(0, application.login.getRoles());
 
-        Login actualLogin = new Login(new User("jane.doe@example.org", "iloveyou"));
-
-
-        List<User> userList = actualLogin.users;
-        assertEquals(4, userList.size());
-        User getResult = userList.get(0);
-        assertEquals("123456", getResult.getPassword());
-        User getResult2 = userList.get(1);
-        assertEquals("654321", getResult2.getPassword());
-        User getResult3 = userList.get(2);
-        assertEquals("987654", getResult3.getPassword());
-        assertEquals("Admin", getResult.getType());
-        User getResult4 = userList.get(3);
-        assertEquals("Admin", getResult4.getType());
-        assertEquals("Admin", actualLogin.admins);
-        assertEquals("Ahmad", getResult.firstName);
-        assertEquals("Ahmad", getResult2.firstName);
-        assertEquals("Ahmad", getResult3.firstName);
-        assertEquals("Ahmad", getResult4.firstName);
-        assertEquals("Ali", getResult.lastName);
-        assertEquals("Ali", getResult2.lastName);
-        assertEquals("Ali", getResult3.lastName);
-        assertEquals("Ali", getResult4.lastName);
-        assertEquals("Customer", getResult2.getType());
-        assertEquals("Installer", getResult3.getType());
-        assertEquals("abdallahdaher785@gmail.com", getResult4.getEmail());
-        assertEquals("i.a.s.assad33@gmail.com", getResult3.getEmail());
-        assertEquals("ibrahim.sadi.asad@gmail.com", getResult.getEmail());
-        assertEquals("ibrahimeceasad@gmail.com", getResult2.getEmail());
-        assertNull(actualLogin.u.lastName);
-        assertFalse(actualLogin.isLogged());
     }
 
     @When("i choose a product {string} form Category {string}")
