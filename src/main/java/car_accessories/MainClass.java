@@ -784,7 +784,7 @@ public class MainClass {
                 return;
             }
             String catname= mydup(cselect);
-            String ygy5="Choose a product to request\n"+getallproducts(catname,application);
+            String ygy5=mydup2(catname,application);
             LOGGER.info(ygy5);
 
             int pselect= application.scanner.nextInt();  application.scanner.nextLine();
@@ -947,6 +947,11 @@ public class MainClass {
     private static String mydup(int cselect){
        return Application.categories.get(cselect).name;
     }
+    private static String mydup2(String catname,Application application){
+        return "Choose a product to request\n"+getallproducts(catname,application);
+    }
+
+
 }
 
 
