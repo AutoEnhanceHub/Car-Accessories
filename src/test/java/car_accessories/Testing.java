@@ -234,6 +234,8 @@ public class Testing {
     public void i_am_an_installer_adding() {
         application.newUser.setType("Installer");
         assertEquals("Installer", application.newUser.type);
+        Login l3 = new Login(application.newUser);
+        l3.setRoles();
     }
 
     @When("i choose the Category {string} of the new product {string}")
@@ -283,6 +285,8 @@ public class Testing {
     @Given("I am an admin\\(editing)")
     public void i_am_an_admin_editing() {
         assertEquals("Admin", v.type);
+        Login l2 =new Login(v);
+        assertEquals(0, l2.getRoles());
     }
 
     @When("i choose the Category {string} to edit the product {string}")
@@ -376,6 +380,8 @@ public class Testing {
     public void i_am_a_customer_review_and_rate() {
         application.setuser(application.newUser.getEmail(),application.newUser.getPassword(),"Customer");
         assertEquals("Customer", c.type);
+        Login l =new Login(c);
+        l.setRoles();
     }
 
     @Then("i must choose a product {string} from category {string}")
@@ -436,8 +442,7 @@ public class Testing {
     @Given("i am and admin \\(get informations)")
     public void i_am_and_admin_get_informations() {
         assertEquals("Admin", v.type);
-
-
+        assertEquals(0, application.login.getRoles());
     }
 
     @When("i choose a product {string} form Category {string}")
@@ -512,6 +517,8 @@ public class Testing {
             f=true;
         }
         assertTrue(f);
+        assertEquals(0, application.login.getRoles());
+
     }
 
     @When("i choose to add new user but the user is already exist")
