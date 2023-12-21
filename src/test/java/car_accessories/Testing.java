@@ -16,7 +16,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mockStatic;
-
 public class Testing {
 
     User v;
@@ -890,6 +889,7 @@ public class Testing {
     @Then("The report3 details are printed at a file {string}")
     public void the_report3_details_are_printed_at_a_file(String string) {
         file=string;
+
         assertTrue(application.report(text,file));
     }
     @Then("i am asked to choose report4 kind {string}")

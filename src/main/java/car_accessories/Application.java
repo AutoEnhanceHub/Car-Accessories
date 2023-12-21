@@ -20,7 +20,7 @@ public  class Application {
     boolean loggedIn;
 
     Login login;
-    static ArrayList<Sales> sales=new ArrayList<>();
+    public static ArrayList<Sales> sales=new ArrayList<>();
     static ArrayList<Category> categories;
     User newUser;
     SignUp signUp;
