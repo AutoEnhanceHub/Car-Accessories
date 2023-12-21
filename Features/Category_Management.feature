@@ -14,7 +14,7 @@ Feature: Category Management
   @EDIT0
   Scenario: Editing a Category
     Given I am an admin(editing) by admin
-    When I edit the category with the name "Interior"
+    When I edit the category with the name "car_requirements"
     Then i enter a new name "new_name"
 
     And i must scan if the new name is for another Catogry
