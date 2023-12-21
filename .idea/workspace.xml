@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="000">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" afterDir="false" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="124">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,7 @@
         </pattern>
         <pattern>
           <option name="PATTERN" value="car_accessories.SignUp" />
-          <option name="ENABLED" value="true" />
+          <option name="ENABLED" value="false" />
           <option name="INCLUDE" value="false" />
         </pattern>
         <pattern>
@@ -120,7 +119,7 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="carAccessories" />
+      <option name="PACKAGE_NAME" value="car_accessories" />
       <option name="MAIN_CLASS_NAME" value="car_accessories.AcceptanceTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
@@ -304,15 +303,7 @@
       <workItem from="1703113164520" duration="294000" />
       <workItem from="1703155623075" duration="14202000" />
       <workItem from="1703181521415" duration="1226000" />
-      <workItem from="1703182803943" duration="574000" />
-    </task>
-    <task id="LOCAL-00002" summary="feature3commit2">
-      <option name="closed" value="true" />
-      <created>1696531118842</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1696531118842</updated>
+      <workItem from="1703182803943" duration="754000" />
     </task>
     <task id="LOCAL-00003" summary="feature1+3">
       <option name="closed" value="true" />
@@ -689,7 +680,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703181815019</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="124">
+      <option name="closed" value="true" />
+      <created>1703183393989</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1703183393990</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,7 +718,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dos 1.0.1" />
     <MESSAGE value="rename update" />
     <MESSAGE value="some updates" />
     <MESSAGE value="some updatesappp" />
@@ -744,7 +742,8 @@
     <MESSAGE value="321" />
     <MESSAGE value="11" />
     <MESSAGE value="000" />
-    <option name="LAST_COMMIT_MESSAGE" value="000" />
+    <MESSAGE value="124" />
+    <option name="LAST_COMMIT_MESSAGE" value="124" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
