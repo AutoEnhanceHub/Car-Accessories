@@ -153,6 +153,17 @@ public class Testing {
             }
         }
         assertTrue(loginSuccessful);
+
+        Login login = new Login(new User("jane.doe@example.org", "iloveyou"));
+        User oldUser = new User("jane.doe@example.org", "iloveyou");
+
+        login.updateUser(oldUser, new User("jane.doe@example.org", "iloveyou", "Type"));
+
+        // Act
+        login.setRoles();
+
+        // Assert
+        assertEquals(-1, login.getRoles());
     }
     @And("verification code is 12345")
     public void verification_code_is() {
@@ -168,6 +179,17 @@ public class Testing {
             boolean loginSuccessful=true;
             assertTrue(loginSuccessful);
         }
+
+        Login login = new Login(new User("jane.doe@example.org", "iloveyou"));
+        User oldUser = new User("jane.doe@example.org", "iloveyou");
+
+        login.updateUser(oldUser, new User("jane.doe@example.org", "iloveyou", "Customer"));
+
+        // Act
+        login.setRoles();
+
+        // Assert
+        assertEquals(1, login.getRoles());
 
     }
 
@@ -207,6 +229,17 @@ public class Testing {
         }
 
         assertFalse(loginFailed);
+
+
+        Login login = new Login(new User("jane.doe@example.org", "iloveyou"));
+        User oldUser = new User("jane.doe@example.org", "iloveyou");
+
+        login.updateUser(oldUser, new User("jane.doe@example.org", "iloveyou", "Installer"));
+
+        // Act
+        login.setRoles();
+        // Assert
+        assertEquals(2, login.getRoles());
     }
 
     @When("the information are invalid email is {string} and password is {string}")
@@ -220,6 +253,14 @@ public class Testing {
             }
         }
         assertTrue(loginFailed);
+
+        Login login = new Login(new User("jane.doe@example.org", "iloveyou","admin"));
+
+        // Act
+        login.setRoles();
+
+        // Assert
+        assertEquals(0, login.getRoles());
     }
 
 
@@ -227,8 +268,13 @@ public class Testing {
 
     @Given("I am an admin\\(adding)")
     public void i_am_an_admin_adding() {
-
         assertEquals("Admin", v.type);
+
+        Login login = new Login(new User("jane.doe@example.org", "iloveyou"));
+        login.setValidEmail(true);
+
+        // Act
+        login.confirmLogin(1);
     }
     @Given("I am an Installer\\(adding)")
     public void i_am_an_installer_adding() {
