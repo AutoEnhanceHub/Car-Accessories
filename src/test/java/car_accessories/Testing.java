@@ -275,6 +275,9 @@ public class Testing {
 
         // Act
         login.confirmLogin(1);
+
+
+
     }
     @Given("I am an Installer\\(adding)")
     public void i_am_an_installer_adding() {
