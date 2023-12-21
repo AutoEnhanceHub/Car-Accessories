@@ -64,6 +64,7 @@ public  class Application {
         categories.add(new Category("Electronics"));
         categories.get(2).products.add(new Product("car lights",13,50,2025));
         newUser=new User("ibrahim.sadi.asad@gmail.com","147852","Customer");
+        categories.add(new Category("any"));
 
     }
 
