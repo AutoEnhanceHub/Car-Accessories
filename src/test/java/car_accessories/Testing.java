@@ -282,6 +282,9 @@ public class Testing {
         assertFalse(login.login());
         assertFalse(login.validEmail);
 
+        assertEquals(1, login.verificationCode);
+        assertFalse(login.confirmLogin(1));
+
 
 
     }
@@ -591,6 +594,11 @@ public class Testing {
     @Then("user added failed")
     public void user_added_failed() {
         assertFalse(userAdded);
+
+        Login login = new Login(new User("jane.doe@example.org", "iloveyou"));
+
+        // Act and Assert
+        assertFalse(login.addUser(new User("", "iloveyou")));
     }
 
     @When("i choose to add new user with with valid formatting")
@@ -640,6 +648,7 @@ public class Testing {
     @Then("user successfully deleting")
     public void user_successfully_deleting() {
         assertTrue(isUserDeleting);
+
     }
     @Given("i am an admin\\(report)")
     public void i_am_an_admin_report() {

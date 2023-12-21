@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="2121">
-      <change afterPath="$PROJECT_DIR$/src/test/java/car_accessories/LoginDiffblueTest.java" afterDir="false" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="1111">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/LoginDiffblueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/LoginDiffblueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +141,7 @@
       </settings>
       <method v="2" />
     </configuration>
-    <configuration name="Write tests for class Login" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
+    <configuration name="Write tests for class Login" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration">
       <module name="Car-Accessories" />
       <settings run-config-name="Write tests for class Login" include-system-env-vars="true" skeleton-tests-only="false">
         <jvm-args />
@@ -209,11 +208,11 @@
       <item itemvalue="Diffblue Cover.Write tests for method Login.setRoles" />
       <item itemvalue="Diffblue Cover.Write tests for method Application.ratesReviewsReport" />
       <item itemvalue="Diffblue Cover.Write tests for method Login.login" />
+      <item itemvalue="Diffblue Cover.Write tests for class Login" />
       <item itemvalue="Diffblue Cover.Write tests for class Application" />
       <item itemvalue="Diffblue Cover.Write tests for method Application.edtcatogry" />
       <item itemvalue="Diffblue Cover.Write tests for method Login.updateUser" />
       <item itemvalue="Diffblue Cover.Write tests for method Application.&lt;init&gt;" />
-      <item itemvalue="Diffblue Cover.Write tests for class Login" />
       <item itemvalue="JUnit.AcceptanceTest" />
     </list>
     <recent_temporary>
@@ -284,7 +283,7 @@
       <workItem from="1703111182229" duration="1048000" />
       <workItem from="1703112455244" duration="327000" />
       <workItem from="1703113164520" duration="294000" />
-      <workItem from="1703155623075" duration="13168000" />
+      <workItem from="1703155623075" duration="13730000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -637,7 +636,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703173984079</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="1111">
+      <option name="closed" value="true" />
+      <created>1703180466215</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1703180466215</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +674,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feature1+3+4+5+9" />
     <MESSAGE value="mainmix" />
     <MESSAGE value="final-main-and-test-mix" />
     <MESSAGE value="Dos 1.0.0" />
@@ -692,7 +698,8 @@
     <MESSAGE value="10100" />
     <MESSAGE value="10101" />
     <MESSAGE value="2121" />
-    <option name="LAST_COMMIT_MESSAGE" value="2121" />
+    <MESSAGE value="1111" />
+    <option name="LAST_COMMIT_MESSAGE" value="1111" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -700,7 +707,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Car_Accessories$All_in_Car_Accessories.ic" NAME="All in Car-Accessories Coverage Results" MODIFIED="1701254833816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703180376509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703180446006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>car_accessories.*</FILTER>
       <EXCLUDED_FILTER>car_accessories.Mailing</EXCLUDED_FILTER>
       <EXCLUDED_FILTER>car_accessories.MainClass</EXCLUDED_FILTER>
