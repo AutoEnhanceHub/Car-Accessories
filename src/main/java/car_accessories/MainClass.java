@@ -150,21 +150,21 @@ public class MainClass {
 
     private static void handleRoles(Scanner scanner, Application signInApplication, String signInEmail, String signInPassword) {
         int roles = signInApplication.login.getRoles();
-
+        String welcomeMsg="WELCOME TO TURBOTWEAK ACCESSORIE";
         switch (roles) {
             case 0 -> {
-                LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Admin");
+                LOGGER.info(welcomeMsg);
                 signInApplication.setuser(signInEmail, signInPassword, "Admin");
                 adminDashboard(scanner, signInApplication);
             }
             case 1 -> {
                 signInApplication.setuser(signInEmail, signInPassword, "Customer");
-                LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Customer");
+                LOGGER.info(welcomeMsg);
                 handleCustomerOptions(scanner, signInApplication);
             }
             default -> {
                 signInApplication.setuser(signInEmail, signInPassword, "Installer");
-                LOGGER.info("WELCOME TO TURBOTWEAK ACCESSORIE Installer");
+                LOGGER.info(welcomeMsg);
                 handleInstallerOptions(scanner, signInApplication);
             }
         }
@@ -941,3 +941,5 @@ public class MainClass {
         return "";
     }
 }
+
+

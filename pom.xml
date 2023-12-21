@@ -108,6 +108,7 @@
                 <executions>
                     <!-- Pre-verify phase: Prepare agent for coverage -->
                     <execution>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -115,7 +116,7 @@
                     <!-- Verify phase: Generate code coverage report -->
                     <execution>
                         <id>generate-report</id>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>

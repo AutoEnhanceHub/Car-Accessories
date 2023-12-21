@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="10100">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="10101">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "com.diffblue.cover.intellij",
@@ -280,7 +282,7 @@
       <workItem from="1703111182229" duration="1048000" />
       <workItem from="1703112455244" duration="327000" />
       <workItem from="1703113164520" duration="294000" />
-      <workItem from="1703155623075" duration="9252000" />
+      <workItem from="1703155623075" duration="10685000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -617,7 +619,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703171962966</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="10101">
+      <option name="closed" value="true" />
+      <created>1703172540543</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1703172540543</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +657,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feature1+3+4" />
     <MESSAGE value="feature1+3+4+5" />
     <MESSAGE value="feature1+3+4+5+9" />
     <MESSAGE value="mainmix" />
@@ -672,7 +681,8 @@
     <MESSAGE value="100" />
     <MESSAGE value="101" />
     <MESSAGE value="10100" />
-    <option name="LAST_COMMIT_MESSAGE" value="10100" />
+    <MESSAGE value="10101" />
+    <option name="LAST_COMMIT_MESSAGE" value="10101" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -680,7 +690,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Car_Accessories$All_in_Car_Accessories.ic" NAME="All in Car-Accessories Coverage Results" MODIFIED="1701254833816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703170632492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703173879649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>car_accessories.*</FILTER>
       <EXCLUDED_FILTER>car_accessories.Mailing</EXCLUDED_FILTER>
       <EXCLUDED_FILTER>car_accessories.MainClass</EXCLUDED_FILTER>
