@@ -141,11 +141,6 @@ public class Testing {
         assertFalse(application.foundc(string));
     }
 
-
-
-
-
-
     @Given("that the user is not logged in")
     public void that_the_user_is_not_logged_in() {
         assertFalse(application.login.isLogged());
@@ -870,7 +865,14 @@ public class Testing {
     @Then("The report1 details are printed at a file {string}")
     public void the_report1_details_are_printed_at_a_file(String string) {
         file=string;
+        LocalDate d =LocalDate.now();
+        Sales sale1 = new Sales("Electronics", "Laptop", 10, 1000, d,d, "www");
+        Sales sale2 = new Sales("Books", "Harry Potter", 5, 20, d, d, "rr");
+         application.sales.add(sale1);
+         application.sales.add(sale2);
+
         assertTrue(application.report(text,file));
+
     }
     @Then("i am asked to choose report2 kind {string}")
     public void i_am_asked_to_choose_report2_kind(String string) {
