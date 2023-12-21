@@ -76,10 +76,10 @@ public  class Application {
 
     public boolean foundc(String name){
 
-
+        int zero =0;
         for(int i=0;i<categories.size();i++){
             if(name.equals(categories.get(i).name)){
-                indexes[0]=i; return true;
+                indexes[zero]=i; return true;
             }
         }
         return false;
