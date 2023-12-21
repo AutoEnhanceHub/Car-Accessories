@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="711">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="000">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Features/Product_Management.feature" beforeDir="false" afterPath="$PROJECT_DIR$/Features/Product_Management.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/AcceptanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/AcceptanceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +271,7 @@
       <workItem from="1703111182229" duration="1048000" />
       <workItem from="1703112455244" duration="327000" />
       <workItem from="1703113164520" duration="294000" />
-      <workItem from="1703155623075" duration="2511000" />
+      <workItem from="1703155623075" duration="3434000" />
     </task>
     <task id="LOCAL-00001" summary="feature3commit">
       <option name="closed" value="true" />
@@ -556,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703115119117</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="000">
+      <option name="closed" value="true" />
+      <created>1703158809496</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1703158809497</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,7 +611,8 @@
     <MESSAGE value="9874" />
     <MESSAGE value="asa1213" />
     <MESSAGE value="711" />
-    <option name="LAST_COMMIT_MESSAGE" value="711" />
+    <MESSAGE value="000" />
+    <option name="LAST_COMMIT_MESSAGE" value="000" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -615,7 +620,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Car_Accessories$All_in_Car_Accessories.ic" NAME="All in Car-Accessories Coverage Results" MODIFIED="1701254833816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703158350436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703159017808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>car_accessories.*</FILTER>
       <EXCLUDED_FILTER>car_accessories.Mailing</EXCLUDED_FILTER>
       <EXCLUDED_FILTER>car_accessories.MainClass</EXCLUDED_FILTER>
