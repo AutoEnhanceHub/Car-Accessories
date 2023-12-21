@@ -105,7 +105,6 @@
 
                     <excludes>
                         <exclude>**car_accessories/MainClass.class</exclude>
-                        <exclude>**car_accessories/Mailing.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>
