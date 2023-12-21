@@ -134,8 +134,6 @@ public class Login {
             users.add(u);
             return true;
         }
-
-        LOGGER.info("Not a valid Email");
         return false;
     }
     public void setUser(User u){

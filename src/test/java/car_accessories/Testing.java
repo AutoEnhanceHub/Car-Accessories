@@ -261,6 +261,8 @@ public class Testing {
 
         // Assert
         assertEquals(0, login.getRoles());
+        User u1 =new User("","");
+       assertFalse ((new Login(u1)).login());
     }
 
 
@@ -275,6 +277,10 @@ public class Testing {
 
         // Act
         login.confirmLogin(1);
+
+        // Act and Assert
+        assertFalse(login.login());
+        assertFalse(login.validEmail);
 
 
 
