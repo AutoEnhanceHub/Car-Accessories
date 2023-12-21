@@ -783,7 +783,7 @@ public class MainClass {
                 LOGGER.info("There is no products to request");
                 return;
             }
-            String catname= Application.categories.get(cselect).name;
+            String catname= mydup(cselect);
             String ygy5="Choose a product to request\n"+getallproducts(catname,application);
             LOGGER.info(ygy5);
 
@@ -943,6 +943,9 @@ public class MainClass {
 
 
         return "";
+    }
+    private static String mydup(int cselect){
+       return Application.categories.get(cselect).name;
     }
 }
 

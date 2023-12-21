@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="Mr-Robot-684">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="478">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,15 +218,15 @@
     </configuration>
     <list>
       <item itemvalue="Cucumber Java.Feature: Mailing" />
-      <item itemvalue="Diffblue Cover.Write tests for method Login.setRoles" />
-      <item itemvalue="Diffblue Cover.Write tests for method Application.ratesReviewsReport" />
-      <item itemvalue="Diffblue Cover.Write tests for method Login.login" />
       <item itemvalue="Diffblue Cover.Write tests for class Login" />
       <item itemvalue="Diffblue Cover.Write tests for method Application.edtcatogry" />
-      <item itemvalue="Diffblue Cover.Write tests for method Application.printTextToFile" />
-      <item itemvalue="Diffblue Cover.Write tests for method Application.salesreport" />
+      <item itemvalue="Diffblue Cover.Write tests for method Application.ratesReviewsReport" />
+      <item itemvalue="Diffblue Cover.Write tests for method Login.login" />
+      <item itemvalue="Diffblue Cover.Write tests for method Login.setRoles" />
       <item itemvalue="Diffblue Cover.Write tests for class Mailing" />
+      <item itemvalue="Diffblue Cover.Write tests for method Application.printTextToFile" />
       <item itemvalue="Diffblue Cover.Write tests for method Application.ratesqu" />
+      <item itemvalue="Diffblue Cover.Write tests for method Application.salesreport" />
       <item itemvalue="JUnit.AcceptanceTest" />
     </list>
     <recent_temporary>
@@ -301,6 +301,7 @@
       <workItem from="1703181521415" duration="1226000" />
       <workItem from="1703182803943" duration="3327000" />
       <workItem from="1703186183246" duration="7244000" />
+      <workItem from="1703195483592" duration="1000" />
     </task>
     <task id="LOCAL-00012" summary="Dos 1.0.0">
       <created>1698926031654</created>
@@ -336,14 +337,6 @@
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
       <updated>1701118931623</updated>
-    </task>
-    <task id="LOCAL-00019" summary="some updatesappp">
-      <option name="closed" value="true" />
-      <created>1701160114920</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1701160114920</updated>
     </task>
     <task id="LOCAL-00020" summary="some updatesappp">
       <option name="closed" value="true" />
@@ -685,7 +678,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703192275310</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="478">
+      <option name="closed" value="true" />
+      <created>1703195017896</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1703195017896</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -736,11 +737,11 @@
     <MESSAGE value="999" />
     <MESSAGE value="879" />
     <MESSAGE value="021" />
-    <MESSAGE value="478" />
     <MESSAGE value="36987" />
     <MESSAGE value="Mr-Robot-33" />
     <MESSAGE value="Mr-Robot-684" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mr-Robot-684" />
+    <MESSAGE value="478" />
+    <option name="LAST_COMMIT_MESSAGE" value="478" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -748,7 +749,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Car_Accessories$All_in_Car_Accessories.ic" NAME="All in Car-Accessories Coverage Results" MODIFIED="1701254833816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703193080603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703193064648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>car_accessories.*</FILTER>
       <EXCLUDED_FILTER>car_accessories.MainClass</EXCLUDED_FILTER>
     </SUITE>
