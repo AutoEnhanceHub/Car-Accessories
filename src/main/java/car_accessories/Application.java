@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.*;
 
@@ -20,7 +21,7 @@ public  class Application {
     boolean loggedIn;
 
     Login login;
-    public static ArrayList<Sales> sales=new ArrayList<>();
+ static List<Sales> sales=new ArrayList<>();
     static ArrayList<Category> categories;
     User newUser;
     SignUp signUp;
