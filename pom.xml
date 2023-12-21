@@ -106,7 +106,6 @@
                     <excludes>
                         <exclude>**car_accessories/MainClass.class</exclude>
                         <exclude>**car_accessories/Mailing.class</exclude>
-                        <exclude>**car_accessories/Sales.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>

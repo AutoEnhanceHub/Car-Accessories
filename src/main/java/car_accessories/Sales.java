@@ -17,9 +17,7 @@ public class Sales {
         this.quantity=quantity;
         this.sent=sent;
         this.shipped=shipped;
-this.carname=carname;
+        this.carname=carname;
     }
-
-
 
 }

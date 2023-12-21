@@ -5,6 +5,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -431,6 +432,15 @@ public class Testing {
     public void the_product_availability_should_be_updated() {
         assertEquals("Installer", c.type);
         assertNotEquals(avl_q,newqu);
+
+        LocalDate sent = LocalDate.of(1970, 1, 1);
+
+        // Act
+        Sales actualSales = new Sales("Cname", "Pname", 1, 1, sent, LocalDate.of(1970, 1, 1), "Carname");
+
+        // Assert
+        assertEquals("1970-01-01", actualSales.sent.toString());
+        assertEquals("1970-01-01", actualSales.shipped.toString());
     }
 
 
