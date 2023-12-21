@@ -25,3 +25,4 @@ Feature:Product Management
     Given I am an admin(deleting)
     When i choose the Category "Interior" to delete the product "Vacuum Cleaner"
     And the product should be removed from the product list of the Category "Interior"
+

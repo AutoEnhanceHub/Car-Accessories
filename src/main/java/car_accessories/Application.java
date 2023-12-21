@@ -69,17 +69,6 @@ public  class Application {
 
 
 
-    public void signUp(){
-        signUp=new SignUp(newUser,login);
-    }
-
-    public boolean isLoggedIn() {
-        return loggedIn;
-    }
-
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
-    }
 
 
 
