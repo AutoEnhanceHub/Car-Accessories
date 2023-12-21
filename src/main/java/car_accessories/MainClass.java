@@ -32,7 +32,7 @@ public class MainClass {
             return hexHash.toString().equals(hashedPassword);
         } catch (NoSuchAlgorithmException e) {
 
-            // Handle the exception as needed
+
             return false;
         }
     }
@@ -41,10 +41,10 @@ public class MainClass {
     private static final Logger LOGGER = Logger.getLogger(MainClass.class.getName());
 
     static {
-        // Disable JavaMail debug logs
+
         System.setProperty("mail.debug", "false");
 
-        // Suppress console logging for the root logger
+
         Logger rootLogger = Logger.getLogger("");
         for (Handler handler : rootLogger.getHandlers()) {
             if (handler instanceof ConsoleHandler) {
@@ -89,7 +89,7 @@ public class MainClass {
             try {
                 LOGGER.info("1-Sign-up \n2-Sign-in \n3-Exit");
                 authen = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
+                scanner.nextLine();
             } catch (InputMismatchException e) {
                 LOGGER.warning("Invalid input. Please enter a valid integer.");
                 scanner.nextLine();
@@ -821,7 +821,7 @@ public class MainClass {
 
 
 
-                String recipientEmail = application.newUser.getEmail(); // Replace with the recipient's email
+                String recipientEmail = application.newUser.getEmail();
                 String subject = "Installation Request";
 
 
@@ -889,7 +889,7 @@ public class MainClass {
 
 
 
-            String recipientEmail = application.newUser.getEmail(); // Replace with the recipient's email
+            String recipientEmail = application.newUser.getEmail();
             String subject = "Customer Request";
 
 
