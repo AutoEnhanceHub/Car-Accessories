@@ -98,6 +98,7 @@ public class Testing {
     public void i_edit_the_category_with_the_name(String string) {
         oldname=string;
     }
+
     @Then("i enter a new name {string}")
     public void i_enter_a_new_name(String string) {
         newname=string;
@@ -905,6 +906,12 @@ public class Testing {
 
             assertEquals(application.ratesqu(catname,pname), 0);
         }
+
+        String categoryName = "TestCategory";
+        String productName = "TestProduct";
+
+        int numberOfRates = application.ratesqu(categoryName, productName);
+        assertEquals(0, numberOfRates);
     }
     @When("the requested quantity is enough")
     public void the_requested_quantity_is_enough() {

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="021">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="478">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Mailing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/car_accessories/Testing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,6 +182,15 @@
       </settings>
       <method v="2" />
     </configuration>
+    <configuration name="Write tests for method Application.ratesqu" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="Car-Accessories" />
+      <settings run-config-name="Write tests for method Application.ratesqu" include-system-env-vars="true" skeleton-tests-only="false">
+        <jvm-args />
+        <selection-scope>method</selection-scope>
+        <selected-element key="car_accessories.Application.ratesqu:(Ljava/lang/String;Ljava/lang/String;)I" />
+      </settings>
+      <method v="2" />
+    </configuration>
     <configuration name="Write tests for method Application.salesreport" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
       <module name="Car-Accessories" />
       <settings run-config-name="Write tests for method Application.salesreport" include-system-env-vars="true" skeleton-tests-only="false">
@@ -207,15 +218,6 @@
       </settings>
       <method v="2" />
     </configuration>
-    <configuration name="Write tests for method Sales.&lt;init&gt;" type="com.diffblue.cover.write-tests-run-configuration" factoryName="com.diffblue.cover.write-tests-run-configuration" activateToolWindowBeforeRun="false" temporary="true">
-      <module name="Car-Accessories" />
-      <settings run-config-name="Write tests for method Sales.&lt;init&gt;" include-system-env-vars="true" skeleton-tests-only="false">
-        <jvm-args />
-        <selection-scope>method</selection-scope>
-        <selected-element key="car_accessories.Sales.&lt;init&gt;:(Ljava/lang/String;Ljava/lang/String;IILjava/time/LocalDate;Ljava/time/LocalDate;Ljava/lang/String;)V" />
-      </settings>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Cucumber Java.Feature: Mailing" />
       <item itemvalue="Diffblue Cover.Write tests for method Login.setRoles" />
@@ -226,16 +228,16 @@
       <item itemvalue="Diffblue Cover.Write tests for method Application.printTextToFile" />
       <item itemvalue="Diffblue Cover.Write tests for method Application.salesreport" />
       <item itemvalue="Diffblue Cover.Write tests for class Mailing" />
-      <item itemvalue="Diffblue Cover.Write tests for method Sales.&lt;init&gt;" />
+      <item itemvalue="Diffblue Cover.Write tests for method Application.ratesqu" />
       <item itemvalue="JUnit.AcceptanceTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Diffblue Cover.Write tests for method Application.ratesqu" />
         <item itemvalue="Diffblue Cover.Write tests for method Application.printTextToFile" />
         <item itemvalue="Diffblue Cover.Write tests for method Application.salesreport" />
         <item itemvalue="Cucumber Java.Feature: Mailing" />
         <item itemvalue="Diffblue Cover.Write tests for class Mailing" />
-        <item itemvalue="Diffblue Cover.Write tests for method Sales.&lt;init&gt;" />
       </list>
     </recent_temporary>
   </component>
@@ -300,15 +302,7 @@
       <workItem from="1703155623075" duration="14202000" />
       <workItem from="1703181521415" duration="1226000" />
       <workItem from="1703182803943" duration="3327000" />
-      <workItem from="1703186183246" duration="2398000" />
-    </task>
-    <task id="LOCAL-00010" summary="mainmix">
-      <option name="closed" value="true" />
-      <created>1698785721582</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1698785721582</updated>
+      <workItem from="1703186183246" duration="4395000" />
     </task>
     <task id="LOCAL-00011" summary="final-main-and-test-mix">
       <option name="closed" value="true" />
@@ -685,7 +679,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703188413011</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="478">
+      <option name="closed" value="true" />
+      <created>1703188645295</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1703188645295</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="911" />
     <MESSAGE value="11111111" />
     <MESSAGE value="9874" />
     <MESSAGE value="asa1213" />
@@ -740,7 +741,8 @@
     <MESSAGE value="999" />
     <MESSAGE value="879" />
     <MESSAGE value="021" />
-    <option name="LAST_COMMIT_MESSAGE" value="021" />
+    <MESSAGE value="478" />
+    <option name="LAST_COMMIT_MESSAGE" value="478" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -748,7 +750,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Car_Accessories$All_in_Car_Accessories.ic" NAME="All in Car-Accessories Coverage Results" MODIFIED="1701254833816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703188378361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703190563532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>car_accessories.*</FILTER>
       <EXCLUDED_FILTER>car_accessories.MainClass</EXCLUDED_FILTER>
     </SUITE>
