@@ -174,10 +174,17 @@ public class MainClass {
 
     private static void handleCustomerOptions(Scanner scanner, Application signInApplication) {
         int select;
+        String options = """
+        Choose an option:
+        1. Order a product
+        2. Review And Rate A Product
+        3. Show all products
+        4. Send a request
+        5. Exit
+        """;
 
         while (true) {
-            LOGGER.info("Choose an option:\n1. Order a product \n2. Review And Rate A Product\n3. Show all products" +
-                    "4. Send a request \n5. Exit");
+            LOGGER.info(options);
             select = scanner.nextInt();
 
             if (select == 1) {
@@ -584,7 +591,14 @@ public class MainClass {
             LOGGER.info(INVALID_INPUT_MESSAGE);
         }
     }
+    public static class InvalidOptionException extends Exception {
+        public InvalidOptionException() {
+            super("Invalid option selected.");
+        }
+    }
+
     private static void newreport(Application application){
+
         if (application.newUser.getType().equals(ADMIN)) {
             try {
                 LOGGER.info("What is the name of the file?");
@@ -605,7 +619,7 @@ public class MainClass {
                     case 2 -> application.report("Product rates", file);
                     case 3 -> application.report("Category products", file);
                     case 4 -> application.report("rates and reviews", file);
-                    default -> throw new Exception();
+                    default -> throw new InvalidOptionException();
                 }
             } catch (Exception e) {
                 LOGGER.info(NEXT_TIME);
@@ -751,7 +765,7 @@ public class MainClass {
 
             int rate= application.scanner.nextInt();  application.scanner.nextLine();
             if(rate<1||rate>5){
-                throw new Exception();
+                throw new InvalidOptionException();
             }
             LOGGER.info("Write a new review");
             String review=application.scanner.nextLine();
