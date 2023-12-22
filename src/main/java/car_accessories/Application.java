@@ -24,7 +24,6 @@ public  class Application {
  static List<Sales> sales=new ArrayList<>();
     static ArrayList<Category> categories;
     User newUser;
-    SignUp signUp;
     static int[] indexes=new int[2];
     Scanner scanner = new Scanner(System.in);
 
