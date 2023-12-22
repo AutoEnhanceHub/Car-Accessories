@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="0101" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="0100">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Mailing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -300,7 +305,7 @@
       <workItem from="1703186183246" duration="7244000" />
       <workItem from="1703195483592" duration="1000" />
       <workItem from="1703195527039" duration="1284000" />
-      <workItem from="1703246233154" duration="3315000" />
+      <workItem from="1703246233154" duration="2917000" />
     </task>
     <task id="LOCAL-00012" summary="Dos 1.0.0">
       <created>1698926031654</created>
@@ -336,6 +341,14 @@
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
       <updated>1701118931623</updated>
+    </task>
+    <task id="LOCAL-00027" summary="some updatesappp">
+      <option name="closed" value="true" />
+      <created>1701175275730</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1701175275730</updated>
     </task>
     <task id="LOCAL-00028" summary="some updatesappp">
       <option name="closed" value="true" />
@@ -677,15 +690,7 @@
       <option name="project" value="LOCAL" />
       <updated>1703247758690</updated>
     </task>
-    <task id="LOCAL-00071" summary="0101">
-      <option name="closed" value="true" />
-      <created>1703250845849</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1703250845850</updated>
-    </task>
-    <option name="localTasksCounter" value="72" />
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,6 +720,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="101" />
     <MESSAGE value="10100" />
     <MESSAGE value="10101" />
     <MESSAGE value="2121" />
@@ -739,8 +745,7 @@
     <MESSAGE value="0010" />
     <MESSAGE value="0011" />
     <MESSAGE value="0100" />
-    <MESSAGE value="0101" />
-    <option name="LAST_COMMIT_MESSAGE" value="0101" />
+    <option name="LAST_COMMIT_MESSAGE" value="0100" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
