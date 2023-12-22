@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="478">
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="0000">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Mailing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,6 +304,7 @@
       <workItem from="1703186183246" duration="7244000" />
       <workItem from="1703195483592" duration="1000" />
       <workItem from="1703195527039" duration="1284000" />
+      <workItem from="1703246233154" duration="1043000" />
     </task>
     <task id="LOCAL-00012" summary="Dos 1.0.0">
       <created>1698926031654</created>
@@ -337,14 +340,6 @@
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
       <updated>1701118931623</updated>
-    </task>
-    <task id="LOCAL-00022" summary="some updatesappp">
-      <option name="closed" value="true" />
-      <created>1701173578220</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1701173578220</updated>
     </task>
     <task id="LOCAL-00023" summary="some updatesappp">
       <option name="closed" value="true" />
@@ -686,7 +681,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703196383842</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="0000">
+      <option name="closed" value="true" />
+      <created>1703246381090</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1703246381090</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -716,7 +719,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="711" />
     <MESSAGE value="001" />
     <MESSAGE value="010" />
     <MESSAGE value="011" />
@@ -741,7 +743,8 @@
     <MESSAGE value="Mr-Robot-33" />
     <MESSAGE value="Mr-Robot-684" />
     <MESSAGE value="478" />
-    <option name="LAST_COMMIT_MESSAGE" value="478" />
+    <MESSAGE value="0000" />
+    <option name="LAST_COMMIT_MESSAGE" value="0000" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
