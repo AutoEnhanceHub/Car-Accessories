@@ -44,6 +44,7 @@ public class Mailing {
             Transport.send(message);
         }
         catch (MessagingException ppp) {
+            throw new RuntimeException("An error occurred",ppp);
         }
 
     }

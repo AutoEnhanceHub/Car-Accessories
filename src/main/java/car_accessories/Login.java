@@ -7,9 +7,9 @@ import java.util.logging.*;
 
 public class Login {
     private static final Logger LOGGER = Logger.getLogger(Login.class.getName());
-    String ADMIN_STRING ="Admin";
-    String CUSTOMER_STRING ="Customer";
-    String INSTALLER_STRING ="Installer";
+    String adminString ="Admin";
+    String customerString ="Customer";
+    String installerString ="Installer";
     List<User>users=new ArrayList<>();
     int roles;
     boolean isLogged;
@@ -45,10 +45,10 @@ public class Login {
 
 
 
-        User u1=new User("ibrahim.sadi.asad@gmail.com","123456", ADMIN_STRING);
-        User u2=new User("ibrahimeceasad@gmail.com","654321", INSTALLER_STRING);
-        User u3=new User("i.a.s.assad33@gmail.com","987654", INSTALLER_STRING);
-        User u4=new User("abdallahdaher785@gmail.com","abdallah@123", ADMIN_STRING);
+        User u1=new User("ibrahim.sadi.asad@gmail.com","123456", adminString);
+        User u2=new User("ibrahimeceasad@gmail.com","654321", installerString);
+        User u3=new User("i.a.s.assad33@gmail.com","987654", installerString);
+        User u4=new User("abdallahdaher785@gmail.com","abdallah@123", adminString);
         users.add(u1);
         users.add(u2);
         users.add(u3);
@@ -100,13 +100,13 @@ public class Login {
 
     public void setRoles() {
         String type=users.get(userIndex).getType();
-        if (type.equalsIgnoreCase(ADMIN_STRING)){
+        if (type.equalsIgnoreCase(adminString)){
             roles=0;
         }
-        else if (type.equalsIgnoreCase(CUSTOMER_STRING)){
+        else if (type.equalsIgnoreCase(customerString)){
             roles=1;
         }
-        else if(type.equalsIgnoreCase(INSTALLER_STRING)){
+        else if(type.equalsIgnoreCase(installerString)){
             roles= 2;
         }
         else {
