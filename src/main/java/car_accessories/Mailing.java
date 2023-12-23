@@ -2,7 +2,6 @@ package car_accessories;
 
 import java.security.SecureRandom;
 import java.util.*;
-import java.util.logging.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 
@@ -45,7 +44,7 @@ public class Mailing {
             Transport.send(message);
         }
         catch (MessagingException ppp) {
-
+            System.gc();
         }
 
     }
