@@ -123,7 +123,8 @@ public  class Application {
             if(catname.equals(categories.get(i).name)){
                 for(int j=0;j< categories.get(i).products.size();j++){
                     if(pname.equals(categories.get(i).products.get(j).name))
-                    { indexes[0]=i;indexes[1]=j; return  true;}
+                    {
+                        set(i,j);return  true;}
                 }
                 return false;
             }
@@ -294,6 +295,10 @@ public  class Application {
 public int ratesqu(String catname, String pname){
      foundp(catname, pname)   ;
      return categories.get(indexes[0]).products.get(indexes[1]).rates.size();
+}
+private static void set(int x1,int x2){
+        indexes[0]=x1;
+        indexes[1]=x2;
 }
 }
 
