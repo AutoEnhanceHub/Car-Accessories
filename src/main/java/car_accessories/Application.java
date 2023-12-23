@@ -14,7 +14,6 @@ public  class Application {
 
     private static final String NO_INFORMATIONS ="There is no informations";
 
-
     private static final Logger LOGGER = Logger.getLogger(Application.class.getName());
 
     String carname;
@@ -26,7 +25,7 @@ public  class Application {
     User newUser;
     static int[] indexes=new int[2];
     Scanner scanner = new Scanner(System.in);
-    private void gf(){
+    private static void gf(){
         categories=new ArrayList<>();
     }
     public Application(){
@@ -52,8 +51,6 @@ public  class Application {
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "An unexpected error occurred during logger configuration", e);
         }
-
-
         carname="";
 
         this.loggedIn = false;
@@ -68,7 +65,6 @@ public  class Application {
         categories.add(new Category("any"));
 
     }
-
     public boolean foundc(String name){
         for(int i=0;i<categories.size();i++){
             if(name.equals(categories.get(i).name)){
@@ -282,8 +278,6 @@ public  class Application {
             default -> false;
         };
     }
-
-
 
 public int ratesqu(String catname, String pname){
      foundp(catname, pname)   ;
