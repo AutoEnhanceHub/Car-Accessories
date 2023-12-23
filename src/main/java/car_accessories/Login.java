@@ -103,7 +103,7 @@ public class Login {
         if (type.equalsIgnoreCase(ADMIN_STRING)){
             roles=0;
         }
-        else if (type.equalsIgnoreCase(INSTALLER_STRING)){
+        else if (type.equalsIgnoreCase(CUSTOMER_STRING)){
             roles=1;
         }
         else if(type.equalsIgnoreCase(INSTALLER_STRING)){
