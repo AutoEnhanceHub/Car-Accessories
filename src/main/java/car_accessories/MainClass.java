@@ -360,6 +360,7 @@ public class MainClass {
                     """);
 
                 ans = adminScanner.nextInt();
+
                 switch (ans) {
                     case 1 -> addnewcat(application);
                     case 2 -> editcat(application);
@@ -371,8 +372,11 @@ public class MainClass {
                     case 8 -> showallproducts(application);
                     case 9 -> LOGGER.info("Exit");
                     default -> invalidChoice();
+
                 }
+
                 LOGGER.info(STRING);
+                adminScanner.nextLine();
             } catch (InputMismatchException e) {
                 LOGGER.warning("Invalid input. Please enter a valid option.");
                 adminScanner.nextLine();
@@ -640,6 +644,7 @@ public class MainClass {
 
                 int c = application.scanner.nextInt();
                 application.scanner.nextLine();
+
 
                 switch (c) {
                     case 1 -> application.report("Sales", file);
