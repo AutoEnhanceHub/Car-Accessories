@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="789887453214879564884875487" />
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="788965646451" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -305,7 +305,7 @@
       <workItem from="1703334365102" duration="109000" />
       <workItem from="1703347399903" duration="2624000" />
       <workItem from="1703367014533" duration="451000" />
-      <workItem from="1703367595971" duration="812000" />
+      <workItem from="1703367595971" duration="1179000" />
     </task>
     <task id="LOCAL-00012" summary="Dos 1.0.0">
       <created>1698926031654</created>
@@ -369,14 +369,6 @@
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
       <updated>1703110253149</updated>
-    </task>
-    <task id="LOCAL-00037" summary="000">
-      <option name="closed" value="true" />
-      <created>1703158809496</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1703158809497</updated>
     </task>
     <task id="LOCAL-00038" summary="001">
       <option name="closed" value="true" />
@@ -690,7 +682,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703368194101</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="788965646451">
+      <option name="closed" value="true" />
+      <created>1703368696241</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1703368696241</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,7 +720,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2222" />
     <MESSAGE value="11" />
     <MESSAGE value="000" />
     <MESSAGE value="124" />
@@ -745,7 +744,8 @@
     <MESSAGE value="999777111" />
     <MESSAGE value="97979700" />
     <MESSAGE value="789887453214879564884875487" />
-    <option name="LAST_COMMIT_MESSAGE" value="789887453214879564884875487" />
+    <MESSAGE value="788965646451" />
+    <option name="LAST_COMMIT_MESSAGE" value="788965646451" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
