@@ -776,7 +776,8 @@ public class MainClass {
 
     private static int chooseAndDeleteCategory(Application application, String categoryList) {
         try {
-            LOGGER.info("Choose a Category\n" + categoryList);
+            String categoryLists = "Choose a Category\n" + categoryList;
+            LOGGER.info(categoryLists);
             int select = application.scanner.nextInt();
             application.scanner.nextLine();
             return select;
