@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.*;
 
@@ -304,44 +305,63 @@ public class MainClass {
         String oldPassword = adminScanner.nextLine();
         LOGGER.info("Enter your password to confirm updating: ");
         String adminPassword4 = adminScanner.nextLine();
-        String oldType = "";
-        if (application.newUser.getPassword().equals(adminPassword4)) {
-            for (User s : application.login.users) {
-                if (oldPassword.equals(s.getPassword()) && oldEmail.equalsIgnoreCase(s.getEmail())) {
-                    oldType = s.getType();
-                }
-            }
+
+        if (validateAdminPassword(oldPassword, oldEmail, adminPassword4, application)) {
+            String oldType = findUserType(oldPassword, oldEmail, application.login.users);
 
             LOGGER.warning("If you want to update value just insert -1 ");
-            LOGGER.info("Enter user new email that needs to be updated: ");
-            String newEmail = adminScanner.nextLine();
-            LOGGER.info("Enter user new password that needs to be updated: ");
-            String newPassword = adminScanner.nextLine();
-            LOGGER.info("Enter user new type that needs to be updated: ");
-            String newType = adminScanner.nextLine();
-            boolean scan=comparePasswords(NO_CHANGE,newPassword);
+            String newEmail = getUserInput("Enter user new email that needs to be updated: ", adminScanner);
+            String newPassword = getUserInput("Enter user new password that needs to be updated: ", adminScanner);
+            String newType = getUserInput("Enter user new type that needs to be updated: ", adminScanner);
 
-            if (scan)  {
-                newPassword = oldPassword;
-            }
-            if (NO_CHANGE.equals(newType)) {
-                newType = oldType;
-            }
-            if (NO_CHANGE.equals(newEmail)) {
-                newEmail = oldEmail;
-            }
-
-            if (application.login.updateUser(new User(oldEmail, oldPassword, oldType),
-                    new User(newEmail, newPassword, newType))) {
-                LOGGER.info("User Updating Successfully");
-            } else {
-                LOGGER.info("User Updating Failed");
-            }
+            updateUserInfo(oldEmail, oldPassword, oldType, newEmail, newPassword, newType, application);
         } else {
             LOGGER.info("Your Password Invalid! Please Try Again!");
         }
+
         LOGGER.info(STRING);
     }
+
+    private static boolean validateAdminPassword(String oldPassword, String oldEmail, String adminPassword4, Application application) {
+        return application.newUser.getPassword().equals(adminPassword4) &&
+                application.login.users.stream()
+                        .anyMatch(s -> oldPassword.equals(s.getPassword()) && oldEmail.equalsIgnoreCase(s.getEmail()));
+    }
+
+    private static String findUserType(String oldPassword, String oldEmail, List<User> users) {
+        return users.stream()
+                .filter(s -> oldPassword.equals(s.getPassword()) && oldEmail.equalsIgnoreCase(s.getEmail()))
+                .findFirst()
+                .map(User::getType)
+                .orElse("");
+    }
+
+    private static String getUserInput(String prompt, Scanner scanner) {
+        LOGGER.info(prompt);
+        return scanner.nextLine();
+    }
+
+    private static void updateUserInfo(String oldEmail, String oldPassword, String oldType, String newEmail, String newPassword, String newType, Application application) {
+        boolean scan = comparePasswords(NO_CHANGE, newPassword);
+
+        if (scan) {
+            newPassword = oldPassword;
+        }
+        if (NO_CHANGE.equals(newType)) {
+            newType = oldType;
+        }
+        if (NO_CHANGE.equals(newEmail)) {
+            newEmail = oldEmail;
+        }
+
+        if (application.login.updateUser(new User(oldEmail, oldPassword, oldType),
+                new User(newEmail, newPassword, newType))) {
+            LOGGER.info("User Updating Successfully");
+        } else {
+            LOGGER.info("User Updating Failed");
+        }
+    }
+
 
     private static void mainMenu(Application application, Scanner adminScanner) {
         int ans;
@@ -723,70 +743,83 @@ public class MainClass {
     }
     private static void deletecat(Application application) {
         try {
-            if (!application.newUser.type.equals(ADMIN_STRING)) {
-                LOGGER.info("Only admins can delete Categories\n");
+            if (!isAdmin(application)) {
                 return;
             }
 
             if (Application.categories.isEmpty()) {
                 LOGGER.info("There are no categories in the system\n");
             } else {
-                StringBuilder f = new StringBuilder();
-                int i;
-                for (i = 0; i < Application.categories.size(); i++) {
-                    f.append(i + 1).append(". ").append(Application.categories.get(i).name).append("\n");
-                }
+                String categoryList = buildCategoryList(Application.categories);
+                int select = chooseAndDeleteCategory(application, categoryList);
 
-                String exitOption = (i + 1) + EXIT_STRING;
-                f.append(exitOption);
-
-                int select = chooseAndDeleteCategory(application, f.toString());
-
-                if (select < 1 || select > (Application.categories.size() + 1)) {
-                    LOGGER.info(INVALID_INPUT_MESSAGE);
-                } else if (select == (Application.categories.size() + 1)) {
-                    mainMenu(application, application.scanner);
-                } else {
-                    select--;
-
-                    int response = 9;
-                    while (true) {
-                        LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no\n");
-                        int answer = application.scanner.nextInt();
-                        application.scanner.nextLine();
-                        if (answer == 1 || answer == 2) {
-                            response = answer;
-                            break;
-                        } else {
-                            LOGGER.info(INVALID_INPUT_MESSAGE);
-                        }
-                    }
-                    if (response == 1) {
-                        application.dltcat(Application.categories.get(select).name);
-                        LOGGER.info("The Category is deleted\n");
-                    } else {
-                        LOGGER.info("The Category is not deleted\n");
-                    }
-                }
+                handleCategorySelection(application, select);
             }
         } catch (Exception e) {
             LOGGER.info(NEXT_TIME);
         }
     }
 
+    private static boolean isAdmin(Application application) {
+        if (!application.newUser.type.equals(ADMIN_STRING)) {
+            LOGGER.info("Only admins can delete Categories\n");
+            return false;
+        }
+        return true;
+    }
+
+    private static String buildCategoryList(List<Category> categories) {
+        StringBuilder categoryList = new StringBuilder();
+        for (int i = 0; i < categories.size(); i++) {
+            categoryList.append(i + 1).append(". ").append(categories.get(i).name).append("\n");
+        }
+        return categoryList.append(categories.size() + 1).append(EXIT_STRING).toString();
+    }
+
     private static int chooseAndDeleteCategory(Application application, String categoryList) {
-        try {
-            String categoryLists = "Choose a Category\n" + categoryList;
-            LOGGER.info(categoryLists);
-            int select = application.scanner.nextInt();
-            application.scanner.nextLine();
-            return select;
-        } catch (NumberFormatException e) {
+        String msg = "Choose a Category\n" + categoryList;
+        LOGGER.info(msg);
+        int select = application.scanner.nextInt();
+        application.scanner.nextLine();
+        return select;
+    }
+
+    private static void handleCategorySelection(Application application, int select) {
+        if (select < 1 || select > (Application.categories.size() + 1)) {
             LOGGER.info(INVALID_INPUT_MESSAGE);
-            return -1; // Indicate an invalid input
+        } else if (select == (Application.categories.size() + 1)) {
+            mainMenu(application, application.scanner);
+        } else {
+            select--;
+            int response = getConfirmationResponse(application);
+            handleConfirmationResponse(application, select, response);
         }
     }
 
+    private static int getConfirmationResponse(Application application) {
+        int response = 9;
+        while (true) {
+            LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no\n");
+            int answer = application.scanner.nextInt();
+            application.scanner.nextLine();
+            if (answer == 1 || answer == 2) {
+                response = answer;
+                break;
+            } else {
+                LOGGER.info(INVALID_INPUT_MESSAGE);
+            }
+        }
+        return response;
+    }
+
+    private static void handleConfirmationResponse(Application application, int select, int response) {
+        if (response == 1) {
+            application.dltcat(Application.categories.get(select).name);
+            LOGGER.info("The Category is deleted\n");
+        } else {
+            LOGGER.info("The Category is not deleted\n");
+        }
+    }
 
     static int i;
     private static String showallcatogries() {
@@ -1046,6 +1079,10 @@ public class MainClass {
             return "";
         }
     }
+
+
+
+
 
     private static String mydup(int cselect) {
         try {
