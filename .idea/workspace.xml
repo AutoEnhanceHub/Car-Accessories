@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="Last_commit_1232100_with_our_respect.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Mailing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Mailing.java" afterDir="false" />
-    </list>
+    <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="Last_commit_1232100_with_our_respect." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -307,7 +305,7 @@
       <workItem from="1703334365102" duration="109000" />
       <workItem from="1703347399903" duration="2624000" />
       <workItem from="1703367014533" duration="392000" />
-      <workItem from="1703369893715" duration="641000" />
+      <workItem from="1703369893715" duration="1046000" />
     </task>
     <task id="LOCAL-00012" summary="Dos 1.0.0">
       <created>1698926031654</created>
@@ -344,14 +342,6 @@
       <option name="project" value="LOCAL" />
       <updated>1701118931623</updated>
     </task>
-    <task id="LOCAL-00031" summary="lastcomm">
-      <option name="closed" value="true" />
-      <created>1703096653757</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1703096653757</updated>
-    </task>
     <task id="LOCAL-00032" summary="911">
       <created>1703106556768</created>
       <option name="number" value="00032" />
@@ -379,14 +369,6 @@
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
       <updated>1703110253149</updated>
-    </task>
-    <task id="LOCAL-00036" summary="711">
-      <option name="closed" value="true" />
-      <created>1703115119117</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1703115119117</updated>
     </task>
     <task id="LOCAL-00037" summary="000">
       <option name="closed" value="true" />
@@ -692,7 +674,23 @@
       <option name="project" value="LOCAL" />
       <updated>1703370281493</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Last_commit_1232100_with_our_respect.">
+      <option name="closed" value="true" />
+      <created>1703370551161</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1703370551161</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Last_commit_1232100_with_our_respect.">
+      <option name="closed" value="true" />
+      <created>1703370695243</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1703370695243</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -755,7 +753,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Car_Accessories$All_in_Car_Accessories.ic" NAME="All in Car-Accessories Coverage Results" MODIFIED="1701254833816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703193064648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703370586825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>car_accessories.*</FILTER>
       <EXCLUDED_FILTER>car_accessories.MainClass</EXCLUDED_FILTER>
     </SUITE>

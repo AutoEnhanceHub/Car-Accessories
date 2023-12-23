@@ -1064,7 +1064,9 @@ public class MainClass {
             return "";
         }
     }
-
+    public static void kop(){
+        LOGGER.info("Nothing");
+    }
 
 }
 
