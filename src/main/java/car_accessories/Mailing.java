@@ -44,7 +44,6 @@ public class Mailing {
             Transport.send(message);
         }
         catch (MessagingException ppp) {
-            System.gc();
         }
 
     }

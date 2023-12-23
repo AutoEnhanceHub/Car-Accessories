@@ -10,9 +10,10 @@ import java.util.logging.*;
 
 public class MainClass {
     private static final String CATEGORY ="the Category ";
-    private static final String adminString ="Admin";
-    private static final String customerString ="Customer";
-    private static final String installerString ="Installer";
+    private static final String ADMIN_STRING ="Admin";
+    private static final String CUSTOMER_STRING ="Customer";
+    private static final String EXIT_STRING =". Exit";
+    private static final String INSTALLER_STRING ="Installer";
     private static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     private static final String NEXT_TIME ="Enter a valid value in the next time\n";
     private static final String TABS ="     ";
@@ -153,16 +154,16 @@ public class MainClass {
         switch (roles) {
             case 0 -> {
                 LOGGER.info(welcomeMsg);
-                signInApplication.setuser(signInEmail, signInPassword, adminString);
+                signInApplication.setuser(signInEmail, signInPassword, ADMIN_STRING);
                 adminDashboard(scanner, signInApplication);
             }
             case 1 -> {
-                signInApplication.setuser(signInEmail, signInPassword, customerString);
+                signInApplication.setuser(signInEmail, signInPassword, CUSTOMER_STRING);
                 LOGGER.info(welcomeMsg);
                 handleCustomerOptions(scanner, signInApplication);
             }
             default -> {
-                signInApplication.setuser(signInEmail, signInPassword, installerString);
+                signInApplication.setuser(signInEmail, signInPassword, INSTALLER_STRING);
                 LOGGER.info(welcomeMsg);
                 handleInstallerOptions(scanner, signInApplication);
             }
@@ -397,7 +398,7 @@ public class MainClass {
     }
     private static void addnewcat(Application application) {
         try {
-            if (application.newUser.type.equals(adminString)) {
+            if (application.newUser.type.equals(ADMIN_STRING)) {
                 LOGGER.info("What is the name of the Category?");
                 String m = application.scanner.nextLine();
 
@@ -417,7 +418,7 @@ public class MainClass {
     private static void editcat(Application application) {
         try {
             int i;
-            if (application.newUser.type.equals(adminString)) {
+            if (application.newUser.type.equals(ADMIN_STRING)) {
                 if (Application.categories.isEmpty()) {
                     LOGGER.info("There is no categories in the system");
                 } else {
@@ -425,7 +426,7 @@ public class MainClass {
                     for (i = 0; i < Application.categories.size(); i++) {
                         f.append(i + 1).append(". ").append(Application.categories.get(i).name).append("\n");
                     }
-                    String exitOption = (i + 1) + ". Exit";
+                    String exitOption = (i + 1) + EXIT_STRING;
                     f.append(exitOption);
                     try {
                         String ygy1 = "Choose a Category\n" + f;
@@ -473,7 +474,7 @@ public class MainClass {
     }
     private static void deletepro(Application application) {
         try {
-            if (!application.newUser.type.equals(adminString)) {
+            if (!application.newUser.type.equals(ADMIN_STRING)) {
                 LOGGER.info("Only admins can delete products\n");
                 return;
             }
@@ -493,7 +494,7 @@ public class MainClass {
             String catname = Application.categories.get(cselect).name;
             String ygy4 = "Choose a product to delete\n" + getallproducts(catname, application);
             LOGGER.info(ygy4);
-            String exitOption = (j + 2) + ". Exit";
+            String exitOption = (j + 2) + EXIT_STRING;
             LOGGER.info(exitOption);
             int pselect = application.scanner.nextInt();
             application.scanner.nextLine();
@@ -514,7 +515,7 @@ public class MainClass {
     }
     private static void addnewpro(Application application) {
         try {
-            if (!application.newUser.type.equals(installerString)) {
+            if (!application.newUser.type.equals(INSTALLER_STRING)) {
                 LOGGER.info("Only Installers can add products\n");
                 return;
             }
@@ -567,7 +568,7 @@ public class MainClass {
 
     private static void editpro(Application application) {
         try {
-            if (!application.newUser.type.equals(adminString)) {
+            if (!application.newUser.type.equals(ADMIN_STRING)) {
                 LOGGER.info("Only admins can edit products\n");
                 return;
             }
@@ -628,7 +629,7 @@ public class MainClass {
     }
 
     private static void newreport(Application application) {
-        if (application.newUser.getType().equals(adminString)) {
+        if (application.newUser.getType().equals(ADMIN_STRING)) {
             try {
                 LOGGER.info("What is the name of the file?");
                 String file = application.scanner.next();
@@ -662,7 +663,7 @@ public class MainClass {
     }
     private static void getreviews(Application application) {
         try {
-            if (!application.newUser.type.equals(adminString)) {
+            if (!application.newUser.type.equals(ADMIN_STRING)) {
                 LOGGER.info("Only Admins can get information\n");
                 return;
             }
@@ -717,7 +718,7 @@ public class MainClass {
     }
     private static void deletecat(Application application) {
         try {
-            if (!application.newUser.type.equals(adminString)) {
+            if (!application.newUser.type.equals(ADMIN_STRING)) {
                 LOGGER.info("Only admins can delete Categories\n");
                 return;
             }
@@ -731,7 +732,7 @@ public class MainClass {
                     f.append(i + 1).append(". ").append(Application.categories.get(i).name).append("\n");
                 }
 
-                String exitOption = (i+1)+". Exit";
+                String exitOption = (i+1)+EXIT_STRING;
                 f.append(exitOption);
 
                 try {
@@ -786,7 +787,7 @@ public class MainClass {
                 f.append(i + 1).append(". ").append(Application.categories.get(i).name).append("\n");
             }
 
-            String exitOption = (i + 1) + ". Exit";
+            String exitOption = (i + 1) + EXIT_STRING;
             f.append(exitOption);
 
             return f.toString();
@@ -797,7 +798,7 @@ public class MainClass {
     }
     private static void newrate(Application application) {
         try {
-            if (!application.newUser.type.equals(customerString)) {
+            if (!application.newUser.type.equals(CUSTOMER_STRING)) {
                 LOGGER.info("Only customers can rate and review\n");
                 return;
             }
@@ -845,7 +846,7 @@ public class MainClass {
 
     private static void orderproduct(Application application) {
         try {
-            if (!application.newUser.type.equals(customerString)) {
+            if (!application.newUser.type.equals(CUSTOMER_STRING)) {
                 LOGGER.info("Only customers can make an installation request\n");
                 return;
             }
@@ -942,7 +943,7 @@ public class MainClass {
 
     private static void makerequest(Application application) {
         try {
-            if (!application.newUser.type.equals(customerString)) {
+            if (!application.newUser.type.equals(CUSTOMER_STRING)) {
                 LOGGER.info("Only customers can make an installation request\n");
                 return;
             }
@@ -986,7 +987,7 @@ public class MainClass {
 
     private static void addnewCategoryConfirmation(String categoryName, Application application) {
         try {
-            if (application.newUser.type.equals(adminString)) {
+            if (application.newUser.type.equals(ADMIN_STRING)) {
                 String m = categoryName;
                 if (application.foundc(m)) {
                     String ygy1 = CATEGORY + m + " already exists";
