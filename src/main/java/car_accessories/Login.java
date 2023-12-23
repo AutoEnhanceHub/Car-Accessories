@@ -9,7 +9,7 @@ public class Login {
     private static final Logger LOGGER = Logger.getLogger(Login.class.getName());
     String ADMIN_STRING ="Admin";
     String CUSTOMER_STRING ="Customer";
-    String CUSTOMER_STRING ="Installer";
+    String INSTALLER_STRING ="Installer";
     List<User>users=new ArrayList<>();
     int roles;
     boolean isLogged;
@@ -46,8 +46,8 @@ public class Login {
 
 
         User u1=new User("ibrahim.sadi.asad@gmail.com","123456", ADMIN_STRING);
-        User u2=new User("ibrahimeceasad@gmail.com","654321", CUSTOMER_STRING);
-        User u3=new User("i.a.s.assad33@gmail.com","987654", CUSTOMER_STRING);
+        User u2=new User("ibrahimeceasad@gmail.com","654321", INSTALLER_STRING);
+        User u3=new User("i.a.s.assad33@gmail.com","987654", INSTALLER_STRING);
         User u4=new User("abdallahdaher785@gmail.com","abdallah@123", ADMIN_STRING);
         users.add(u1);
         users.add(u2);
@@ -103,10 +103,10 @@ public class Login {
         if (type.equalsIgnoreCase(ADMIN_STRING)){
             roles=0;
         }
-        else if (type.equalsIgnoreCase(CUSTOMER_STRING)){
+        else if (type.equalsIgnoreCase(INSTALLER_STRING)){
             roles=1;
         }
-        else if(type.equalsIgnoreCase(CUSTOMER_STRING)){
+        else if(type.equalsIgnoreCase(INSTALLER_STRING)){
             roles= 2;
         }
         else {
