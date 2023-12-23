@@ -428,48 +428,53 @@ public class MainClass {
                     }
                     String exitOption = (i + 1) + EXIT_STRING;
                     f.append(exitOption);
-                    try {
-                        String ygy1 = "Choose a Category\n" + f;
-                        LOGGER.info(ygy1);
 
-                        int select = application.scanner.nextInt();
-                        application.scanner.nextLine();
-                        if (select < 1) {
-                            LOGGER.info(INVALID_INPUT_MESSAGE);
-                        } else if (select == (i + 1)) {
-                            mainMenu(application, application.scanner);
-                        } else if (select > (i + 1)) {
-                            LOGGER.info(INVALID_INPUT_MESSAGE);
-                        } else {
-                            select--;
-                            LOGGER.info("What is the new name of the Category?");
-                            String rename = application.scanner.nextLine();
-                            if (application.foundc(rename)) {
-                                LOGGER.info("This new name is for another Category");
-                            } else {
-                                boolean response = false;
-                                LOGGER.info("Are you sure you want to continue?\n1. yes");
-                                int answer = application.scanner.nextInt();
-                                application.scanner.nextLine();
-                                if (answer == 1) response = true;
-
-                                if (response) {
-                                    application.edtcatogry(Application.categories.get(select).name, rename);
-                                    LOGGER.info("The Name is edited successfully\n");
-                                } else {
-                                    LOGGER.info("the Category is not Edited\n");
-                                }
-                            }
-                        }
-                    } catch (NumberFormatException e) {
-                        LOGGER.info(INVALID_INPUT_MESSAGE);
-                    }
+                    editCategoryHelper(application, i, f);
                 }
             } else {
                 LOGGER.info("Only admins can Edit Categories\n");
             }
         } catch (Exception e) {
             LOGGER.info("An error occurred while editing a category. Please try again.");
+        }
+    }
+
+    private static void editCategoryHelper(Application application, int i, StringBuilder f) {
+        try {
+            String ygy1 = "Choose a Category\n" + f;
+            LOGGER.info(ygy1);
+
+            int select = application.scanner.nextInt();
+            application.scanner.nextLine();
+            if (select < 1) {
+                LOGGER.info(INVALID_INPUT_MESSAGE);
+            } else if (select == (i + 1)) {
+                mainMenu(application, application.scanner);
+            } else if (select > (i + 1)) {
+                LOGGER.info(INVALID_INPUT_MESSAGE);
+            } else {
+                select--;
+                LOGGER.info("What is the new name of the Category?");
+                String rename = application.scanner.nextLine();
+                if (application.foundc(rename)) {
+                    LOGGER.info("This new name is for another Category");
+                } else {
+                    boolean response = false;
+                    LOGGER.info("Are you sure you want to continue?\n1. yes");
+                    int answer = application.scanner.nextInt();
+                    application.scanner.nextLine();
+                    if (answer == 1) response = true;
+
+                    if (response) {
+                        application.edtcatogry(Application.categories.get(select).name, rename);
+                        LOGGER.info("The Name is edited successfully\n");
+                    } else {
+                        LOGGER.info("the Category is not Edited\n");
+                    }
+                }
+            }
+        } catch (NumberFormatException e) {
+            LOGGER.info(INVALID_INPUT_MESSAGE);
         }
     }
     private static void deletepro(Application application) {
@@ -753,12 +758,12 @@ public class MainClass {
                             LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no\n");
                             int answer = application.scanner.nextInt();
                             application.scanner.nextLine();
-                            if (answer == 1) {
-                                response = 1;
+                            if (answer == 1|| answer == 2) {
+                                response = answer;
                                 break;
 
-                            } else if (answer == 2) {
-                                break;
+                            } else  {
+                            LOGGER.info(INVALID_INPUT_MESSAGE);
                             }
                         }
                         if (response == 1) {
