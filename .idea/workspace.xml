@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfd0f255-8a7b-405f-abdd-109f90a30920" name="Changes" comment="Last_commit_1232100_with_our_respect.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/car_accessories/Application.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +93,7 @@
       <recent name="car_accessories" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.AcceptanceTest">
     <configuration name="Feature: Mailing" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/Features/Mailing.feature" />
@@ -308,7 +308,7 @@
       <workItem from="1703334365102" duration="109000" />
       <workItem from="1703347399903" duration="2624000" />
       <workItem from="1703367014533" duration="392000" />
-      <workItem from="1703369893715" duration="1821000" />
+      <workItem from="1703369893715" duration="2555000" />
     </task>
     <task id="LOCAL-00012" summary="Dos 1.0.0">
       <created>1698926031654</created>
@@ -372,14 +372,6 @@
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
       <updated>1703110253149</updated>
-    </task>
-    <task id="LOCAL-00038" summary="001">
-      <option name="closed" value="true" />
-      <created>1703166565950</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1703166565950</updated>
     </task>
     <task id="LOCAL-00039" summary="010">
       <option name="closed" value="true" />
@@ -693,7 +685,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703371021734</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Last_commit_1232100_with_our_respect.">
+      <option name="closed" value="true" />
+      <created>1703371909884</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1703371909884</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -756,7 +756,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Car_Accessories$All_in_Car_Accessories.ic" NAME="All in Car-Accessories Coverage Results" MODIFIED="1701254833816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703371365403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/Car_Accessories$AcceptanceTest.ic" NAME="AcceptanceTest Coverage Results" MODIFIED="1703372445323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true">
       <FILTER>car_accessories.*</FILTER>
       <EXCLUDED_FILTER>car_accessories.MainClass</EXCLUDED_FILTER>
     </SUITE>

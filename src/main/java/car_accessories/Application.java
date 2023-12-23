@@ -26,10 +26,11 @@ public  class Application {
     User newUser;
     static int[] indexes=new int[2];
     Scanner scanner = new Scanner(System.in);
-
-    public Application(){
+    private void gf(){
         categories=new ArrayList<>();
-
+    }
+    public Application(){
+        gf();
         try {
             LOGGER.setUseParentHandlers(false);
 
