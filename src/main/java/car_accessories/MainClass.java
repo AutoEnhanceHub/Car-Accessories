@@ -649,6 +649,7 @@ public class MainClass {
                 LOGGER.info(NEXT_TIME);
             }
         }
+
     }
     private static void getreviews(Application application) {
         try {
@@ -716,9 +717,13 @@ public class MainClass {
                 LOGGER.info("There are no categories in the system\n");
             } else {
                 StringBuilder f = new StringBuilder();
-                for (int i = 0; i < Application.categories.size(); i++) {
+                int i;
+                for (i = 0; i < Application.categories.size(); i++) {
                     f.append(i + 1).append(". ").append(Application.categories.get(i).name).append("\n");
                 }
+
+                String Exit = (i+1)+". Exit";
+                f.append(Exit);
 
                 try {
                     String ygh = "Choose a Category\n" + f;
@@ -726,8 +731,10 @@ public class MainClass {
 
                     int select = application.scanner.nextInt();
                     application.scanner.nextLine();
-                    if (select < 1 || select > Application.categories.size()) {
+                    if (select < 1 || select > (Application.categories.size()+1)) {
                         LOGGER.info(INVALID_INPUT_MESSAGE);
+                    } else if (select==(Application.categories.size()+1)) {
+                              mainMenu(application,application.scanner);
                     } else {
                         select--;
 
