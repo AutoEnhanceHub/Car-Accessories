@@ -737,50 +737,55 @@ public class MainClass {
                     f.append(i + 1).append(". ").append(Application.categories.get(i).name).append("\n");
                 }
 
-                String exitOption = (i+1)+EXIT_STRING;
+                String exitOption = (i + 1) + EXIT_STRING;
                 f.append(exitOption);
 
-                try {
-                    String ygh = "Choose a Category\n" + f;
-                    LOGGER.info(ygh);
+                int select = chooseAndDeleteCategory(application, f.toString());
 
-                    int select = application.scanner.nextInt();
-                    application.scanner.nextLine();
-                    if (select < 1 || select > (Application.categories.size()+1)) {
-                        LOGGER.info(INVALID_INPUT_MESSAGE);
-                    } else if (select==(Application.categories.size()+1)) {
-                              mainMenu(application,application.scanner);
-                    } else {
-                        select--;
+                if (select < 1 || select > (Application.categories.size() + 1)) {
+                    LOGGER.info(INVALID_INPUT_MESSAGE);
+                } else if (select == (Application.categories.size() + 1)) {
+                    mainMenu(application, application.scanner);
+                } else {
+                    select--;
 
-                        int response = 9;
-                        while (true) {
-                            LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no\n");
-                            int answer = application.scanner.nextInt();
-                            application.scanner.nextLine();
-                            if (answer == 1|| answer == 2) {
-                                response = answer;
-                                break;
-
-                            } else  {
-                            LOGGER.info(INVALID_INPUT_MESSAGE);
-                            }
-                        }
-                        if (response == 1) {
-                            application.dltcat(Application.categories.get(select).name);
-                            LOGGER.info("The Category is deleted\n");
+                    int response = 9;
+                    while (true) {
+                        LOGGER.info("Are you sure you want to continue?\n1. yes / 2. no\n");
+                        int answer = application.scanner.nextInt();
+                        application.scanner.nextLine();
+                        if (answer == 1 || answer == 2) {
+                            response = answer;
+                            break;
                         } else {
-                            LOGGER.info("The Category is not deleted\n");
+                            LOGGER.info(INVALID_INPUT_MESSAGE);
                         }
                     }
-                } catch (NumberFormatException e) {
-                    LOGGER.info(INVALID_INPUT_MESSAGE);
+                    if (response == 1) {
+                        application.dltcat(Application.categories.get(select).name);
+                        LOGGER.info("The Category is deleted\n");
+                    } else {
+                        LOGGER.info("The Category is not deleted\n");
+                    }
                 }
             }
         } catch (Exception e) {
             LOGGER.info(NEXT_TIME);
         }
     }
+
+    private static int chooseAndDeleteCategory(Application application, String categoryList) {
+        try {
+            LOGGER.info("Choose a Category\n" + categoryList);
+            int select = application.scanner.nextInt();
+            application.scanner.nextLine();
+            return select;
+        } catch (NumberFormatException e) {
+            LOGGER.info(INVALID_INPUT_MESSAGE);
+            return -1; // Indicate an invalid input
+        }
+    }
+
 
     static int i;
     private static String showallcatogries() {
